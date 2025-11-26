@@ -141,63 +141,98 @@
           </div>
         </section>
 
-        <!-- Right: Term detail -->
-        <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-6 flex flex-col h-[32rem] md:h-[36rem]">
-          <div id="detailEmptyState" class="flex-1 flex items-center justify-center text-center text-slate-400 text-sm">
-            <p>Select a term on the left to see its definition and persona based explanations.</p>
+        <!-- Right: Term detail + companion sidebar -->
+<section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-6 flex flex-col h-[32rem] md:h-[36rem]">
+  <div class="flex-1 flex gap-4">
+    <!-- Main term detail area (center of the right column) -->
+    <div class="flex-1 flex flex-col">
+      <div id="detailEmptyState" class="flex-1 flex items-center justify-center text-center text-slate-400 text-sm">
+        <p>Select a term on the left to see its definition and persona based explanations.</p>
+      </div>
+
+      <div id="detailPanel" class="hidden flex-1 flex flex-col">
+        <div class="mb-3 border-b border-slate-100 pb-3">
+          <p class="text-xs uppercase tracking-wide text-indigo-600 font-semibold">MedAI concept</p>
+          <h2 id="detailTerm" class="text-2xl font-bold text-slate-900 mt-1"></h2>
+          <p id="detailShort" class="text-sm text-slate-700 mt-2"></p>
+        </div>
+
+        <div class="mb-4 grid gap-3 md:grid-cols-2">
+          <div>
+            <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Visual definition</h3>
+            <p id="detailVisual" class="text-sm"></p>
           </div>
-
-          <div id="detailPanel" class="hidden flex-1 flex flex-col">
-            <div class="mb-3 border-b border-slate-100 pb-3">
-              <p class="text-xs uppercase tracking-wide text-indigo-600 font-semibold">MedAI concept</p>
-              <h2 id="detailTerm" class="text-2xl font-bold text-slate-900 mt-1"></h2>
-              <p id="detailShort" class="text-sm text-slate-700 mt-2"></p>
-            </div>
-
-            <div class="mb-4 grid gap-3 md:grid-cols-2">
-              <div>
-                <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Visual definition</h3>
-                <p id="detailVisual" class="text-sm"></p>
-              </div>
-              <div>
-                <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Usage and context</h3>
-                <p id="detailUsage" class="text-sm"></p>
-              </div>
-            </div>
-
-            <!-- Role tabs -->
-            <div class="border border-slate-200 rounded-2xl flex-1 flex flex-col overflow-hidden">
-              <div class="border-b border-slate-200 bg-slate-50 px-2 pt-2 pb-1 flex gap-1 md:gap-2 text-xs md:text-sm">
-                <button
-                  class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-emerald-50 text-emerald-800"
-                  data-role="physician"
-                >
-                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span>Physician</span>
-                </button>
-                <button
-                  class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-sky-50 text-sky-800"
-                  data-role="scientist"
-                >
-                  <span class="inline-block w-2 h-2 rounded-full bg-sky-500"></span>
-                  <span>Basic science researcher</span>
-                </button>
-                <button
-                  class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-amber-50 text-amber-800"
-                  data-role="researcher"
-                >
-                  <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
-                  <span>Clinical researcher</span>
-                </button>
-              </div>
-              <div class="flex-1 overflow-y-auto p-3 md:p-4 text-sm">
-                <div id="roleLabel" class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1"></div>
-                <div id="roleBody" class="text-sm text-slate-900 whitespace-pre-line"></div>
-              </div>
-            </div>
-
+          <div>
+            <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Usage and context</h3>
+            <p id="detailUsage" class="text-sm"></p>
           </div>
-        </section>
+        </div>
+
+        <!-- Role tabs -->
+        <div class="border border-slate-200 rounded-2xl flex-1 flex flex-col overflow-hidden">
+          <div class="border-b border-slate-200 bg-slate-50 px-2 pt-2 pb-1 flex gap-1 md:gap-2 text-xs md:text-sm">
+            <button
+              class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-emerald-50 text-emerald-800"
+              data-role="physician"
+            >
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Physician</span>
+            </button>
+            <button
+              class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-sky-50 text-sky-800"
+              data-role="scientist"
+            >
+              <span class="inline-block w-2 h-2 rounded-full bg-sky-500"></span>
+              <span>Basic science researcher</span>
+            </button>
+            <button
+              class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-amber-50 text-amber-800"
+              data-role="researcher"
+            >
+              <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>Clinical researcher</span>
+            </button>
+          </div>
+          <div class="flex-1 overflow-y-auto p-3 md:p-4 text-sm">
+            <div id="roleLabel" class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1"></div>
+            <div id="roleBody" class="text-sm text-slate-900 whitespace-pre-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right-side companion resources sidebar -->
+    <aside class="hidden md:block w-64 shrink-0 rounded-2xl border border-indigo-100 bg-indigo-50 p-4 text-sm">
+      <h3 class="text-base font-semibold text-indigo-900">MedAI companion resources</h3>
+      <p class="mt-1 text-xs text-indigo-900/80">
+        Additional tools to support responsible use of medical AI.
+      </p>
+      <ul class="mt-3 space-y-1">
+        <li>
+          <a
+            href="https://datadrivenmed.github.io/Vetting-AI-Tools/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-indigo-700 underline"
+          >
+            Companion site: Vetting Medical AI Tools
+          </a>
+        </li>
+        <li>
+          <a
+            href="AI-Buyers-Playbook.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-indigo-700 underline"
+          >
+            Medical AI Buyers Playbook (PDF)
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
       </div>
     </main>
 
@@ -684,5 +719,6 @@
   </script>
 </body>
 </html>
+
 
 
