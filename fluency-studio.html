@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MedAI Fluency Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-white shadow">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div>
+          <h1 class="text-xl md:text-2xl font-semibold tracking-tight">MedAI Fluency Studio</h1>
+          <p class="text-sm text-slate-600">
+            A guided self assessment developed at LSU Health Sciences Center New Orleans to help faculty, residents, fellows, and staff build practical, responsible fluency with medical AI.
+          </p>
+        </div>
+        <a href="index.html" class="text-sm text-blue-600 hover:underline">
+          Back to MedAI Lexicon
+        </a>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1">
+      <div class="max-w-6xl mx-auto px-4 py-6 md:py-8 space-y-6">
+
+        <!-- Step indicator -->
+        <section class="bg-white rounded-lg shadow-sm p-4 md:p-5">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="text-base md:text-lg font-semibold text-slate-900">Steps</h2>
+              <p class="text-xs md:text-sm text-slate-600">
+                Move through the steps, answer the questions, then view your MedAI fluency map and learning path.
+              </p>
+            </div>
+            <div class="flex-1">
+              <ol class="flex items-center justify-between text-xs md:text-sm">
+                <li class="flex-1 flex items-center step-indicator" data-step="1">
+                  <span class="flex items-center justify-center w-6 h-6 rounded-full border border-blue-600 bg-blue-600 text-white text-xs font-semibold mr-2">1</span>
+                  <span class="hidden sm:inline text-slate-800">Intro</span>
+                  <div class="flex-1 h-px bg-slate-200 ml-2 sm:ml-3"></div>
+                </li>
+                <li class="flex-1 flex items-center step-indicator" data-step="2">
+                  <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">2</span>
+                  <span class="hidden sm:inline text-slate-500">Prompt and technical</span>
+                  <div class="flex-1 h-px bg-slate-200 ml-2 sm:ml-3"></div>
+                </li>
+                <li class="flex-1 flex items-center step-indicator" data-step="3">
+                  <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">3</span>
+                  <span class="hidden sm:inline text-slate-500">Practical and critical</span>
+                  <div class="flex-1 h-px bg-slate-200 ml-2 sm:ml-3"></div>
+                </li>
+                <li class="flex items-center step-indicator" data-step="4">
+                  <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">4</span>
+                  <span class="hidden sm:inline text-slate-500">Workflow and results</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Layout: left wizard, right chart -->
+        <section class="grid lg:grid-cols-2 gap-6 items-start">
+          <!-- Left: steps -->
+          <div class="space-y-4">
+
+            <!-- Step 1: Intro -->
+            <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-3" data-step="1">
+              <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 1 - Orientation</h3>
+              <p class="text-sm text-slate-700">
+                This studio highlights your AI fluency across five competencies that matter for teaching, research, clinical documentation, and program leadership.
+              </p>
+              <ul class="text-sm text-slate-700 list-disc pl-5 space-y-1">
+                <li>Prompt mastery</li>
+                <li>Technical understanding, without coding</li>
+                <li>Practical application ability</li>
+                <li>Critical evaluation ability</li>
+                <li>Workflow design ability</li>
+              </ul>
+              <p class="text-xs text-slate-600">
+                Use this as structured reflection. It is not an exam and not a credential. The goal is to identify realistic next steps for your own practice and for your learners.
+              </p>
+              <div class="flex justify-end pt-2">
+                <button
+                  class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
+                  data-next="2"
+                >
+                  Start - Prompt and technical
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 2: Prompt + Technical -->
+            <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="2">
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-start gap-4">
+                  <div>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 2 - Prompt mastery and technical understanding</h3>
+                    <p class="text-xs text-slate-600">
+                      These questions focus on how you talk to AI tools and how clearly you understand what they are doing.
+                    </p>
+                  </div>
+                  <a
+                    href="index.html#prompting-and-conversation"
+                    class="hidden md:inline text-xs text-blue-600 hover:underline mt-1"
+                    target="_blank" rel="noopener"
+                  >
+                    View related Lexicon terms
+                  </a>
+                </div>
+                <a
+                  href="index.html#model-fundamentals"
+                  class="inline-flex md:hidden text-xs text-blue-600 hover:underline"
+                  target="_blank" rel="noopener"
+                >
+                  View technical Lexicon terms
+                </a>
+              </div>
+
+              <!-- Prompt questions -->
+              <div class="space-y-3">
+                <h4 class="text-sm font-semibold text-slate-900">Prompt mastery</h4>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="prompt">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    When you ask an AI assistant to help with a teaching or research task, how do you usually prompt it?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q1" value="0" class="mt-1">
+                      <span>I write a short, general request and mostly accept what it gives.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q1" value="1" class="mt-1">
+                      <span>I give some detail and revise the prompt if the output is off.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q1" value="2" class="mt-1">
+                      <span>I routinely specify role, audience, constraints, and examples and iterate until the outputs are consistent.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="prompt">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    How often do you reuse structured prompt templates or patterns?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q2" value="0" class="mt-1">
+                      <span>Almost never. I type new prompts each time.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q2" value="1" class="mt-1">
+                      <span>Sometimes. I copy and paste a few prompts but do not maintain them.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q2" value="2" class="mt-1">
+                      <span>Often. I maintain prompt templates or playbooks and share them with colleagues.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Technical questions -->
+              <div class="space-y-3 pt-2 border-t border-slate-100">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-sm font-semibold text-slate-900">Technical understanding, no code</h4>
+                  <a
+                    href="index.html#model-fundamentals"
+                    class="hidden md:inline text-xs text-blue-600 hover:underline"
+                    target="_blank" rel="noopener"
+                  >
+                    View related Lexicon terms
+                  </a>
+                </div>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="technical">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    How comfortable are you explaining why a model might give different answers to the same question?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q3" value="0" class="mt-1">
+                      <span>I mostly say that the AI is unpredictable and leave it there.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q3" value="1" class="mt-1">
+                      <span>I mention randomness or training data but find it hard to explain clearly.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q3" value="2" class="mt-1">
+                      <span>I can explain tokens, temperature, and context in plain language and use a concrete analogy.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="technical">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    When a vendor claims that a model never hallucinates, what is your first reaction?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q4" value="0" class="mt-1">
+                      <span>I tend to accept the claim if the vendor seems reputable.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q4" value="1" class="mt-1">
+                      <span>I feel skeptical but I am not sure what to ask.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q4" value="2" class="mt-1">
+                      <span>I immediately ask about evaluation datasets, test cases, and limits of the model.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between pt-3">
+                <button
+                  class="prev-step inline-flex items-center px-3 py-2 rounded-md border border-slate-300 text-slate-700 text-sm hover:bg-slate-50"
+                  data-prev="1"
+                >
+                  Back
+                </button>
+                <button
+                  class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
+                  data-next="3"
+                >
+                  Next, practical and critical
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 3: Practical + Critical -->
+            <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="3">
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-start gap-4">
+                  <div>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 3 - Practical application and critical evaluation</h3>
+                    <p class="text-xs text-slate-600">
+                      These questions focus on how often you use AI in real work and how you check its outputs.
+                    </p>
+                  </div>
+                  <a
+                    href="index.html#practical-use-cases"
+                    class="hidden md:inline text-xs text-blue-600 hover:underline mt-1"
+                    target="_blank" rel="noopener"
+                  >
+                    View practical Lexicon terms
+                  </a>
+                </div>
+                <a
+                  href="index.html#evaluation-and-safety"
+                  class="inline-flex md:hidden text-xs text-blue-600 hover:underline"
+                  target="_blank" rel="noopener"
+                >
+                  View evaluation and safety terms
+                </a>
+              </div>
+
+              <!-- Practical questions -->
+              <div class="space-y-3">
+                <h4 class="text-sm font-semibold text-slate-900">Practical application ability</h4>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="practical">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    How often do you rely on AI tools for real educational, research, or documentation tasks?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q5" value="0" class="mt-1">
+                      <span>Rarely or never. I mostly experiment but do not use it in my core workflows.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q5" value="1" class="mt-1">
+                      <span>Sometimes for drafts or brainstorming but not in a structured way.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q5" value="2" class="mt-1">
+                      <span>Regularly. I have at least one workflow where AI is a deliberate, repeatable step.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="practical">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    When you try a new AI use case, how structured is your approach?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q6" value="0" class="mt-1">
+                      <span>I mostly play and decide by feel whether it helps.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q6" value="1" class="mt-1">
+                      <span>I set a rough goal but do not track performance over time.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q6" value="2" class="mt-1">
+                      <span>I define the task, inputs, and success criteria and review whether the AI step adds value.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Critical questions -->
+              <div class="space-y-3 pt-2 border-t border-slate-100">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-sm font-semibold text-slate-900">Critical evaluation ability</h4>
+                  <a
+                    href="index.html#evaluation-and-safety"
+                    class="hidden md:inline text-xs text-blue-600 hover:underline"
+                    target="_blank" rel="noopener"
+                  >
+                    View related Lexicon terms
+                  </a>
+                </div>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="critical">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    When an AI output looks medically plausible but surprising, what do you do?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q7" value="0" class="mt-1">
+                      <span>If it sounds reasonable, I usually accept it.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q7" value="1" class="mt-1">
+                      <span>I sometimes check against trusted sources but not consistently.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q7" value="2" class="mt-1">
+                      <span>I routinely verify against trusted sources and adjust prompts or stop using the tool if I see repeated errors.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="critical">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    How prepared are you to identify and discuss possible bias in AI outputs for your patient or learner populations?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q8" value="0" class="mt-1">
+                      <span>Not very prepared. I know bias is an issue but do not know how to look for it.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q8" value="1" class="mt-1">
+                      <span>Somewhat prepared. I could raise concerns but have not tested outputs myself.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q8" value="2" class="mt-1">
+                      <span>Quite prepared. I could design simple tests and share findings with governance or IT partners.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between pt-3">
+                <button
+                  class="prev-step inline-flex items-center px-3 py-2 rounded-md border border-slate-300 text-slate-700 text-sm hover:bg-slate-50"
+                  data-prev="2"
+                >
+                  Back
+                </button>
+                <button
+                  class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
+                  data-next="4"
+                >
+                  Next, workflow and results
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 4: Workflow + Results trigger -->
+            <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="4">
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-start gap-4">
+                  <div>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 4 - Workflow design and results</h3>
+                    <p class="text-xs text-slate-600">
+                      These questions focus on how intentionally you design AI supported workflows and how you think about scaling them.
+                    </p>
+                  </div>
+                  <a
+                    href="index.html#workflow-and-governance"
+                    class="hidden md:inline text-xs text-blue-600 hover:underline mt-1"
+                    target="_blank" rel="noopener"
+                  >
+                    View workflow Lexicon terms
+                  </a>
+                </div>
+                <a
+                  href="index.html#workflow-and-governance"
+                  class="inline-flex md:hidden text-xs text-blue-600 hover:underline"
+                  target="_blank" rel="noopener"
+                >
+                  View workflow Lexicon terms
+                </a>
+              </div>
+
+              <!-- Workflow questions -->
+              <div class="space-y-3">
+                <h4 class="text-sm font-semibold text-slate-900">Workflow design ability</h4>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="workflow">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    How often do you intentionally design end to end workflows where AI is one defined step?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q9" value="0" class="mt-1">
+                      <span>Almost never. I use AI in an ad hoc way when I remember.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q9" value="1" class="mt-1">
+                      <span>Sometimes. I have an informal workflow in mind but it is not documented.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q9" value="2" class="mt-1">
+                      <span>Often. I map out the steps, define AI inputs and outputs, and include human review points.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="question border border-slate-200 rounded-md p-3" data-category="workflow">
+                  <p class="text-sm font-medium text-slate-800 mb-2">
+                    When you think about scaling an AI supported workflow, how do you approach safety and governance?
+                  </p>
+                  <div class="space-y-1 text-sm text-slate-700">
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q10" value="0" class="mt-1">
+                      <span>I have not thought much about this yet.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q10" value="1" class="mt-1">
+                      <span>I would raise issues if they came up but I do not have a structured approach.</span>
+                    </label>
+                    <label class="flex items-start gap-2">
+                      <input type="radio" name="q10" value="2" class="mt-1">
+                      <span>I consider approvals, documentation, training, and monitoring and involve the right institutional partners.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between pt-3">
+                <button
+                  class="prev-step inline-flex items-center px-3 py-2 rounded-md border border-slate-300 text-slate-700 text-sm hover:bg-slate-50"
+                  data-prev="3"
+                >
+                  Back
+                </button>
+                <button
+                  id="calculateBtn"
+                  class="inline-flex items-center px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700 active:bg-emerald-800"
+                >
+                  See my fluency map and learning path
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right: chart and summary -->
+          <div class="space-y-4">
+            <!-- Chart card -->
+            <section class="bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-3">
+              <h3 class="text-base md:text-lg font-semibold text-slate-900">
+                MedAI fluency map
+              </h3>
+              <p class="text-xs md:text-sm text-slate-600">
+                This radar chart will show your self assessed fluency across five competencies. Complete the questions, then click the button in Step 4 to update your map.
+              </p>
+              <div class="bg-slate-50 rounded-md p-3">
+                <canvas id="fluencyChart" width="400" height="400"></canvas>
+              </div>
+            </section>
+
+            <!-- Summary card -->
+            <section class="bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-3">
+              <h3 class="text-base md:text-lg font-semibold text-slate-900">
+                Summary and personalized path
+              </h3>
+              <div id="summarySection" class="space-y-2 text-sm text-slate-800">
+                <p class="text-xs text-slate-600">
+                  Your category levels and learning suggestions will appear here after you generate your fluency map.
+                </p>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- For department chairs and program leaders -->
+        <section class="bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-3">
+          <h3 class="text-base md:text-lg font-semibold text-slate-900">
+            For department chairs and program leaders
+          </h3>
+          <p class="text-sm text-slate-700">
+            MedAI Fluency Studio is designed as a low friction tool you can use in faculty development, retreats, and CQI conversations about AI in education, research, and clinical work.
+          </p>
+          <ul class="text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>
+              <span class="font-medium">Prework for retreats or workshops.</span>
+              Ask faculty to complete the Studio in advance, bring a screenshot of their fluency map, and mark one competency they want to grow in the coming year.
+            </li>
+            <li>
+              <span class="font-medium">Small group discussion starter.</span>
+              In curriculum committees, clerkship groups, or research teams, invite participants to compare their maps in pairs and name one shared opportunity for the group.
+            </li>
+            <li>
+              <span class="font-medium">Strategic planning input.</span>
+              Without collecting individual data, you can use the five categories to frame needs assessment, identify priority use cases, and align MedAI efforts with departmental goals.
+            </li>
+          </ul>
+          <p class="text-xs text-slate-600">
+            The Studio does not store responses or transmit data from this page. If you wish to collect aggregate information in the future, you can pair it with a separate anonymous survey.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t">
+      <div class="max-w-6xl mx-auto px-4 py-3 text-xs text-slate-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <span>MedAI Lexicon, LSU Health Sciences Center New Orleans</span>
+        <span>Educational reflection tool, not a clinical decision support system.</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Script: step logic, scoring, chart, and summary -->
+  <script>
+    // Step navigation
+    let currentStep = 1;
+
+    function updateStepDisplay() {
+      document.querySelectorAll('.step-panel').forEach(panel => {
+        const step = Number(panel.dataset.step);
+        panel.classList.toggle('hidden', step !== currentStep);
+      });
+
+      document.querySelectorAll('.step-indicator').forEach(indicator => {
+        const step = Number(indicator.dataset.step);
+        const circle = indicator.querySelector('span');
+        const label = indicator.querySelector('span:nth-child(2)');
+
+        if (!circle) return;
+
+        if (step === currentStep) {
+          circle.classList.remove('bg-white', 'text-slate-500', 'border-slate-300');
+          circle.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+          if (label) label.classList.add('text-slate-900');
+        } else if (step < currentStep) {
+          circle.classList.remove('bg-white', 'text-slate-500', 'border-slate-300');
+          circle.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+          if (label) label.classList.add('text-slate-800');
+        } else {
+          circle.classList.remove('bg-blue-600', 'bg-emerald-600', 'text-white', 'border-blue-600', 'border-emerald-600');
+          circle.classList.add('bg-white', 'text-slate-500', 'border-slate-300');
+          if (label) label.classList.add('text-slate-500');
+        }
+      });
+    }
+
+    document.querySelectorAll('.next-step').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const next = Number(btn.dataset.next);
+        currentStep = next;
+        updateStepDisplay();
+      });
+    });
+
+    document.querySelectorAll('.prev-step').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prev = Number(btn.dataset.prev);
+        currentStep = prev;
+        updateStepDisplay();
+      });
+    });
+
+    updateStepDisplay();
+
+    // Chart setup
+    const ctx = document.getElementById('fluencyChart').getContext('2d');
+
+    const chartConfig = {
+      type: 'radar',
+      data: {
+        labels: [
+          'Prompt mastery',
+          'Technical understanding',
+          'Practical application',
+          'Critical evaluation',
+          'Workflow design'
+        ],
+        datasets: [
+          {
+            label: 'Your MedAI fluency',
+            data: [0, 0, 0, 0, 0],
+            fill: true,
+            backgroundColor: 'rgba(37, 99, 235, 0.18)',
+            borderColor: 'rgba(37, 99, 235, 1)',
+            pointBackgroundColor: 'rgba(37, 99, 235, 1)',
+            pointBorderColor: '#ffffff',
+            pointRadius: 4,
+            pointHoverRadius: 5,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          r: {
+            suggestedMin: 0,
+            suggestedMax: 10,
+            ticks: {
+              stepSize: 2
+            },
+            angleLines: {
+              color: 'rgba(148, 163, 184, 0.4)'
+            },
+            grid: {
+              color: 'rgba(148, 163, 184, 0.4)'
+            },
+            pointLabels: {
+              font: {
+                size: 11
+              }
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    };
+
+    const fluencyChart = new Chart(ctx, chartConfig);
+
+    // Map score to level label
+    function levelFromScore(score) {
+      if (score <= 3) return 'Emerging';
+      if (score <= 6) return 'Functional';
+      if (score <= 8) return 'Fluent';
+      return 'Strategic';
+    }
+
+    // Build recommendations
+    function buildRecommendations(scores) {
+      const { prompt, technical, practical, critical, workflow } = scores;
+      const strengths = [];
+      const growth = [];
+
+      Object.entries(scores).forEach(([key, value]) => {
+        if (value >= 7) strengths.push(key);
+        if (value <= 6) growth.push(key);
+      });
+
+      const labelMap = {
+        prompt: 'Prompt mastery',
+        technical: 'Technical understanding',
+        practical: 'Practical application ability',
+        critical: 'Critical evaluation ability',
+        workflow: 'Workflow design ability'
+      };
+
+      const strengthsText = strengths.length
+        ? strengths.map(k => labelMap[k]).join(', ')
+        : 'No area is very high yet. This is a good starting point to grow across the board.';
+
+      const growthText = growth.length
+        ? growth.map(k => labelMap[k]).join(', ')
+        : 'You do not have a single clear growth area from this quick quiz. Choose one that feels most relevant to your work.';
+
+      const suggestions = [];
+
+      if (technical <= 6) {
+        suggestions.push('Spend focused time with foundational MedAI Lexicon terms about models, tokens, context, and hallucinations. Practice explaining them to a colleague.');
+      }
+      if (prompt <= 6) {
+        suggestions.push('Create two or three reusable prompt templates for your real tasks using the prompting related Lexicon entries as a guide.');
+      }
+      if (practical <= 6) {
+        suggestions.push('Select one real workflow, such as feedback or email drafts, and deliberately integrate AI using examples and terms from the application section of the Lexicon.');
+      }
+      if (critical <= 6) {
+        suggestions.push('Use the Lexicon entries on bias, safety, and guardrails to design simple test cases where you intentionally look for hallucinations or biased outputs.');
+      }
+      if (workflow <= 6) {
+        suggestions.push('Sketch a simple AI supported workflow for your course or clinic, marking where AI acts and where humans review, and align it with workflow and governance terms in the Lexicon.');
+      }
+
+      if (suggestions.length === 0) {
+        suggestions.push('You are scoring high across competencies. Consider mentoring colleagues, documenting your own AI playbook, or leading a MedAI Lexicon based workshop.');
+      }
+
+      return { strengthsText, growthText, suggestions };
+    }
+
+    // Calculate scores
+    function computeScore(total, maxTotal) {
+      if (maxTotal === 0) return 0;
+      const ratio = total / maxTotal;
+      let score = Math.round(ratio * 10);
+      if (score < 0) score = 0;
+      if (score > 10) score = 10;
+      return score;
+    }
+
+    document.getElementById('calculateBtn').addEventListener('click', () => {
+      const totals = {
+        prompt: 0,
+        technical: 0,
+        practical: 0,
+        critical: 0,
+        workflow: 0
+      };
+
+      const maxTotals = {
+        prompt: 0,
+        technical: 0,
+        practical: 0,
+        critical: 0,
+        workflow: 0
+      };
+
+      document.querySelectorAll('.question').forEach(question => {
+        const category = question.dataset.category;
+        const options = question.querySelectorAll('input[type="radio"]');
+
+        let maxPointsForQuestion = 0;
+        let chosenValue = 0;
+        let hasChoice = false;
+
+        options.forEach(opt => {
+          const v = Number(opt.value);
+          if (v > maxPointsForQuestion) maxPointsForQuestion = v;
+          if (opt.checked) {
+            chosenValue = v;
+            hasChoice = true;
+          }
+        });
+
+        maxTotals[category] += maxPointsForQuestion;
+        if (hasChoice) {
+          totals[category] += chosenValue;
+        }
+      });
+
+      const scores = {
+        prompt: computeScore(totals.prompt, maxTotals.prompt),
+        technical: computeScore(totals.technical, maxTotals.technical),
+        practical: computeScore(totals.practical, maxTotals.practical),
+        critical: computeScore(totals.critical, maxTotals.critical),
+        workflow: computeScore(totals.workflow, maxTotals.workflow)
+      };
+
+      // Update chart
+      fluencyChart.data.datasets[0].data = [
+        scores.prompt,
+        scores.technical,
+        scores.practical,
+        scores.critical,
+        scores.workflow
+      ];
+      fluencyChart.update();
+
+      // Update summary
+      const summaryDiv = document.getElementById('summarySection');
+      const { strengthsText, growthText, suggestions } = buildRecommendations(scores);
+
+      summaryDiv.innerHTML = `
+        <div>
+          <h4 class="text-sm font-semibold text-slate-900">Your levels by competency</h4>
+          <ul class="mt-1 text-xs text-slate-700 space-y-1">
+            <li>Prompt mastery: <span class="font-medium">${scores.prompt}/10</span> - ${levelFromScore(scores.prompt)}</li>
+            <li>Technical understanding: <span class="font-medium">${scores.technical}/10</span> - ${levelFromScore(scores.technical)}</li>
+            <li>Practical application ability: <span class="font-medium">${scores.practical}/10</span> - ${levelFromScore(scores.practical)}</li>
+            <li>Critical evaluation ability: <span class="font-medium">${scores.critical}/10</span> - ${levelFromScore(scores.critical)}</li>
+            <li>Workflow design ability: <span class="font-medium">${scores.workflow}/10</span> - ${levelFromScore(scores.workflow)}</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mt-3 text-sm font-semibold text-slate-900">Strength profile</h4>
+          <p class="mt-1 text-xs text-slate-700">
+            <span class="font-medium">Strongest areas:</span> ${strengthsText}
+          </p>
+          <p class="mt-1 text-xs text-slate-700">
+            <span class="font-medium">Growth focus:</span> ${growthText}
+          </p>
+        </div>
+        <div>
+          <h4 class="mt-3 text-sm font-semibold text-slate-900">Suggested learning pathway</h4>
+          <ul class="mt-1 text-xs text-slate-700 list-disc pl-4 space-y-1">
+            ${suggestions.map(s => `<li>${s}</li>`).join('')}
+          </ul>
+          <p class="mt-2 text-xs text-slate-500">
+            Use the MedAI Lexicon as your reference. Start with the terms linked to your growth areas, then extend into your strengths so that you can support learners and colleagues.
+          </p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
