@@ -68,6 +68,26 @@
       </p>
     </section>
 
+    <!-- MedAI Fluency Studio callout -->
+    <section class="max-w-6xl mx-auto mt-4 px-4">
+      <div class="bg-white rounded-2xl shadow-sm border border-indigo-100 p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-lg md:text-xl font-semibold text-slate-900">MedAI Fluency Studio</h2>
+          <p class="text-sm md:text-base text-slate-700 mt-1">
+            A short guided self assessment developed at LSU Health Sciences Center New Orleans to help faculty, residents, fellows, and staff understand their current AI fluency and plan practical next steps using the MedAI Lexicon.
+          </p>
+        </div>
+        <div>
+          <a
+            href="fluency-studio.html"
+            class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-medium shadow-sm hover:bg-indigo-700 active:bg-indigo-800"
+          >
+            Start the assessment
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Main content -->
     <main class="flex-1">
       <div class="max-w-6xl mx-auto px-4 py-4 md:py-6 grid gap-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)]">
@@ -76,44 +96,43 @@
 
           <!-- MedAI companion resources card (left top) -->
           <div class="mb-4 rounded-2xl border border-indigo-100 bg-indigo-50 p-3 text-sm">
-  <h3 class="text-base font-semibold text-indigo-900">MedAI companion resources</h3>
-  <p class="mt-1 text-xs text-indigo-900/80">
-    Additional tools to support responsible use of medical AI.
-  </p>
-  <ul class="mt-2 space-y-1">
-    <li>
-      <a
-        href="https://datadrivenmed.github.io/Vetting-AI-Tools/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm font-medium text-indigo-800 underline"
-      >
-        Vetting Medical AI Tools
-      </a>
-    </li>
-    <li>
-      <a
-        href="AI-Buyers-Playbook.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm font-medium text-indigo-800 underline"
-      >
-        Medical AI Buyers Playbook (PDF)
-      </a>
-    </li>
-    <li>
-      <a
-        href="Louisiana-Governor-EO-AI.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm font-medium text-indigo-800 underline"
-      >
-        Louisiana Governor Executive Order on Responsible AI Use (PDF)
-      </a>
-    </li>
-  </ul>
-</div>
-
+            <h3 class="text-base font-semibold text-indigo-900">MedAI companion resources</h3>
+            <p class="mt-1 text-xs text-indigo-900/80">
+              Additional tools to support responsible use of medical AI.
+            </p>
+            <ul class="mt-2 space-y-1">
+              <li>
+                <a
+                  href="https://datadrivenmed.github.io/Vetting-AI-Tools/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-indigo-800 underline"
+                >
+                  Vetting Medical AI Tools
+                </a>
+              </li>
+              <li>
+                <a
+                  href="AI-Buyers-Playbook.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-indigo-800 underline"
+                >
+                  Medical AI Buyers Playbook (PDF)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="Louisiana-Governor-EO-AI.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-indigo-800 underline"
+                >
+                  Louisiana Governor Executive Order on Responsible AI Use (PDF)
+                </a>
+              </li>
+            </ul>
+          </div>
 
           <div class="mb-3">
             <h3 class="text-lg font-semibold text-slate-900">AI Terms</h3>
@@ -206,8 +225,52 @@
             </div>
           </div>
         </section>
-
       </div>
+
+      <!-- Suggested Lexicon term clusters for Fluency Studio -->
+      <section class="max-w-6xl mx-auto px-4 pb-6 space-y-4">
+        <h2 class="text-lg md:text-xl font-semibold text-slate-900">
+          Suggested MedAI Lexicon term clusters
+        </h2>
+        <p class="text-sm text-slate-600">
+          These clusters group terms that support each MedAI fluency competency. You can use them before or after completing the MedAI Fluency Studio.
+        </p>
+
+        <div id="prompting-and-conversation" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Prompt mastery and conversation patterns</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: prompt engineering, system prompt, few shot prompting, chain of thought, temperature, sampling methods, style transfer.
+          </p>
+        </div>
+
+        <div id="model-fundamentals" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Model fundamentals and limitations</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: tokenization, embeddings, latent space, attention heads, residual streams, scaling laws, hallucinations, training vs inference.
+          </p>
+        </div>
+
+        <div id="practical-use-cases" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Practical use cases in education, research, and clinical work</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: RAG, AI agents and feedback loops, quantization, LoRA, diffusion models, multimodal fusion, AI data centers.
+          </p>
+        </div>
+
+        <div id="evaluation-and-safety" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Critical evaluation, bias, and safety</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: hallucinations, RLHF, catastrophic forgetting, emergent abilities, data privacy and governance, guardrails and safety filters, prompt injection and security.
+          </p>
+        </div>
+
+        <div id="workflow-and-governance" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Workflow design and governance</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: RAG workflows, AI agents, workflow orchestration, human in the loop patterns, governance, evaluation frameworks for AI tools in clinical and educational settings.
+          </p>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -263,7 +326,7 @@
         id: "hallucinations",
         term: "Hallucinations",
         short: "Confident but incorrect or fabricated outputs produced by the model.",
-        visual: "Hallucinations are like a trainee who, instead of saying I don’t know, confidently invents a journal article or lab value that sounds right but does not exist.",
+        visual: "Hallucinations are like a trainee who, instead of saying I do not know, confidently invents a journal article or lab value that sounds right but does not exist.",
         usage: "Hallucinations happen when the model fills gaps in its knowledge by pattern completion instead of accessing ground truth. They are especially risky in medicine because they sound authoritative.",
         physician: "A hallucination might be a made up reference, a non-existent drug interaction, or a plausible but wrong diagnostic explanation. Treat model outputs as drafts to be checked, not final orders.",
         scientist: "Hallucinations arise because the model is a probabilistic next-token generator, not a database. In sparse areas of latent space it extrapolates, sometimes producing text with no factual grounding.",
@@ -693,7 +756,3 @@
   </script>
 </body>
 </html>
-
-
-
-
