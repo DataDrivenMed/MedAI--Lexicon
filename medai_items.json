@@ -1,0 +1,2356 @@
+{
+  "prompt": [
+    {
+      "id": "P_001",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can clearly articulate the specific task or output I want an AI tool to produce (e.g., summarize, draft, analyze).",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic ability to define the AI task."
+    },
+    {
+      "id": "P_002",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I routinely include a desired format (e.g., bulleted list, SBAR, table, 500-word essay) when prompting an AI for structured outputs.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses specifying output structure (formatting instruction)."
+    },
+    {
+      "id": "P_003",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am comfortable using advanced techniques like 'chain-of-thought' or 'step-by-step instructions' to guide the AI through complex analytical tasks.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests knowledge/use of complex, multi-step prompting methods."
+    },
+    {
+      "id": "P_004",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I consistently define the desired professional role (e.g., 'Act as a peer reviewer,' 'Assume the role of a PGY-2 resident') for the AI when starting a new prompt.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Checks basic use of persona/role-setting in prompts."
+    },
+    {
+      "id": "P_005",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can effectively use follow-up prompts to refine an AI-generated clinical summary that was initially too vague or lengthy.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes iterative refinement/multi-turn conversation skills in a clinical context."
+    },
+    {
+      "id": "P_006",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "When synthesizing findings from a large dataset, I can instruct the AI to justify its analytical choices and display its intermediate reasoning steps.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses demanding transparency and method justification from the AI."
+    },
+    {
+      "id": "P_007",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "If the AI output is incorrect or irrelevant, I know to restart the conversation or substantially revise my initial prompt rather than just making minor tweaks.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Tests awareness of 'starting fresh' when a prompt fails."
+    },
+    {
+      "id": "P_008",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I include negative constraints (e.g., 'Do not use jargon,' 'Avoid citing sources older than 5 years') to shape the AI's response for specific audiences.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Probes use of negative constraints to control tone/content."
+    },
+    {
+      "id": "P_009",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can craft a single, complex prompt that includes all components: role, context, task, format, and explicit guardrails (e.g., 'Only use information from the provided text').",
+      "lexicon_terms": [
+        "prompt-engineering",
+        "guardrails"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses mastery of the 'complete' prompt structure."
+    },
+    {
+      "id": "P_010",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I am confident in providing the AI with sufficient background information (patient history, topic context) to generate a relevant response.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Checks basic skill in providing necessary context/data."
+    },
+    {
+      "id": "P_011",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I know how to effectively upload or copy-paste external documents (e.g., an abstract, a policy draft) for the AI to analyze and reference.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Probes technical capability to input external data for analysis (basic RAG concept)."
+    },
+    {
+      "id": "P_012",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can use a 'few-shot' prompting approach (providing 2-3 examples of the desired output) to train the AI to replicate a specific institutional style or tone.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced 'few-shot' technique for style replication."
+    },
+    {
+      "id": "P_013",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "When asking for an explanation of a complex medical topic, I remember to specify the target audience's knowledge level (e.g., 'Explain this to a first-year medical student').",
+      "lexicon_terms": [],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses setting audience/complexity level for educational content."
+    },
+    {
+      "id": "P_014",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When using AI for literature review, I can prompt it to critically compare and contrast two opposing viewpoints from provided source material.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Probes critical comparative analysis using provided context."
+    },
+    {
+      "id": "P_015",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I feel proficient in modifying a system-level prompt or 'custom instruction' feature to permanently tailor the AI's default behavior for my clinical tasks.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests ability to leverage persistent, high-level custom instructions."
+    },
+    {
+      "id": "P_016",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that using synonyms or slightly rephrasing a prompt can often lead to a significantly better AI response.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Checks basic understanding of prompt sensitivity."
+    },
+    {
+      "id": "P_017",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When seeking AI assistance for an administrative task, I can specify key performance indicators or departmental policies as constraints for the output.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses applying policy-based constraints to administrative tasks."
+    },
+    {
+      "id": "P_018",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can successfully troubleshoot why an AI is 'hallucinating' or fabricating facts and adjust my prompt to mitigate this risk.",
+      "lexicon_terms": [
+        "hallucinations",
+        "guardrails"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Tests ability to actively troubleshoot and fix hallucination issues through prompting."
+    },
+    {
+      "id": "P_019",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I ensure my prompts are specific and avoid overly broad or vague requests like 'Tell me about hypertension' or 'Write a presentation on surgery.'",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Focuses on specificity and avoiding vagueness."
+    },
+    {
+      "id": "P_020",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can use AI to draft formative assessment questions, specifically prompting it to align the questions with defined learning objectives and Bloom's Taxonomy levels.",
+      "lexicon_terms": [],
+      "role_focus": "educator",
+      "notes_for_author": "Probes complex prompt for educational assessment content generation."
+    },
+    {
+      "id": "P_021",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am effective at prompting an AI to synthesize complex, conflicting evidence from multiple uploaded documents into a coherent narrative or recommendation.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests high-level synthesis and conflict resolution using RAG."
+    },
+    {
+      "id": "P_022",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can effectively use follow-up prompts to shorten or lengthen an AI-generated text to meet a specific word count requirement.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic length control/refinement."
+    },
+    {
+      "id": "P_023",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I know how to prompt the AI to extract specific structured data points (e.g., patient demographics, procedure codes) from an unstructured clinical note.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses structured data extraction capability via prompt."
+    },
+    {
+      "id": "P_024",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can effectively use zero-shot or few-shot instruction to prompt a large language model to perform a task it was not explicitly trained for (e.g., classify new disease states).",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced zero/few-shot prompting for novel applications."
+    },
+    {
+      "id": "P_025",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I feel comfortable using the AI to quickly restructure a text, for instance, turning a narrative paragraph into a set of pros and cons.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Checks basic text transformation/formatting."
+    },
+    {
+      "id": "P_026",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When planning a new project, I can prompt the AI to act as a 'devil's advocate' and identify potential operational or ethical pitfalls in my proposal.",
+      "lexicon_terms": [],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses creative use of role-setting for critical analysis/risk identification."
+    },
+    {
+      "id": "P_027",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am skilled at writing nested or multi-layered prompts where the AI's output from one step becomes the input for its next action in the same conversation.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Tests mastery of complex, multi-step sequential prompting."
+    },
+    {
+      "id": "P_028",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I make sure to explicitly ask the AI to cite its sources or provide references when using it for academic or clinical knowledge tasks.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Focuses on basic citation/reference demand as a safeguard."
+    },
+    {
+      "id": "P_029",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can effectively use a provided rubric or grading criteria in a prompt to have the AI evaluate a learner's performance against specific standards.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Probes use of RAG (rubric/criteria) for evaluation/grading tasks."
+    },
+    {
+      "id": "P_030",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I feel proficient in writing prompts that deliberately leverage the model's 'context window' to maintain consistency across a long document or complex task.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests sophisticated understanding and management of the context window."
+    },
+    {
+      "id": "P_031",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I always review and edit the AI's output for accuracy and tone before using it in a clinical, educational, or administrative setting.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses foundational diligence in verifying AI output."
+    },
+    {
+      "id": "P_032",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When asking for patient education materials, I can successfully prompt the AI to output the information in multiple languages.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes multilingual output capability via prompt."
+    },
+    {
+      "id": "P_033",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can use 'in-context learning' within my prompt to teach the AI new, highly specialized medical terminology or institutional acronyms it may not know.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Tests advanced concept of 'teaching' the model novel lexicon via the prompt."
+    },
+    {
+      "id": "P_034",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can write a prompt that clearly defines the desired tone for the output (e.g., 'professional yet compassionate,' 'formal academic tone').",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Checks basic tone specification in the prompt."
+    },
+    {
+      "id": "P_035",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When using AI for grant writing, I can successfully prompt it to adhere to specific NIH or NSF formatting guidelines for the budget justification section.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses applying external, complex format constraints (grant writing)."
+    },
+    {
+      "id": "P_036",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can use a prompt to generate a clinical differential diagnosis and then subsequently instruct the AI to rank the list based on local epidemiology or prevalence data.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests multi-step analysis: generation followed by external data prioritization (simulated RAG)."
+    },
+    {
+      "id": "P_037",
+      "category": "prompt",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know how to easily instruct the AI to translate a complex medical term into plain, accessible language for a lay audience.",
+      "lexicon_terms": [],
+      "role_focus": "educator",
+      "notes_for_author": "Checks basic simplification/translation skill."
+    },
+    {
+      "id": "P_038",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When seeking management advice, I can successfully prompt the AI to only use guidelines from a specific source (e.g., 'AHA 2020 guidelines only').",
+      "lexicon_terms": [
+        "guardrails",
+        "rag"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes specifying authoritative source constraints."
+    },
+    {
+      "id": "P_039",
+      "category": "prompt",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can define a custom set of ethical principles (e.g., 'HIPAA compliance is paramount,' 'Prioritize patient autonomy') within a prompt for the AI to use as mandatory decision criteria.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests ability to enforce high-level ethical/legal guardrails via prompt."
+    },
+    {
+      "id": "P_040",
+      "category": "prompt",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When reviewing resident documentation, I can prompt the AI to identify instances where the documentation style deviates from our institutional standards.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses using RAG (institutional standard) to critique/audit text."
+    }
+  ],
+  "technical": [
+    {
+      "id": "T_001",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can generally explain the difference between a pre-trained Large Language Model (LLM) and a model that has been fine-tuned for medical tasks.",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic understanding of training vs. fine-tuning."
+    },
+    {
+      "id": "T_002",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I understand the concept of a **context window** and how exceeding its limit can lead to the AI forgetting details from earlier in our conversation.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses functional understanding of context window limitations."
+    },
+    {
+      "id": "T_003",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can explain to a colleague why a model trained with **Reinforcement Learning from Human Feedback (RLHF)** tends to produce outputs that are safer and more aligned with human values.",
+      "lexicon_terms": [
+        "rlhf",
+        "guardrails"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced understanding of RLHF and its impact on alignment/safety."
+    },
+    {
+      "id": "T_004",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that **hallucinations** in AI refer to the generation of plausible-sounding but factually incorrect or fabricated information.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic definition of AI hallucination."
+    },
+    {
+      "id": "T_005",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can explain the difference between a model's **training** data (what it learned from) and the **inference** process (when it applies that knowledge).",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses understanding of the training vs. inference cycle."
+    },
+    {
+      "id": "T_006",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I understand how **Retrieval-Augmented Generation (RAG)** differs from standard LLM use and why RAG reduces the risk of factual errors in evidence-based tasks.",
+      "lexicon_terms": [
+        "rag",
+        "hallucinations"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced knowledge of RAG architecture and its benefit (reduced hallucination)."
+    },
+    {
+      "id": "T_007",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I am aware that using highly sensitive patient data in a public AI tool poses a significant **security and privacy** risk.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational awareness of data security/HIPAA with AI."
+    },
+    {
+      "id": "T_008",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When evaluating a new AI tool, I know to look for clear documentation on its **data governance** and how its developers ensured patient privacy.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses applying data governance concepts to AI evaluation."
+    },
+    {
+      "id": "T_009",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can explain the function of **vector embeddings** in linking medically similar terms, even if they aren't exact word matches, for semantic search and retrieval.",
+      "lexicon_terms": [
+        "embeddings",
+        "rag"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced understanding of embeddings and semantic meaning."
+    },
+    {
+      "id": "T_010",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that an AI's output is based on **statistical probability** of the next word, not on genuine understanding or clinical judgment.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes fundamental understanding of LLM generation (stochastic process)."
+    },
+    {
+      "id": "T_011",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I understand why **tokenization** is relevant to cost and speed, especially when dealing with long clinical documents or transcripts.",
+      "lexicon_terms": [
+        "tokenization",
+        "context-window"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses functional link between tokenization and resource management."
+    },
+    {
+      "id": "T_012",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am familiar with **scaling laws** and the general principle that increasing model size and data volume typically leads to predictable performance improvements.",
+      "lexicon_terms": [
+        "scaling-laws"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced knowledge of scaling laws in model development."
+    },
+    {
+      "id": "T_013",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I recognize that an AI model can **reflect biases** present in the data it was trained on, which may impact clinical recommendations.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational awareness of data bias and model reflection."
+    },
+    {
+      "id": "T_014",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I understand why a model trained predominantly on English-language medical literature may be **less reliable** when dealing with non-English patient cases or rare diseases.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses understanding of training data specificity and reliability."
+    },
+    {
+      "id": "T_015",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can differentiate between **'zero-shot,' 'one-shot,' and 'few-shot' learning** and the technical implications of each on prompting effectiveness.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Tests advanced technical prompting concepts (N-shot learning)."
+    },
+    {
+      "id": "T_016",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that a model's **knowledge cut-off** means it is unaware of medical developments or publications that occurred after its last training update.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic concept of knowledge cut-off date."
+    },
+    {
+      "id": "T_017",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can explain why using an AI tool with **inaccurate external data** via RAG could still lead to flawed results, even if the base model is powerful.",
+      "lexicon_terms": [
+        "rag",
+        "hallucinations"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses understanding of 'Garbage In, Garbage Out' as applied to RAG."
+    },
+    {
+      "id": "T_018",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I understand the concept of **model drift** and the need for periodic re-evaluation or re-training of clinical AI models to maintain performance over time.",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced concept of model drift/decay."
+    },
+    {
+      "id": "T_019",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know the terms **'input'** (my prompt) and **'output'** (the AI's response) when discussing LLM interaction.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic terminology of AI interaction."
+    },
+    {
+      "id": "T_020",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I understand that providing a detailed **system prompt** (setting rules and roles) is crucial for keeping an AI within acceptable **ethical or clinical boundaries**.",
+      "lexicon_terms": [
+        "guardrails",
+        "prompt-engineering"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses functional link between system prompts and guardrails."
+    },
+    {
+      "id": "T_021",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can explain the technical difference between **supervised fine-tuning (SFT)** and **Reinforcement Learning from Human Feedback (RLHF)** in the post-training process.",
+      "lexicon_terms": [
+        "rlhf"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests high-level technical knowledge of SFT vs. RLHF."
+    },
+    {
+      "id": "T_022",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that an AI can make errors in **dose calculation or complex diagnostic codes** and should always be independently verified.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes basic awareness of specific clinical risks (calculation errors)."
+    },
+    {
+      "id": "T_023",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I understand the basic mechanism of **tokenization** and why certain words or phrases in medical terminology might be split into multiple tokens.",
+      "lexicon_terms": [
+        "tokenization"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses understanding of tokenization's impact on medical language."
+    },
+    {
+      "id": "T_024",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can explain the difference between a model's **accuracy** (raw correctness) and its **calibration** (how well its stated confidence matches reality) in a clinical setting.",
+      "lexicon_terms": [],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced metric understanding: Accuracy vs. Calibration."
+    },
+    {
+      "id": "T_025",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I understand that AI tools for image analysis (e.g., radiology, pathology) are typically based on **computer vision models**, not just LLMs.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes basic awareness of model types (LLM vs. Vision)."
+    },
+    {
+      "id": "T_026",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I know that AI **guardrails** are essentially programmed constraints designed to prevent the model from generating unsafe, biased, or non-compliant content.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses functional definition of guardrails."
+    },
+    {
+      "id": "T_027",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can explain the technical trade-offs between using a **small, specialized, fine-tuned model** versus a **very large, general-purpose foundation model** for specific clinical tasks.",
+      "lexicon_terms": [
+        "scaling-laws",
+        "training-vs-inference"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced understanding of model choice/resource optimization."
+    },
+    {
+      "id": "T_028",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that if I copy-paste a huge medical textbook chapter into a public AI chat, the system will use it, potentially compromising **intellectual property** or usage limits.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic awareness of large data input and IP/limit issues."
+    },
+    {
+      "id": "T_029",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I understand that a key benefit of **RAG** is that it provides **attributable citations** linked to the external documents it retrieves.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses understanding of RAG's source attribution feature."
+    },
+    {
+      "id": "T_030",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am familiar with the concepts of **overfitting and underfitting** and how they affect the generalizability of a diagnostic AI model.",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced understanding of common machine learning errors."
+    },
+    {
+      "id": "T_031",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I recognize that when AI generates content, I, as the user, am still **professionally accountable** for the accuracy of the final output.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational understanding of user accountability."
+    },
+    {
+      "id": "T_032",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can explain to residents why a change in the model's **'temperature'** setting affects the creativity or randomness of its output.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses functional understanding of 'temperature' or randomness parameter."
+    },
+    {
+      "id": "T_033",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can explain the importance of the **embedding space** in ensuring that AI search results are conceptually relevant to a complex medical query, not just keyword matches.",
+      "lexicon_terms": [
+        "embeddings",
+        "rag"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests high-level understanding of embeddings for conceptual relevance."
+    },
+    {
+      "id": "T_034",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I am aware that different AI providers (e.g., Google, OpenAI) use **different base models** with distinct strengths and weaknesses.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic awareness of model heterogeneity."
+    },
+    {
+      "id": "T_035",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I understand that a model’s **latency** (the delay before it responds) can be a critical factor in time-sensitive clinical decision support applications.",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses functional understanding of inference speed (latency) in practice."
+    },
+    {
+      "id": "T_036",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can articulate the technical process by which **RLHF** takes human preference rankings and converts them into a quantifiable reward signal for model optimization.",
+      "lexicon_terms": [
+        "rlhf"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests high-level detail of the RLHF technical mechanism."
+    },
+    {
+      "id": "T_037",
+      "category": "technical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I understand that when I paste a patient's chart into a non-secure AI, it is **no longer protected** by the security measures of our EMR.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Checks basic awareness of data boundary/EMR security."
+    },
+    {
+      "id": "T_038",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I know how to identify if a specific AI application is based on a **closed-source** (proprietary) model or an **open-source** model and why that matters for transparency.",
+      "lexicon_terms": [],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses understanding of open vs. closed source and transparency implications."
+    },
+    {
+      "id": "T_039",
+      "category": "technical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can describe how the technical implementation of **Retrieval-Augmented Generation (RAG)** fundamentally alters the architecture of the AI to rely on a dynamic data source.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests high-level understanding of RAG as an architectural change."
+    },
+    {
+      "id": "T_040",
+      "category": "technical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can generally explain why a model with a **larger context window** is more effective for tasks like synthesizing long patient admission notes or reviewing multi-page research protocols.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes practical implication of a larger context window."
+    }
+  ],
+  "practical": [
+    {
+      "id": "A_001",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I regularly use AI to summarize long emails, meeting transcripts, or institutional policy documents to quickly grasp the main points.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic practical use for text summarization."
+    },
+    {
+      "id": "A_002",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I intentionally use AI to draft initial patient discharge instructions or educational materials, making sure to adapt them to a low-literacy level.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses practical application in patient communication/education."
+    },
+    {
+      "id": "A_003",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can deploy a basic **Retrieval-Augmented Generation (RAG)** system using internal research protocols or lab manuals to streamline experimental planning.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests ability to practically set up a basic RAG system for research."
+    },
+    {
+      "id": "A_004",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I use AI to rephrase complicated jargon in my presentations or lecture notes to make them clearer for students.",
+      "lexicon_terms": [],
+      "role_focus": "educator",
+      "notes_for_author": "Probes basic application in enhancing educational clarity."
+    },
+    {
+      "id": "A_005",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I have created and repeatedly use a personalized AI template to structure the drafting of my progress notes or peer-review feedback, ensuring consistency.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses practical habit of using reusable templates for efficiency."
+    },
+    {
+      "id": "A_006",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I have successfully integrated an AI tool into my research pipeline to semi-automatically generate standardized methods sections or data analysis summaries.",
+      "lexicon_terms": [],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced integration of AI into a structured research workflow."
+    },
+    {
+      "id": "A_007",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I use AI tools to quickly proofread my scholarly articles or administrative reports for grammatical errors and readability.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic use of AI for editing and refinement."
+    },
+    {
+      "id": "A_008",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When asked to develop a new departmental policy, I use AI to compare and contrast governance documents from multiple institutions.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses practical use for comparative policy analysis."
+    },
+    {
+      "id": "A_009",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I actively leverage **multimodal** AI capabilities (e.g., inputting both text and an image/graph) to generate complex clinical or educational outputs.",
+      "lexicon_terms": [
+        "multimodal-fusion"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Tests practical use of multimodal inputs (text + image/data)."
+    },
+    {
+      "id": "A_010",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I use AI to help brainstorm differential diagnoses for challenging or rare clinical cases before discussing them with colleagues.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes basic use for clinical brainstorming/support."
+    },
+    {
+      "id": "A_011",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I effectively use AI to generate diverse and realistic clinical vignettes or exam questions for resident training materials.",
+      "lexicon_terms": [],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses practical application in generating educational content variety."
+    },
+    {
+      "id": "A_012",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am capable of customizing a local, secure AI **agent** (a self-contained, task-specific AI) to handle repeatable administrative tasks, like scheduling or report generation.",
+      "lexicon_terms": [
+        "agents",
+        "data-privacy"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests ability to practically deploy/customize specialized AI agents."
+    },
+    {
+      "id": "A_013",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I use AI to transform complex clinical data tables or charts into simple, explanatory paragraphs for my medical notes or presentations.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes basic practical data simplification/interpretation."
+    },
+    {
+      "id": "A_014",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to quickly search and synthesize key information from a large set of research abstracts (uploaded by me) to identify gaps in the literature.",
+      "lexicon_terms": [
+        "rag",
+        "context-window"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses RAG use for focused literature gap analysis."
+    },
+    {
+      "id": "A_015",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I regularly use AI to translate complex regulatory language (e.g., IRB policies) into actionable steps for my research team.",
+      "lexicon_terms": [],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced application in translating dense policy to action."
+    },
+    {
+      "id": "A_016",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I use AI to draft professional, courteous emails to colleagues, adjusting the tone to fit the context (e.g., formal request vs. friendly update).",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic use for professional communication/tone control."
+    },
+    {
+      "id": "A_017",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to develop communication scripts for difficult conversations with learners or staff (e.g., providing negative feedback or mediation).",
+      "lexicon_terms": [],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses practical application in difficult communication preparation."
+    },
+    {
+      "id": "A_018",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I have set up automated AI routines to monitor and summarize new publications in my specific sub-specialty, delivering a weekly digest.",
+      "lexicon_terms": [
+        "agents",
+        "training-vs-inference"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests advanced use of automated agents/workflows for staying current."
+    },
+    {
+      "id": "A_019",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I intentionally choose secure, institutional AI tools when handling even de-identified patient case examples for teaching purposes.",
+      "lexicon_terms": [
+        "data-privacy",
+        "guardrails"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Probes basic practical habit of secure tool selection."
+    },
+    {
+      "id": "A_020",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to help restructure my existing lecture materials into alternative formats, like generating a podcast script or an infographic outline.",
+      "lexicon_terms": [
+        "multimodal-fusion"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses practical use for media transformation/creation."
+    },
+    {
+      "id": "A_021",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can use AI to simulate the behavior of a hypothetical patient or colleague with specific characteristics for role-playing in an educational setting.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Tests advanced scenario generation/role-playing application."
+    },
+    {
+      "id": "A_022",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I use AI to help organize and prioritize my weekly to-do lists and administrative tasks based on urgency and importance.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic practical use for time management/organization."
+    },
+    {
+      "id": "A_023",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to draft the introductory and conclusion sections of a manuscript, ensuring they clearly frame the research question and summarize the findings.",
+      "lexicon_terms": [],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses practical application in structuring manuscript content."
+    },
+    {
+      "id": "A_024",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am able to use AI to assess the potential impact of introducing a new clinical policy across multiple departments by modeling key variables.",
+      "lexicon_terms": [
+        "agents"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced use for predictive modeling/impact assessment."
+    },
+    {
+      "id": "A_025",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I use AI to generate short, clear summaries of complex medical conditions for patients, avoiding overly technical language.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes basic use for patient literacy/communication."
+    },
+    {
+      "id": "A_026",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to review drafts of my grant proposals to identify areas where the argument or scope is weak or inconsistent.",
+      "lexicon_terms": [],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses practical application for critical document review/editing."
+    },
+    {
+      "id": "A_027",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can use AI tools to systematically extract and structure data (e.g., patient outcomes, intervention types) from a collection of unstructured clinical trial reports.",
+      "lexicon_terms": [
+        "rag",
+        "agents"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced data extraction/structuring from multiple sources."
+    },
+    {
+      "id": "A_028",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I have used AI to help me quickly outline the structure of a lecture, presentation, or committee report.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic use for content outlining/organization."
+    },
+    {
+      "id": "A_029",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I routinely use AI to perform 'back-of-the-envelope' calculations or statistical data checks when preparing research analyses.",
+      "lexicon_terms": [],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses practical use for quick calculation/data validation."
+    },
+    {
+      "id": "A_030",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I actively collaborate with IT/Digital Health teams to define and enforce **Guardrails** for new institutional AI tools used by my department.",
+      "lexicon_terms": [
+        "guardrails",
+        "data-privacy"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced practical involvement in AI governance/guardrail enforcement."
+    },
+    {
+      "id": "A_031",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know how to quickly adapt an AI's initial response by asking it to change the length, tone, or focus using simple follow-up requests.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic iteration/refinement skill."
+    },
+    {
+      "id": "A_032",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to generate simulated patient data or case histories that adhere to specific statistical distributions for research training purposes.",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses practical application in generating synthetic data for training."
+    },
+    {
+      "id": "A_033",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am able to use advanced **diffusion models** or generative AI for creating specific, high-quality medical images or teaching illustrations (e.g., anatomical diagrams).",
+      "lexicon_terms": [
+        "diffusion-models",
+        "multimodal-fusion"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Tests advanced, specific multimodal creation ability."
+    },
+    {
+      "id": "A_034",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I feel confident that I use AI tools in a way that minimizes the chance of inputting Private Health Information (PHI).",
+      "lexicon_terms": [
+        "data-privacy",
+        "guardrails"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes foundational practical security habit (avoiding PHI input)."
+    },
+    {
+      "id": "A_035",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to develop draft answers for FAQs or common patient inquiries, which I then customize for our practice's specific needs.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses practical use for common content generation/pre-drafting."
+    },
+    {
+      "id": "A_036",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can use AI to synthesize feedback from multiple sources (e.g., teaching evaluations, peer reviews) into a structured professional development plan.",
+      "lexicon_terms": [
+        "rag",
+        "context-window"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced synthesis of multi-source data for HR/PD planning."
+    },
+    {
+      "id": "A_037",
+      "category": "practical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know how to reliably save or export AI-generated content for integration into my EMR, presentation slides, or word documents.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic practical skill of output handling/transfer."
+    },
+    {
+      "id": "A_038",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to generate the first draft of an institutional announcement or communication regarding a sensitive or critical event.",
+      "lexicon_terms": [],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses practical use for sensitive communication drafting."
+    },
+    {
+      "id": "A_039",
+      "category": "practical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can use AI to conduct a 'simulated' peer review of my research manuscript based on previously uploaded journal submission guidelines and reviewer expectations.",
+      "lexicon_terms": [
+        "rag",
+        "prompt-engineering"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced, specific RAG application for manuscript critique."
+    },
+    {
+      "id": "A_040",
+      "category": "practical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I use AI to analyze large sets of feedback (e.g., student course evaluations) to quickly identify the top three recurring themes and suggested improvements.",
+      "lexicon_terms": [
+        "context-window"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses practical use for high-volume qualitative data analysis."
+    }
+  ],
+  "critical": [
+    {
+      "id": "C_001",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I always verify the factual accuracy of any AI-generated clinical statement or dose calculation using trusted, independent medical sources before acting on it.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes foundational verification habit (clinical)."
+    },
+    {
+      "id": "C_002",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can critically assess an AI's output for potential bias related to race, gender, or socioeconomic status, especially when drafting patient education materials.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses ability to critically look for bias in outputs."
+    },
+    {
+      "id": "C_003",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "When reviewing an AI-assisted diagnostic model, I can challenge the vendor on the **generalizability** of its validation data to our specific patient population.",
+      "lexicon_terms": [
+        "data-privacy-and-governance",
+        "scaling-laws"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced critical evaluation of model generalizability/validation."
+    },
+    {
+      "id": "C_004",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that if an AI-generated source citation looks incorrect or unspecific, I must search for the original publication myself to confirm it.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Probes basic habit of verifying AI-generated citations."
+    },
+    {
+      "id": "C_005",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I regularly discuss the ethical limitations and potential dangers of AI tools with residents, fellows, and students in a clinical context.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses practical application of critical thinking in teaching."
+    },
+    {
+      "id": "C_006",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I understand and can explain to non-technical peers how the **Reinforcement Learning from Human Feedback (RLHF)** process can unintentionally introduce human bias into a model’s behavior.",
+      "lexicon_terms": [
+        "rlhf"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced understanding of RLHF's bias risk."
+    },
+    {
+      "id": "C_007",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "When AI is used to draft a communication, I ensure the tone and language reflect the professionalism and values of our public health center.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational critical check of tone/institutional fit."
+    },
+    {
+      "id": "C_008",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can identify when an AI output is suffering from **'prompt injection,'** where an internal instruction is overridden by a user’s harmful input.",
+      "lexicon_terms": [
+        "prompt-injection",
+        "guardrails"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses critical ability to recognize security/safety failures (prompt injection)."
+    },
+    {
+      "id": "C_009",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can define a small, independent **'red team'** test scenario to intentionally provoke **hallucinations** or biased outputs from a new clinical AI tool.",
+      "lexicon_terms": [
+        "hallucinations",
+        "guardrails"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced ability to design adversarial testing."
+    },
+    {
+      "id": "C_010",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I always manually check that AI-generated clinical summaries accurately reflect the key findings of the original patient chart or notes.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes foundational verification habit (data fidelity)."
+    },
+    {
+      "id": "C_011",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When using AI for literature review, I actively look for omissions—important papers the AI failed to include—that might skew the summary.",
+      "lexicon_terms": [
+        "rag"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses critical check for negative findings/omissions."
+    },
+    {
+      "id": "C_012",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can articulate the institutional legal and ethical risks of relying on an AI model whose **training data** sources and **data governance** are unknown or proprietary.",
+      "lexicon_terms": [
+        "data-privacy-and-governance"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced critical understanding of training data transparency risks."
+    },
+    {
+      "id": "C_013",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "If an AI gives an answer that feels too confident or authoritative about an uncertain medical topic, I approach it with extra skepticism.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic skepticism towards overconfidence."
+    },
+    {
+      "id": "C_014",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can explain to students why an AI's **knowledge cut-off date** requires them to always search for the most recent clinical guidelines after using the tool.",
+      "lexicon_terms": [],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses ability to critically explain the knowledge cut-off limitation."
+    },
+    {
+      "id": "C_015",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can evaluate the security and **data-privacy** implications of having research data processed on remote, multi-tenant AI **data-centers** versus a local solution.",
+      "lexicon_terms": [
+        "data-privacy-and-governance",
+        "data-centers"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced critical comparison of data processing environments."
+    },
+    {
+      "id": "C_016",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I treat AI outputs as a first draft or suggestion, never as the final, finished product that can be submitted without thorough review.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational attitude towards AI as an assistant, not a final authority."
+    },
+    {
+      "id": "C_017",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When a new AI tool is proposed, I critically ask about its **equity considerations**—specifically, how it performs across diverse demographic groups.",
+      "lexicon_terms": [
+        "data-privacy-and-governance"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses critical focus on AI equity/demographic performance."
+    },
+    {
+      "id": "C_018",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can design a small, targeted experiment to test if a clinical AI model is favoring a treatment based on its **training data prevalence** rather than current clinical evidence.",
+      "lexicon_terms": [
+        "hallucinations",
+        "training-vs-inference"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced ability to test model bias based on training distribution."
+    },
+    {
+      "id": "C_019",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know that I am the final clinical decision-maker and carry the responsibility for any AI-assisted action taken on a patient's care.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes foundational accountability/liability awareness."
+    },
+    {
+      "id": "C_020",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can recognize and explain the potential for **'automation bias'**—the tendency to over-rely on or trust AI suggestions—to my team.",
+      "lexicon_terms": [],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses understanding and ability to teach about automation bias."
+    },
+    {
+      "id": "C_021",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can critically evaluate a research study that claims a model has **'emergent abilities'** and distinguish true novelty from clever prompting or model scaling.",
+      "lexicon_terms": [
+        "emergent-abilities",
+        "scaling-laws"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced critical analysis of 'emergent abilities' claims."
+    },
+    {
+      "id": "C_022",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I always consider whether the complexity of the task I am giving the AI exceeds its publicly stated capabilities or safety limits.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic awareness of model capability limits."
+    },
+    {
+      "id": "C_023",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I am capable of using an AI to cross-check its own initial answer by asking it to provide evidence or alternative viewpoints in a follow-up prompt.",
+      "lexicon_terms": [
+        "prompt-engineering"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses critical self-correction/internal verification via prompt."
+    },
+    {
+      "id": "C_024",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can lead a discussion with our institutional review board (IRB) about the necessary **data-privacy** measures for using a cloud-based LLM for clinical research protocol drafting.",
+      "lexicon_terms": [
+        "data-privacy-and-governance",
+        "data-centers"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced ability to manage IRB/privacy discussions around cloud AI."
+    },
+    {
+      "id": "C_025",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I recognize that when AI generates content, it is primarily synthesizing existing knowledge and is not performing novel research or discovery.",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Probes foundational understanding of generation vs. discovery."
+    },
+    {
+      "id": "C_026",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can critically assess whether an AI's proposed differential diagnosis list is skewed toward common conditions and insufficiently considers rare or unique diseases.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses critical evaluation of diagnostic completeness/rarity."
+    },
+    {
+      "id": "C_027",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can explain to funding bodies the difference between an AI model's **interpretability** (how its results are presented) and its true **explainability** (the technical basis for its decision).",
+      "lexicon_terms": [],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced distinction between interpretability and explainability."
+    },
+    {
+      "id": "C_028",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I understand that I should never input patient identifiers or Private Health Information (PHI) into a general-purpose AI chatbot.",
+      "lexicon_terms": [
+        "data-privacy"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational data privacy compliance habit."
+    },
+    {
+      "id": "C_029",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can identify when an AI is providing an answer that is technically correct but clinically irrelevant or impractical for our specific hospital setting.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses critical evaluation of clinical relevance/practicality."
+    },
+    {
+      "id": "C_030",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I feel comfortable leading the departmental conversation about the potential for AI to introduce **health disparities** and how to audit against this risk.",
+      "lexicon_terms": [
+        "data-privacy-and-governance"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced critical leadership in AI disparity/equity risk management."
+    },
+    {
+      "id": "C_031",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "If I suspect an AI is **hallucinating** a fact, my immediate action is to search a reputable medical database to confirm or deny the information.",
+      "lexicon_terms": [
+        "hallucinations"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic verification habit when hallucination is suspected."
+    },
+    {
+      "id": "C_032",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can provide constructive, specific feedback to AI developers or our IT team about where a model's **guardrails** are too restrictive or dangerously lenient.",
+      "lexicon_terms": [
+        "guardrails"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses ability to critically evaluate and inform on guardrail settings."
+    },
+    {
+      "id": "C_033",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I understand and can explain how subtle changes in the input data (e.g., small phrasing differences) can lead to dramatically different AI outputs in sensitive medical tasks.",
+      "lexicon_terms": [
+        "prompt-injection"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests advanced understanding of prompt sensitivity/input robustness."
+    },
+    {
+      "id": "C_034",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I recognize that AI is generally poor at providing personal advice or emotional support and should only be used for factual, objective tasks.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic awareness of AI's limits in non-objective domains."
+    },
+    {
+      "id": "C_035",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When grading student work drafted with AI, I focus my critical feedback on the student's clinical reasoning, not just the grammar or structure provided by the AI.",
+      "lexicon_terms": [],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses critical evaluation of student work despite AI use."
+    },
+    {
+      "id": "C_036",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can critically review the methodology of an AI validation study and identify if its metrics (e.g., AUC, F1-score) are appropriate for the claimed clinical use case.",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced critical analysis of AI performance metrics."
+    },
+    {
+      "id": "C_037",
+      "category": "critical",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I consciously avoid accepting an AI suggestion just because it saved me time; I prioritize accuracy over efficiency.",
+      "lexicon_terms": [],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic critical mindset (accuracy over speed)."
+    },
+    {
+      "id": "C_038",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I routinely perform a simple 'sanity check' on AI-generated data by comparing a small sample of the output against my existing clinical knowledge.",
+      "lexicon_terms": [],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses practical habit of clinical 'sanity-checking' outputs."
+    },
+    {
+      "id": "C_039",
+      "category": "critical",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I understand the implications of **'data poisoning'** and can critically assess protocols designed to prevent malicious or biased inputs from corrupting a research AI model.",
+      "lexicon_terms": [
+        "data-privacy-and-governance",
+        "prompt-injection"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced understanding of data poisoning/model robustness risk."
+    },
+    {
+      "id": "C_040",
+      "category": "critical",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can explain to colleagues why a model trained in one specialty (e.g., Cardiology) should be viewed with skepticism if applied to a completely different one (e.g., Dermatology).",
+      "lexicon_terms": [
+        "training-vs-inference"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses critical understanding of domain-specificity limits."
+    }
+  ],
+  "workflow": [
+    {
+      "id": "W_001",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can identify at least one routine administrative task (e.g., scheduling, drafting simple emails) in my weekly schedule that could be simplified by an AI tool.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic ability to identify AI integration opportunities."
+    },
+    {
+      "id": "W_002",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can design a clinical documentation workflow that clearly defines the mandatory **human review point** after the AI generates a draft note or summary.",
+      "lexicon_terms": [
+        "workflow-design",
+        "guardrails"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses workflow design with mandatory human oversight."
+    },
+    {
+      "id": "W_003",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am proficient in creating a formalized process map that includes **data-privacy** checks and **governance** oversight for every step of an AI-assisted research workflow.",
+      "lexicon_terms": [
+        "workflow-design",
+        "data-privacy-and-governance"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced process mapping and governance integration."
+    },
+    {
+      "id": "W_004",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "When adding AI to a teaching task, I ensure the new steps are clearly communicated to all students and instructors involved.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Probes foundational communication/documentation of workflow changes."
+    },
+    {
+      "id": "W_005",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I routinely document the time saved or efficiency gained from implementing a new AI-supported task to justify its continued use.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses practical habit of measuring workflow efficiency/ROI."
+    },
+    {
+      "id": "W_006",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can successfully lead the process of scaling a pilot AI workflow (e.g., a **RAG** system for literature search) from a small team to a large department, including training and support.",
+      "lexicon_terms": [
+        "rag",
+        "workflow-design"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced ability to scale/manage adoption of AI workflows."
+    },
+    {
+      "id": "W_007",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can easily identify the two or three most repetitive steps in my grant writing process where AI could realistically assist.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Probes basic opportunity identification in research/writing."
+    },
+    {
+      "id": "W_008",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I ensure that any AI-assisted workflow has a clear and viable **fallback plan** (e.g., a manual process) in case the AI tool fails or is unavailable.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Assesses functional planning for AI downtime/failure."
+    },
+    {
+      "id": "W_009",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am capable of designing a modular workflow using multiple, specialized **agents** to handle distinct parts of a complex task, like data extraction and subsequent analysis.",
+      "lexicon_terms": [
+        "agents",
+        "workflow-design"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced design using chained or modular AI agents."
+    },
+    {
+      "id": "W_010",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I understand that introducing an AI tool requires training my team or learners on **when and how** to use it, not just giving them access.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational awareness of training need in workflow change."
+    },
+    {
+      "id": "W_011",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can map out a full peer-review process that clearly integrates an AI tool for preliminary checks (e.g., language, references) without replacing human judgment.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses integration of AI as a structured, non-judgmental assistant."
+    },
+    {
+      "id": "W_012",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can articulate the necessary technical infrastructure changes (e.g., secure access to **AI data-centers**) required to shift our department to a secure AI-assisted workflow.",
+      "lexicon_terms": [
+        "workflow-design",
+        "ai-data-centers"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced understanding of infrastructure requirements for AI scaling."
+    },
+    {
+      "id": "W_013",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know how to clearly separate the patient data that can be used in an internal, secure AI tool from the data that absolutely cannot be used.",
+      "lexicon_terms": [
+        "data-privacy"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes basic habit of data segregation/boundary identification."
+    },
+    {
+      "id": "W_014",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "When designing an AI-supported lecture preparation workflow, I include a step to ensure the generated content meets our institution's standards for accessibility.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses workflow integration of compliance/accessibility checks."
+    },
+    {
+      "id": "W_015",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can design a feedback loop that monitors AI output quality and automatically triggers re-training or alert flags if performance falls below a set clinical threshold.",
+      "lexicon_terms": [
+        "agents",
+        "guardrails"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced design of automated monitoring and correction loops."
+    },
+    {
+      "id": "W_016",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I am aware that adding AI to a process often changes the roles and responsibilities of the staff or learners involved.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational awareness of role changes due to AI."
+    },
+    {
+      "id": "W_017",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can map out a triage process where initial patient intake notes are summarized by AI, with a clear decision tree for the physician on which cases require immediate manual review.",
+      "lexicon_terms": [
+        "workflow-design",
+        "agents"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Assesses workflow design for AI-assisted clinical triage."
+    },
+    {
+      "id": "W_018",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can design a workflow that protects against **prompt injection** by strictly separating the patient-data input area from the AI instruction area in the tool interface.",
+      "lexicon_terms": [
+        "prompt-injection",
+        "guardrails"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced knowledge of prompt injection mitigation in interface design."
+    },
+    {
+      "id": "W_019",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I feel comfortable explaining to a colleague why we cannot use our existing, general-purpose AI for HIPAA-compliant tasks without a BAA (Business Associate Agreement).",
+      "lexicon_terms": [
+        "data-privacy"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic understanding of BAA/HIPAA compliance boundary."
+    },
+    {
+      "id": "W_020",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can develop a structured workflow for research assistants to use a **multimodal** AI tool (e.g., analyzing microscopy images alongside textual reports) consistently and reliably.",
+      "lexicon_terms": [
+        "multimodal-fusion",
+        "workflow-design"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Assesses workflow design for consistent use of multimodal tools."
+    },
+    {
+      "id": "W_021",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I am proficient in integrating the output of an AI model directly into our existing EMR or LIS using APIs, maintaining data integrity and security at the connection point.",
+      "lexicon_terms": [
+        "workflow-design",
+        "data-privacy"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests advanced, practical integration skill (API/EMR)."
+    },
+    {
+      "id": "W_022",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can clearly articulate the 'before AI' steps and the 'after AI' steps for a task to show colleagues exactly where the efficiency gain occurs.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic skill in before-and-after workflow visualization."
+    },
+    {
+      "id": "W_023",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can design an AI-assisted residency application review workflow that identifies high-priority candidates without introducing bias based on protected characteristics.",
+      "lexicon_terms": [
+        "guardrails",
+        "workflow-design"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses workflow design that actively manages bias in HR/admissions."
+    },
+    {
+      "id": "W_024",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can negotiate with vendors to customize the **guardrails** and ethical boundaries of a proprietary AI tool before we integrate it into our high-stakes clinical environment.",
+      "lexicon_terms": [
+        "guardrails",
+        "data-privacy-and-governance"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced negotiation/customization of vendor guardrails."
+    },
+    {
+      "id": "W_025",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I know the immediate steps to take if I accidentally input PHI into a non-secure, public AI chatbot.",
+      "lexicon_terms": [
+        "data-privacy"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational incident response knowledge (PHI breach)."
+    },
+    {
+      "id": "W_026",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can create an internal wiki or guide that documents the approved AI tools, their intended use cases, and the institutional **guardrails** for each.",
+      "lexicon_terms": [
+        "guardrails",
+        "workflow-design"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses ability to document and distribute AI policy/guidance."
+    },
+    {
+      "id": "W_027",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can design a robust research data collection workflow where AI is used to annotate or classify data, followed by a double-check system using inter-rater reliability metrics.",
+      "lexicon_terms": [
+        "workflow-design",
+        "agents"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced design of hybrid AI/human double-check systems."
+    },
+    {
+      "id": "W_028",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I understand that a key goal of AI integration is to free up clinical time for tasks that require human empathy or complex judgment.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes foundational understanding of AI's role in augmenting human work."
+    },
+    {
+      "id": "W_029",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can identify which of my current administrative tasks are **'low-hanging fruit'** for AI (high repetition, low complexity) and prioritize those for automation.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses strategic prioritization of AI automation opportunities."
+    },
+    {
+      "id": "W_030",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can lead the governance team in defining the institutional policy for managing AI-generated intellectual property (IP) and research attribution within departmental workflows.",
+      "lexicon_terms": [
+        "data-privacy-and-governance"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Tests advanced governance/policy leadership on IP management."
+    },
+    {
+      "id": "W_031",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I can quickly identify the point in my patient note-taking process where I would most naturally input data into an AI for summarization.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Probes basic ability to place AI use within existing steps."
+    },
+    {
+      "id": "W_032",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can design an educational assessment workflow where the AI grades foundational knowledge but human faculty score complex clinical reasoning, clearly separating responsibilities.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses workflow design for hybrid human/AI assessment roles."
+    },
+    {
+      "id": "W_033",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can analyze and modify a secure, departmental **RAG** system workflow to ensure its retrieval component preferentially searches the most recent, high-impact clinical trials.",
+      "lexicon_terms": [
+        "rag",
+        "workflow-design"
+      ],
+      "role_focus": "researcher",
+      "notes_for_author": "Tests advanced modification/optimization of RAG retrieval logic."
+    },
+    {
+      "id": "W_034",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I am aware that frequent use of AI tools may incur a departmental or individual cost that needs to be budgeted for.",
+      "lexicon_terms": [
+        "ai-data-centers"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes foundational awareness of AI resource costs."
+    },
+    {
+      "id": "W_035",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can train staff on a new AI workflow by emphasizing the specific ethical 'do's and don'ts' that are mandated by our institutional **guardrails**.",
+      "lexicon_terms": [
+        "guardrails",
+        "data-privacy"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses ability to integrate ethical/guardrail training into workflow rollout."
+    },
+    {
+      "id": "W_036",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can integrate a new AI-powered diagnostic tool into the existing EMR system while managing the risks of potential **prompt injection** attacks at the integration point.",
+      "lexicon_terms": [
+        "prompt-injection",
+        "workflow-design"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests advanced risk mitigation knowledge for system integration."
+    },
+    {
+      "id": "W_037",
+      "category": "workflow",
+      "difficulty": 1,
+      "type": "self_rating",
+      "stem": "I always document which specific AI tool I used (e.g., 'Drafted by Tool X, version 3.0') when sharing AI-assisted content with colleagues.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "general",
+      "notes_for_author": "Probes basic habit of transparency/attribution in workflow."
+    },
+    {
+      "id": "W_038",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "I can design a phased implementation plan (e.g., pilot in one clinic, then scale to five) for a new AI tool, including milestones and evaluation metrics.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "leader",
+      "notes_for_author": "Assesses practical planning for phased, evidence-based rollout."
+    },
+    {
+      "id": "W_039",
+      "category": "workflow",
+      "difficulty": 3,
+      "type": "self_rating",
+      "stem": "I can critically assess whether an AI's proposed optimization of a workflow (e.g., faster charting) inadvertently creates new risks or inefficiencies elsewhere in the patient journey.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "clinician",
+      "notes_for_author": "Tests advanced critical analysis of unintended consequences of AI optimization."
+    },
+    {
+      "id": "W_040",
+      "category": "workflow",
+      "difficulty": 2,
+      "type": "self_rating",
+      "stem": "After running an AI-assisted teaching pilot, I know how to gather feedback and modify the workflow based on user (faculty and student) experience.",
+      "lexicon_terms": [
+        "workflow-design"
+      ],
+      "role_focus": "educator",
+      "notes_for_author": "Assesses ability to iterate and refine workflows based on user feedback."
+    }
+  ]
+}
