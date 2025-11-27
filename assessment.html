@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MedAI Readiness Self-Assessment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 text-slate-900">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold text-slate-900">
+        MedAI Readiness Self-Assessment
+      </h1>
+      <p class="mt-3 text-sm text-slate-700 max-w-3xl">
+        Rate how true each statement is for you today. Use the same scale throughout:
+      </p>
+      <ul class="mt-2 text-sm text-slate-700 list-disc list-inside">
+        <li>1 = Strongly Disagree</li>
+        <li>2 = Disagree</li>
+        <li>3 = Neutral / Unsure</li>
+        <li>4 = Agree</li>
+        <li>5 = Strongly Agree</li>
+      </ul>
+      <p class="mt-3 text-xs text-slate-600">
+        At the end you will see scores for each domain: Prompting, Technical, Practical, Critical, and Workflow, plus an overall MedAI readiness score.
+      </p>
+    </header>
+
+    <!-- Questions container -->
+    <main id="question-container" class="space-y-10">
+      <!-- Sections will be injected here by JavaScript -->
+    </main>
+
+    <!-- Actions -->
+    <div class="mt-8 flex items-center gap-4">
+      <button
+        id="calculate-btn"
+        class="px-5 py-2.5 rounded-md bg-indigo-600 text-white text-sm font-medium shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      >
+        Calculate my scores
+      </button>
+      <p class="text-xs text-slate-600">
+        You must answer all questions before scores can be calculated.
+      </p>
+    </div>
+
+    <!-- Results -->
+    <section
+      id="results"
+      class="mt-8 p-5 rounded-lg bg-white shadow-sm border border-slate-200 hidden"
+    >
+      <!-- Results content will be injected here -->
+    </section>
+  </div>
+
+  <script>
+    // Configuration: rating labels
+    const RATING_LABELS = {
+      1: "1 · Strongly Disagree",
+      2: "2 · Disagree",
+      3: "3 · Neutral / Unsure",
+      4: "4 · Agree",
+      5: "5 · Strongly Agree"
+    };
+
+    // Helper to interpret scores
+    function interpretScore(score) {
+      if (score < 3) return "Foundational";
+      if (score < 4) return "Developing";
+      return "Advanced";
+    }
+
+    // Render the question sections
+    function renderQuestions(bank) {
+      const container = document.getElementById("question-container");
+      container.innerHTML = "";
+
+      const categories = [
+        { key: "prompt", label: "Prompting Skills" },
+        { key: "technical", label: "Technical Understanding" },
+        { key: "practical", label: "Practical Application" },
+        { key: "critical", label: "Critical Evaluation" },
+        { key: "workflow", label: "Workflow and Governance" }
+      ];
+
+      categories.forEach(cat => {
+        const items = bank[cat.key];
+        if (!items || !items.length) return;
+
+        const section = document.createElement("section");
+        section.className = "bg-white rounded-lg shadow-sm border border-slate-200 p-5";
+
+        const heading = document.createElement("div");
+        heading.className = "mb-4";
+        heading.innerHTML = `
+          <h2 class="text-xl font-semibold text-slate-900">
+            ${cat.label}
+          </h2>
+          <p class="mt-1 text-xs text-slate-600">
+            Items in this domain focus on your ${cat.label.toLowerCase()}.
+          </p>
+        `;
+        section.appendChild(heading);
+
+        const list = document.createElement("div");
+        list.className = "space-y-4";
+
+        items.forEach(item => {
+          const itemDiv = document.createElement("div");
+          itemDiv.className =
+            "border border-slate-200 rounded-md p-3 bg-slate-50";
+
+          const stem = document.createElement("p");
+          stem.className = "text-sm text-slate-900";
+          stem.textContent = item.stem;
+          itemDiv.appendChild(stem);
+
+          const radiosWrapper = document.createElement("div");
+          radiosWrapper.className =
+            "mt-2 grid grid-cols-1 sm:grid-cols-5 gap-2 text-xs";
+
+          for (let value = 1; value <= 5; value++) {
+            const id = item.id + "_" + value;
+
+            const label = document.createElement("label");
+            label.className =
+              "flex items-center gap-1 rounded border border-transparent hover:border-indigo-300 bg-white px-2 py-1 cursor-pointer";
+
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = item.id;
+            input.value = value;
+            input.id = id;
+            input.className = "h-3 w-3 text-indigo-600";
+
+            const span = document.createElement("span");
+            span.textContent = RATING_LABELS[value];
+
+            label.appendChild(input);
+            label.appendChild(span);
+            radiosWrapper.appendChild(label);
+          }
+
+          itemDiv.appendChild(radiosWrapper);
+          list.appendChild(itemDiv);
+        });
+
+        section.appendChild(list);
+        container.appendChild(section);
+      });
+    }
+
+    // Calculate scores from responses
+    function calculateScores(bank) {
+      const categories = ["prompt", "technical", "practical", "critical", "workflow"];
+
+      const sums = {
+        prompt: 0,
+        technical: 0,
+        practical: 0,
+        critical: 0,
+        workflow: 0
+      };
+      const counts = {
+        prompt: 0,
+        technical: 0,
+        practical: 0,
+        critical: 0,
+        workflow: 0
+      };
+
+      const missingItems = [];
+
+      categories.forEach(cat => {
+        const items = bank[cat];
+        if (!items) return;
+
+        items.forEach(item => {
+          const selected = document.querySelector(
+            'input[name="' + item.id + '"]:checked'
+          );
+          if (!selected) {
+            missingItems.push(item.id);
+          } else {
+            const value = Number(selected.value);
+            sums[cat] += value;
+            counts[cat] += 1;
+          }
+        });
+      });
+
+      if (missingItems.length > 0) {
+        alert(
+          "You have unanswered items. Please answer all questions before calculating scores."
+        );
+        return null;
+      }
+
+      const scores = {};
+      let totalSum = 0;
+      let totalCount = 0;
+
+      categories.forEach(cat => {
+        if (counts[cat] > 0) {
+          const avg = sums[cat] / counts[cat];
+          scores[cat] = avg;
+          totalSum += sums[cat];
+          totalCount += counts[cat];
+        }
+      });
+
+      scores.overall = totalCount > 0 ? totalSum / totalCount : 0;
+
+      return scores;
+    }
+
+    // Show results in the results panel
+    function renderResults(scores) {
+      const results = document.getElementById("results");
+      results.classList.remove("hidden");
+
+      const rows = [
+        {
+          label: "Prompting Skills",
+          key: "prompt"
+        },
+        {
+          label: "Technical Understanding",
+          key: "technical"
+        },
+        {
+          label: "Practical Application",
+          key: "practical"
+        },
+        {
+          label: "Critical Evaluation",
+          key: "critical"
+        },
+        {
+          label: "Workflow and Governance",
+          key: "workflow"
+        }
+      ];
+
+      let html = `
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">
+          Your MedAI Readiness Profile
+        </h2>
+        <p class="text-xs text-slate-600 mb-4">
+          Scores range from 1 to 5. Interpretation:
+          <span class="font-semibold">Foundational</span> (less than 3),
+          <span class="font-semibold">Developing</span> (3 to less than 4),
+          <span class="font-semibold">Advanced</span> (4 or higher).
+        </p>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm border border-slate-200">
+            <thead class="bg-slate-100">
+              <tr>
+                <th class="px-3 py-2 text-left border-b border-slate-200">Domain</th>
+                <th class="px-3 py-2 text-right border-b border-slate-200">Average score</th>
+                <th class="px-3 py-2 text-left border-b border-slate-200">Level</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      rows.forEach(row => {
+        const score = scores[row.key];
+        html += `
+          <tr>
+            <td class="px-3 py-1.5 border-b border-slate-100">${row.label}</td>
+            <td class="px-3 py-1.5 text-right border-b border-slate-100">${score.toFixed(
+              2
+            )}</td>
+            <td class="px-3 py-1.5 border-b border-slate-100">${interpretScore(
+              score
+            )}</td>
+          </tr>
+        `;
+      });
+
+      html += `
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-4 p-3 rounded-md bg-indigo-50 border border-indigo-100">
+          <p class="text-sm text-slate-900">
+            Overall MedAI readiness score:
+            <span class="font-semibold">${scores.overall.toFixed(2)}</span>
+            (${interpretScore(scores.overall)})
+          </p>
+        </div>
+
+        <p class="mt-3 text-xs text-slate-600">
+          You can use these scores to guide faculty development, targeted workshops, or individual learning plans. For example, a lower score in Technical Understanding suggests focusing on core AI concepts, while a lower Workflow score suggests work on governance, guardrails, and integration into daily practice.
+        </p>
+      `;
+
+      results.innerHTML = html;
+    }
+
+    // Main: load JSON and set up event listeners
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("medai_items.json")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Could not load medai_items.json");
+          }
+          return response.json();
+        })
+        .then(data => {
+          renderQuestions(data);
+
+          const button = document.getElementById("calculate-btn");
+          button.addEventListener("click", () => {
+            const scores = calculateScores(data);
+            if (scores) {
+              renderResults(scores);
+              window.scrollTo({
+                top: document.getElementById("results").offsetTop - 20,
+                behavior: "smooth"
+              });
+            }
+          });
+        })
+        .catch(error => {
+          console.error(error);
+          const container = document.getElementById("question-container");
+          container.innerHTML =
+            '<p class="text-sm text-red-600">There was a problem loading the assessment items. Please confirm that <code>medai_items.json</code> is in the same folder as <code>assessment.html</code>.</p>';
+        });
+    });
+  </script>
+</body>
+</html>
