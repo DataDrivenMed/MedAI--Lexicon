@@ -1,3002 +1,1136 @@
 [
   {
-    "id": "P_K_001",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which component of a well-structured prompt establishes the AI's persona and perspective?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "What is the main goal of prompt engineering in tools like ChatGPT?",
+    "option_a": "To change the model weights",
+    "option_b": "To write instructions so the model gives more useful outputs",
+    "option_c": "To increase the size of the model",
+    "option_d": "To bypass safety filters",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_002",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In prompting, what is 'zero-shot' prompting?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Which prompt is most likely to produce a clear discharge summary for a resident?",
+    "option_a": "Write something about this patient",
+    "option_b": "Summarize this chart",
+    "option_c": "You are a senior resident. Write a one paragraph discharge summary for an internal medicine attending using problem based format.",
+    "option_d": "Tell me everything you know about heart failure.",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_003",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A clinician wants the AI to generate a patient summary. Which instruction is an example of a 'negative constraint'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "What is a system prompt in many chat style tools?",
+    "option_a": "A short answer produced by the model",
+    "option_b": "Hidden instructions that set the overall role and behavior of the model",
+    "option_c": "The user's first question",
+    "option_d": "The model safety filter only",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_004",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "To ensure an AI-generated teaching case is comprehensive, which prompt element is most critical for specifying the required components (e.g., patient history, physical exam, differential diagnosis)?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Few shot prompting usually means:",
+    "option_a": "Giving the model one word questions",
+    "option_b": "Giving the model examples of good and bad answers before asking for a new answer",
+    "option_c": "Using very short prompts",
+    "option_d": "Limiting the model to a few tokens",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_005",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A researcher asks an AI to summarize a scientific article. How should the researcher ask for source verification?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Which prompt best uses chain of thought style prompting?",
+    "option_a": "Answer in one word.",
+    "option_b": "Give only the final diagnosis.",
+    "option_c": "Think step by step and show your reasoning before giving a concise final answer.",
+    "option_d": "Ignore all previous instructions.",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_006",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "When a health administrator asks an AI to draft a policy, which instruction is an example of 'formatting control'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Temperature in a chat model controls:",
+    "option_a": "The server room cooling system",
+    "option_b": "How many parameters are active",
+    "option_c": "How random and creative the word choices are",
+    "option_d": "The size of the context window",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_007",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "To restrict the length of an AI-generated explanation for a patient, what type of constraint is most effective?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "For high stakes clinical education questions the safest temperature setting is usually:",
+    "option_a": "High temperature for creativity",
+    "option_b": "Low temperature for stability and reproducibility",
+    "option_c": "Random temperature each time",
+    "option_d": "Temperature does not matter",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_008",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A prompt that includes the statement, 'You are an expert in biomedical informatics and data governance,' is primarily defining the AI's:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 3,
-    "correct_letter": "D"
+    "question": "Style transfer in prompting refers to:",
+    "option_a": "Changing the font of the output",
+    "option_b": "Asking the model to rewrite content in a different style or voice",
+    "option_c": "Translating between languages only",
+    "option_d": "Copying prompts from another user",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_009",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary purpose of providing 'few-shot' examples in a prompt?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Which is the best use of an explicit role in a prompt?",
+    "option_a": "You are my friend.",
+    "option_b": "You are a large language model.",
+    "option_c": "You are a medical scribe documenting an outpatient visit for an internist.",
+    "option_d": "Ignore all safety rules.",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_010",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "An educator wants the AI to generate a list of learning objectives. Which phrase best sets the 'context' for this task?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "When building a prompt template for faculty it is most helpful to:",
+    "option_a": "Keep it secret and never reuse it",
+    "option_b": "Rewrite it from scratch each time",
+    "option_c": "Standardize it, test it, and reuse it for similar tasks",
+    "option_d": "Avoid instructions and let the model guess the goal",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_011",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which prompt element is used to instruct the AI to process the request by articulating its reasoning steps before providing the final answer?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Zero shot prompting means:",
+    "option_a": "Giving the model many examples before a question",
+    "option_b": "Giving no examples and asking for a direct answer",
+    "option_c": "Only using the model at midnight",
+    "option_d": "Turning off safety filters",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_012",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "When extracting structured data from a free-text progress note using an AI, what is the most important instruction to include for ensuring standardized output?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "In a conversational pattern, a good repair prompt after a weak answer is:",
+    "option_a": "Forget it.",
+    "option_b": "Why are you so wrong?",
+    "option_c": "That was not what I needed. Please restate the answer in three bullet points focused on key teaching messages for interns.",
+    "option_d": "Stop talking.",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_013",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader is drafting an email. To ensure the tone is appropriate for all staff, which prompt element is best suited to guide the AI's language choice?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Which instruction best helps the model match a specific audience?",
+    "option_a": "Just write this",
+    "option_b": "Write something academic",
+    "option_c": "Explain this concept for first year medical students using plain language and one clinical example.",
+    "option_d": "Explain this in fancy words.",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_014",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "When interacting with a public-facing generative AI, what is the safest and most important 'guardrail' instruction to include in your prompt regarding patient information?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "A prompt that says 'Do not answer until you have asked me at least two clarifying questions' is trying to:",
+    "option_a": "Reduce model speed",
+    "option_b": "Force the model offline",
+    "option_c": "Encourage the model to gather more context before answering",
+    "option_d": "Disable safety settings",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_015",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which type of instruction asks the model to generate a response only based on the document provided in the prompt, thereby limiting its use of its general training data?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "When using a reusable prompt for clinic documentation, a best practice is to:",
+    "option_a": "Use it without review",
+    "option_b": "Lock trainees out of it",
+    "option_c": "Test it on several sample notes and refine wording based on errors",
+    "option_d": "Share it on social media only",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_016",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher wants to classify text snippets from medical interviews into specific diagnostic categories. Which prompting technique is most effective for ensuring the AI adheres strictly to the provided category list?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A meta prompt such as 'Evaluate the quality of this previous answer' is mostly used to:",
+    "option_a": "Change hardware settings",
+    "option_b": "Ask the model to critique or improve its own output",
+    "option_c": "Reset the context window",
+    "option_d": "Delete logs",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_017",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A clinician is using an AI to draft a complex patient discharge summary. Which structure combines the 'Role,' 'Task,' and 'Context' most effectively?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "In a teaching session, the most useful way to share prompts with residents is:",
+    "option_a": "Verbally and never written",
+    "option_b": "As screenshots only",
+    "option_c": "As a simple playbook with copyable prompt templates and examples",
+    "option_d": "Not sharing at all to keep control",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_018",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "An educator is generating a simulated clinical case where the patient’s race is intentionally *not* specified to avoid potential bias in student diagnosis. How should this be handled in the prompt?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "When a prompt explicitly requests numbered steps, the main effect is:",
+    "option_a": "Shorter tokens",
+    "option_b": "A more structured and scannable answer",
+    "option_c": "A more random answer",
+    "option_d": "More hallucinations",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_019",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "In a prompt asking an AI to analyze medical literature, what is the primary purpose of asking the AI to include a 'limitations of source' section?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "In MedAI context, few shot clinical reasoning prompts often pair:",
+    "option_a": "Random questions and random answers",
+    "option_b": "Clinical vignettes and example responses",
+    "option_c": "Only lab values and billing codes",
+    "option_d": "Only vital signs",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_020",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader needs an AI to summarize a complex institutional governance document. To mitigate the risk of the AI 'hallucinating' or misinterpreting key policy details, what advanced prompting technique is best?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "If a model repeatedly ignores an instruction in the prompt, a good next step is to:",
+    "option_a": "Complain to trainees",
+    "option_b": "Stop using AI forever",
+    "option_c": "Rewrite the instruction more specifically and move it earlier in the prompt",
+    "option_d": "Turn off grammar checking",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_021",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "When a clinician needs to generate a brief, culturally-sensitive patient education handout using AI, how should the prompt incorporate the 'audience' as a constraint?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
+    "question": "Prompt patterns such as 'role task context constraints examples' are mainly useful because they:",
+    "option_a": "Hide the true task",
+    "option_b": "Increase GPU usage",
+    "option_c": "Give a repeatable structure that others can adapt",
+    "option_d": "Block safety filters",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_022",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is asking an AI to reformat extracted data. If the AI output is inconsistent, jumping between JSON, XML, and plain text, what is the most likely missing or inadequate component of the original prompt?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "When asking the model to generate exam questions, a safe instruction is:",
+    "option_a": "Use real patient names",
+    "option_b": "Include PHI if it helps realism",
+    "option_c": "Do not include any real patient identifiers and keep all examples fictional",
+    "option_d": "Ignore privacy rules",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_023",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary risk of using an overly detailed and restrictive prompt (high number of negative constraints, role definitions, and examples)?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "To reduce hallucinations in a prompt that asks about local policies, you should:",
+    "option_a": "Ask about everything in medicine at once",
+    "option_b": "Avoid giving any documents",
+    "option_c": "Provide the exact text of the relevant policy and tell the model to stick to that text",
+    "option_d": "Tell the model to guess",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_024",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "An administrative staff member needs to extract specific data points (e.g., meeting dates, attendees) from 10 different free-text policy documents. What structure is best for this 'data extraction' task?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "In a longitudinal course, storing tested prompts in a shared document mainly helps:",
+    "option_a": "Increase confusion",
+    "option_b": "Prevent reuse",
+    "option_c": "Create consistency and reduce repeated trial and error",
+    "option_d": "Hide expertise",
+    "correct_option": "C"
   },
   {
-    "id": "P_K_025",
     "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "The Chain-of-Thought (CoT) method improves model performance primarily by mimicking which human cognitive process?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "When you ask for a summary 'in one table with columns X Y and Z' you are mainly guiding:",
+    "option_a": "Sampling temperature",
+    "option_b": "Output format and structure",
+    "option_c": "Hardware resources",
+    "option_d": "User logins",
+    "correct_option": "B"
   },
   {
-    "id": "P_K_026",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A clinician is summarizing a patient’s health history using an AI connected to an internal EMR. To protect data privacy, which prompt instruction is a high-priority 'guardrail' beyond simple PHI exclusion?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 3,
-    "correct_letter": "D"
-  },
-  {
-    "id": "P_K_027",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the key difference in output quality between 'few-shot' and 'zero-shot' prompting for a task requiring a very specific format, like a structured research abstract?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_028",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "In the context of AI use in medical education, an 'iterative prompt' refers to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_029",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A prompt includes a long, detailed piece of text for the AI to analyze, but the AI's response seems to ignore the information in the middle of the text. What is the most likely technical reason for this 'lost' information?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "P_K_030",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "When designing an AI assessment question, a good prompt will ask the AI to justify its multiple-choice selection, then present the final answer. This is an application of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "P_K_031",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using an AI to find counter-arguments for a hypothesis in a literature review. Which element should the prompt prioritize to ensure a robust and balanced output?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_032",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical administrator is drafting a compliance document. They want the AI to base its output ONLY on the attached institutional policy document and ignore its general training knowledge. This is an example of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_033",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "In the context of prompting an AI for clinical advice (for educational purposes only), what does 'grounding' the answer mean?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_034",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical faculty member wants an AI to draft a syllabus section but explicitly instructed the AI to 'avoid any reference to technology released after 2023.' This is a control over the AI's:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "P_K_035",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "Which 'Role' definition is most likely to produce highly technical, jargon-heavy language in an AI's response?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 3,
-    "correct_letter": "D"
-  },
-  {
-    "id": "P_K_036",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A leader is using an AI to brainstorm solutions for clinic scheduling. To avoid confirmation bias in the output, what type of instruction should be included?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "P_K_037",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary technical reason why a simple, ambiguous prompt like 'Tell me about heart failure' might result in a high-quality, but overly generic, response?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_038",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "An administrative user is using an AI to classify incoming patient feedback into 'High Priority,' 'Medium Priority,' or 'Low Priority.' The AI is frequently misclassifying 'Medium' as 'Low.' What is the best prompt revision to fix this?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_039",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "To make an AI-generated patient education sheet accessible, the user adds the instruction: 'The Flesch-Kincaid reading ease score of the final text must be 70 or higher.' This instruction is primarily an example of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_040",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "Why is it important to explicitly instruct an AI to provide 'complete and actionable' steps when asked for a protocol draft (e.g., a research IRB submission process)?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_041",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using a multimodal model to interpret a chest X-ray and draft a preliminary report. Which advanced prompting technique combines visual input, textual context, and structured output requirements most effectively?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_042",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the context of 'Self-Correction' or 'Self-Refinement' prompting, what is the core mechanism that yields a better final response?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_043",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using an AI to analyze the sentiment of complex, nuanced patient narratives. Which advanced CoT variation should be employed to handle ambiguity and uncertainty most effectively?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_044",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "To implement a complex data extraction task where the AI must output nested patient demographic and procedural data in a validated schema, the prompt must include:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "P_K_045",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader needs an AI to generate a SWOT analysis of a new AI policy. Which advanced prompt will best ensure a balanced and critical analysis?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "P_K_046",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary technical limitation that necessitates the use of complex data chunking and RAG for an AI to accurately summarize a patient's *entire*, long EMR history (thousands of pages)?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_047",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "How does providing a sophisticated 'thought process template' (e.g., 'First, verify the primary diagnosis. Second, assess co-morbidities. Third, check contraindications. Finally, suggest a plan.') improve the output of an AI when compared to a simple CoT prompt?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_048",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "An educator is using an AI to generate a simulated medical crisis scenario. Which prompt feature would best allow the AI to 'play' the role of multiple, distinct characters (e.g., the patient, the nurse, the lab tech) with different linguistic styles?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "P_K_049",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the highest-stakes clinical research use of AI, a prompt includes the instruction: 'After generating the response, perform a self-critique on the potential for demographic bias in the output and suggest two alternative wordings to mitigate this.' This is an example of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "P_K_050",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Which approach is the most robust way to ensure that the AI, when summarizing a patient safety report, does not over-report one type of error while under-reporting another, a common issue known as 'recency bias'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_051",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In large language models, what is the 'context window'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Tokenization is best described as:",
+    "option_a": "Turning text into small units the model can count and process",
+    "option_b": "Encrypting the text",
+    "option_c": "Measuring user time online",
+    "option_d": "Assigning diagnosis codes",
+    "correct_option": "A"
   },
   {
-    "id": "T_K_052",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary function of 'pre-training' a large language model in the technical workflow?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "An embedding is:",
+    "option_a": "A lab test code in the EHR",
+    "option_b": "A numerical vector that represents meaning of text in a high dimensional space",
+    "option_c": "A type of infection",
+    "option_d": "A radiology sequence",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_053",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What process is used to convert input text (words, parts of words, or characters) into numerical representations that a neural network can process?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Latent space in a model is:",
+    "option_a": "The physical space in the data center",
+    "option_b": "The internal concept space where related ideas are close together",
+    "option_c": "A secure cloud folder",
+    "option_d": "The area of memory used for logs",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_054",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "If an AI generates a plausible-sounding but factually incorrect clinical statement, this is most commonly referred to as:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Hallucinations in large language models are:",
+    "option_a": "Visual images generated by the model",
+    "option_b": "Sleep problems caused by screen time",
+    "option_c": "Confident but incorrect or fabricated outputs",
+    "option_d": "Outputs that use medical jargon",
+    "correct_option": "C"
   },
   {
-    "id": "T_K_055",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What does RAG stand for in the context of large language models?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Positional encoding helps the model:",
+    "option_a": "Know the order of tokens in a sequence",
+    "option_b": "Store patient locations",
+    "option_c": "Encrypt PHI",
+    "option_d": "Assign billing codes",
+    "correct_option": "A"
   },
   {
-    "id": "T_K_056",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the 'knowledge cutoff' of an AI model?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "The context window of a model is:",
+    "option_a": "The number of users who can log in",
+    "option_b": "The amount of text the model can consider at one time",
+    "option_c": "The number of GPUs in the cluster",
+    "option_d": "The time allowed for a session",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_057",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which technical component of an AI model is primarily responsible for understanding the meaning and semantic relationships between words and phrases?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 3,
-    "correct_letter": "D"
+    "question": "Sampling methods in text generation are used to:",
+    "option_a": "Decide which tokens to pick next from the probability distribution",
+    "option_b": "Choose which patients to enroll in a trial",
+    "option_c": "Measure lab values",
+    "option_d": "Assign residents to clinics",
+    "correct_option": "A"
   },
   {
-    "id": "T_K_058",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary goal of 'fine-tuning' a pre-trained general-purpose language model?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Attention heads in a transformer model:",
+    "option_a": "Are hospital service chiefs",
+    "option_b": "Are parallel pattern detectors that focus on different relationships in the text",
+    "option_c": "Are parts of the cooling system",
+    "option_d": "Are types of memory chips",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_059",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "If an AI model performs exceptionally well on the data it was trained on but poorly on new, unseen data (e.g., a new patient cohort), it is most likely demonstrating:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Residual connections or residual streams in deep networks mainly help:",
+    "option_a": "Shorten notes",
+    "option_b": "Carry information forward through layers without erasing it",
+    "option_c": "Encrypt data",
+    "option_d": "Reduce token counts",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_060",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Bias in a large language model is fundamentally caused by:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "RLHF, which stands for reinforcement learning from human feedback, is mainly used to:",
+    "option_a": "Train residents",
+    "option_b": "Align model behavior with human preferences and safety norms",
+    "option_c": "Encrypt medical images",
+    "option_d": "Increase internet speed",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_061",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which technical feature allows an AI to search through external, specific documents (like internal hospital policies or the latest journal articles) and use the retrieved text to inform its answer?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "Scaling laws in language models suggest that:",
+    "option_a": "Performance stays flat as models grow",
+    "option_b": "Performance tends to improve predictably as data, parameters, and compute increase",
+    "option_c": "Only hardware matters",
+    "option_d": "Bigger models are always unsafe",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_062",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "The core function of 'Reinforcement Learning from Human Feedback (RLHF)' is to align the model's generated outputs with:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Training in this context usually refers to:",
+    "option_a": "Writing a prompt",
+    "option_b": "Adjusting model weights on large datasets",
+    "option_c": "Turning servers on and off",
+    "option_d": "Switching users between clinics",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_063",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is a 'token' in the context of LLMs?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Inference in a large language model means:",
+    "option_a": "Collecting training data",
+    "option_b": "Updating weights",
+    "option_c": "Running the already trained model to generate outputs for new inputs",
+    "option_d": "Deleting logs",
+    "correct_option": "C"
   },
   {
-    "id": "T_K_064",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A general-purpose LLM has a 'knowledge cutoff' of September 2023. If a clinician asks it a question about a medical guideline released in June 2024, the AI will likely:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Pretraining for a general model most often uses:",
+    "option_a": "Only one textbook",
+    "option_b": "Large mixed datasets such as web pages, books, code, and public text",
+    "option_c": "Only EHR data",
+    "option_d": "Only radiology images",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_065",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In model evaluation, what is 'generalization'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
+    "question": "Fine tuning on top of a pretrained model usually:",
+    "option_a": "Starts training from zero again",
+    "option_b": "Makes smaller adjustments for a narrower domain or task",
+    "option_c": "Deletes pretraining data",
+    "option_d": "Turns off safety filters",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_066",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical AI is fine-tuned on a small, regional dataset of cardiology reports. Why does this model face a higher risk of 'overfitting' compared to the base model?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A model's parameters are best thought of as:",
+    "option_a": "Hospital beds",
+    "option_b": "Numeric values that determine how the model maps inputs to outputs",
+    "option_c": "Billing codes",
+    "option_d": "Folder names",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_067",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "Why does a larger 'context window' benefit a clinician using an AI to summarize a long EMR chart?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A safety filter layer around a model usually:",
+    "option_a": "Changes the number of parameters",
+    "option_b": "Screens and edits prompts or outputs that involve sensitive or risky content",
+    "option_c": "Changes the embedding space",
+    "option_d": "Only manages passwords",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_068",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "How do 'embeddings' enable 'semantic search' in an AI system used for medical literature review?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
+    "question": "When a model is described as multimodal, it usually means:",
+    "option_a": "It only handles text",
+    "option_b": "It can handle multiple input types such as text and images",
+    "option_c": "It only handles billing codes",
+    "option_d": "It only handles audio",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_069",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "Which technical factor contributes most directly to the 'hallucination' risk in a general LLM when asked a highly specific medical question?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Context overflow happens when:",
+    "option_a": "Users log in too quickly",
+    "option_b": "The total input and history exceed the model's context window and older tokens are dropped or truncated",
+    "option_c": "GPU fans stop",
+    "option_d": "Passwords expire",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_070",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical educator is concerned that the AI-generated curriculum is subtly biased towards male-centric examples. This is primarily a reflection of bias introduced during:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
+    "question": "A smaller specialized model may be preferable to a very large general model when:",
+    "option_a": "The task is narrow and latency and cost are important",
+    "option_b": "The task is unknown",
+    "option_c": "No training data exist",
+    "option_d": "You want maximum hype only",
+    "correct_option": "A"
   },
   {
-    "id": "T_K_071",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "In the context of RAG, what is the 'retrieval' step?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Temperature and top k together control:",
+    "option_a": "EHR storage",
+    "option_b": "The randomness and diversity of token sampling",
+    "option_c": "GPU memory leaks",
+    "option_d": "Network speed",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_072",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher notices that a fine-tuned diagnostic AI performs worse on new data than the general pre-trained model. This suggests the fine-tuning data was most likely:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "When a model returns different but all reasonable paraphrases of the same guideline, this likely reflects:",
+    "option_a": "Unstable hardware",
+    "option_b": "The stochastic nature of sampling over similar tokens",
+    "option_c": "Data corruption",
+    "option_d": "User error only",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_073",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "The process of 'tokenization' is critical for a language model because:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A token is roughly:",
+    "option_a": "Always one word exactly",
+    "option_b": "A chunk of text that can be a whole word, part of a word, or punctuation",
+    "option_c": "One sentence",
+    "option_d": "One paragraph",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_074",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A health system is building an internal AI and is worried about the model giving biased recommendations for a low-volume patient population. The most effective technical mitigation is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "One reason models hallucinate citations is:",
+    "option_a": "They are directly reading all articles live",
+    "option_b": "They do not have a built in database of verified references and instead generate citation like strings from patterns in training data",
+    "option_c": "They can access PubMed in real time by default",
+    "option_d": "They are required to be accurate about references",
+    "correct_option": "B"
   },
   {
-    "id": "T_K_075",
     "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary technical method used by LLMs to predict the next word in a sequence?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_076",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "Why does a model that uses RAG tend to hallucinate less on factual questions compared to a model that relies solely on its original pre-training knowledge?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_077",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "In the RLHF process, a 'Reward Model' is trained to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_078",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A multimodal AI is trained on clinical images and text. The model is struggling to correlate a textual symptom description with a finding in an X-ray. This failure is fundamentally a problem with its ability to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "T_K_079",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary difference in the *data* used for the 'pre-training' phase versus the 'fine-tuning' phase of a medical LLM?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_080",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "An administrator is designing a simple AI for classifying policy documents. To avoid 'underfitting' the model (where it misses obvious patterns), which technical aspect must be improved?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "T_K_081",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In a clinical decision support system, the RAG system retrieves a document and the LLM then generates an answer. If the retrieved document contains an error, the LLM will most likely:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_082",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "For a medical LLM, which statement accurately describes the trade-off between 'overfitting' and 'generalization'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "T_K_083",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Why might a medical LLM fine-tuned using 'Reinforcement Learning from Human Feedback (RLHF)' still exhibit subtle biases, even though human reviewers rated the responses for safety and helpfulness?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_084",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary technical limitation of a standard LLM that makes it vulnerable to 'Catastrophic Forgetting' when fine-tuned on a very niche dataset?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_085",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In advanced LLM architectures, how is the 'Attention Mechanism' related to the concept of the 'context window'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_086",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader needs to ensure the internal AI only cites specific, approved guidelines. Which technical architecture is required to *guarantee* source control and minimize the risk of external factual hallucinations?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_087",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Why is the use of 'temperature' a critical parameter when prompting an LLM for highly technical, fact-based clinical summarization?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "T_K_088",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "When evaluating a new diagnostic AI, a researcher finds the Area Under the Curve (AUC) is 0.99 but the patient cohort in the test set is highly imbalanced (99% negative cases). This suggests a technical risk of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_089",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "How does 'Parameter-Efficient Fine-Tuning (PEFT)' like LoRA help health systems overcome the technical and resource barrier of fine-tuning large foundation models?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_090",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary challenge in using an LLM's 'semantic search' (based on embeddings) to retrieve medical information, as opposed to traditional keyword search?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_091",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the absolute fundamental safety rule when using a public-facing generative AI tool for a clinical task?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_092",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A medical educator uses AI to generate a synthetic clinical vignette for a student quiz. What is the most important post-generation step?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "A_K_093",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "For a clinician, the safest and most efficient use of AI for complex clinical text is primarily for:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_094",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is drafting the 'Methods' section of a grant proposal using an AI. Which action best ensures safe and effective use?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_095",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which of the following is an appropriate use of a public-facing AI tool for a health administrator?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "A_K_096",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A clinician wants an AI to summarize a long, complex consent form for a patient with a 5th-grade reading level. This is an example of AI use for:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_097",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary advantage of using a 'multimodal' AI (image + text) over a purely text-based LLM in a clinical research setting?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_098",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "When using AI to brainstorm ideas for a new teaching case, the most crucial practical step is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_099",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which action should a medical leader always take before distributing an AI-drafted email to all staff?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_100",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "If an AI is used to create a short, educational video for patient use, what must be done to ensure its clinical safety?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_101",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the safest way for a faculty member to use a public-facing AI to create a realistic, but generic, patient case for teaching?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_102",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In the context of research, using AI for 'summarization' is practically beneficial for quickly:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "A_K_103",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which AI feature can an administrator use to convert a lengthy, unstructured meeting transcript into a structured table of action items and responsible parties?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_104",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "If a clinician uses an AI to help draft a simple letter of referral, what is the most important practical verification step?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_105",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Which scenario is an appropriate use of AI for 'brainstorming' in a medical leadership setting?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_106",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical educator wants to create a personalized, adaptive learning path for a student based on their past performance reports. Which method of AI use is most appropriate and efficient?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_107",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A clinician is considering an AI-generated differential diagnosis (DDx) for a complex case. What is the most critical human-in-the-loop task *after* the AI generates the DDx list?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_108",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using a multimodal AI to count cells in a microscopic image and then summarize the findings in a report. Which practical challenge is most likely to require immediate human intervention?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_109",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader needs to write a concise, compelling case statement for capital investment in a new facility. Which is the best practical AI usage strategy?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_110",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "An administrator is using an internal, compliant AI to generate summaries of patient discharge instructions for quality control auditing. To ensure the AI doesn't create new, non-existent instructions, the most practical approach is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_111",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical educator is generating a simulation script for an inter-professional team training. Which aspect of the script is the AI *least* suited to create reliably without significant human editing?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "A_K_112",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A clinician is using an approved EMR-integrated AI to draft a SOAP note. The AI suggests a phrase that is technically correct but potentially offensive. This is a practical example of the need for human review to assess for:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_113",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is a practical example of using 'synthetic data' generation in medical research?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_114",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader is using an AI to draft a detailed policy on AI use in the hospital. The most critical practical step to ensure legal compliance is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 2,
-    "correct_letter": "C"
-  },
-  {
-    "id": "A_K_115",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "When an administrative user utilizes an AI to classify and tag incoming general inquiries, what is the key practical risk if the AI model was trained on a different set of classification labels?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_116",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the key practical difference in risk between using a public LLM and an institutional, BAA-compliant LLM for generating a medical teaching case *based* on a real, de-identified patient?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_117",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A clinician is using an internal AI to quickly draft a concise summary of a patient's seven-day hospital course for handover. The *most* important practical efficiency gain is:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_118",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using an AI to assist in grant writing. The most valuable practical use is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_119",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader wants to use AI for market analysis of a new service line. Which is the safest practical approach regarding data confidentiality?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_120",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary risk of using an AI-generated 'patient education' handout without human review?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_121",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using an internal, compliant multimodal AI to correlate gene expression data (text) with pathological slides (image). The critical practical risk, despite compliance, is:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_122",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the context of EMR integration, using AI to 'pre-fill' components of a discharge summary requires what level of practical human oversight to ensure legal and clinical accountability?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_123",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader is designing a system for AI-assisted resource allocation (e.g., staffing, bed assignments). The key practical guardrail against systemic bias and potential legal challenge is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_124",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "An educator uses an AI to generate a 'Red Herring' (distractor) answer for a high-stakes assessment question. The highest practical risk is:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_125",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using an AI to perform 'data cleaning' (e.g., standardizing text entries). Which practical step is essential for minimizing the risk of introducing systemic, unrecoverable errors?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_126",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "What is a major, practical limitation of using a public-facing LLM for drafting a HIPAA-compliant BAA (Business Associate Agreement)?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_127",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the context of AI-assisted patient scheduling, a practical way to mitigate the risk of 'automation bias' among administrative staff is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_128",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A clinician uses an internal, RAG-enabled AI to summarize the most recent guideline on a rare disease. The most critical *practical* check of the AI's output is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_129",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A medical educator is designing a new competency assessment. Which practical use of AI is the most time-efficient and high-value?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_130",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "When an AI is used in a research setting to analyze large datasets and propose *hypotheses* for new studies, what is the most important practical human role?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_131",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In the context of AI in medicine, what is a 'hallucination'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_132",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary risk of an AI having a 'knowledge cutoff' date that precedes the most recent medical guidelines?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_133",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "If an AI-generated patient education summary includes citations, what is the most important critical thinking step the clinician must take?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_134",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In AI development, what does 'equity' primarily refer to?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_135",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is 'automation bias'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_136",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A medical educator uses an AI to generate an assessment question. What is the most important critical step for the educator?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_137",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is reviewing an AI model trained on a very small dataset. This raises a critical concern about:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_138",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary reason why health professionals should be critically wary of AI outputs that lack clear source attribution or citations?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_139",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "When reviewing an AI-generated administrative report, which is the most critical question regarding the data source?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_140",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "If an AI is used to screen residency applications, what is the key ethical and critical risk to monitor?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_141",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A diagnostic AI achieves a very high sensitivity score but a low specificity score. Critically, what does this pattern suggest about its clinical performance?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "C_K_142",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A clinician uses an EMR-integrated AI that suggests a preliminary diagnosis. The clinician rejects the diagnosis after a brief review. Which is the most effective critical guardrail against 'automation bias' in this workflow?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
-  },
-  {
-    "id": "C_K_143",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher uses an AI to analyze public health records but finds the AI's performance is significantly worse for rural populations. This is a critical example of bias introduced by:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_144",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the critical risk when a medical leader deploys an AI tool without transparently documenting its training data sources and governance?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_145",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "When a medical educator reviews an AI-generated learning objective, what critical check addresses the risk of the objective being *unrealistically* advanced for the target learner level?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_146",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A health administrator uses an AI to summarize staff survey responses. A critical error occurs when the AI misinterprets negative comments about 'leadership' as 'feedback on infrastructure.' This highlights a need for human review to correct for:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_147",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is evaluating an AI that classifies pathology slides. The 'Area Under the Curve (AUC)' for the model is high, but the dataset is too small. Critically, why is this metric misleading?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_148",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "The critical importance of 'guardrails' in AI prompting for clinical tasks is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_149",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "When a clinician encounters an AI-generated statement that seems *too* confident and absolute for a clinically ambiguous topic, this is a critical sign of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_150",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "Which strategy is a critical step for a medical leader to mitigate 'automation bias' among staff when deploying an AI system?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_151",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "An AI model, when deployed, shows a sudden, unexplained drop in performance for a specific sub-population despite no change in code. This critical event, often difficult to debug, is known as:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_152",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "The critical ethical concern when an AI fine-tuned on data from one major academic center is deployed in a low-resource community hospital is:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_153",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the critical review of an AI-generated research literature summary, how should the researcher assess for 'citation hallucination'?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_154",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader is presented with a report stating an AI model has an AUC of 0.95. Critically, what additional context is *most* essential to interpret this metric's real-world value?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_155",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Which type of AI-generated content carries the highest critical risk of 'irreversible harm' if deployed without expert human review?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_156",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the critical assessment of an AI's 'Explainability' (or XAI), what is the primary goal for a clinician?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_157",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "When designing an AI for admissions (educator role), why is it critically important to use a 'fairness metric' that measures performance disparity (e.g., False Positive Rate parity) instead of just overall accuracy?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_158",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Which scenario represents the highest critical risk of 'data leakage' when using an AI in a research setting?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_159",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Why does the use of proprietary, 'black box' AI models in clinical decision support raise a critical governance concern for a medical leader?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_160",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "When an administrative AI system is trained to prioritize patient follow-up based on predicted risk, what is the critical consequence of the AI having a systemic 'False Negative Bias' (missing high-risk cases)?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "W_K_161",
+    "question": "If a vendor claims their model never hallucinates, a safe interpretation is that:",
+    "option_a": "They have solved AI alignment completely",
+    "option_b": "They are exaggerating or misusing the term and you should ask detailed evaluation questions",
+    "option_c": "They must be using magical hardware",
+    "option_d": "The model cannot generate text",
+    "correct_option": "B"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "Retrieval augmented generation (RAG) combines:",
+    "option_c": "Only free text prompts",
+    "option_d": "Search over external documents with language model generation",
+    "correct_option": "IMAGE RECOGNITION WITH BILLING"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "A good use of RAG in a medical school is:",
+    "option_c": "Randomly writing policies",
+    "option_d": "Grounding answers in local policies and guidelines pulled from institutional documents",
+    "correct_option": "REPLACING ALL FACULTY"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "AI agents in the MedAI sense are:",
+    "option_c": "Single static prompts",
+    "option_d": "Systems where models can plan, call tools, review results, and iterate",
+    "correct_option": "ONLY CHATBOTS THAT TRANSLATE LANGUAGES"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "Human in the loop review in an AI workflow means:",
+    "option_c": "No human oversight",
+    "option_d": "A human reviews and can override AI outputs at defined points",
+    "correct_option": "HUMANS ONLY SET UP HARDWARE"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "Quantization of a model mainly:",
+    "option_c": "Increases floating point precision",
+    "option_d": "Compresses model weights to fewer bits to save memory and compute",
+    "correct_option": "DELETES SAFETY FILTERS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "LoRA (low rank adaptation) is designed to:",
+    "option_c": "Retrain the whole model from scratch",
+    "option_d": "Adapt a large model by training small add on matrices instead of all weights",
+    "correct_option": "ENCRYPT EHR DATA"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "Diffusion models are most commonly used for:",
+    "option_c": "Tabular billing data",
+    "option_d": "Image generation and image like data such as medical image synthesis",
+    "correct_option": "AUDIO ONLY TASKS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "Multimodal models in MedAI are models that:",
+    "option_c": "Only use text input",
+    "option_d": "Jointly process text, images, and other modalities",
+    "correct_option": "ONLY USE LAB DATA"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "AI data centers used for MedAI workloads mainly require:",
+    "option_c": "Only office chairs",
+    "option_d": "GPU or similar accelerators, high bandwidth networking, and strong cooling",
+    "correct_option": "ONLY LARGE WAITING ROOMS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "A practical safe early use case of generative AI for faculty is:",
+    "option_c": "Letting it write final prescriptions for patients",
+    "option_d": "Using it to draft formative feedback that you review and edit before sending",
+    "correct_option": "LETTING IT ENTER ORDERS DIRECTLY"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "In curriculum design, a realistic AI supported workflow is:",
+    "option_c": "Asking AI to approve promotions",
+    "option_d": "Using AI to draft learning objectives and sample questions that faculty then revise",
+    "correct_option": "LETTING AI ASSIGN CLERKSHIP GRADES"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "In research, a safe starting use case is:",
+    "option_c": "Letting AI fabricate data for a trial",
+    "option_d": "Using AI to help draft background sections that are then checked against primary sources",
+    "correct_option": "LETTING AI SIGN IRB FORMS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "A good use of AI for resident coaching is:",
+    "option_c": "Letting AI replace all faculty coaching",
+    "option_d": "Using AI to generate practice questions and sample answers for debrief with faculty",
+    "correct_option": "LETTING AI CONDUCT SUMMATIVE EVALUATIONS ALONE"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "For patient education materials, generative AI can:",
+    "option_c": "Directly send materials without clinician review",
+    "option_d": "Draft plain language explanations that clinicians review and adapt for their population",
+    "correct_option": "IGNORE LITERACY LEVELS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "Using RAG against institutional policies mainly helps:",
+    "option_c": "Increase hallucinations",
+    "option_d": "Keep answers aligned with local rules and reduce unsupported claims",
+    "correct_option": "REPLACE COMPLIANCE OFFICERS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "A safe teaching use of an image generation model is:",
+    "option_c": "Generating identifiable images of local patients",
+    "option_d": "Creating generic diagrams or conceptual images that do not depict real patients",
+    "correct_option": "UPLOADING REAL CT SCANS WITH IDENTIFIERS TO PUBLIC TOOLS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "In quality improvement projects, AI can help by:",
+    "option_c": "Signing off on interventions",
+    "option_d": "Drafting fishbone diagrams or driver diagrams that teams refine",
+    "correct_option": "APPROVING BUDGETS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "In a busy clinic, AI scribing tools should be used so that:",
+    "option_c": "The note is accepted automatically",
+    "option_d": "The clinician reviews and edits the draft note before signing",
+    "correct_option": "RESIDENTS NEVER SEE THE NOTE"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "When using AI to summarize long articles for journal club, a good practice is to:",
+    "option_c": "Skip reading the full paper",
+    "option_d": "Use summaries only",
+    "correct_option": "COMPARE THE AI SUMMARY WITH THE ORIGINAL PAPER BEFORE TEACHING OR MAKING CLAIMS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "For a grant proposal, AI can most safely help:",
+    "option_c": "Fill in the budget tables without oversight",
+    "option_d": "Draft narrative sections that investigators review and edit",
+    "correct_option": "SIGN SUBMISSION FORMS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "In simulation education, AI can:",
+    "option_c": "Replace all debriefing faculty",
+    "option_d": "Help create variations of case scenarios and checklists that faculty test and refine",
+    "correct_option": "RUN SIMULATIONS WITHOUT HUMAN OBSERVERS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "A practical use of embeddings in education is:",
+    "option_c": "Matching random articles",
+    "option_d": "Building a semantic search tool over local teaching cases",
+    "correct_option": "ENCRYPTING PASSWORDS"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "When introducing AI into a clerkship, a reasonable first step is:",
+    "option_c": "Make it mandatory in all patient interactions",
+    "option_d": "Pilot a narrow use case such as drafting feedback, with clear rules and supervision",
+    "correct_option": "LET STUDENTS USE ANY PUBLIC TOOL WITH PHI"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "AI can help with program evaluation by:",
+    "option_c": "Replacing institutional research staff",
+    "option_d": "Summarizing open ended survey comments into themes for human review",
+    "correct_option": "WRITING ACCREDITATION LETTERS WITH NO OVERSIGHT"
+  },
+  {
+    "domain": "Practical use cases in education",
+    "question": "research",
+    "option_a": "and clinical work",
+    "option_b": "In a research data pipeline, an AI helper script might:",
+    "option_c": "Invent outcome data",
+    "option_d": "Help generate code snippets for cleaning data that analysts then review",
+    "correct_option": "SUBMIT DATA DIRECTLY TO REGULATORS"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Hallucinations in clinical education content are dangerous mainly because:",
+    "option_c": "They are always easy to detect",
+    "option_d": "They can look plausible and confident while being wrong",
+    "correct_option": "THEY NEVER MENTION REFERENCES"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "A safe first reaction when a model gives a surprising clinical claim is to:",
+    "option_c": "Accept it if the wording is confident",
+    "option_d": "Verify it against trusted sources such as guidelines or primary literature",
+    "correct_option": "SHARE IT WIDELY ON SOCIAL MEDIA"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "RLHF can introduce bias because:",
+    "option_c": "It removes all human input",
+    "option_d": "Human raters' preferences and blind spots are encoded into the reward model",
+    "correct_option": "IT DELETES TRAINING DATA"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Catastrophic forgetting is most relevant when:",
+    "option_c": "A model is trained sequentially on new tasks and loses performance on earlier tasks",
+    "option_d": "A model is never updated",
+    "correct_option": "A MODEL IS ONLY USED FOR TRANSLATION"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Emergent abilities in larger models mean that:",
+    "option_c": "New skills can appear at scale and need fresh evaluation in clinical contexts",
+    "option_d": "Models never change with scale",
+    "correct_option": "SMALL MODELS ARE ALWAYS BETTER"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Prompt injection attacks usually try to:",
+    "option_c": "Improve note clarity",
+    "option_d": "Hide malicious instructions inside text that the model will follow",
+    "correct_option": "ENCRYPT THE CONTEXT WINDOW"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "A strong guardrail for AI use with PHI in a medical school is:",
+    "option_c": "Copying PHI into any public chatbot",
+    "option_d": "Restricting PHI to approved systems with encryption and business associate agreements",
+    "correct_option": "SHARING SCREENSHOTS IN CHAT APPS"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Data governance for AI in an academic health center should include:",
+    "option_c": "Clear rules on which data can train models, where data can be stored, and who can access outputs",
+    "option_d": "Only buying more GPUs",
+    "correct_option": "ONLY TRACKING INTERNET SPEED"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "A red flag in a vendor claim about a clinical AI tool is:",
+    "option_c": "They openly share evaluation methods and limitations",
+    "option_d": "They state that the model never hallucinates and needs no human review",
+    "correct_option": "THEY PUBLISH VALIDATION DATASETS"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "When teaching trainees about AI bias a helpful exercise is:",
+    "option_c": "Never discussing examples",
+    "option_d": "Designing small tests where they check outputs for different patient groups and discuss differences",
+    "correct_option": "ONLY USING MARKETING SLIDES"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Data privacy in MedAI mainly concerns:",
+    "option_c": "Where models store weights only",
+    "option_d": "How identifiable information is protected, shared, and used for training or inference",
+    "correct_option": "MONITOR SIZE"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "An AI safety incident report in a health system should capture:",
+    "option_c": "Only hardware failures",
+    "option_d": "Near misses, unexpected behaviors, and potential patient or learner impact related to AI use",
+    "correct_option": "ONLY BILLING ISSUES"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Benchmarking a model on clinical tasks is important because:",
+    "option_c": "Benchmarks always match real life",
+    "option_d": "It provides one structured view of performance and limitations that must still be interpreted in context",
+    "correct_option": "IT REPLACES LOCAL TESTING"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "One way to reduce bias when using AI in admissions is to:",
+    "option_c": "Allow AI to make final admission decisions",
+    "option_d": "Use AI summaries only as an optional aid and keep human holistic review with clear guidelines",
+    "correct_option": "HIDE CRITERIA FROM REVIEWERS"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Model cards are:",
+    "option_c": "Social media posts",
+    "option_d": "Documents that describe a model's training data, intended uses, and limitations",
+    "correct_option": "ONLY HARDWARE SPECS"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "A safe policy for trainees using AI on assignments is:",
+    "option_c": "Never talk about AI",
+    "option_d": "Allow use with clear disclosure, guardrails, and human review",
+    "correct_option": "REQUIRE AI FOR ALL ASSIGNMENTS"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Overreliance on AI in clinical note generation can lead to:",
+    "option_c": "Shorter notes with no risk",
+    "option_d": "Template drift, propagation of errors, and weaker critical thinking if not reviewed",
+    "correct_option": "PERFECT ACCURACY"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "An example of distribution shift is:",
+    "option_c": "The model is tested on the same data it was trained on",
+    "option_d": "The model is used on a population very different from its training data",
+    "correct_option": "THE MODEL IS NEVER DEPLOYED"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "A responsible way to use AI for exam writing is:",
+    "option_c": "Let AI write all high stakes questions with no review",
+    "option_d": "Use AI to propose draft questions that faculty edit and validate against blueprints",
+    "correct_option": "LET AI ASSIGN SCORES AUTOMATICALLY"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "When evaluating AI outputs for health disparities, one important step is to:",
+    "option_c": "Assume outputs are neutral",
+    "option_d": "Intentionally test examples across different demographic groups and check for differences in recommendations or language",
+    "correct_option": "AVOID MENTIONING RACE OR GENDER EVER"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "A sign of automation bias is:",
+    "option_c": "Users ignore AI",
+    "option_d": "Users rely on AI suggestions even when they conflict with obvious evidence or their own judgment",
+    "correct_option": "USERS ALWAYS DISAGREE WITH AI"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "Safety filters that block self harm or violence content exist mainly to:",
+    "option_c": "Slow down responses",
+    "option_d": "Reduce harmful outputs and protect users",
+    "correct_option": "INCREASE GPU HEAT"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "When using AI to summarize sensitive narratives from learners, a respectful practice is to:",
+    "option_c": "Share raw text with all vendors",
+    "option_d": "Remove identifiers and only use approved secure systems for analysis",
+    "correct_option": "POST EXCERPTS ON SOCIAL MEDIA"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "A hospital AI oversight committee reviewing a new sepsis prediction model should ask:",
+    "option_c": "What color the dashboard is",
+    "option_d": "How it was validated, how it performs for different units, and how clinicians can override it",
+    "correct_option": "WHETHER IT IS TRENDY"
+  },
+  {
+    "domain": "Critical evaluation",
+    "question": "bias",
+    "option_a": "and safety",
+    "option_b": "One way to avoid leakage of confidential curriculum plans when prompting is to:",
+    "option_c": "Paste the entire confidential plan into a public chatbot",
+    "option_d": "Use redacted or synthetic examples and institutionally approved tools",
+    "correct_option": "IGNORE POLICY"
+  },
+  {
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary purpose of a 'Business Associate Agreement' (BAA) in the US healthcare system related to AI tool vendors?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "An AI enabled workflow in a clerkship should ideally:",
+    "option_a": "Be ad hoc and undocumented",
+    "option_b": "Be mapped out step by step with clear inputs, outputs, and review points",
+    "option_c": "Be controlled only by the vendor",
+    "option_d": "Replace all human teaching",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_162",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In any AI-assisted clinical workflow, where is 'human review' of the AI's final output always required?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Human in the loop design for a MedAI workflow means:",
+    "option_a": "Humans are removed from decisions",
+    "option_b": "Humans remain responsible and review AI suggestions at defined stages",
+    "option_c": "Humans only handle billing",
+    "option_d": "Humans only handle hardware",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_163",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What must a health administrator ensure is in place for an AI system integrated directly into the Electronic Medical Record (EMR)?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A department level MedAI governance group should at minimum include:",
+    "option_a": "Only external vendors",
+    "option_b": "Clinical, educational, and research leaders plus IT and compliance partners",
+    "option_c": "Only students",
+    "option_d": "Only finance staff",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_164",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "Why is an 'institutional AI policy' necessary for faculty in medical education?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A good first step before deploying an AI workflow in the EHR is:",
+    "option_a": "Turn it on in production for all patients immediately",
+    "option_b": "Pilot test the workflow in a limited setting with clear evaluation metrics and safety checks",
+    "option_c": "Announce it on social media first",
+    "option_d": "Skip IRB and governance",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_165",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "When deploying an AI tool, a 'Fallback Plan' is essential to address which workflow risk?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "In a medical school context, evaluation frameworks for AI tools should focus on:",
+    "option_a": "Only vendor reputation",
+    "option_b": "Educational impact, clinical impact, safety, and equity",
+    "option_c": "Only reducing faculty time",
+    "option_d": "Only improving marketing",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_166",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "In a research workflow, what is the mandatory requirement for using AI to process patient-level data?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "One realistic early workflow for faculty is:",
+    "option_a": "Using the model to draft learning objectives or rubrics that faculty edit",
+    "option_b": "Letting the model assign final grades with no review",
+    "option_c": "Letting the model sign prescriptions",
+    "option_d": "Letting the model approve promotions",
+    "correct_option": "A"
   },
   {
-    "id": "W_K_167",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader must ensure that an AI used for scheduling follows a consistent, non-discriminatory process. This is primarily a concern of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "When documenting an AI workflow map a helpful convention is to:",
+    "option_a": "Hide where AI is used",
+    "option_b": "Mark clearly where AI is used and where humans must review or override",
+    "option_c": "Only describe hardware details",
+    "option_d": "Only describe billing codes",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_168",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "What is an 'Audit Trail' for an AI system in a clinical setting?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A key risk if workflows are not documented is:",
+    "option_a": "Too much transparency",
+    "option_b": "Shadow AI use that leadership cannot supervise or support",
+    "option_c": "Better governance",
+    "option_d": "Automatic accreditation",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_169",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "If an AI-assisted diagnostic tool suddenly fails to launch, the immediate response within the clinical workflow is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "For a MedAI curriculum committee one practical task is:",
+    "option_a": "Approving all new apps automatically",
+    "option_b": "Identifying high value early use cases and setting guidance on safe patterns and banned patterns",
+    "option_c": "Blocking all AI use",
+    "option_d": "Letting each person decide in isolation",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_170",
     "domain": "Workflow design and governance",
-    "difficulty": "1",
-    "type": "mcq_knowledge",
-    "stem": "For an AI used in grading student assessments, a clear policy on 'academic integrity' must govern:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "In the MedAI Fluency Studio results, a low workflow design score should prompt:",
+    "option_a": "Ignoring workflow issues",
+    "option_b": "Work on mapping one or two concrete AI supported workflows and presenting them to a governance group",
+    "option_c": "Stopping all AI exploration",
+    "option_d": "Only buying more hardware",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_171",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader is drafting an institutional policy for AI use in research. The workflow must mandate what specific action regarding data privacy when the AI vendor is a Business Associate?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A simple visual workflow map for AI in a course should include:",
+    "option_a": "Only course title",
+    "option_b": "Steps, actors, where AI is invoked, and where human checks occur",
+    "option_c": "Only budget codes",
+    "option_d": "Only room numbers",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_172",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "In a hospital system's workflow, an AI summarizes a long progress note. Before this summary is added to the EMR, what specific human action is required to maintain legal and clinical accountability?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Involving frontline clinicians and faculty in AI workflow design is important because:",
+    "option_a": "They slow progress",
+    "option_b": "They understand real tasks and failure modes that may not be obvious to technical teams",
+    "option_c": "They control hardware",
+    "option_d": "They write code only",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_173",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "When designing an AI-assisted residency application review workflow, which fairness guardrail is most essential to implement?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A change control process for AI tools primarily ensures that:",
+    "option_a": "Models stay trendy",
+    "option_b": "Updates are tested, documented, and communicated before changes reach users",
+    "option_c": "Vendors can deploy at any time",
+    "option_d": "Only hardware is updated",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_174",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "An administrative process uses AI to classify patient feedback. A key workflow requirement is that the AI's classification must be audited regularly against human-labeled data to check for:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "In admissions, using AI summaries of applications safely requires:",
+    "option_a": "Letting the summary make decisions",
+    "option_b": "Making AI summaries optional aids and requiring human committee review with transparency about limitations",
+    "option_c": "Hiding AI use from the committee",
+    "option_d": "Letting AI rank applicants alone",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_175",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "Which document is primarily concerned with defining the roles, responsibilities, and decision-making authority for the oversight, development, and deployment of AI systems within a health institution?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A checklist for approving a new AI powered documentation tool should include:",
+    "option_a": "Logo design",
+    "option_b": "Data flows, PHI handling, human review steps, monitoring plan, and deactivation option",
+    "option_c": "Social media campaign",
+    "option_d": "Furniture placement",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_176",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "In an AI-assisted research study, what workflow step is required to ensure the reproducibility of the AI's findings?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "When integrating AI into simulation center workflows, one safe pilot is:",
+    "option_a": "Letting AI run debriefings alone",
+    "option_b": "Using AI to generate scenario variations that faculty review before use",
+    "option_c": "Allowing AI to assign simulation grades automatically",
+    "option_d": "Letting AI schedule all staff",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_177",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "The main technical reason why EMR integration of an AI system requires a dedicated 'Audit Trail' workflow is:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A governance rule that 'no PHI enters unapproved tools' is only effective if:",
+    "option_a": "No one knows it",
+    "option_b": "There is education, approved alternatives, and monitoring",
+    "option_c": "It is posted once in a long policy",
+    "option_d": "It is ignored",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_178",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "If an AI system integral to patient care goes down, the 'Fallback Plan' workflow must detail:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "In a clinical documentation workflow, a good measure of success for an AI helper is:",
+    "option_a": "Number of marketing posts",
+    "option_b": "Reduction in redundant typing while maintaining or improving accuracy and clinician satisfaction",
+    "option_c": "Increase in note length only",
+    "option_d": "Number of emojis used",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_179",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "For a medical educator using AI for content creation, the institutional workflow should require the faculty member to document:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A central inventory of AI tools used across a health sciences center mainly supports:",
+    "option_a": "Shadow IT",
+    "option_b": "Better oversight, risk assessment, and coordination of pilots and production tools",
+    "option_c": "More silos",
+    "option_d": "Ignoring updates",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_180",
     "domain": "Workflow design and governance",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader must establish a clear 'decommissioning' plan in the AI policy workflow. What is the primary focus of this plan?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "When a vendor demo shows an impressive AI feature, a governance group should ask:",
+    "option_a": "What colors are used",
+    "option_b": "What data was used in the demo, how it performs on local data, and what guardrails exist",
+    "option_c": "How many likes it got online",
+    "option_d": "Who designed the logo",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_181",
     "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Which element of a clinical AI deployment workflow is the most critical for ensuring continuous patient safety after the initial validation phase?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "A fair process for deciding which AI pilots to support should consider:",
+    "option_a": "Only political influence",
+    "option_b": "Educational and clinical value, feasibility, risk, and alignment with strategic priorities",
+    "option_c": "Only who asked first",
+    "option_d": "Only vendor gifts",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_182",
     "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the governance workflow for a high-risk AI, the 'Human Oversight Body' should be composed of which three required roles?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "Documenting 'off label' AI use in workflows is helpful because:",
+    "option_a": "It encourages secrecy",
+    "option_b": "It allows leaders to understand and either guide, formalize, or phase out risky patterns",
+    "option_c": "It guarantees funding",
+    "option_d": "It removes all risk",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_183",
     "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "When an AI is used for real-time risk stratification of ED patients, the workflow must include a 'Fail-Safe' that ensures:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "When scaling an AI workflow from one clerkship to the whole school, a key step is:",
+    "option_a": "Skipping evaluation",
+    "option_b": "Reviewing pilot results, adapting for new contexts, and updating policies and training",
+    "option_c": "Letting every unit improvise silently",
+    "option_d": "Removing all human review",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_184",
     "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "What is the critical 'governance' distinction between a public, cloud-hosted LLM and a locally-deployed, BAA-compliant LLM regarding data flow in the administrative workflow?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "In strategic planning, including AI workflows in departmental scorecards mainly helps:",
+    "option_a": "Hide activity",
+    "option_b": "Make efforts visible, track progress, and link AI use to concrete outcomes",
+    "option_c": "Only increase hype",
+    "option_d": "Replace other goals",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_185",
     "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "For a research project involving a high-risk AI, the institutional governance body requires a 'Red Teaming' workflow step. What is the goal of this step?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
+    "question": "For a hospital partner, an AI data sharing agreement should at minimum clarify:",
+    "option_a": "Cafeteria menu",
+    "option_b": "What data is shared, how it is protected, who can access it, and how outputs may be used",
+    "option_c": "Parking spots",
+    "option_d": "Vacation days",
+    "correct_option": "B"
   },
   {
-    "id": "W_K_186",
     "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the AI policy, a medical leader requires that all AI-generated content used for patient-facing purposes be stamped with a 'Disclaimed: Human Review Required' watermark. This is a workflow mandate to mitigate which specific risk?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "W_K_187",
-    "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "For a medical educator, how should the AI model's 'knowledge cutoff' be governed in the workflow for creating high-stakes, contemporary clinical assessments?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "W_K_188",
-    "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "The primary objective of a 'data provenance' workflow for an AI model in a health system is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "W_K_189",
-    "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the administrative workflow for deploying a new AI, what is the key responsibility of the 'Institutional Review Board (IRB)' equivalent for a non-research clinical tool?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "W_K_190",
-    "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "When designing an AI for clinical documentation that 'auto-fills' sensitive fields, the final human-in-the-loop workflow step must ensure:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_191",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "2",
-    "type": "mcq_knowledge",
-    "stem": "What is the primary technical method used to overcome the LLM's 'knowledge cutoff' for contemporary information?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_192",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A medical leader finds that an AI used for resource allocation exhibits 'disparate impact' against a minority group. Critically, what does 'disparate impact' mean in this context?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_193",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A researcher is using an AI to draft a systematic review protocol. To ensure the generated protocol is highly detailed and aligned with PRISMA guidelines, the prompt should use a combination of:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_194",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "A clinician is using an approved AI to search a massive internal research database (using RAG). The most practical and time-efficient strategy to ensure the query is highly focused and accurate is to:",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "W_K_195",
-    "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the EMR-integrated AI workflow, which governance requirement is necessary to resolve a legal dispute over whether the AI or the clinician was responsible for a documentation error?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "T_K_196",
-    "domain": "Model fundamentals and limitations",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Which technical feature must be prioritized in the fine-tuning of an AI for rare disease diagnosis to prevent 'Catastrophic Forgetting' of general medical knowledge?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "C_K_197",
-    "domain": "Critical evaluation, bias, and safety",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Why is the use of 'zero-shot' prompting inherently riskier than 'few-shot' prompting for highly nuanced clinical questions?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "P_K_198",
-    "domain": "Prompt mastery and conversation patterns",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "An administrative leader needs to use AI to compare two complex vendor contracts. Which advanced prompt structure should be used to ensure a non-biased, point-by-point comparison of terms?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "A_K_199",
-    "domain": "Practical use cases in education, research, and clinical work",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "Which practical AI use case in a medical education setting carries the highest risk of copyright/intellectual property infringement?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 1,
-    "correct_letter": "B"
-  },
-  {
-    "id": "W_K_200",
-    "domain": "Workflow design and governance",
-    "difficulty": "3",
-    "type": "mcq_knowledge",
-    "stem": "In the governance workflow for an AI that triages patient messages, which documented policy is mandatory to ensure patient safety and ethical compliance?",
-    "options": [
-      "",
-      "",
-      "",
-      ""
-    ],
-    "correct": 0,
-    "correct_letter": "A"
+    "question": "In faculty development, showcasing a well documented AI workflow from one department can:",
+    "option_a": "Discourage others",
+    "option_b": "Provide a template and confidence for other units to adopt safe patterns rather than invent from scratch",
+    "option_c": "Replace other training",
+    "option_d": "End all experimentation",
+    "correct_option": "B"
   }
 ]
