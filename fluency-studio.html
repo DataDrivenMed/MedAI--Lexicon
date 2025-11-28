@@ -85,7 +85,7 @@
             <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-3" data-step="1">
               <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 1 - Orientation</h3>
               <p class="text-sm text-slate-700">
-                This Studio now uses a bank of MedAI questions to estimate your fluency across five competencies that matter for teaching, research, clinical documentation, and program leadership.
+                This Studio uses a bank of MedAI questions to estimate your fluency across five competencies that matter for teaching, research, clinical documentation, and program leadership.
               </p>
               <ul class="text-sm text-slate-700 list-disc pl-5 space-y-1">
                 <li>Prompt mastery and conversation patterns</li>
@@ -474,7 +474,7 @@
 
     const fluencyChart = new Chart(ctx, chartConfig);
 
-    // Domain configuration
+    // Domain configuration (matches your conceptual domains)
     const DOMAIN_CONFIG = {
       'Prompt mastery and conversation patterns': {
         key: 'prompt',
@@ -523,53 +523,11 @@
       return arr;
     }
 
-    // Helper to get option text regardless of column naming
+    // Helper to get option text from question object
     function getOptionText(q, letter) {
-      const L = letter.toUpperCase();
-      const candidates = [];
-
-      if (L === 'A') {
-        candidates.push('option_a', 'Option_A', 'OptionA', 'optionA', 'Option A', 'option A', 'A');
-      } else if (L === 'B') {
-        candidates.push('option_b', 'Option_B', 'OptionB', 'optionB', 'Option B', 'option B', 'B');
-      } else if (L === 'C') {
-        candidates.push('option_c', 'Option_C', 'OptionC', 'optionC', 'Option C', 'option C', 'C');
-      } else if (L === 'D') {
-        candidates.push('option_d', 'Option_D', 'OptionD', 'optionD', 'Option D', 'option D', 'D');
-      }
-
-      for (const key of candidates) {
-        if (q.hasOwnProperty(key) && q[key] != null) {
-          const val = String(q[key]).trim();
-          if (val !== '') return val;
-        }
-      }
-      return '';
-    }
-
-    // Helper to get correct-option letter regardless of column naming
-    function getCorrectLetter(q) {
-      const candidates = [
-        'correct_option',
-        'CorrectOption',
-        'Correct_Option',
-        'Correct option',
-        'Correct Option',
-        'correct',
-        'Correct',
-        'answer',
-        'Answer',
-        'AnswerKey',
-        'Answer Key',
-        'Answer key'
-      ];
-      for (const key of candidates) {
-        if (q.hasOwnProperty(key) && q[key] != null) {
-          const val = String(q[key]).trim().toUpperCase();
-          if (val) return val;
-        }
-      }
-      return '';
+      const lowerKey = 'option_' + letter.toLowerCase(); // option_a
+      const upperKey = 'option_' + letter.toUpperCase(); // option_A
+      return (q[lowerKey] || q[upperKey] || '').toString().trim();
     }
 
     // Build one quiz card
@@ -581,7 +539,7 @@
 
       const stem = document.createElement('p');
       stem.className = 'text-sm font-medium text-slate-800 mb-2';
-      stem.textContent = questionObj.question || '';
+      stem.textContent = questionObj.question || questionObj.stem || '';
       card.appendChild(stem);
 
       const optionsWrapper = document.createElement('div');
@@ -592,7 +550,7 @@
           key: letter,
           text: getOptionText(questionObj, letter)
         }))
-        .filter(opt => opt.text && String(opt.text).trim() !== '');
+        .filter(opt => opt.text !== '');
 
       options.forEach(opt => {
         const label = document.createElement('label');
@@ -622,7 +580,7 @@
       // Attach event listeners
       card.querySelectorAll('input[type="radio"]').forEach(input => {
         input.addEventListener('change', () => {
-          handleAnswerSelection(card, questionObj, input.value);
+          handleAnswerSelection(card, input.value);
         });
       });
 
@@ -639,7 +597,7 @@
       });
     }
 
-    function handleAnswerSelection(cardEl, questionObj, selectedOption) {
+    function handleAnswerSelection(cardEl, selectedOption) {
       const questionId = cardEl.dataset.questionId;
       const meta = questionMeta[questionId];
       if (!meta) return;
@@ -651,7 +609,8 @@
       const correctText = meta.correctText || '';
 
       const correctRow = cardEl.querySelector('.option-row[data-option-key="' + correctOption + '"]');
-      const selectedRow = cardEl.querySelector('.option-row input[value="' + selectedOption + '"]')?.closest('.option-row') || null;
+      const selectedRowInput = cardEl.querySelector('.option-row input[value="' + selectedOption + '"]');
+      const selectedRow = selectedRowInput ? selectedRowInput.closest('.option-row') : null;
 
       if (selectedOption === correctOption) {
         meta.isCorrect = true;
@@ -681,13 +640,20 @@
 
     // Load questions from JSON and populate the quiz
     function initializeQuiz(allQuestions) {
-      // Expect JSON rows with at least: domain, question, options, correct option
+      // JSON rows expected columns:
+      // category, domain (optional), stem, option_A..D, correct_option, correct_answer
+
       Object.keys(DOMAIN_CONFIG).forEach(domainName => {
         const cfg = DOMAIN_CONFIG[domainName];
         const domainKey = cfg.key;
         const containerId = cfg.containerId;
 
-        const domainQuestions = allQuestions.filter(q => (q.domain || '').trim() === domainName.trim());
+        // Prefer explicit domain text if present, else fall back to category mapping if you add it later
+        const domainQuestions = allQuestions.filter(q => {
+          const dom = (q.domain || '').toString().trim();
+          return dom === domainName.trim();
+        });
+
         const shuffled = shuffle(domainQuestions);
         const selected = shuffled.slice(0, 5);
 
@@ -698,8 +664,14 @@
         selected.forEach((q, index) => {
           const uniqueId = domainKey + '_' + (index + 1);
 
-          const correctLetter = getCorrectLetter(q);
-          const correctTextField = getOptionText(q, correctLetter);
+          const correctLetter = (q.correct_option || q.correct_option_letter || '')
+            .toString()
+            .trim()
+            .toUpperCase();
+
+          const correctTextField =
+            (q.correct_answer || '').toString().trim() ||
+            getOptionText(q, correctLetter);
 
           questionMeta[uniqueId] = {
             domainKey: domainKey,
