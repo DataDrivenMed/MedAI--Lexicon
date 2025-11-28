@@ -1,0 +1,3602 @@
+[
+  {
+    "id": "P_K_001",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which component of a well-structured prompt establishes the AI's persona and perspective?",
+    "options": [
+      "The Task constraint",
+      "The Input data",
+      "The Role definition",
+      "The Formatting request"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_002",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In prompting, what is 'zero-shot' prompting?",
+    "options": [
+      "Providing one example of the desired output format.",
+      "Asking the model to generate the response without any examples.",
+      "Giving five examples of input and output pairs.",
+      "Providing a negative constraint on the output."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; zero-shot"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_003",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A clinician wants the AI to generate a patient summary. Which instruction is an example of a 'negative constraint'?",
+    "options": [
+      "Summarize the patient's last three visits.",
+      "Ensure the summary is in bullet points.",
+      "Do not include any specific medication doses.",
+      "Act as a board-certified internist."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; negative-constraints"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_004",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "To ensure an AI-generated teaching case is comprehensive, which prompt element is most critical for specifying the required components (e.g., patient history, physical exam, differential diagnosis)?",
+    "options": [
+      "Role definition",
+      "Formatting control",
+      "Detailed Task instructions",
+      "Knowledge cutoff"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; task-specification"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "P_K_005",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A researcher asks an AI to summarize a scientific article. How should the researcher ask for source verification?",
+    "options": [
+      "Just ask for the summary.",
+      "Include the instruction: 'Provide three verifiable citations from the text to support each key finding.'",
+      "Set the AI's role as a journal editor.",
+      "Use an internal, non-public AI tool."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; verification"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_006",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "When a health administrator asks an AI to draft a policy, which instruction is an example of 'formatting control'?",
+    "options": [
+      "Write the policy as a healthcare ethicist.",
+      "The final output must be in a JSON structure.",
+      "Do not mention specific vendor names.",
+      "Base the policy on HIPAA regulations."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; formatting"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "P_K_007",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "To restrict the length of an AI-generated explanation for a patient, what type of constraint is most effective?",
+    "options": [
+      "Style constraint (e.g., 'Use a friendly tone').",
+      "Role constraint (e.g., 'Act as a primary care physician').",
+      "Length constraint (e.g., 'Limit the explanation to 150 words').",
+      "Output format (e.g., 'Use bullet points')."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; constraints"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_008",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A prompt that includes the statement, 'You are an expert in biomedical informatics and data governance,' is primarily defining the AI's:",
+    "options": [
+      "Context",
+      "Task",
+      "Format",
+      "Role"
+    ],
+    "correct_option": "D",
+    "lexicon_terms": [
+      "prompt-engineering; role-definition"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_009",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary purpose of providing 'few-shot' examples in a prompt?",
+    "options": [
+      "To force the model to use an external database.",
+      "To decrease the token limit.",
+      "To teach the model the desired input/output format and style.",
+      "To activate the model's self-correction mechanism."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; few-shot"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_010",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "An educator wants the AI to generate a list of learning objectives. Which phrase best sets the 'context' for this task?",
+    "options": [
+      "Output the list in Markdown format.",
+      "Generate five objectives.",
+      "The setting is a third-year medical student internal medicine rotation.",
+      "Do not include surgical objectives."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; context"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "P_K_011",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which prompt element is used to instruct the AI to process the request by articulating its reasoning steps before providing the final answer?",
+    "options": [
+      "Zero-shot instruction",
+      "Chain-of-Thought (CoT) instruction",
+      "Negative constraint",
+      "Formatting request"
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_012",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "When extracting structured data from a free-text progress note using an AI, what is the most important instruction to include for ensuring standardized output?",
+    "options": [
+      "Ask the AI to act as a data scientist.",
+      "Specify the exact output format, such as a comma-separated list or JSON object.",
+      "Limit the context window size.",
+      "Use a few-shot example with incorrect formatting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; data-extraction; formatting"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_013",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader is drafting an email. To ensure the tone is appropriate for all staff, which prompt element is best suited to guide the AI's language choice?",
+    "options": [
+      "Set a specific length constraint.",
+      "Define the required tone (e.g., 'professional, empathetic, and concise').",
+      "List five employees who will receive the email.",
+      "Provide a complex, multi-step chain-of-thought."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; style-control"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "P_K_014",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "When interacting with a public-facing generative AI, what is the safest and most important 'guardrail' instruction to include in your prompt regarding patient information?",
+    "options": [
+      "Ask for the AI's internal hallucination risk score.",
+      "State the knowledge cutoff date.",
+      "Explicitly confirm that no Protected Health Information (PHI) is included in the prompt.",
+      "Request the model's parameters."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; guardrails; phi"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_015",
+    "category": "prompt",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which type of instruction asks the model to generate a response only based on the document provided in the prompt, thereby limiting its use of its general training data?",
+    "options": [
+      "Fact extraction constraint",
+      "Few-shot example",
+      "Source limitation constraint",
+      "Role definition"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; source-limitation"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_016",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher wants to classify text snippets from medical interviews into specific diagnostic categories. Which prompting technique is most effective for ensuring the AI adheres strictly to the provided category list?",
+    "options": [
+      "A single zero-shot prompt with only the request.",
+      "A few-shot prompt that includes an example of a classification for each category.",
+      "A chain-of-thought prompt asking the AI to reason about the categories.",
+      "A negative constraint asking the AI not to invent categories."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; few-shot; classification"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_017",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A clinician is using an AI to draft a complex patient discharge summary. Which structure combines the 'Role,' 'Task,' and 'Context' most effectively?",
+    "options": [
+      "Summarize the patient's course for a primary care provider. Use bullet points.",
+      "Act as a board-certified hospitalist. Given the patient's 7-day course for pneumonia, write a discharge summary tailored for a community PCP, focusing on follow-up and red flags.",
+      "Hospital discharge summary. Pneumonia patient. Follow-up is important.",
+      "Review the patient's chart and tell me what the next step should be."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; structured-prompt"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_018",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "An educator is generating a simulated clinical case where the patient’s race is intentionally *not* specified to avoid potential bias in student diagnosis. How should this be handled in the prompt?",
+    "options": [
+      "Just omit the information and hope the AI doesn't include it.",
+      "Include a negative constraint: 'Do not mention the patient's race or ethnicity.'",
+      "Define the AI's role as a diversity expert.",
+      "Use a Chain-of-Thought approach."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; negative-constraints; bias"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "P_K_019",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "In a prompt asking an AI to analyze medical literature, what is the primary purpose of asking the AI to include a 'limitations of source' section?",
+    "options": [
+      "To increase the final word count.",
+      "To test the AI's knowledge cutoff date.",
+      "To promote critical appraisal by the human user and identify potential model bias or data gaps.",
+      "To force the AI to use RAG."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; critical-thinking; guardrails"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_020",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader needs an AI to summarize a complex institutional governance document. To mitigate the risk of the AI 'hallucinating' or misinterpreting key policy details, what advanced prompting technique is best?",
+    "options": [
+      "Ask for a summary in only one sentence.",
+      "Implement a Chain-of-Thought prompt that requires the AI to quote the exact section numbers before summarizing each point.",
+      "Provide the document in an image format only.",
+      "Use only a few-shot example."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought; hallucinations"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "P_K_021",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "When a clinician needs to generate a brief, culturally-sensitive patient education handout using AI, how should the prompt incorporate the 'audience' as a constraint?",
+    "options": [
+      "Define the audience's reading level and primary language in the constraint section.",
+      "Ask the AI to use its general knowledge cutoff date.",
+      "Set the output to JSON format.",
+      "Instruct the AI to use complex medical jargon."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "prompt-engineering; audience-constraint; cultural-sensitivity"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_022",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is asking an AI to reformat extracted data. If the AI output is inconsistent, jumping between JSON, XML, and plain text, what is the most likely missing or inadequate component of the original prompt?",
+    "options": [
+      "The Role definition.",
+      "The few-shot examples.",
+      "The explicit formatting control instruction.",
+      "The negative constraint."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; formatting-control"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_023",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary risk of using an overly detailed and restrictive prompt (high number of negative constraints, role definitions, and examples)?",
+    "options": [
+      "The AI will automatically switch to a different model.",
+      "The prompt may exceed the model's context window, leading to loss of instructions or input data.",
+      "It significantly increases the model's hallucination rate.",
+      "It forces the AI to ignore its own RAG system."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; context-window; tokenization"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_024",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "An administrative staff member needs to extract specific data points (e.g., meeting dates, attendees) from 10 different free-text policy documents. What structure is best for this 'data extraction' task?",
+    "options": [
+      "A zero-shot prompt asking for a general summary.",
+      "A Chain-of-Thought prompt asking the AI to reason about the policy's ethics.",
+      "A prompt defining the task, providing the documents, and specifying a structured, template-based output for the extracted data (e.g., a table).",
+      "A few-shot prompt with examples of similar emails."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; data-extraction; structured-output"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "P_K_025",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "The Chain-of-Thought (CoT) method improves model performance primarily by mimicking which human cognitive process?",
+    "options": [
+      "Pattern recognition",
+      "Meta-analysis",
+      "Step-by-step logical decomposition and reasoning",
+      "Intuitive guessing"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_026",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A clinician is summarizing a patient’s health history using an AI connected to an internal EMR. To protect data privacy, which prompt instruction is a high-priority 'guardrail' beyond simple PHI exclusion?",
+    "options": [
+      "Use only technical medical terms.",
+      "Limit the output to 500 characters.",
+      "Include a final sentence: 'This summary must be reviewed by the attending physician before use.'",
+      "Do not transmit the summarized data to any external, public-facing model."
+    ],
+    "correct_option": "D",
+    "lexicon_terms": [
+      "prompt-engineering; guardrails; data-privacy"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_027",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the key difference in output quality between 'few-shot' and 'zero-shot' prompting for a task requiring a very specific format, like a structured research abstract?",
+    "options": [
+      "Zero-shot will be shorter.",
+      "Few-shot is much more likely to consistently adhere to the exact desired format and style.",
+      "Zero-shot prompts have a wider context window.",
+      "Few-shot prompts use a newer model."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; few-shot; zero-shot"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_028",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "In the context of AI use in medical education, an 'iterative prompt' refers to:",
+    "options": [
+      "A single prompt that is repeated multiple times.",
+      "A follow-up prompt that refines or corrects the output of a previous prompt.",
+      "A prompt that only asks for numerical data.",
+      "A prompt with only negative constraints."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; iterative-refinement"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "P_K_029",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A prompt includes a long, detailed piece of text for the AI to analyze, but the AI's response seems to ignore the information in the middle of the text. What is the most likely technical reason for this 'lost' information?",
+    "options": [
+      "The AI is hallucinating a different document.",
+      "The prompt is too short for the task.",
+      "The full prompt and input text exceeded the model's context window limit.",
+      "The prompt lacked a negative constraint."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; context-window; tokenization"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_030",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "When designing an AI assessment question, a good prompt will ask the AI to justify its multiple-choice selection, then present the final answer. This is an application of:",
+    "options": [
+      "Zero-shot prompting",
+      "A Source Limitation constraint",
+      "Chain-of-Thought (CoT) prompting",
+      "Negative constraint prompting"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought; assessment-design"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "P_K_031",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using an AI to find counter-arguments for a hypothesis in a literature review. Which element should the prompt prioritize to ensure a robust and balanced output?",
+    "options": [
+      "Setting the output format to all capital letters.",
+      "Instructing the AI to adopt a critical, skeptical 'Role' and to explicitly seek out conflicting evidence.",
+      "Restricting the AI to only one source.",
+      "Using a simple zero-shot prompt."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; role-definition; critical-analysis"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_032",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical administrator is drafting a compliance document. They want the AI to base its output ONLY on the attached institutional policy document and ignore its general training knowledge. This is an example of:",
+    "options": [
+      "Negative prompt for formatting",
+      "Retrieval Augmented Generation (RAG) implementation via prompt control",
+      "Chain-of-Thought with few-shot",
+      "Zero-shot with high temperature"
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; rag; source-limitation"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "P_K_033",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "In the context of prompting an AI for clinical advice (for educational purposes only), what does 'grounding' the answer mean?",
+    "options": [
+      "Making sure the answer is in plain text.",
+      "Asking the AI to root the information to specific, verifiable external medical guidelines or literature.",
+      "Limiting the context window.",
+      "Using a very short, simple prompt."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; grounding; verification"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_034",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical faculty member wants an AI to draft a syllabus section but explicitly instructed the AI to 'avoid any reference to technology released after 2023.' This is a control over the AI's:",
+    "options": [
+      "Token size",
+      "Corrective RAG system",
+      "Knowledge cutoff",
+      "Semantic embedding space"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; knowledge-cutoff; negative-constraints"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "P_K_035",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "Which 'Role' definition is most likely to produce highly technical, jargon-heavy language in an AI's response?",
+    "options": [
+      "Primary Care Physician",
+      "Layperson patient advocate",
+      "Emergency Room Nurse",
+      "Computational Biologist specializing in Genomics"
+    ],
+    "correct_option": "D",
+    "lexicon_terms": [
+      "prompt-engineering; role-definition; tone"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_036",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A leader is using an AI to brainstorm solutions for clinic scheduling. To avoid confirmation bias in the output, what type of instruction should be included?",
+    "options": [
+      "A Chain-of-Thought prompt asking the AI to first list all known biases in scheduling.",
+      "A zero-shot prompt.",
+      "A few-shot prompt with only one example solution.",
+      "A negative constraint on the output length."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought; bias-mitigation"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "P_K_037",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary technical reason why a simple, ambiguous prompt like 'Tell me about heart failure' might result in a high-quality, but overly generic, response?",
+    "options": [
+      "Lack of few-shot examples.",
+      "The model defaulted to its most common, pre-trained, and generalized output to meet the low-specificity request.",
+      "The prompt exceeded the context window.",
+      "The model used RAG."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; generalization"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_038",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "An administrative user is using an AI to classify incoming patient feedback into 'High Priority,' 'Medium Priority,' or 'Low Priority.' The AI is frequently misclassifying 'Medium' as 'Low.' What is the best prompt revision to fix this?",
+    "options": [
+      "Increase the negative constraints on the output length.",
+      "Provide a few-shot example that clearly contrasts a 'Medium' priority case with a 'Low' priority case.",
+      "Remove the Role definition.",
+      "Ask the AI to respond in a foreign language."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; few-shot; classification"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "P_K_039",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "To make an AI-generated patient education sheet accessible, the user adds the instruction: 'The Flesch-Kincaid reading ease score of the final text must be 70 or higher.' This instruction is primarily an example of:",
+    "options": [
+      "A technical token limit",
+      "A specific quality and style constraint",
+      "An internal hallucination check",
+      "A zero-shot role definition"
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; style-constraint; readability"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_040",
+    "category": "prompt",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "Why is it important to explicitly instruct an AI to provide 'complete and actionable' steps when asked for a protocol draft (e.g., a research IRB submission process)?",
+    "options": [
+      "To ensure the output uses all available lexicon terms.",
+      "To mitigate the model's tendency to omit necessary details or leave steps implied.",
+      "To decrease the overall token count.",
+      "To force the AI to use a few-shot example."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; completeness"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_041",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using a multimodal model to interpret a chest X-ray and draft a preliminary report. Which advanced prompting technique combines visual input, textual context, and structured output requirements most effectively?",
+    "options": [
+      "A zero-shot prompt only containing the image.",
+      "A prompt defining the role as a radiologist (Role), the task as 'draft a structured impression' (Task), including the image (Input), and specifying the use of a Chain-of-Thought approach to list findings before the conclusion (CoT/Format).",
+      "A prompt with a negative constraint: 'Do not use medical jargon.'",
+      "A few-shot prompt with only text examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; multimodal; chain-of-thought; structured-prompt"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_042",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the context of 'Self-Correction' or 'Self-Refinement' prompting, what is the core mechanism that yields a better final response?",
+    "options": [
+      "The model uses an external human to review the initial draft.",
+      "The model generates an initial answer, uses a meta-prompt to critically evaluate its own first answer against the instructions, and then generates a refined second answer.",
+      "The model simply increases its token count.",
+      "The prompt reduces the number of negative constraints."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; self-correction; meta-prompting"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_043",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using an AI to analyze the sentiment of complex, nuanced patient narratives. Which advanced CoT variation should be employed to handle ambiguity and uncertainty most effectively?",
+    "options": [
+      "Simple zero-shot prompting.",
+      "Tree-of-Thought (ToT) or Self-Consistent CoT, where multiple reasoning paths are explored before a final, consolidated answer is chosen.",
+      "Few-shot with only positive examples.",
+      "A negative constraint on the output length."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; tree-of-thought; sentiment-analysis"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_044",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "To implement a complex data extraction task where the AI must output nested patient demographic and procedural data in a validated schema, the prompt must include:",
+    "options": [
+      "A few-shot example of the input text only.",
+      "A Chain-of-Thought prompt asking the AI to reason about the data ethics.",
+      "A JSON Schema definition that the output MUST validate against, included as a constraint.",
+      "A zero-shot prompt with a simple instruction to 'extract data.'"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; json-schema; data-extraction; formatting"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "P_K_045",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader needs an AI to generate a SWOT analysis of a new AI policy. Which advanced prompt will best ensure a balanced and critical analysis?",
+    "options": [
+      "A Chain-of-Thought prompt that requires the AI to generate a 'pro' perspective, then a 'con' perspective, and finally a synthesis for each of the four quadrants (S, W, O, T).",
+      "A negative constraint on the word count.",
+      "A zero-shot prompt with no role definition.",
+      "A few-shot prompt of an unrelated financial report."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought; critical-analysis"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "P_K_046",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary technical limitation that necessitates the use of complex data chunking and RAG for an AI to accurately summarize a patient's *entire*, long EMR history (thousands of pages)?",
+    "options": [
+      "The AI’s inability to understand medical jargon.",
+      "The hard limit imposed by the model's context window size (token limit).",
+      "The model's knowledge cutoff.",
+      "The lack of negative constraints in the prompt."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "context-window; rag; tokenization"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_047",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "How does providing a sophisticated 'thought process template' (e.g., 'First, verify the primary diagnosis. Second, assess co-morbidities. Third, check contraindications. Finally, suggest a plan.') improve the output of an AI when compared to a simple CoT prompt?",
+    "options": [
+      "It decreases the AI's internal reasoning time.",
+      "It enforces a highly structured and repeatable reasoning path, leading to more consistent and auditable results.",
+      "It forces the AI to ignore all external data.",
+      "It only works for zero-shot prompts."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought; auditable"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "P_K_048",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "An educator is using an AI to generate a simulated medical crisis scenario. Which prompt feature would best allow the AI to 'play' the role of multiple, distinct characters (e.g., the patient, the nurse, the lab tech) with different linguistic styles?",
+    "options": [
+      "A few-shot example demonstrating the dialogue of each character's persona and style.",
+      "A single zero-shot instruction.",
+      "A negative constraint on the word count.",
+      "A simple instruction to 'be a doctor.'"
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "prompt-engineering; few-shot; role-playing"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "P_K_049",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the highest-stakes clinical research use of AI, a prompt includes the instruction: 'After generating the response, perform a self-critique on the potential for demographic bias in the output and suggest two alternative wordings to mitigate this.' This is an example of:",
+    "options": [
+      "A simple formatting request.",
+      "An adversarial zero-shot prompt.",
+      "Self-Correction/Meta-Prompting focused on ethical guardrails.",
+      "A few-shot example with citation bias."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "prompt-engineering; self-correction; ethical-guardrails; bias-mitigation"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "P_K_050",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Which approach is the most robust way to ensure that the AI, when summarizing a patient safety report, does not over-report one type of error while under-reporting another, a common issue known as 'recency bias'?",
+    "options": [
+      "A negative constraint on the length of the summary.",
+      "A prompt that explicitly asks the AI to apply 'equal weighting' to all sections of the report in its Chain-of-Thought process.",
+      "A zero-shot prompt.",
+      "Defining the role as 'a bored administrative assistant.'"
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought; bias-mitigation"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "T_K_051",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In large language models, what is the 'context window'?",
+    "options": [
+      "The time it takes for the model to generate a response.",
+      "The total amount of text (input prompt + output response) the model can process at one time.",
+      "The list of external documents used by RAG.",
+      "The date when the training data collection stopped."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "context-window; tokenization"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_052",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary function of 'pre-training' a large language model in the technical workflow?",
+    "options": [
+      "To specialize the model for a niche task like medical coding.",
+      "To teach the model basic grammar, vocabulary, and general world knowledge from a massive dataset.",
+      "To correct for model hallucinations with human feedback.",
+      "To retrieve external documents during a query."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "pre-training; llm"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_053",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What process is used to convert input text (words, parts of words, or characters) into numerical representations that a neural network can process?",
+    "options": [
+      "Fine-tuning",
+      "Hallucination",
+      "Tokenization",
+      "Overfitting"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "tokenization; embeddings"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_054",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "If an AI generates a plausible-sounding but factually incorrect clinical statement, this is most commonly referred to as:",
+    "options": [
+      "Overfitting",
+      "Tokenization error",
+      "Hallucination",
+      "Context window saturation"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "hallucination"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_055",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What does RAG stand for in the context of large language models?",
+    "options": [
+      "Rapid Analysis Generator",
+      "Reasoning and Generalization",
+      "Retrieval Augmented Generation",
+      "Regulatory Approval Governance"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "rag"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_056",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the 'knowledge cutoff' of an AI model?",
+    "options": [
+      "The maximum number of facts it can store.",
+      "The date after which the model has not been trained on new data and therefore has no intrinsic knowledge of subsequent events.",
+      "The maximum output length of a response.",
+      "The point in the prompt where the model starts hallucinating."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "knowledge-cutoff"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_057",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which technical component of an AI model is primarily responsible for understanding the meaning and semantic relationships between words and phrases?",
+    "options": [
+      "The output formatting layer",
+      "The fine-tuning scheduler",
+      "The tokenization algorithm",
+      "Word embeddings"
+    ],
+    "correct_option": "D",
+    "lexicon_terms": [
+      "embeddings; semantic-search"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_058",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary goal of 'fine-tuning' a pre-trained general-purpose language model?",
+    "options": [
+      "To make the model forget its general knowledge.",
+      "To decrease the context window.",
+      "To adapt the model to a specific, specialized task or domain, like medical text analysis.",
+      "To remove all bias from the original training data."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "fine-tuning; pre-training"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_059",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "If an AI model performs exceptionally well on the data it was trained on but poorly on new, unseen data (e.g., a new patient cohort), it is most likely demonstrating:",
+    "options": [
+      "Knowledge cutoff",
+      "Generalization",
+      "Overfitting",
+      "Underfitting"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "overfitting; generalization"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_060",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Bias in a large language model is fundamentally caused by:",
+    "options": [
+      "Errors in tokenization.",
+      "The model's inability to hallucinate.",
+      "Reflections of inherent biases present in the massive, real-world data it was trained on.",
+      "A too-small context window."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "bias; training-data"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_061",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which technical feature allows an AI to search through external, specific documents (like internal hospital policies or the latest journal articles) and use the retrieved text to inform its answer?",
+    "options": [
+      "Tokenization",
+      "Knowledge cutoff",
+      "Retrieval Augmented Generation (RAG)",
+      "Pre-training"
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "rag"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_062",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "The core function of 'Reinforcement Learning from Human Feedback (RLHF)' is to align the model's generated outputs with:",
+    "options": [
+      "Its initial pre-training data.",
+      "Human-preferred instructions, helpfulness, and safety standards.",
+      "The context window limit.",
+      "The rate of overfitting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rlhf; alignment"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_063",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is a 'token' in the context of LLMs?",
+    "options": [
+      "A unit of currency for API usage.",
+      "A sub-word or word unit into which text is broken down for processing.",
+      "A type of bias mitigation strategy.",
+      "An external database file."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "tokenization; context-window"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_064",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A general-purpose LLM has a 'knowledge cutoff' of September 2023. If a clinician asks it a question about a medical guideline released in June 2024, the AI will likely:",
+    "options": [
+      "Successfully retrieve the correct guideline from its pre-training data.",
+      "Generate a response based only on information available up to September 2023.",
+      "Automatically perform a Google search to find the new data.",
+      "Trigger its RAG system to find the old data."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "knowledge-cutoff"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "T_K_065",
+    "category": "technical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In model evaluation, what is 'generalization'?",
+    "options": [
+      "The model's ability to perform well on new, unseen data.",
+      "The speed of the model's tokenization.",
+      "The model's tendency to hallucinate.",
+      "The process of fine-tuning."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "generalization; overfitting"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_066",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical AI is fine-tuned on a small, regional dataset of cardiology reports. Why does this model face a higher risk of 'overfitting' compared to the base model?",
+    "options": [
+      "The fine-tuning dataset is too large.",
+      "The model may learn noise and unique idiosyncrasies of the small dataset, impairing its performance on general cardiology cases outside that region.",
+      "Overfitting is only a concern during pre-training.",
+      "The context window automatically shrinks during fine-tuning."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fine-tuning; overfitting; generalization"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_067",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "Why does a larger 'context window' benefit a clinician using an AI to summarize a long EMR chart?",
+    "options": [
+      "It automatically corrects all hallucinations.",
+      "It allows the model to process more of the full chart (more tokens) in a single request, retaining more context for the summary.",
+      "It decreases the cost of the model.",
+      "It forces the model to ignore its knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "context-window; tokenization"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "T_K_068",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "How do 'embeddings' enable 'semantic search' in an AI system used for medical literature review?",
+    "options": [
+      "They convert words into vectors that represent meaning, allowing the system to find documents based on conceptual similarity, not just keyword matching.",
+      "They convert text into JSON.",
+      "They limit the model's knowledge cutoff.",
+      "They only work for zero-shot prompts."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "embeddings; semantic-search"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_069",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "Which technical factor contributes most directly to the 'hallucination' risk in a general LLM when asked a highly specific medical question?",
+    "options": [
+      "The absence of few-shot examples.",
+      "The model's strong ability to generate plausible-sounding, coherent text even when it lacks a definitive factual basis in its training data.",
+      "An overly large context window.",
+      "The process of tokenization."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "hallucination"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_070",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical educator is concerned that the AI-generated curriculum is subtly biased towards male-centric examples. This is primarily a reflection of bias introduced during:",
+    "options": [
+      "The RAG process.",
+      "The tokenization process.",
+      "The initial data collection and pre-training phase.",
+      "The final output formatting."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "bias; training-data; pre-training"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "T_K_071",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "In the context of RAG, what is the 'retrieval' step?",
+    "options": [
+      "Generating the final answer.",
+      "Converting the question into an embedding and using it to search a vector database for relevant text chunks.",
+      "Fine-tuning the model.",
+      "Setting the knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rag; embeddings; vector-database"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_072",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher notices that a fine-tuned diagnostic AI performs worse on new data than the general pre-trained model. This suggests the fine-tuning data was most likely:",
+    "options": [
+      "Too general and diverse.",
+      "Too small, non-representative, or contained poor-quality labels.",
+      "Processed with an overly large context window.",
+      "Utilized RAG effectively."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fine-tuning; overfitting; data-quality"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_073",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "The process of 'tokenization' is critical for a language model because:",
+    "options": [
+      "It ensures the model can only generate factual information.",
+      "It translates the input and output text into the numerical format required for neural network mathematical processing.",
+      "It is the source of all model bias.",
+      "It dictates the model's knowledge cutoff date."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "tokenization; neural-network"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_074",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A health system is building an internal AI and is worried about the model giving biased recommendations for a low-volume patient population. The most effective technical mitigation is to:",
+    "options": [
+      "Increase the knowledge cutoff date.",
+      "Carefully audit and augment the training and fine-tuning data with examples from the underrepresented population.",
+      "Decrease the context window.",
+      "Remove all RLHF steps."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "bias; training-data; fine-tuning; equity"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "T_K_075",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary technical method used by LLMs to predict the next word in a sequence?",
+    "options": [
+      "Retrieval from an external database.",
+      "Calculating the probability of the next token based on the preceding sequence of tokens.",
+      "Consulting the knowledge cutoff date.",
+      "Running a Chain-of-Thought prompt internally."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "probability; tokenization"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_076",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "Why does a model that uses RAG tend to hallucinate less on factual questions compared to a model that relies solely on its original pre-training knowledge?",
+    "options": [
+      "RAG reduces the context window.",
+      "RAG provides a verifiable, external 'source of truth' in the context, preventing the model from having to 'guess' or generate from internal, less-reliable memories.",
+      "RAG is only used for image processing.",
+      "RAG enables the model to overfit."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rag; hallucination; grounding"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_077",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "In the RLHF process, a 'Reward Model' is trained to:",
+    "options": [
+      "Output the final answer to the user's prompt.",
+      "Assign a score to the LLM's output based on how well it aligns with human preferences and instructions.",
+      "Handle the tokenization process.",
+      "Retrieve documents for RAG."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rlhf; reward-model"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_078",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A multimodal AI is trained on clinical images and text. The model is struggling to correlate a textual symptom description with a finding in an X-ray. This failure is fundamentally a problem with its ability to:",
+    "options": [
+      "Handle negative constraints.",
+      "Maintain a large context window.",
+      "Map the semantic embeddings of the text data to the visual embeddings of the image data.",
+      "Overcome its knowledge cutoff."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "embeddings; multimodal; semantic-search"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "T_K_079",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary difference in the *data* used for the 'pre-training' phase versus the 'fine-tuning' phase of a medical LLM?",
+    "options": [
+      "Pre-training uses only images; fine-tuning uses only text.",
+      "Pre-training uses massive, general internet/text data; fine-tuning uses a smaller, high-quality, specialized medical/task-specific dataset.",
+      "Pre-training uses only proprietary data; fine-tuning uses only open-source data.",
+      "Pre-training uses structured data; fine-tuning uses unstructured data."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "pre-training; fine-tuning; data-types"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_080",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "An administrator is designing a simple AI for classifying policy documents. To avoid 'underfitting' the model (where it misses obvious patterns), which technical aspect must be improved?",
+    "options": [
+      "The model complexity or the training time/data volume should be increased.",
+      "The model should only use zero-shot prompts.",
+      "The knowledge cutoff should be decreased.",
+      "The model should be forced to hallucinate."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "underfitting; model-evaluation"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "T_K_081",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In a clinical decision support system, the RAG system retrieves a document and the LLM then generates an answer. If the retrieved document contains an error, the LLM will most likely:",
+    "options": [
+      "Identify the error and refuse to answer.",
+      "Accurately summarize the erroneous information, thus propagating the error to the final output.",
+      "Automatically perform a new web search.",
+      "Ignore the RAG-retrieved data entirely."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rag; hallucination; error-propagation"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "T_K_082",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "For a medical LLM, which statement accurately describes the trade-off between 'overfitting' and 'generalization'?",
+    "options": [
+      "Overfitting increases, and generalization increases.",
+      "Overfitting decreases, and generalization decreases.",
+      "High overfitting means the model has poor generalization to new data, while achieving the correct balance is the key to a clinically useful model.",
+      "Generalization is only relevant during tokenization."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "overfitting; generalization; model-evaluation"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_083",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Why might a medical LLM fine-tuned using 'Reinforcement Learning from Human Feedback (RLHF)' still exhibit subtle biases, even though human reviewers rated the responses for safety and helpfulness?",
+    "options": [
+      "The RLHF step is technically flawed.",
+      "The human reviewers themselves carry implicit biases that are inadvertently captured and amplified by the Reward Model.",
+      "RLHF forces the model to ignore its knowledge cutoff.",
+      "The context window was too large."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rlhf; bias; human-bias"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_084",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary technical limitation of a standard LLM that makes it vulnerable to 'Catastrophic Forgetting' when fine-tuned on a very niche dataset?",
+    "options": [
+      "The RAG system fails.",
+      "The model's weights are aggressively updated to the new, niche task, causing it to lose its ability to perform general tasks learned during pre-training.",
+      "The tokenization algorithm changes its encoding.",
+      "It increases the likelihood of overfitting on large datasets."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fine-tuning; catastrophic-forgetting"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_085",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In advanced LLM architectures, how is the 'Attention Mechanism' related to the concept of the 'context window'?",
+    "options": [
+      "The attention mechanism is a tool used to increase the knowledge cutoff.",
+      "The attention mechanism is what allows the model to selectively 'focus' on the most relevant tokens *within* the context window to inform the next token prediction.",
+      "The attention mechanism is only used for image processing.",
+      "The attention mechanism is a form of negative constraint."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "attention-mechanism; context-window; tokenization"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "T_K_086",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader needs to ensure the internal AI only cites specific, approved guidelines. Which technical architecture is required to *guarantee* source control and minimize the risk of external factual hallucinations?",
+    "options": [
+      "Using a very large, open-source base model.",
+      "An architecture that uses RAG with a dedicated, closed-loop vector database containing *only* the approved guidelines.",
+      "A model that has a very high knowledge cutoff.",
+      "A model trained with zero RLHF."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rag; vector-database; source-control; hallucination"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "T_K_087",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Why is the use of 'temperature' a critical parameter when prompting an LLM for highly technical, fact-based clinical summarization?",
+    "options": [
+      "Low temperature is preferred because it leads to less randomness and a higher likelihood of generating the most probable, factual token sequences.",
+      "High temperature is preferred because it increases the chance of hallucination.",
+      "Temperature only affects the tokenization process.",
+      "Temperature is a measure of the model's context window."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "temperature; technical-parameters"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "T_K_088",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "When evaluating a new diagnostic AI, a researcher finds the Area Under the Curve (AUC) is 0.99 but the patient cohort in the test set is highly imbalanced (99% negative cases). This suggests a technical risk of:",
+    "options": [
+      "Underfitting the data.",
+      "Overestimating the model's true clinical utility due to the metric being inflated by the imbalanced dataset.",
+      "Tokenization failure.",
+      "Successful few-shot prompting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "model-evaluation; auc; imbalanced-data; overfitting"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "T_K_089",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "How does 'Parameter-Efficient Fine-Tuning (PEFT)' like LoRA help health systems overcome the technical and resource barrier of fine-tuning large foundation models?",
+    "options": [
+      "It removes the need for pre-training.",
+      "It allows the model to be fine-tuned using a fraction of the computational resources and data by only adjusting a small subset of the model's parameters.",
+      "It permanently fixes the model's knowledge cutoff to the present day.",
+      "It forces the model to use a Chain-of-Thought approach."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fine-tuning; peft; lora"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "T_K_090",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary challenge in using an LLM's 'semantic search' (based on embeddings) to retrieve medical information, as opposed to traditional keyword search?",
+    "options": [
+      "It is much slower.",
+      "It is heavily reliant on the quality and contextual alignment of the embedding space, and may miss a literal keyword match if the semantic meaning is slightly different.",
+      "It is not possible with RAG.",
+      "It only works within the context window."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "embeddings; semantic-search; trade-offs"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_091",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the absolute fundamental safety rule when using a public-facing generative AI tool for a clinical task?",
+    "options": [
+      "Always ask the AI for a Chain-of-Thought justification.",
+      "Never input Protected Health Information (PHI) or personally identifiable information.",
+      "Set the output to JSON format.",
+      "Ensure the model's knowledge cutoff is recent."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "phi; data-privacy; practical-use"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "A_K_092",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A medical educator uses AI to generate a synthetic clinical vignette for a student quiz. What is the most important post-generation step?",
+    "options": [
+      "Check the prompt for few-shot examples.",
+      "Input the vignette back into the AI to check for PHI.",
+      "A thorough human review to verify medical accuracy and educational relevance.",
+      "Convert the vignette to an image file."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "human-review; practical-use; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_093",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "For a clinician, the safest and most efficient use of AI for complex clinical text is primarily for:",
+    "options": [
+      "Making final diagnosis without human input.",
+      "Drafting patient education materials or summarizing a lengthy journal article for human review.",
+      "Bypassing mandatory reporting requirements.",
+      "Generating an immediate, unsupervised treatment plan."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "summarization; patient-education; human-review"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_094",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is drafting the 'Methods' section of a grant proposal using an AI. Which action best ensures safe and effective use?",
+    "options": [
+      "Inputting the entire unedited research dataset into the public AI.",
+      "Using the AI to generate a detailed outline and draft text, then thoroughly editing and verifying all technical details and protocol specifics.",
+      "Asking the AI to choose the statistical analysis plan.",
+      "Relying on the AI's hallucinated citations."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "drafting; human-review; research"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_095",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which of the following is an appropriate use of a public-facing AI tool for a health administrator?",
+    "options": [
+      "Drafting a generic template for an 'out-of-office' email response.",
+      "Inputting a list of all staff names, salaries, and performance reviews.",
+      "Summarizing a confidential legal document.",
+      "Generating a list of patient appointment times."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "data-privacy; practical-use; admin"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "A_K_096",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A clinician wants an AI to summarize a long, complex consent form for a patient with a 5th-grade reading level. This is an example of AI use for:",
+    "options": [
+      "Automated prescribing.",
+      "Language simplification and adaptation for patient education.",
+      "Generating a hallucinated treatment plan.",
+      "Advanced medical imaging analysis."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "patient-education; language-simplification"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_097",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary advantage of using a 'multimodal' AI (image + text) over a purely text-based LLM in a clinical research setting?",
+    "options": [
+      "Multimodal models are not subject to the knowledge cutoff.",
+      "Multimodal models can analyze and link findings between diverse data types, such as medical images, lab values, and clinical notes.",
+      "Multimodal models have a smaller context window.",
+      "Multimodal models hallucinate less."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "multimodal; research; practical-use"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_098",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "When using AI to brainstorm ideas for a new teaching case, the most crucial practical step is to:",
+    "options": [
+      "Accept the first idea immediately.",
+      "Use the AI-generated ideas as a starting point, then critically select and refine them based on pedagogical goals.",
+      "Skip all citation verification.",
+      "Only use zero-shot prompts."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "brainstorming; human-review; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_099",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which action should a medical leader always take before distributing an AI-drafted email to all staff?",
+    "options": [
+      "Delete the entire draft.",
+      "Thoroughly review the tone, accuracy, and clarity of the draft.",
+      "Check the email's file size.",
+      "Verify the AI's knowledge cutoff date."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "drafting; human-review; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_100",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "If an AI is used to create a short, educational video for patient use, what must be done to ensure its clinical safety?",
+    "options": [
+      "Ensure the video is in high definition.",
+      "A qualified clinician must review the video's content for medical accuracy and appropriateness.",
+      "Limit the video's background music.",
+      "Ensure the AI used a low temperature setting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "human-review; patient-education; practical-use"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_101",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the safest way for a faculty member to use a public-facing AI to create a realistic, but generic, patient case for teaching?",
+    "options": [
+      "Paste in a real patient's de-identified EMR text.",
+      "Prompt the AI to generate a synthetic case from scratch using non-specific, typical presentation details.",
+      "Ask the AI to generate a case using the full PHI of a publicly known figure.",
+      "Use an AI that is only trained on images."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "synthetic-data; phi; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_102",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In the context of research, using AI for 'summarization' is practically beneficial for quickly:",
+    "options": [
+      "Identifying the central findings and arguments of a large volume of literature.",
+      "Writing the Discussion section without human input.",
+      "Collecting PHI from public sources.",
+      "Replacing all human statistical analysis."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "summarization; research; practical-use"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_103",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which AI feature can an administrator use to convert a lengthy, unstructured meeting transcript into a structured table of action items and responsible parties?",
+    "options": [
+      "Knowledge cutoff.",
+      "Data extraction and formatting control.",
+      "Tokenization reduction.",
+      "Overfitting control."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "data-extraction; formatting; admin"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "A_K_104",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "If a clinician uses an AI to help draft a simple letter of referral, what is the most important practical verification step?",
+    "options": [
+      "Checking the RAG source documents.",
+      "Ensuring all recipient and patient identifiers and clinical details are correct.",
+      "Removing all few-shot examples.",
+      "Increasing the token limit."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "human-review; accuracy; clinician"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_105",
+    "category": "practical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Which scenario is an appropriate use of AI for 'brainstorming' in a medical leadership setting?",
+    "options": [
+      "Asking the AI to choose the final candidate for a C-suite position.",
+      "Using the AI to generate a diverse list of potential solutions for reducing hospital readmission rates.",
+      "Inputting confidential employee disciplinary records.",
+      "Generating a list of random, irrelevant medical terms."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "brainstorming; leader; practical-use"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_106",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical educator wants to create a personalized, adaptive learning path for a student based on their past performance reports. Which method of AI use is most appropriate and efficient?",
+    "options": [
+      "Manually copy-pasting each report into a public LLM and asking for a summary.",
+      "Using an institutional, approved AI system with PHI/PII guardrails to analyze the de-identified performance data and draft a structured plan.",
+      "Using a zero-shot prompt with no context.",
+      "Asking the AI to hallucinate a new performance report."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "adaptive-learning; guardrails; practical-use"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_107",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A clinician is considering an AI-generated differential diagnosis (DDx) for a complex case. What is the most critical human-in-the-loop task *after* the AI generates the DDx list?",
+    "options": [
+      "Using the list to immediately order lab tests without review.",
+      "Critically evaluating the list for clinical appropriateness, weighing the probabilities, and checking for common or dangerous diagnoses the AI may have omitted.",
+      "Sending the list directly to the patient.",
+      "Deleting the entire list."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "differential-diagnosis; human-review; critical-thinking"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_108",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using a multimodal AI to count cells in a microscopic image and then summarize the findings in a report. Which practical challenge is most likely to require immediate human intervention?",
+    "options": [
+      "The AI’s knowledge cutoff date.",
+      "The AI counting artifacts (non-cells) as cells or missing actual cells due to image quality variations.",
+      "The model's token limit being exceeded.",
+      "The model hallucinating a citation from a public database."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "multimodal; accuracy; practical-use; human-review"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_109",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader needs to write a concise, compelling case statement for capital investment in a new facility. Which is the best practical AI usage strategy?",
+    "options": [
+      "Ask the AI to generate a zero-shot, 10-page document.",
+      "Use the AI to draft the introductory hook and refine the language of key sections, but provide all core financial data and strategic goals yourself, then review/edit the final product.",
+      "Input all confidential hospital budget data into a public tool.",
+      "Rely entirely on the AI's hallucinated financial projections."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "drafting; leader; human-review"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_110",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "An administrator is using an internal, compliant AI to generate summaries of patient discharge instructions for quality control auditing. To ensure the AI doesn't create new, non-existent instructions, the most practical approach is to:",
+    "options": [
+      "Set the AI to high temperature (high randomness).",
+      "Ensure the AI system uses RAG to ground the summary ONLY in the original, provided discharge instruction text.",
+      "Use a few-shot prompt with non-clinical examples.",
+      "Ignore the knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rag; practical-use; admin; grounding"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "A_K_111",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical educator is generating a simulation script for an inter-professional team training. Which aspect of the script is the AI *least* suited to create reliably without significant human editing?",
+    "options": [
+      "A list of suggested lab values.",
+      "The basic patient history.",
+      "The emotionally nuanced, non-verbal cues and specific, realistic communication breakdowns that drive the learning objective.",
+      "The final diagnosis."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "practical-limits; human-review; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_112",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A clinician is using an approved EMR-integrated AI to draft a SOAP note. The AI suggests a phrase that is technically correct but potentially offensive. This is a practical example of the need for human review to assess for:",
+    "options": [
+      "Knowledge cutoff.",
+      "Cultural and contextual appropriateness and bias.",
+      "Tokenization error.",
+      "Lack of formatting control."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "bias; cultural-sensitivity; human-review"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_113",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is a practical example of using 'synthetic data' generation in medical research?",
+    "options": [
+      "Analyzing real patient data without de-identifying it.",
+      "Creating realistic, statistically similar, but entirely fabricated patient records to use for model testing without risking PHI exposure.",
+      "Asking a public AI for its knowledge cutoff.",
+      "Using a simple keyword search."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "synthetic-data; phi; research; practical-use"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_114",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader is using an AI to draft a detailed policy on AI use in the hospital. The most critical practical step to ensure legal compliance is to:",
+    "options": [
+      "Use a few-shot prompt with only one example policy.",
+      "Ask the AI to ignore all external regulations.",
+      "Ground the AI's drafting with a RAG system containing all relevant federal and state regulations, and then have legal counsel perform the final review.",
+      "Ensure the model has a high temperature setting."
+    ],
+    "correct_option": "C",
+    "lexicon_terms": [
+      "rag; compliance; human-review; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_115",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "When an administrative user utilizes an AI to classify and tag incoming general inquiries, what is the key practical risk if the AI model was trained on a different set of classification labels?",
+    "options": [
+      "The model will hallucinate a new response.",
+      "The model will misclassify documents into labels that are not relevant to the organization's current system.",
+      "The context window will shrink.",
+      "The knowledge cutoff will change."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "classification; alignment; practical-risk"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "A_K_116",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the key practical difference in risk between using a public LLM and an institutional, BAA-compliant LLM for generating a medical teaching case *based* on a real, de-identified patient?",
+    "options": [
+      "Both are equally safe.",
+      "The public LLM poses a major PHI/security breach risk; the BAA-compliant LLM allows for safe, controlled use of necessary, sensitive information.",
+      "The BAA-compliant model has a shorter context window.",
+      "The public model has a more recent knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "phi; data-privacy; baa; practical-risk"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_117",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A clinician is using an internal AI to quickly draft a concise summary of a patient's seven-day hospital course for handover. The *most* important practical efficiency gain is:",
+    "options": [
+      "The AI's ability to cite an outdated guideline.",
+      "The reduction in time spent manually sifting through and synthesizing a large volume of EMR notes.",
+      "The elimination of the need for human sign-off.",
+      "The AI’s use of few-shot examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "summarization; practical-efficiency; clinician"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_118",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using an AI to assist in grant writing. The most valuable practical use is to:",
+    "options": [
+      "Input the entire confidential research protocol into a public tool.",
+      "Use the AI to refine the writing, check grammar, and adapt complex ideas into plain language, ensuring the researcher is the ultimate author of the content.",
+      "Ask the AI to replace the human-generated budget.",
+      "Force the AI to hallucinate the preliminary data."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "drafting; human-review; research; practical-use"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_119",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader wants to use AI for market analysis of a new service line. Which is the safest practical approach regarding data confidentiality?",
+    "options": [
+      "Use a public tool to analyze confidential competitor strategy documents.",
+      "Use a secure, internal, or BAA-compliant tool to analyze only aggregated, non-PHI market data.",
+      "Ask the AI to use its pre-training data only.",
+      "Ask the AI to ignore all negative constraints."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "data-privacy; baa; leader; practical-use"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_120",
+    "category": "practical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary risk of using an AI-generated 'patient education' handout without human review?",
+    "options": [
+      "The model will change the formatting.",
+      "The model may include factually incorrect medical information (hallucinations) or present information in a culturally inappropriate way.",
+      "The output will exceed the token limit.",
+      "The model will forget its knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "hallucination; cultural-sensitivity; human-review; patient-education"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_121",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using an internal, compliant multimodal AI to correlate gene expression data (text) with pathological slides (image). The critical practical risk, despite compliance, is:",
+    "options": [
+      "The AI over-tokenizing the gene expression data.",
+      "The AI fabricating a plausible but non-existent link between the text and image data, requiring an expert human pathologist's and geneticist's review to validate the correlation.",
+      "The knowledge cutoff being too recent.",
+      "The use of zero-shot prompting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "multimodal; hallucination; human-review; research"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_122",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the context of EMR integration, using AI to 'pre-fill' components of a discharge summary requires what level of practical human oversight to ensure legal and clinical accountability?",
+    "options": [
+      "No review, as the AI is always correct.",
+      "A human must review, modify, and explicitly attest (sign-off) to the final, pre-filled content.",
+      "Only a clerical review of the formatting.",
+      "A review of the model's pre-training data."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "emr-integration; human-review; accountability; practical-use"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_123",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader is designing a system for AI-assisted resource allocation (e.g., staffing, bed assignments). The key practical guardrail against systemic bias and potential legal challenge is to:",
+    "options": [
+      "Ensure the model has a very long context window.",
+      "Make the AI's resource allocation *recommendation* a non-binding input to the final human decision-maker, along with a mandatory audit trail of the human's final choice and rationale.",
+      "Use only a few-shot prompt.",
+      "Remove all RLHF from the model."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "guardrails; bias; accountability; workflow-design; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_124",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "An educator uses an AI to generate a 'Red Herring' (distractor) answer for a high-stakes assessment question. The highest practical risk is:",
+    "options": [
+      "The AI changing the question's formatting.",
+      "The AI accidentally generating an answer that is *also* technically correct, invalidating the question's reliability.",
+      "The knowledge cutoff being too old.",
+      "The AI using few-shot examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "assessment-design; accuracy; practical-risk; human-review"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_125",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using an AI to perform 'data cleaning' (e.g., standardizing text entries). Which practical step is essential for minimizing the risk of introducing systemic, unrecoverable errors?",
+    "options": [
+      "Apply the AI to the entire dataset immediately.",
+      "Apply the AI to a small, labeled sample, review every change manually, and iteratively refine the AI's instructions before scaling to the full dataset.",
+      "Ask the AI to hallucinate the missing data.",
+      "Remove the Chain-of-Thought instruction."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "data-cleaning; human-review; iterative-refinement; research"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_126",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "What is a major, practical limitation of using a public-facing LLM for drafting a HIPAA-compliant BAA (Business Associate Agreement)?",
+    "options": [
+      "The LLM will be unable to generate any legal language.",
+      "The AI is not an attorney and its output is not legally binding or verified, requiring mandatory legal review.",
+      "The model will not know the definition of BAA.",
+      "The model’s knowledge cutoff is too long ago."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "baa; compliance; legal-review; practical-limits; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_127",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the context of AI-assisted patient scheduling, a practical way to mitigate the risk of 'automation bias' among administrative staff is to:",
+    "options": [
+      "Remove the AI entirely.",
+      "Design the workflow to require the administrative staff to input a mandatory 'override code' and rationale if they deviate from the AI's recommendation, fostering critical thinking and accountability.",
+      "Use a few-shot prompt with only successful scheduling examples.",
+      "Ignore all negative constraints."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "automation-bias; workflow-design; guardrails; admin"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "A_K_128",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A clinician uses an internal, RAG-enabled AI to summarize the most recent guideline on a rare disease. The most critical *practical* check of the AI's output is to:",
+    "options": [
+      "Check the formatting of the summary.",
+      "Verify the summary against the specific source documents retrieved by the RAG system to ensure accurate interpretation and check for any introduced errors or hallucinations.",
+      "Check the knowledge cutoff.",
+      "Use a simple zero-shot prompt."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rag; grounding; human-review; clinician"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "A_K_129",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A medical educator is designing a new competency assessment. Which practical use of AI is the most time-efficient and high-value?",
+    "options": [
+      "Asking the AI to choose the final passing standard.",
+      "Using the AI to generate a large bank of draft questions and distractor options based on clear learning objectives, which the human faculty then curates and validates.",
+      "Removing all the human faculty reviewers.",
+      "Using a zero-shot prompt with no objectives."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "assessment-design; practical-efficiency; human-review; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "A_K_130",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "When an AI is used in a research setting to analyze large datasets and propose *hypotheses* for new studies, what is the most important practical human role?",
+    "options": [
+      "Writing the AI's RAG prompt.",
+      "Critically evaluating the novelty, plausibility, and experimental feasibility of the AI's proposed hypotheses.",
+      "Removing all tokenization from the data.",
+      "Ensuring the AI's output is in plain text only."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "hypothesis-generation; critical-thinking; research; human-review"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_131",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In the context of AI in medicine, what is a 'hallucination'?",
+    "options": [
+      "A visually accurate medical image.",
+      "Plausible but fabricated factual output by the AI.",
+      "A structured JSON response.",
+      "The model's knowledge cutoff date."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "hallucination; critical-thinking"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "C_K_132",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary risk of an AI having a 'knowledge cutoff' date that precedes the most recent medical guidelines?",
+    "options": [
+      "The AI will generate an overly long response.",
+      "The AI may provide outdated or incorrect clinical information.",
+      "The AI will automatically update itself.",
+      "The AI will refuse to answer the question."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "knowledge-cutoff; critical-thinking"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "C_K_133",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "If an AI-generated patient education summary includes citations, what is the most important critical thinking step the clinician must take?",
+    "options": [
+      "Count the number of citations.",
+      "Independently verify the existence and accuracy of the citations and their relevance to the AI's statement.",
+      "Change the citation format.",
+      "Ask the AI for a few-shot example."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "verification; critical-thinking"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "C_K_134",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In AI development, what does 'equity' primarily refer to?",
+    "options": [
+      "The cost of the AI model.",
+      "Ensuring the AI performs fairly and accurately across all relevant demographic and socioeconomic groups.",
+      "The model's ability to hallucinate.",
+      "The model's context window size."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "equity; bias"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "C_K_135",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is 'automation bias'?",
+    "options": [
+      "The tendency to overuse AI for simple tasks.",
+      "The human tendency to over-rely on and over-trust the output of automated systems, even when evidence suggests a possible error.",
+      "The AI's tendency to reject the prompt's role definition.",
+      "The bias introduced during the tokenization process."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "automation-bias; critical-thinking"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "C_K_136",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A medical educator uses an AI to generate an assessment question. What is the most important critical step for the educator?",
+    "options": [
+      "Accept the question without modification.",
+      "Evaluate the question's content for accuracy, fairness, and alignment with learning objectives.",
+      "Ensure the model is using a high temperature setting.",
+      "Remove all few-shot examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "critical-thinking; assessment-design; human-review"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "C_K_137",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is reviewing an AI model trained on a very small dataset. This raises a critical concern about:",
+    "options": [
+      "The model's hallucination rate being zero.",
+      "The model's ability to generalize to a broader population or clinical setting (overfitting).",
+      "The model's knowledge cutoff being too recent.",
+      "The model's context window being too large."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "generalization; overfitting; critical-thinking"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_138",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary reason why health professionals should be critically wary of AI outputs that lack clear source attribution or citations?",
+    "options": [
+      "The lack of citations means the output is too short.",
+      "It prevents human users from verifying the factual basis of the information and increases the risk of acting on a hallucination.",
+      "It indicates a tokenization error.",
+      "It means the AI used RAG correctly."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "verification; hallucination; critical-thinking"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "C_K_139",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "When reviewing an AI-generated administrative report, which is the most critical question regarding the data source?",
+    "options": [
+      "Was the report formatted in JSON?",
+      "Was the report based on complete, timely, and unbiased input data?",
+      "Did the prompt use few-shot examples?",
+      "Was the model’s context window large enough?"
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "data-quality; bias; critical-thinking; admin"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "C_K_140",
+    "category": "critical",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "If an AI is used to screen residency applications, what is the key ethical and critical risk to monitor?",
+    "options": [
+      "The AI's knowledge cutoff.",
+      "The risk of the AI systematically favoring or penalizing applicants based on biases present in the training data (e.g., race, gender, school prestige).",
+      "The use of a negative constraint.",
+      "The model using a high temperature setting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "bias; equity; critical-thinking; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "C_K_141",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A diagnostic AI achieves a very high sensitivity score but a low specificity score. Critically, what does this pattern suggest about its clinical performance?",
+    "options": [
+      "The model rarely misses true positive cases, but often misclassifies healthy patients as having the disease (high false positive rate).",
+      "The model hallucinates frequently.",
+      "The model is underfitting the data.",
+      "The model has successfully mitigated all bias."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "model-evaluation; sensitivity; specificity; critical-thinking"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_142",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A clinician uses an EMR-integrated AI that suggests a preliminary diagnosis. The clinician rejects the diagnosis after a brief review. Which is the most effective critical guardrail against 'automation bias' in this workflow?",
+    "options": [
+      "The system mandates the clinician to input a brief, auditable rationale for overriding the AI's recommendation.",
+      "The system automatically deletes the AI's suggestion after a minute.",
+      "The AI is forced to use a zero-shot prompt.",
+      "The AI is trained on only images."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "automation-bias; guardrails; accountability; critical-thinking"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "C_K_143",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher uses an AI to analyze public health records but finds the AI's performance is significantly worse for rural populations. This is a critical example of bias introduced by:",
+    "options": [
+      "Tokenization failure.",
+      "Under-representation of rural data in the AI's training set.",
+      "A low temperature setting.",
+      "The model's RAG system."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "bias; data-gaps; equity; critical-thinking"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_144",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the critical risk when a medical leader deploys an AI tool without transparently documenting its training data sources and governance?",
+    "options": [
+      "The AI's output will be too short.",
+      "It prevents clinicians and researchers from critically assessing the model's potential biases and limitations (e.g., knowledge cutoff, data gaps).",
+      "The AI will require more few-shot examples.",
+      "The model will be forced to use RAG."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "transparency; governance; critical-thinking; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "C_K_145",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "When a medical educator reviews an AI-generated learning objective, what critical check addresses the risk of the objective being *unrealistically* advanced for the target learner level?",
+    "options": [
+      "Checking the objective's word count.",
+      "Verifying the objective's cognitive domain and difficulty level against the curriculum and target learner's prior knowledge.",
+      "Removing all negative constraints.",
+      "Checking for overfitting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "critical-thinking; education; alignment"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "C_K_146",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A health administrator uses an AI to summarize staff survey responses. A critical error occurs when the AI misinterprets negative comments about 'leadership' as 'feedback on infrastructure.' This highlights a need for human review to correct for:",
+    "options": [
+      "Zero-shot prompting.",
+      "Lack of contextual or domain-specific semantic understanding by the AI.",
+      "Overfitting on the training data.",
+      "An overly small token limit."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "semantic-understanding; hallucination; critical-thinking; admin"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "C_K_147",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is evaluating an AI that classifies pathology slides. The 'Area Under the Curve (AUC)' for the model is high, but the dataset is too small. Critically, why is this metric misleading?",
+    "options": [
+      "A small dataset is irrelevant to AUC.",
+      "The high AUC may be due to the model overfitting the small dataset and will not generalize to real-world complexity.",
+      "AUC is only for text analysis.",
+      "The model is not using RAG."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "auc; overfitting; generalization; critical-thinking"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_148",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "The critical importance of 'guardrails' in AI prompting for clinical tasks is to:",
+    "options": [
+      "Force the model to change its knowledge cutoff.",
+      "Explicitly restrict the model's behavior, preventing it from discussing sensitive topics, giving unsupervised medical advice, or violating PHI protocols.",
+      "Increase the model's internal temperature setting.",
+      "Decrease the model's tokenization rate."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "guardrails; critical-thinking; phi"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "C_K_149",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "When a clinician encounters an AI-generated statement that seems *too* confident and absolute for a clinically ambiguous topic, this is a critical sign of:",
+    "options": [
+      "Proper use of few-shot examples.",
+      "Potential hallucination or overconfidence bias in the model's training/alignment.",
+      "The model adhering to a negative constraint.",
+      "A too-small context window."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "hallucination; overconfidence; critical-thinking"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "C_K_150",
+    "category": "critical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "Which strategy is a critical step for a medical leader to mitigate 'automation bias' among staff when deploying an AI system?",
+    "options": [
+      "Relying on the AI to manage the mitigation process.",
+      "Providing mandatory training that focuses on the AI’s known limitations, failure modes, and the absolute necessity of human verification for critical tasks.",
+      "Removing all human input from the workflow.",
+      "Increasing the model’s knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "automation-bias; critical-thinking; training; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "C_K_151",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "An AI model, when deployed, shows a sudden, unexplained drop in performance for a specific sub-population despite no change in code. This critical event, often difficult to debug, is known as:",
+    "options": [
+      "A tokenization error.",
+      "Model drift (or concept drift), where the real-world data distribution has slowly changed away from the training distribution.",
+      "RAG system failure.",
+      "Prompt injection."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "model-drift; critical-thinking; deployment"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_152",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "The critical ethical concern when an AI fine-tuned on data from one major academic center is deployed in a low-resource community hospital is:",
+    "options": [
+      "The AI's knowledge cutoff is too recent.",
+      "The risk of poor 'generalization' and 'performance disparity' because the care standards and patient populations differ significantly (data shift).",
+      "The context window is too small.",
+      "The lack of negative constraints."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "generalization; equity; performance-disparity; critical-thinking"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "C_K_153",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the critical review of an AI-generated research literature summary, how should the researcher assess for 'citation hallucination'?",
+    "options": [
+      "Assume all citations are correct.",
+      "Independently search for the full title and author of each citation to verify its existence and that the paper's conclusion supports the AI's statement.",
+      "Only check the formatting of the citation.",
+      "Ask the AI to change the citation to a few-shot example."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "hallucination; verification; critical-thinking; research"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_154",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader is presented with a report stating an AI model has an AUC of 0.95. Critically, what additional context is *most* essential to interpret this metric's real-world value?",
+    "options": [
+      "The cost of the model.",
+      "The specificity and sensitivity on the target patient population, the prevalence of the condition, and the clinical consequences of false positives/negatives.",
+      "The number of tokens used in the training data.",
+      "The model's temperature setting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "auc; model-evaluation; critical-thinking; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "C_K_155",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Which type of AI-generated content carries the highest critical risk of 'irreversible harm' if deployed without expert human review?",
+    "options": [
+      "A draft syllabus for a 1-hour lecture.",
+      "A preliminary analysis of high-resolution diagnostic imaging that is used for immediate surgical planning.",
+      "A generic welcome email to new staff.",
+      "A summary of a 1-page administrative policy."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "critical-risk; human-review; irreversible-harm"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "C_K_156",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the critical assessment of an AI's 'Explainability' (or XAI), what is the primary goal for a clinician?",
+    "options": [
+      "To know the model's exact token count.",
+      "To understand *why* the AI arrived at a specific recommendation, allowing for human review of the underlying clinical logic and guarding against spurious correlations.",
+      "To decrease the model's knowledge cutoff.",
+      "To force the model to use few-shot prompting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "xai; critical-thinking; transparency"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "C_K_157",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "When designing an AI for admissions (educator role), why is it critically important to use a 'fairness metric' that measures performance disparity (e.g., False Positive Rate parity) instead of just overall accuracy?",
+    "options": [
+      "Overall accuracy is too hard to calculate.",
+      "High overall accuracy can mask severe, systemic performance inequities for under-represented groups, leading to biased admissions decisions.",
+      "Fairness metrics increase the token limit.",
+      "Fairness metrics only apply to technical systems."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "equity; bias; fairness-metric; critical-thinking; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "C_K_158",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Which scenario represents the highest critical risk of 'data leakage' when using an AI in a research setting?",
+    "options": [
+      "Using a RAG system with approved, de-identified documents.",
+      "Copying and pasting the text of a patient's confidential genome sequencing results into the prompt of a public, cloud-hosted LLM.",
+      "Using a Chain-of-Thought prompt.",
+      "Using a low temperature setting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "data-leakage; phi; critical-risk; research"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_159",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Why does the use of proprietary, 'black box' AI models in clinical decision support raise a critical governance concern for a medical leader?",
+    "options": [
+      "The models are too slow.",
+      "The lack of transparency and explainability makes it difficult to audit the model for bias, verify its safety, or defend its decisions in a regulatory or legal context.",
+      "The models hallucinate less than open-source models.",
+      "The models have a low knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "black-box; governance; transparency; critical-thinking; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "C_K_160",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "When an administrative AI system is trained to prioritize patient follow-up based on predicted risk, what is the critical consequence of the AI having a systemic 'False Negative Bias' (missing high-risk cases)?",
+    "options": [
+      "Too many patients are scheduled.",
+      "The highest-risk patients are incorrectly classified as low-risk, leading to dangerous delays in care and increased morbidity/mortality.",
+      "The system overfits the low-risk data.",
+      "The system only uses zero-shot prompts."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "bias; false-negative; critical-risk; admin"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "W_K_161",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary purpose of a 'Business Associate Agreement' (BAA) in the US healthcare system related to AI tool vendors?",
+    "options": [
+      "To define the cost of the AI software.",
+      "To ensure the vendor complies with HIPAA regulations when handling Protected Health Information (PHI).",
+      "To specify the model's tokenization rate.",
+      "To set the model's knowledge cutoff date."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "baa; hipaa; data-privacy; governance"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "W_K_162",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In any AI-assisted clinical workflow, where is 'human review' of the AI's final output always required?",
+    "options": [
+      "Only in low-stakes administrative tasks.",
+      "Before any output is used for direct patient care, diagnosis, or treatment.",
+      "Only when the model hallucinates.",
+      "Only when the prompt is too short."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "human-review; workflow-design"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_163",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What must a health administrator ensure is in place for an AI system integrated directly into the Electronic Medical Record (EMR)?",
+    "options": [
+      "A public-facing user interface.",
+      "A comprehensive security and access control system to manage PHI access and audit trails.",
+      "Only few-shot prompts.",
+      "A very small context window."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "emr-integration; audit-trails; governance"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "W_K_164",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "Why is an 'institutional AI policy' necessary for faculty in medical education?",
+    "options": [
+      "To force faculty to use only one AI tool.",
+      "To set clear rules for PHI handling, academic integrity, and appropriate use in assessment design.",
+      "To ensure the AI's RAG system is always running.",
+      "To prevent the AI from using Chain-of-Thought."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "institutional-policy; academic-integrity; governance"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "W_K_165",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "When deploying an AI tool, a 'Fallback Plan' is essential to address which workflow risk?",
+    "options": [
+      "The AI hallucinating a response.",
+      "The AI tool experiencing an outage or providing incorrect, unusable output.",
+      "The AI exceeding its token limit.",
+      "The AI refusing a few-shot prompt."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "workflow-design; fallback-plan; governance"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "W_K_166",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "In a research workflow, what is the mandatory requirement for using AI to process patient-level data?",
+    "options": [
+      "The AI must be a public-facing model.",
+      "Compliance with institutional IRB (Institutional Review Board) protocols and data de-identification/security standards.",
+      "The prompt must only be zero-shot.",
+      "The model must have a very small context window."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "irb; governance; research; data-privacy"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "W_K_167",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader must ensure that an AI used for scheduling follows a consistent, non-discriminatory process. This is primarily a concern of:",
+    "options": [
+      "Tokenization error.",
+      "Workflow design and fairness guardrails.",
+      "Knowledge cutoff.",
+      "Few-shot prompting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "workflow-design; fairness; guardrails; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "W_K_168",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "What is an 'Audit Trail' for an AI system in a clinical setting?",
+    "options": [
+      "The model's pre-training data source.",
+      "A chronological record that documents every system action, user query, and output to enable review of events and PHI access.",
+      "The process of fine-tuning the model.",
+      "The list of negative constraints used in the prompt."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "audit-trails; governance; emr-integration"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "W_K_169",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "If an AI-assisted diagnostic tool suddenly fails to launch, the immediate response within the clinical workflow is to:",
+    "options": [
+      "Wait for the AI to restart itself.",
+      "Immediately revert to the established, non-AI-dependent clinical protocol (fallback plan) and report the outage.",
+      "Ask the AI why it failed.",
+      "Check the model's knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fallback-plan; workflow-design; clinician"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_170",
+    "category": "workflow",
+    "difficulty": "1",
+    "type": "mcq_knowledge",
+    "stem": "For an AI used in grading student assessments, a clear policy on 'academic integrity' must govern:",
+    "options": [
+      "The color of the output text.",
+      "The extent to which students can use AI to *generate* their answers and the extent to which the AI can *evaluate* those answers.",
+      "The model's tokenization process.",
+      "The model's use of zero-shot prompting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "academic-integrity; institutional-policy; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "W_K_171",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader is drafting an institutional policy for AI use in research. The workflow must mandate what specific action regarding data privacy when the AI vendor is a Business Associate?",
+    "options": [
+      "The vendor must use a public LLM.",
+      "The vendor must adhere to the BAA terms, including documented data security protocols, permitted uses, and breach reporting requirements.",
+      "The vendor must only use few-shot prompts.",
+      "The vendor must share its pre-training data."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "baa; data-privacy; governance; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "W_K_172",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "In a hospital system's workflow, an AI summarizes a long progress note. Before this summary is added to the EMR, what specific human action is required to maintain legal and clinical accountability?",
+    "options": [
+      "A new BAA must be signed.",
+      "The human clinician must review, attest to the accuracy, and digitally sign the note, thereby assuming responsibility for the content.",
+      "The prompt must be reviewed for tokenization.",
+      "The AI's temperature setting must be increased."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "emr-integration; accountability; human-review; workflow-design"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_173",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "When designing an AI-assisted residency application review workflow, which fairness guardrail is most essential to implement?",
+    "options": [
+      "Mandating the AI to ignore all non-clinical information.",
+      "Implementing a two-step process where the AI provides a preliminary, non-binding score, and a diverse human committee makes the final, auditable selection decision.",
+      "Removing all RAG functionality.",
+      "Using only a model with a recent knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fairness; guardrails; workflow-design; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "W_K_174",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "An administrative process uses AI to classify patient feedback. A key workflow requirement is that the AI's classification must be audited regularly against human-labeled data to check for:",
+    "options": [
+      "The AI's tokenization rate.",
+      "Classification drift or bias, where the AI's categories deviate from human standards or show unequal performance across demographics.",
+      "Overfitting on the entire dataset.",
+      "The use of negative constraints."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "audit-trails; bias; model-drift; workflow-design"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "W_K_175",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "Which document is primarily concerned with defining the roles, responsibilities, and decision-making authority for the oversight, development, and deployment of AI systems within a health institution?",
+    "options": [
+      "The Chain-of-Thought instruction.",
+      "The Institutional AI Governance Framework or Policy.",
+      "The Model's Fine-Tuning log.",
+      "The Few-Shot Example list."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "governance; institutional-policy; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "W_K_176",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "In an AI-assisted research study, what workflow step is required to ensure the reproducibility of the AI's findings?",
+    "options": [
+      "A public announcement of the study.",
+      "Detailed documentation of the specific model version, parameters, prompts, and training data/fine-tuning steps used.",
+      "Deletion of the model after the study.",
+      "Removal of all few-shot examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "reproducibility; governance; research; documentation"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "W_K_177",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "The main technical reason why EMR integration of an AI system requires a dedicated 'Audit Trail' workflow is:",
+    "options": [
+      "To check the knowledge cutoff.",
+      "To monitor and document all PHI access and model decision points for security, compliance, and liability purposes.",
+      "To ensure the model only uses zero-shot prompts.",
+      "To prevent overfitting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "audit-trails; emr-integration; phi; compliance"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_178",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "If an AI system integral to patient care goes down, the 'Fallback Plan' workflow must detail:",
+    "options": [
+      "The next AI vendor to contact.",
+      "The specific manual, human-driven procedures that will be immediately executed to ensure continuity of safe care until the AI is restored.",
+      "The AI's token limit.",
+      "The full content of the model's pre-training data."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fallback-plan; workflow-design; safety"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_179",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "For a medical educator using AI for content creation, the institutional workflow should require the faculty member to document:",
+    "options": [
+      "The model's internal source code.",
+      "The exact prompts used and the extent of human editing on the final output to maintain academic honesty and provenance.",
+      "The model's temperature setting.",
+      "The size of the context window."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "academic-integrity; documentation; workflow-design; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "W_K_180",
+    "category": "workflow",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader must establish a clear 'decommissioning' plan in the AI policy workflow. What is the primary focus of this plan?",
+    "options": [
+      "How to train the new model.",
+      "The secure and compliant deletion of all associated patient data and the safe removal of the AI system from the clinical or administrative environment.",
+      "The model's knowledge cutoff date.",
+      "The few-shot examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "decommissioning; governance; data-privacy; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "W_K_181",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Which element of a clinical AI deployment workflow is the most critical for ensuring continuous patient safety after the initial validation phase?",
+    "options": [
+      "Checking the model’s context window daily.",
+      "A mandatory, continuous monitoring system to detect 'model drift' or 'concept drift' and trigger automated human review or re-calibration.",
+      "Only using zero-shot prompts.",
+      "Restricting the model's output to only plain text."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "model-drift; continuous-monitoring; workflow-design; safety"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_182",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the governance workflow for a high-risk AI, the 'Human Oversight Body' should be composed of which three required roles?",
+    "options": [
+      "A student, a secretary, and a custodian.",
+      "A leader/administrator, a clinical/domain expert, and a technical/AI expert.",
+      "Only one clinician.",
+      "A few-shot prompter, a token counter, and a hallucination checker."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "governance; oversight-body; leader; workflow-design"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "W_K_183",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "When an AI is used for real-time risk stratification of ED patients, the workflow must include a 'Fail-Safe' that ensures:",
+    "options": [
+      "The AI is forced to hallucinate a diagnosis.",
+      "If the AI system is offline or provides an unreadable output, the clinical team is immediately alerted to revert to a human-only, time-critical protocol without delay.",
+      "The model's knowledge cutoff is ignored.",
+      "The prompt only uses few-shot examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "fail-safe; workflow-design; safety; clinician"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_184",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "What is the critical 'governance' distinction between a public, cloud-hosted LLM and a locally-deployed, BAA-compliant LLM regarding data flow in the administrative workflow?",
+    "options": [
+      "The public model has a larger context window.",
+      "The public model involves data leaving the institution's controlled environment, while the BAA-compliant model keeps data within a legally protected, audited boundary.",
+      "The public model uses RAG.",
+      "The locally-deployed model hallucinates more."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "baa; data-flow; governance; workflow-design; admin"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "W_K_185",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "For a research project involving a high-risk AI, the institutional governance body requires a 'Red Teaming' workflow step. What is the goal of this step?",
+    "options": [
+      "To fine-tune the model on red-colored images.",
+      "To hire independent, critical experts to intentionally and systematically attempt to find security vulnerabilities, bias, and failure modes in the AI system before deployment.",
+      "To increase the model's knowledge cutoff.",
+      "To check the model's overfitting rate."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "red-teaming; governance; safety; research"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "W_K_186",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the AI policy, a medical leader requires that all AI-generated content used for patient-facing purposes be stamped with a 'Disclaimed: Human Review Required' watermark. This is a workflow mandate to mitigate which specific risk?",
+    "options": [
+      "Tokenization error.",
+      "Automation bias and the risk of unverified information being seen as final medical advice.",
+      "The model's RAG system failure.",
+      "A too-small context window."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "automation-bias; guardrails; workflow-design; leader"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "W_K_187",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "For a medical educator, how should the AI model's 'knowledge cutoff' be governed in the workflow for creating high-stakes, contemporary clinical assessments?",
+    "options": [
+      "The cutoff date is irrelevant.",
+      "The curriculum committee must define an acceptable cutoff date for each assessment and mandate a RAG system to ground questions in post-cutoff guidelines if necessary.",
+      "The model must only use few-shot examples.",
+      "The model must ignore the cutoff and hallucinate a new date."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "knowledge-cutoff; rag; governance; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "W_K_188",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "The primary objective of a 'data provenance' workflow for an AI model in a health system is to:",
+    "options": [
+      "Check the model's temperature setting.",
+      "Document the complete and verifiable lineage of all data used for pre-training, fine-tuning, and RAG, to trace bias or performance issues back to their source.",
+      "Ensure the model only uses Chain-of-Thought.",
+      "Restrict the model's ability to tokenize."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "data-provenance; governance; bias; workflow-design"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "W_K_189",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the administrative workflow for deploying a new AI, what is the key responsibility of the 'Institutional Review Board (IRB)' equivalent for a non-research clinical tool?",
+    "options": [
+      "To check the model's few-shot examples.",
+      "To review the potential ethical, safety, and equity implications for patients and staff, and mandate appropriate consent and mitigation protocols.",
+      "To ensure the model is trained on public data only.",
+      "To increase the model's token limit."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "irb; governance; equity; safety"
+    ],
+    "role_focus": "administrator"
+  },
+  {
+    "id": "W_K_190",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "When designing an AI for clinical documentation that 'auto-fills' sensitive fields, the final human-in-the-loop workflow step must ensure:",
+    "options": [
+      "The AI is forced to hallucinate.",
+      "The human user can easily and manually edit or delete the AI-generated content before finalization, with every step recorded in the audit trail.",
+      "The model's temperature is set to zero.",
+      "The prompt is simple and zero-shot."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "human-review; emr-integration; workflow-design; audit-trails"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "T_K_191",
+    "category": "technical",
+    "difficulty": "2",
+    "type": "mcq_knowledge",
+    "stem": "What is the primary technical method used to overcome the LLM's 'knowledge cutoff' for contemporary information?",
+    "options": [
+      "Increasing the model's tokenization rate.",
+      "Implementing a Retrieval Augmented Generation (RAG) system with an up-to-date vector database.",
+      "Decreasing the model's temperature setting.",
+      "Removing all few-shot examples."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "knowledge-cutoff; rag; technical"
+    ],
+    "role_focus": "general"
+  },
+  {
+    "id": "C_K_192",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A medical leader finds that an AI used for resource allocation exhibits 'disparate impact' against a minority group. Critically, what does 'disparate impact' mean in this context?",
+    "options": [
+      "The AI’s RAG system failed.",
+      "The AI’s seemingly neutral policy or recommendation system results in a disproportionately negative outcome for a specific protected group.",
+      "The AI's tokenization rate is too slow.",
+      "The AI only uses Chain-of-Thought prompting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "bias; disparate-impact; equity; critical-thinking"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "P_K_193",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A researcher is using an AI to draft a systematic review protocol. To ensure the generated protocol is highly detailed and aligned with PRISMA guidelines, the prompt should use a combination of:",
+    "options": [
+      "Zero-shot prompting and a negative constraint on length.",
+      "Few-shot examples of highly-rated PRISMA protocols and a Chain-of-Thought instruction requiring the AI to check each section against the PRISMA checklist.",
+      "A generic role definition and no context.",
+      "A few-shot example that intentionally omits key sections."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; few-shot; chain-of-thought; research"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "A_K_194",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "A clinician is using an approved AI to search a massive internal research database (using RAG). The most practical and time-efficient strategy to ensure the query is highly focused and accurate is to:",
+    "options": [
+      "Use a simple, short keyword search.",
+      "Craft a detailed prompt that includes few-shot examples of successful past searches, the intended research question, and a specific output format.",
+      "Ask the AI to ignore the context window.",
+      "Ask the AI to hallucinate new data."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "rag; prompt-engineering; few-shot; practical-use"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "W_K_195",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the EMR-integrated AI workflow, which governance requirement is necessary to resolve a legal dispute over whether the AI or the clinician was responsible for a documentation error?",
+    "options": [
+      "A large context window.",
+      "A comprehensive, immutable audit trail that logs the exact AI output, the time of the human review, and the clinician's final signature/attestation.",
+      "A zero-shot prompt policy.",
+      "A short knowledge cutoff."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "audit-trails; accountability; governance; emr-integration"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "T_K_196",
+    "category": "technical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Which technical feature must be prioritized in the fine-tuning of an AI for rare disease diagnosis to prevent 'Catastrophic Forgetting' of general medical knowledge?",
+    "options": [
+      "Ensuring the fine-tuning dataset is entirely comprised of non-medical text.",
+      "Implementing a technique like LoRA (PEFT) or using a mixed training regimen that includes a small subset of the original general training data.",
+      "Removing the RAG system entirely.",
+      "Setting the temperature to a very high value."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "catastrophic-forgetting; fine-tuning; peft; technical"
+    ],
+    "role_focus": "researcher"
+  },
+  {
+    "id": "C_K_197",
+    "category": "critical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Why is the use of 'zero-shot' prompting inherently riskier than 'few-shot' prompting for highly nuanced clinical questions?",
+    "options": [
+      "Zero-shot prompts have a smaller context window.",
+      "Zero-shot provides no direct examples to constrain the AI's output format or style, increasing the likelihood of an unverified or hallucinated response.",
+      "Zero-shot prompting is not possible with LLMs.",
+      "Zero-shot always results in overfitting."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "zero-shot; few-shot; hallucination; critical-thinking"
+    ],
+    "role_focus": "clinician"
+  },
+  {
+    "id": "P_K_198",
+    "category": "prompt",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "An administrative leader needs to use AI to compare two complex vendor contracts. Which advanced prompt structure should be used to ensure a non-biased, point-by-point comparison of terms?",
+    "options": [
+      "A zero-shot prompt asking for a general summary.",
+      "A prompt defining the role as a 'Contract Auditor' with a Chain-of-Thought instruction to first establish a common set of comparison criteria, then analyze each contract against those criteria, and finally output the result in a comparison table.",
+      "A few-shot prompt of an unrelated email.",
+      "A negative constraint on the word count."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "prompt-engineering; chain-of-thought; structured-output; admin"
+    ],
+    "role_focus": "leader"
+  },
+  {
+    "id": "A_K_199",
+    "category": "practical",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "Which practical AI use case in a medical education setting carries the highest risk of copyright/intellectual property infringement?",
+    "options": [
+      "Using a public LLM to draft a summary of an open-source textbook.",
+      "Inputting a proprietary, unpublished curriculum, including high-stakes assessment items, into a public LLM for analysis or refinement.",
+      "Using an internal AI to generate generic multiple-choice questions.",
+      "Asking the AI to summarize a public journal article."
+    ],
+    "correct_option": "B",
+    "lexicon_terms": [
+      "intellectual-property; copyright; practical-risk; education"
+    ],
+    "role_focus": "educator"
+  },
+  {
+    "id": "W_K_200",
+    "category": "workflow",
+    "difficulty": "3",
+    "type": "mcq_knowledge",
+    "stem": "In the governance workflow for an AI that triages patient messages, which documented policy is mandatory to ensure patient safety and ethical compliance?",
+    "options": [
+      "A policy mandating that every message, regardless of triage priority, receives human review and response within a clinically determined timeframe.",
+      "A policy mandating the model's tokenization rate.",
+      "A policy mandating the model's knowledge cutoff is ignored.",
+      "A policy requiring the use of few-shot examples for every query."
+    ],
+    "correct_option": "A",
+    "lexicon_terms": [
+      "safety; governance; workflow-design; ethical-compliance"
+    ],
+    "role_focus": "clinician"
+  }
+]
