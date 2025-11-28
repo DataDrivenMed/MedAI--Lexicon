@@ -474,7 +474,7 @@
 
     const fluencyChart = new Chart(ctx, chartConfig);
 
-    // Domain configuration
+    // Domain configuration mapping JSON domains to internal keys
     const DOMAIN_CONFIG = {
       'Prompt mastery and conversation patterns': {
         key: 'prompt',
@@ -521,63 +521,6 @@
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
       return arr;
-    }
-
-    // Build one quiz card
-    function buildQuestionCard(questionObj, uniqueId, domainKey) {
-      const card = document.createElement('div');
-      card.className = 'question border border-slate-200 rounded-md p-3';
-      card.dataset.questionId = uniqueId;
-      card.dataset.domainKey = domainKey;
-
-      const stem = document.createElement('p');
-      stem.className = 'text-sm font-medium text-slate-800 mb-2';
-      stem.textContent = questionObj.question || '';
-      card.appendChild(stem);
-
-      const optionsWrapper = document.createElement('div');
-      optionsWrapper.className = 'space-y-1 text-sm text-slate-700';
-
-      const options = [
-        { key: 'A', text: questionObj.option_a },
-        { key: 'B', text: questionObj.option_b },
-        { key: 'C', text: questionObj.option_c },
-        { key: 'D', text: questionObj.option_d }
-      ].filter(opt => opt.text && String(opt.text).trim() !== '');
-
-      options.forEach(opt => {
-        const label = document.createElement('label');
-        label.className = 'flex items-start gap-2 option-row';
-        label.dataset.optionKey = opt.key;
-
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.name = 'q_' + uniqueId;
-        input.value = opt.key;
-        input.className = 'mt-1';
-
-        const span = document.createElement('span');
-        span.innerHTML = '<span class="font-semibold mr-1">' + opt.key + '.</span>' + opt.text;
-
-        label.appendChild(input);
-        label.appendChild(span);
-        optionsWrapper.appendChild(label);
-      });
-
-      card.appendChild(optionsWrapper);
-
-      const feedback = document.createElement('p');
-      feedback.className = 'mt-2 text-xs feedback-message';
-      card.appendChild(feedback);
-
-      // Attach event listeners
-      card.querySelectorAll('input[type="radio"]').forEach(input => {
-        input.addEventListener('change', () => {
-          handleAnswerSelection(card, questionObj, input.value);
-        });
-      });
-
-      return card;
     }
 
     function clearOptionStyles(cardEl) {
@@ -630,51 +573,115 @@
       }
     }
 
+    // Build one quiz card from JSON {stem, options[], correct_letter}
+    function buildQuestionCard(questionObj, uniqueId, domainKey) {
+      const card = document.createElement('div');
+      card.className = 'question border border-slate-200 rounded-md p-3';
+      card.dataset.questionId = uniqueId;
+      card.dataset.domainKey = domainKey;
+
+      const stem = document.createElement('p');
+      stem.className = 'text-sm font-medium text-slate-800 mb-2';
+      stem.textContent = questionObj.stem || '';
+      card.appendChild(stem);
+
+      const optionsWrapper = document.createElement('div');
+      optionsWrapper.className = 'space-y-1 text-sm text-slate-700';
+
+      const letters = ['A', 'B', 'C', 'D'];
+      const rawOptions = Array.isArray(questionObj.options) ? questionObj.options : [];
+
+      const options = rawOptions.map((text, idx) => ({
+        key: letters[idx],
+        text: text
+      })).filter(opt => opt.text && String(opt.text).trim() !== '');
+
+      options.forEach(opt => {
+        const label = document.createElement('label');
+        label.className = 'flex items-start gap-2 option-row';
+        label.dataset.optionKey = opt.key;
+
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'q_' + uniqueId;
+        input.value = opt.key;
+        input.className = 'mt-1';
+
+        const span = document.createElement('span');
+        span.innerHTML = '<span class="font-semibold mr-1">' + opt.key + '.</span>' + opt.text;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        optionsWrapper.appendChild(label);
+      });
+
+      card.appendChild(optionsWrapper);
+
+      const feedback = document.createElement('p');
+      feedback.className = 'mt-2 text-xs feedback-message';
+      card.appendChild(feedback);
+
+      // Attach event listeners
+      card.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.addEventListener('change', () => {
+          handleAnswerSelection(card, questionObj, input.value);
+        });
+      });
+
+      return card;
+    }
+
     // Load questions from JSON and populate the quiz
     function initializeQuiz(allQuestions) {
-      // Expect JSON rows with columns:
-      // domain, question, option_a, option_b, option_c, option_d, correct_option, explanation (optional)
+      // Clear any previous state in case of re-initialization
+      Object.keys(questionsByDomain).forEach(k => {
+        questionsByDomain[k] = [];
+      });
+
       Object.keys(DOMAIN_CONFIG).forEach(domainName => {
         const cfg = DOMAIN_CONFIG[domainName];
         const domainKey = cfg.key;
         const containerId = cfg.containerId;
 
-        const domainQuestions = allQuestions.filter(q => {
-          const d = (q.domain || '').trim().toLowerCase();
-          const target = domainName.trim().toLowerCase();
-          return d === target;
-        });
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const domainQuestions = allQuestions.filter(q => (q.domain || '').trim() === domainName.trim());
+        if (domainQuestions.length === 0) {
+          container.innerHTML = '<p class="text-xs text-red-700">No questions found for domain: ' + domainName + '.</p>';
+          return;
+        }
 
         const shuffled = shuffle(domainQuestions);
         const selected = shuffled.slice(0, 5);
 
-        const container = document.getElementById(containerId);
-        if (!container) return;
         container.innerHTML = '';
 
-        if (selected.length === 0) {
-          const warn = document.createElement('p');
-          warn.className = 'text-xs text-red-700';
-          warn.textContent = 'No questions found for this domain in medai_questions.json. Check the "domain" column text.';
-          container.appendChild(warn);
-          return;
-        }
-
         selected.forEach((q, index) => {
-          const uniqueId = domainKey + '_' + (index + 1);
+          const uniqueId = q.id || (domainKey + '_' + (index + 1));
 
-          const correctLetter = (q.correct_option || '').toString().trim().toUpperCase();
-          const correctTextField = {
-            'A': q.option_a,
-            'B': q.option_b,
-            'C': q.option_c,
-            'D': q.option_d
-          }[correctLetter] || '';
+          const letters = ['A', 'B', 'C', 'D'];
+
+          let correctLetter = (q.correct_letter || '').toString().trim().toUpperCase();
+          if (!correctLetter && typeof q.correct === 'number') {
+            correctLetter = letters[q.correct] || 'A';
+          }
+          if (!letters.includes(correctLetter)) {
+            correctLetter = 'A';
+          }
+
+          let correctText = '';
+          if (Array.isArray(q.options)) {
+            const idx = letters.indexOf(correctLetter);
+            if (idx >= 0 && idx < q.options.length) {
+              correctText = q.options[idx];
+            }
+          }
 
           questionMeta[uniqueId] = {
             domainKey: domainKey,
             correctOption: correctLetter,
-            correctText: correctTextField,
+            correctText: correctText,
             isCorrect: null
           };
 
@@ -686,7 +693,7 @@
       });
     }
 
-    // Fetch JSON on load (underscore filename)
+    // Fetch JSON on load
     fetch('medai_questions.json')
       .then(resp => {
         if (!resp.ok) {
@@ -703,7 +710,7 @@
       .catch(err => {
         console.error(err);
         const summaryDiv = document.getElementById('summarySection');
-        summaryDiv.innerHTML = '<p class="text-xs text-red-700">There was a problem loading the MedAI Question Bank. Confirm that medai_questions.json is in the same folder as this file in your GitHub repo and uses UTF-8 encoding.</p>';
+        summaryDiv.innerHTML = '<p class="text-xs text-red-700">There was a problem loading the MedAI Question Bank. Check that medai_questions.json is in the same folder as this file and uses UTF-8 encoding.</p>';
       });
 
     // Map score to level label
@@ -786,7 +793,6 @@
       return score;
     }
 
-    // Ensure all questions answered
     function allQuestionsAnswered() {
       return Object.values(questionMeta).every(m => m.isCorrect !== null);
     }
