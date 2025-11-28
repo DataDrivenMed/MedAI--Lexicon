@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MedAI Fluency Quiz | MedAI Lexicon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Top bar / header -->
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-semibold tracking-tight text-emerald-300">
+            MedAI Fluency Question Bank
+          </h1>
+          <p class="text-sm text-slate-300 mt-1 max-w-2xl">
+            Interactive question bank to help medical faculty, residents, and students build practical AI literacy
+            for education, research, and patient care.
+          </p>
+        </div>
+        <div class="flex flex-col items-start md:items-end gap-1 text-xs text-slate-400">
+          <span>Part of the <span class="font-semibold text-emerald-300">MedAI Lexicon</span> project</span>
+          <a href="index.html" class="inline-flex items-center gap-1 text-emerald-300 hover:text-emerald-200">
+            ← Back to MedAI Lexicon
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1">
+      <div class="max-w-6xl mx-auto px-4 py-6 md:py-8 space-y-6">
+
+        <!-- Filters card -->
+        <section class="bg-slate-900/70 border border-slate-800 rounded-2xl p-4 md:p-5 shadow-lg shadow-slate-950/40">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+            <div>
+              <h2 class="text-lg font-semibold text-slate-50">Filter and search questions</h2>
+              <p class="text-xs text-slate-400 mt-1">
+                Use the filters to focus on a specific audience, difficulty level, or topic area.
+              </p>
+            </div>
+            <button
+              id="resetFilters"
+              class="inline-flex items-center justify-center px-3 py-1.5 rounded-full border border-slate-600 text-xs font-medium text-slate-100 hover:bg-slate-800 hover:border-slate-500 transition">
+              Reset all filters
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4">
+            <!-- Search text -->
+            <div class="col-span-1 md:col-span-2">
+              <label for="searchInput" class="block text-xs font-medium text-slate-300 mb-1.5">
+                Search by keyword
+              </label>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Example: hallucination risk, fine tuning, resident use, assessment design"
+                class="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-500" />
+            </div>
+
+            <!-- Category filter -->
+            <div>
+              <label for="categoryFilter" class="block text-xs font-medium text-slate-300 mb-1.5">
+                Category
+              </label>
+              <select
+                id="categoryFilter"
+                class="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                <option value="">All categories</option>
+                <!-- Options will be filled dynamically, but you can keep a few defaults -->
+                <option value="Foundations">Foundations</option>
+                <option value="Medical Education">Medical Education</option>
+                <option value="Clinical Practice">Clinical Practice</option>
+                <option value="Research">Research</option>
+                <option value="Governance & Policy">Governance & Policy</option>
+              </select>
+            </div>
+
+            <!-- Difficulty filter -->
+            <div>
+              <label for="difficultyFilter" class="block text-xs font-medium text-slate-300 mb-1.5">
+                Difficulty
+              </label>
+              <select
+                id="difficultyFilter"
+                class="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                <option value="">All levels</option>
+                <option value="Introductory">Introductory</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+
+            <!-- Role filter -->
+            <div>
+              <label for="roleFilter" class="block text-xs font-medium text-slate-300 mb-1.5">
+                Target audience
+              </label>
+              <select
+                id="roleFilter"
+                class="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                <option value="">All roles</option>
+                <option value="Faculty">Faculty</option>
+                <option value="Resident/Fellow">Resident/Fellow</option>
+                <option value="Student">Student</option>
+                <option value="Education Leader">Education Leader</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Status line -->
+          <div id="statusMessage" class="mt-3 text-xs text-slate-400">
+            Loading question bank, please wait...
+          </div>
+        </section>
+
+        <!-- Questions list -->
+        <section class="space-y-3">
+          <h2 class="text-base font-semibold text-slate-50 flex items-center gap-2">
+            Question list
+            <span
+              id="questionCountBadge"
+              class="hidden text-[0.65rem] font-medium px-2 py-0.5 rounded-full bg-slate-800 text-slate-200">
+              0 questions
+            </span>
+          </h2>
+
+          <div id="questionsContainer" class="space-y-3">
+            <!-- Cards generated by quiz.js -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950/90">
+      <div class="max-w-6xl mx-auto px-4 py-4 text-xs text-slate-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <span>
+          MedAI Lexicon · Experimental faculty development resource for AI literacy in health sciences.
+        </span>
+        <span>
+          Curated by <span class="text-slate-300 font-medium">DataDrivenMed</span>
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Quiz logic -->
+  <script src="quiz.js"></script>
+</body>
+</html>
