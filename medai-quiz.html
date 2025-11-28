@@ -2,468 +2,403 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MedAI Question Bank</title>
+  <title>MedAI Question Bank - Fluency Practice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     body {
-      font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: 'Roboto', system-ui, sans-serif;
       background-color: #f8fafc;
       font-size: 0.95rem;
       line-height: 1.6;
       color: #0f172a;
     }
-    h1, h2, h3, h4 {
+    h1, h2, h3 {
       font-family: 'Playfair Display', serif;
-      letter-spacing: -0.02em;
-    }
-    .scrollbar-thin::-webkit-scrollbar {
-      width: 8px;
-    }
-    .scrollbar-thin::-webkit-scrollbar-track {
-      background: #e5e7eb;
-      border-radius: 9999px;
-    }
-    .scrollbar-thin::-webkit-scrollbar-thumb {
-      background-color: #4f46e5;
-      border-radius: 9999px;
-      border: 1px solid #e5e7eb;
     }
   </style>
 </head>
-<body class="min-h-screen">
-  <div class="min-h-screen flex flex-col">
-    <!-- Header -->
-    <header class="bg-slate-900 text-slate-50 border-b border-slate-800">
-      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div>
-          <h1 class="text-2xl md:text-3xl font-bold tracking-tight">MedAI Question Bank</h1>
-          <p class="text-sm md:text-base text-slate-300 mt-1">
-            Practice questions to build AI fluency in medical education, research, and clinical work.
-          </p>
-          <p class="text-xs md:text-sm text-slate-400 mt-1">
-            Part of the <a href="index.html" class="underline text-indigo-300">MedAI Lexicon</a> project by <span class="font-semibold">Ram Paragi</span>.
-          </p>
-        </div>
-        <div class="hidden md:flex gap-2">
-          <a
-            href="index.html"
-            class="text-xs px-3 py-1.5 rounded-full border border-slate-500 text-slate-100 hover:bg-slate-800"
-          >
-            Back to Lexicon
-          </a>
-          <a
-            href="fluency-studio.html"
-            class="text-xs px-3 py-1.5 rounded-full bg-indigo-500 text-white hover:bg-indigo-600"
-          >
-            Open Fluency Studio
-          </a>
-        </div>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="bg-slate-900 text-slate-50 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold tracking-tight">MedAI Question Bank</h1>
+        <p class="text-sm md:text-base text-slate-300 mt-1">
+          Build your AI fluency using structured question practice across five core domains.
+        </p>
       </div>
-    </header>
+      <a
+        href="index.html"
+        class="hidden md:inline-flex px-3 py-1.5 rounded-full bg-slate-700 text-slate-200 text-xs hover:bg-slate-600"
+      >
+        Back to Lexicon
+      </a>
+    </div>
+  </header>
 
-    <!-- Main -->
-    <main class="flex-1">
-      <section class="max-w-6xl mx-auto px-4 py-4 md:py-6 space-y-4">
-        <!-- Top info -->
-        <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 md:p-5">
-          <h2 class="text-lg md:text-xl font-semibold text-slate-900">How to use this question bank</h2>
-          <p class="text-sm text-slate-700 mt-1">
-            Filter by domain, difficulty, and audience to build short practice sets. Use this with the MedAI Lexicon and Fluency Studio to design workshops and self paced learning.
-          </p>
-        </div>
+  <!-- MAIN CONTENT -->
+  <main class="flex-1">
+    <div class="max-w-6xl mx-auto px-4 py-6 grid gap-6 md:grid-cols-[1.2fr_1.8fr]">
 
-        <!-- Filters -->
-        <div class="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm space-y-3">
-          <div class="grid gap-3 md:grid-cols-4">
-            <div class="md:col-span-2">
-              <label class="block text-xs font-medium text-slate-600 mb-1" for="searchBox">
-                Search questions
-              </label>
-              <input
-                id="searchBox"
-                type="text"
-                placeholder="Search stem, key words, or tags..."
-                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-            <div>
-              <label class="block text-xs font-medium text-slate-600 mb-1" for="domainFilter">
-                Domain
-              </label>
-              <select
-                id="domainFilter"
-                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              >
-                <option value="">All domains</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-medium text-slate-600 mb-1" for="difficultyFilter">
-                Difficulty
-              </label>
-              <select
-                id="difficultyFilter"
-                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              >
-                <option value="">All levels</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-              </select>
-            </div>
+      <!-- LEFT COLUMN -->
+      <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-5 flex flex-col gap-4">
+
+        <h2 class="text-lg md:text-xl font-semibold text-slate-900">
+          Choose a domain and answer questions
+        </h2>
+        <p class="text-xs text-slate-600 -mt-2">
+          Each domain pulls from your 200-item MedAI question bank. Aim for 8–10 questions per domain.
+        </p>
+
+        <!-- DOMAIN BUTTONS -->
+        <div id="domainButtons" class="flex flex-wrap gap-2 text-xs md:text-sm"></div>
+
+        <!-- QUESTION CARD -->
+        <div class="border border-slate-200 bg-slate-50 rounded-2xl p-4 flex flex-col flex-1">
+          <div class="flex justify-between items-center text-xs text-slate-500 mb-2">
+            <span id="questionDomainLabel" class="font-medium text-indigo-700"></span>
+            <span id="questionCounter"></span>
           </div>
 
-          <div class="flex flex-col md:flex-row gap-2 md:items-center md:justify-between pt-1 border-t border-slate-100 mt-2">
-            <div class="flex gap-2 items-center">
-              <label class="block text-xs font-medium text-slate-600" for="audienceFilter">
-                Intended audience
-              </label>
-              <select
-                id="audienceFilter"
-                class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              >
-                <option value="">All</option>
-                <option value="Physician">Physicians</option>
-                <option value="Basic science faculty">Basic science faculty</option>
-                <option value="Clinical researcher">Clinical researchers</option>
-                <option value="GME">Residents and fellows</option>
-              </select>
-            </div>
-            <div class="flex gap-2 justify-end">
-              <button
-                id="resetFiltersBtn"
-                class="px-3 py-1.5 rounded-full border border-slate-200 bg-white text-xs text-slate-700 hover:bg-slate-50"
-              >
-                Reset filters
-              </button>
-              <button
-                id="shuffleBtn"
-                class="px-4 py-1.5 rounded-full bg-indigo-600 text-white text-xs font-medium hover:bg-indigo-700"
-              >
-                Shuffle questions
-              </button>
-            </div>
+          <div id="questionStem" class="text-sm md:text-base font-medium text-slate-900 mb-4"></div>
+
+          <div id="optionsContainer" class="space-y-2 mb-4"></div>
+
+          <div id="feedbackArea" class="text-xs md:text-sm"></div>
+
+          <div class="flex justify-between mt-4">
+            <button
+              id="prevQuestionBtn"
+              class="px-3 py-1.5 text-xs border border-slate-300 rounded-full text-slate-700 hover:bg-slate-100 disabled:opacity-40"
+            >
+              Previous
+            </button>
+            <button
+              id="nextQuestionBtn"
+              class="px-4 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40"
+            >
+              Next question
+            </button>
           </div>
         </div>
 
-        <!-- Question list -->
-        <div class="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-sm">
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <h2 class="text-base md:text-lg font-semibold text-slate-900">
-              Questions
-            </h2>
-            <p id="questionCount" class="text-xs text-slate-500">
-              Loading questions...
-            </p>
-          </div>
-
-          <div id="questionList" class="space-y-4 max-h-[32rem] overflow-y-auto scrollbar-thin pr-1">
-            <!-- Question cards injected here -->
-          </div>
-        </div>
       </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-slate-50 mt-4">
-      <div class="max-w-6xl mx-auto px-4 py-3 text-xs text-slate-500 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-        <span>MedAI Question Bank is an educational resource, not a regulatory or clinical decision tool.</span>
-        <a
-          href="index.html"
-          class="underline text-indigo-600"
-        >
-          Back to MedAI Lexicon
-        </a>
-      </div>
-    </footer>
-  </div>
+      <!-- RIGHT COLUMN -->
+      <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-5 flex flex-col gap-4">
 
+        <h2 class="text-lg md:text-xl font-semibold text-slate-900">
+          Fluency radar and personalized growth plan
+        </h2>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+          <canvas id="fluencyRadar"></canvas>
+          <p class="text-[11px] text-slate-500 text-center mt-2">
+            Each axis represents your accuracy in a domain.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex-1">
+          <h3 class="font-semibold text-sm text-slate-900">Summary</h3>
+          <p id="overallSummary" class="text-xs text-slate-700 mt-1">
+            Answer some questions to start building your profile.
+          </p>
+
+          <div id="domainSummaries" class="mt-3 space-y-2"></div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-slate-50 py-3">
+    <div class="max-w-6xl mx-auto px-4 text-xs text-slate-500">
+      MedAI Fluency Practice Tool. Educational use only.
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
   <script>
-    // Fallback sample questions so the page works even before you upload medai_questions.json
-    const FALLBACK_QUESTIONS = [
-      {
-        id: 1,
-        question: "In the context of large language models, what does the term 'token' most often represent?",
-        option_a: "A complete English word only",
-        option_b: "A fixed length chunk of text that could be a word, subword, or punctuation",
-        option_c: "An individual character such as a single letter",
-        option_d: "A complete sentence",
-        correct_option: "B",
-        domain: "Model fundamentals",
-        difficulty: "Beginner",
-        audience: "Physician",
-        tag: "Tokenization, context window",
-        explanation: "Most tokenizers break text into subword units, so a token is usually a small chunk such as 'cardio', 'logy', or punctuation, not always a full word."
-      },
-      {
-        id: 2,
-        question: "Why is retrieval augmented generation (RAG) attractive for medical education and research?",
-        option_a: "It allows the model to train on protected health information automatically",
-        option_b: "It removes the need for any human review of AI outputs",
-        option_c: "It lets the model pull in current, grounded references from external sources before answering",
-        option_d: "It makes the model deterministic for every question",
-        correct_option: "C",
-        domain: "RAG and workflows",
-        difficulty: "Intermediate",
-        audience: "Clinical researcher",
-        tag: "RAG, hallucinations, evidence",
-        explanation: "RAG combines search over trusted sources with generation, which can reduce hallucinations and keep answers aligned with current evidence."
-      }
+    const DOMAIN_LABELS = [
+      "Prompt mastery and conversation patterns",
+      "Model fundamentals and limitations",
+      "Practical use cases in education, research, and clinical work",
+      "Critical evaluation, bias, and safety",
+      "Workflow design and governance"
     ];
 
-    let ALL_QUESTIONS = [];
+    let allQuestions = [];
+    let questionsByDomain = {};
+    let currentDomain = null;
+    let currentIndex = 0;
+    let answered = false;
 
-    const searchBox = document.getElementById("searchBox");
-    const domainFilter = document.getElementById("domainFilter");
-    const difficultyFilter = document.getElementById("difficultyFilter");
-    const audienceFilter = document.getElementById("audienceFilter");
-    const resetFiltersBtn = document.getElementById("resetFiltersBtn");
-    const shuffleBtn = document.getElementById("shuffleBtn");
-    const questionListEl = document.getElementById("questionList");
-    const questionCountEl = document.getElementById("questionCount");
+    const stats = {};
+    DOMAIN_LABELS.forEach(d => stats[d] = { correct: 0, total: 0 });
 
-    async function loadQuestions() {
-      try {
-        const res = await fetch("medai_questions.json", { cache: "no-store" });
-        if (!res.ok) throw new Error("No JSON file");
-        const data = await res.json();
-        if (!Array.isArray(data) || data.length === 0) {
-          throw new Error("Empty or invalid JSON");
+    let radarChart = null;
+
+    const domainButtonsEl = document.getElementById("domainButtons");
+    const questionStemEl = document.getElementById("questionStem");
+    const questionDomainLabelEl = document.getElementById("questionDomainLabel");
+    const questionCounterEl = document.getElementById("questionCounter");
+    const optionsContainerEl = document.getElementById("optionsContainer");
+    const feedbackEl = document.getElementById("feedbackArea");
+    const prevBtn = document.getElementById("prevQuestionBtn");
+    const nextBtn = document.getElementById("nextQuestionBtn");
+    const overallSummaryEl = document.getElementById("overallSummary");
+    const domainSummariesEl = document.getElementById("domainSummaries");
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function createDomainButtons() {
+      DOMAIN_LABELS.forEach(domain => {
+        const btn = document.createElement("button");
+        btn.textContent = domain;
+        btn.dataset.domain = domain;
+        btn.className =
+          "px-3 py-1.5 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-indigo-50 text-xs";
+        btn.addEventListener("click", () => selectDomain(domain));
+        domainButtonsEl.appendChild(btn);
+      });
+    }
+
+    function highlightButtons() {
+      const btns = domainButtonsEl.querySelectorAll("button");
+      btns.forEach(btn => {
+        if (btn.dataset.domain === currentDomain) {
+          btn.classList.add("bg-indigo-600", "text-white", "border-indigo-500");
+          btn.classList.remove("bg-white", "text-slate-700");
+        } else {
+          btn.classList.remove("bg-indigo-600", "text-white", "border-indigo-500");
+          btn.classList.add("bg-white", "text-slate-700");
         }
-        ALL_QUESTIONS = data;
-        questionCountEl.textContent = `${ALL_QUESTIONS.length} questions loaded`;
-      } catch (err) {
-        console.warn("Falling back to sample questions:", err.message);
-        ALL_QUESTIONS = FALLBACK_QUESTIONS;
-        questionCountEl.textContent = `${ALL_QUESTIONS.length} sample questions loaded (upload medai_questions.json to replace)`;
+      });
+    }
+
+    function selectDomain(domain) {
+      currentDomain = domain;
+      highlightButtons();
+
+      const list = questionsByDomain[domain];
+      questionsByDomain[domain] = shuffle(list);
+      currentIndex = 0;
+      answered = false;
+
+      renderQuestion();
+    }
+
+    function getCurrent() {
+      return questionsByDomain[currentDomain][currentIndex];
+    }
+
+    function renderQuestion() {
+      const q = getCurrent();
+
+      questionDomainLabelEl.textContent = currentDomain;
+      questionCounterEl.textContent = `Question ${currentIndex + 1}`;
+      questionStemEl.textContent = q.stem;
+      feedbackEl.innerHTML = "";
+      answered = false;
+
+      optionsContainerEl.innerHTML = "";
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.className =
+          "w-full text-left px-3 py-2 border border-slate-200 rounded-xl bg-white text-xs hover:bg-slate-100";
+        btn.innerHTML = `<span class='font-semibold mr-2'>${String.fromCharCode(65+idx)}.</span>${opt}`;
+        btn.dataset.index = idx;
+
+        btn.addEventListener("click", () => handleAnswer(idx));
+        optionsContainerEl.appendChild(btn);
+      });
+
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = true;
+    }
+
+    function handleAnswer(selected) {
+      if (answered) return;
+      answered = true;
+
+      const q = getCurrent();
+      const correct = q.correct;
+
+      stats[currentDomain].total += 1;
+
+      const optBtns = optionsContainerEl.querySelectorAll("button");
+      optBtns.forEach(btn => btn.disabled = true);
+
+      if (selected === correct) {
+        stats[currentDomain].correct += 1;
+        feedbackEl.innerHTML =
+          `<p class="text-emerald-700 font-medium">Correct! ${String.fromCharCode(65+correct)} is right.</p>`;
+      } else {
+        feedbackEl.innerHTML =
+          `<p class="text-rose-700 font-medium">
+            Not correct. Correct answer:
+            <span class="font-bold text-red-700">
+              ${String.fromCharCode(65+correct)}. ${q.options[correct]}
+            </span>
+          </p>`;
       }
 
-      populateDomainFilter();
-      renderQuestions();
-    }
-
-    function populateDomainFilter() {
-      const domains = new Set();
-      ALL_QUESTIONS.forEach(q => {
-        if (q.domain) {
-          domains.add(q.domain);
+      optBtns.forEach((btn, idx) => {
+        if (idx === correct) {
+          btn.classList.add("bg-emerald-50", "border-emerald-500");
+        }
+        if (idx === selected && idx !== correct) {
+          btn.classList.add("bg-rose-50", "border-rose-500");
         }
       });
-      domainFilter.innerHTML = '<option value="">All domains</option>';
-      Array.from(domains).sort().forEach(d => {
-        const opt = document.createElement("option");
-        opt.value = d;
-        opt.textContent = d;
-        domainFilter.appendChild(opt);
-      });
+
+      nextBtn.disabled = false;
+      updateChart();
+      updateSummaries();
     }
 
-    function getFilteredQuestions() {
-      const search = (searchBox.value || "").toLowerCase();
-      const domainVal = domainFilter.value;
-      const diffVal = difficultyFilter.value;
-      const audienceVal = audienceFilter.value;
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    });
 
-      return ALL_QUESTIONS.filter(q => {
-        if (domainVal && q.domain !== domainVal) return false;
-        if (diffVal && q.difficulty !== diffVal) return false;
-        if (audienceVal && q.audience !== audienceVal) return false;
+    nextBtn.addEventListener("click", () => {
+      const list = questionsByDomain[currentDomain];
+      if (currentIndex < list.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        feedbackEl.innerHTML +=
+          `<p class="text-[11px] text-slate-500 mt-2">
+            End of this domain’s questions.
+          </p>`;
+        nextBtn.disabled = true;
+      }
+    });
 
-        if (search) {
-          const haystack = [
-            q.question,
-            q.domain,
-            q.difficulty,
-            q.audience,
-            q.tag,
-            q.option_a,
-            q.option_b,
-            q.option_c,
-            q.option_d
+    function initChart() {
+      const ctx = document.getElementById("fluencyRadar");
+      radarChart = new Chart(ctx, {
+        type: "radar",
+        data: {
+          labels: DOMAIN_LABELS,
+          datasets: [
+            { data: [0,0,0,0,0], fill: true }
           ]
-            .filter(Boolean)
-            .join(" ")
-            .toLowerCase();
-
-          if (!haystack.includes(search)) return false;
+        },
+        options: {
+          scales: { r: { suggestedMin: 0, suggestedMax: 100 } },
+          plugins: { legend: { display: false } }
         }
-
-        return true;
       });
     }
 
-    function renderQuestions() {
-      const questions = getFilteredQuestions();
-      questionListEl.innerHTML = "";
+    function updateChart() {
+      const values = DOMAIN_LABELS.map(d => {
+        const s = stats[d];
+        if (s.total === 0) return 0;
+        return Math.round((s.correct / s.total) * 100);
+      });
+      radarChart.data.datasets[0].data = values;
+      radarChart.update();
+    }
 
-      if (questions.length === 0) {
-        const empty = document.createElement("div");
-        empty.className = "text-sm text-slate-500 py-4 text-center";
-        empty.textContent = "No questions match these filters yet. Try clearing one or more filters.";
-        questionListEl.appendChild(empty);
-        questionCountEl.textContent = "0 questions match filters";
+    function updateSummaries() {
+      let answeredCount = DOMAIN_LABELS.reduce((sum, d) => sum + stats[d].total, 0);
+      if (answeredCount === 0) {
+        overallSummaryEl.textContent = 
+          "Answer a few questions to begin generating a personalized fluency profile.";
+        domainSummariesEl.innerHTML = "";
         return;
       }
 
-      questionCountEl.textContent = `${questions.length} question${questions.length > 1 ? "s" : ""} match filters`;
+      const results = DOMAIN_LABELS.map(domain => {
+        const s = stats[domain];
+        return {
+          domain,
+          accuracy: s.total ? Math.round((s.correct / s.total) * 100) : 0,
+          total: s.total
+        };
+      });
 
-      questions.forEach(q => {
-        const card = document.createElement("article");
-        card.className = "border border-slate-200 rounded-2xl p-3 md:p-4 bg-slate-50";
+      const best = results.reduce((a,b) => b.accuracy > a.accuracy ? b : a);
+      const avg = Math.round(
+        results.reduce((sum,d)=>sum+d.accuracy,0) / results.length
+      );
 
-        // Top line with meta
-        const metaRow = document.createElement("div");
-        metaRow.className = "flex flex-wrap items-center justify-between gap-2 mb-2";
+      overallSummaryEl.textContent =
+        `Your strongest domain so far: ${best.domain} (${best.accuracy}%). 
+        Your average accuracy across all domains is ${avg}%.`;
 
-        const leftMeta = document.createElement("div");
-        leftMeta.className = "flex flex-wrap items-center gap-2 text-[11px]";
-
-        if (q.domain) {
-          const domainBadge = document.createElement("span");
-          domainBadge.className = "px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 font-medium";
-          domainBadge.textContent = q.domain;
-          leftMeta.appendChild(domainBadge);
+      domainSummariesEl.innerHTML = "";
+      results.forEach(r => {
+        let note = "";
+        if (r.total < 3) {
+          note = "Not enough questions yet. Try at least 3–5 items.";
+        } else if (r.accuracy >= 80) {
+          note = "Strength. You can use this domain for teaching or mentorship.";
+        } else if (r.accuracy >= 50) {
+          note = "Developing. You have a base understanding.";
+        } else {
+          note = "Growth priority. Review Lexicon terms and retry.";
         }
 
-        if (q.difficulty) {
-          const diffBadge = document.createElement("span");
-          diffBadge.className =
-            "px-2 py-0.5 rounded-full border text-slate-700 bg-white";
-          diffBadge.textContent = q.difficulty;
-          leftMeta.appendChild(diffBadge);
-        }
-
-        if (q.audience) {
-          const audBadge = document.createElement("span");
-          audBadge.className = "px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700";
-          audBadge.textContent = q.audience;
-          leftMeta.appendChild(audBadge);
-        }
-
-        metaRow.appendChild(leftMeta);
-
-        if (q.tag) {
-          const tagText = document.createElement("p");
-          tagText.className = "text-[11px] text-slate-500";
-          tagText.textContent = q.tag;
-          metaRow.appendChild(tagText);
-        }
-
-        card.appendChild(metaRow);
-
-        // Question text
-        const qText = document.createElement("p");
-        qText.className = "text-sm md:text-base text-slate-900 font-medium mb-2";
-        qText.textContent = q.question || "";
-        card.appendChild(qText);
-
-        // Options list
-        const optionsWrapper = document.createElement("div");
-        optionsWrapper.className = "space-y-1 text-sm text-slate-800";
-
-        const options = [
-          { key: "A", text: q.option_a },
-          { key: "B", text: q.option_b },
-          { key: "C", text: q.option_c },
-          { key: "D", text: q.option_d }
-        ].filter(opt => opt.text);
-
-        options.forEach(opt => {
-          const row = document.createElement("div");
-          row.className = "flex items-start gap-2";
-
-          const label = document.createElement("span");
-          label.className = "mt-0.5 text-xs font-semibold text-slate-500";
-          label.textContent = opt.key + ".";
-
-          const text = document.createElement("span");
-          text.textContent = opt.text;
-
-          row.appendChild(label);
-          row.appendChild(text);
-          optionsWrapper.appendChild(row);
-        });
-
-        card.appendChild(optionsWrapper);
-
-        // Answer and explanation
-        const answerBox = document.createElement("div");
-        answerBox.className = "mt-3 pt-2 border-t border-slate-200";
-
-        const toggleBtn = document.createElement("button");
-        toggleBtn.type = "button";
-        toggleBtn.className = "text-xs font-medium text-indigo-700 hover:text-indigo-900 underline";
-        toggleBtn.textContent = "Show answer and explanation";
-
-        const answerContent = document.createElement("div");
-        answerContent.className = "mt-2 hidden text-xs md:text-sm text-slate-800 space-y-1";
-
-        const correctLetter = (q.correct_option || "").trim().toUpperCase();
-        if (correctLetter) {
-          const ansP = document.createElement("p");
-          ansP.className = "font-semibold text-emerald-700";
-          ansP.textContent = "Correct answer: " + correctLetter;
-          answerContent.appendChild(ansP);
-        }
-
-        if (q.explanation) {
-          const explP = document.createElement("p");
-          explP.textContent = q.explanation;
-          answerContent.appendChild(explP);
-        }
-
-        toggleBtn.addEventListener("click", () => {
-          const isHidden = answerContent.classList.contains("hidden");
-          if (isHidden) {
-            answerContent.classList.remove("hidden");
-            toggleBtn.textContent = "Hide answer and explanation";
-          } else {
-            answerContent.classList.add("hidden");
-            toggleBtn.textContent = "Show answer and explanation";
-          }
-        });
-
-        answerBox.appendChild(toggleBtn);
-        answerBox.appendChild(answerContent);
-        card.appendChild(answerBox);
-
-        questionListEl.appendChild(card);
+        const div = document.createElement("div");
+        div.className = "bg-white border border-slate-200 rounded-xl p-3 text-xs";
+        div.innerHTML = `
+          <p class="font-semibold text-slate-900">${r.domain}</p>
+          <p class="text-slate-700">
+            Accuracy: <strong>${r.accuracy}%</strong> · 
+            Questions answered: <strong>${r.total}</strong>
+          </p>
+          <p class="mt-1 text-slate-600">${note}</p>
+        `;
+        domainSummariesEl.appendChild(div);
       });
     }
 
-    function shuffleArray(arr) {
-      const copy = arr.slice();
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-      }
-      return copy;
+    async function loadQuestions() {
+      const response = await fetch("medai_questions.json");
+      const data = await response.json();
+
+      allQuestions = data;
+      questionsByDomain = {};
+
+      DOMAIN_LABELS.forEach(d => questionsByDomain[d] = []);
+
+      data.forEach(q => {
+        if (questionsByDomain[q.domain]) {
+          questionsByDomain[q.domain].push(q);
+        }
+      });
+
+      createDomainButtons();
+      selectDomain(DOMAIN_LABELS[0]);
     }
 
-    // Event listeners
-    searchBox.addEventListener("input", renderQuestions);
-    domainFilter.addEventListener("change", renderQuestions);
-    difficultyFilter.addEventListener("change", renderQuestions);
-    audienceFilter.addEventListener("change", renderQuestions);
-
-    resetFiltersBtn.addEventListener("click", () => {
-      searchBox.value = "";
-      domainFilter.value = "";
-      difficultyFilter.value = "";
-      audienceFilter.value = "";
-      renderQuestions();
+    document.addEventListener("DOMContentLoaded", () => {
+      initChart();
+      loadQuestions();
     });
-
-    shuffleBtn.addEventListener("click", () => {
-      ALL_QUESTIONS = shuffleArray(ALL_QUESTIONS);
-      renderQuestions();
-    });
-
-    document.addEventListener("DOMContentLoaded", loadQuestions);
   </script>
+
 </body>
 </html>
