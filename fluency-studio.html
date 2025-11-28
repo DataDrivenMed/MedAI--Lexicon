@@ -474,7 +474,7 @@
 
     const fluencyChart = new Chart(ctx, chartConfig);
 
-    // Domain configuration (matches your conceptual domains)
+    // Domain configuration
     const DOMAIN_CONFIG = {
       'Prompt mastery and conversation patterns': {
         key: 'prompt',
@@ -523,15 +523,110 @@
       return arr;
     }
 
-    // Helper to get option text from question object
-    function getOptionText(q, letter) {
-      const lowerKey = 'option_' + letter.toLowerCase(); // option_a
-      const upperKey = 'option_' + letter.toUpperCase(); // option_A
-      return (q[lowerKey] || q[upperKey] || '').toString().trim();
+    // Helper: get question text from any reasonable field name
+    function getQuestionText(q) {
+      const candidates = ['question', 'Question', 'stem', 'Stem', 'prompt', 'Prompt', 'item', 'Item'];
+      for (const key of candidates) {
+        if (q.hasOwnProperty(key) && q[key] != null) {
+          const val = String(q[key]).trim();
+          if (val !== '') return val;
+        }
+      }
+      // fallback: try first non-domain/answer key
+      const keys = Object.keys(q);
+      for (const key of keys) {
+        if (/domain/i.test(key)) continue;
+        if (/correct/i.test(key)) continue;
+        if (/explanation/i.test(key)) continue;
+        if (q[key] != null) {
+          const val = String(q[key]).trim();
+          if (val !== '') return val;
+        }
+      }
+      return '(no question text found)';
+    }
+
+    // Helper: get list of option fields and texts from arbitrary column names
+    function getOptionsFromQuestion(q) {
+      const keys = Object.keys(q);
+      const optionCandidates = [];
+
+      keys.forEach(key => {
+        const lower = key.toLowerCase();
+        // Skip non-option fields
+        if (lower.includes('domain')) return;
+        if (lower === 'question' || lower === 'prompt' || lower === 'stem' || lower === 'item') return;
+        if (lower.includes('correct') || lower.includes('answerkey') || lower.includes('answer_key')) return;
+        if (lower.includes('explanation')) return;
+
+        const val = q[key];
+        if (val == null) return;
+        const text = String(val).trim();
+        if (text === '') return;
+
+        optionCandidates.push({ key, text });
+      });
+
+      // Sort keys alphabetically for a stable order, then map to A/B/C/D…
+      optionCandidates.sort((a, b) => a.key.localeCompare(b.key));
+
+      const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+      const options = optionCandidates.slice(0, letters.length).map((opt, idx) => ({
+        letter: letters[idx],
+        text: opt.text,
+        sourceKey: opt.key
+      }));
+
+      return options;
+    }
+
+    // Helper: find correct option letter
+    function detectCorrectLetter(q, options) {
+      if (options.length === 0) return '';
+
+      const correctFieldCandidates = [
+        'correct_option',
+        'CorrectOption',
+        'Correct_Option',
+        'correctOption',
+        'correct',
+        'Correct',
+        'answer',
+        'Answer',
+        'AnswerKey',
+        'Answer Key',
+        'answer_key',
+        'right_answer',
+        'RightAnswer'
+      ];
+
+      // 1) Try reading a stored letter
+      for (const key of correctFieldCandidates) {
+        if (q.hasOwnProperty(key) && q[key] != null) {
+          const raw = String(q[key]).trim();
+          const asLetter = raw.toUpperCase();
+          if (options.some(o => o.letter === asLetter)) {
+            return asLetter;
+          }
+        }
+      }
+
+      // 2) Try matching stored correct text to an option text
+      for (const key of correctFieldCandidates) {
+        if (q.hasOwnProperty(key) && q[key] != null) {
+          const raw = String(q[key]).trim().toLowerCase();
+          if (raw === '') continue;
+          const match = options.find(o => o.text.trim().toLowerCase() === raw);
+          if (match) return match.letter;
+        }
+      }
+
+      // 3) Fallback: default to first option (so quiz still works, even if key missing)
+      return options[0].letter;
     }
 
     // Build one quiz card
-    function buildQuestionCard(questionObj, uniqueId, domainKey) {
+    function buildQuestionCard(questionObj, uniqueId, domainKey, options) {
       const card = document.createElement('div');
       card.className = 'question border border-slate-200 rounded-md p-3';
       card.dataset.questionId = uniqueId;
@@ -539,37 +634,37 @@
 
       const stem = document.createElement('p');
       stem.className = 'text-sm font-medium text-slate-800 mb-2';
-      stem.textContent = questionObj.question || questionObj.stem || '';
+      stem.textContent = getQuestionText(questionObj);
       card.appendChild(stem);
 
       const optionsWrapper = document.createElement('div');
       optionsWrapper.className = 'space-y-1 text-sm text-slate-700';
 
-      const options = ['A', 'B', 'C', 'D']
-        .map(letter => ({
-          key: letter,
-          text: getOptionText(questionObj, letter)
-        }))
-        .filter(opt => opt.text !== '');
+      if (options.length === 0) {
+        const warn = document.createElement('p');
+        warn.className = 'text-xs text-red-700';
+        warn.textContent = 'No options found for this question in the JSON.';
+        optionsWrapper.appendChild(warn);
+      } else {
+        options.forEach(opt => {
+          const label = document.createElement('label');
+          label.className = 'flex items-start gap-2 option-row';
+          label.dataset.optionKey = opt.letter;
 
-      options.forEach(opt => {
-        const label = document.createElement('label');
-        label.className = 'flex items-start gap-2 option-row';
-        label.dataset.optionKey = opt.key;
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = 'q_' + uniqueId;
+          input.value = opt.letter;
+          input.className = 'mt-1';
 
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.name = 'q_' + uniqueId;
-        input.value = opt.key;
-        input.className = 'mt-1';
+          const span = document.createElement('span');
+          span.innerHTML = '<span class="font-semibold mr-1">' + opt.letter + '.</span>' + opt.text;
 
-        const span = document.createElement('span');
-        span.innerHTML = '<span class="font-semibold mr-1">' + opt.key + '.</span>' + opt.text;
-
-        label.appendChild(input);
-        label.appendChild(span);
-        optionsWrapper.appendChild(label);
-      });
+          label.appendChild(input);
+          label.appendChild(span);
+          optionsWrapper.appendChild(label);
+        });
+      }
 
       card.appendChild(optionsWrapper);
 
@@ -609,8 +704,7 @@
       const correctText = meta.correctText || '';
 
       const correctRow = cardEl.querySelector('.option-row[data-option-key="' + correctOption + '"]');
-      const selectedRowInput = cardEl.querySelector('.option-row input[value="' + selectedOption + '"]');
-      const selectedRow = selectedRowInput ? selectedRowInput.closest('.option-row') : null;
+      const selectedRow = cardEl.querySelector('.option-row input[value="' + selectedOption + '"]')?.closest('.option-row') || null;
 
       if (selectedOption === correctOption) {
         meta.isCorrect = true;
@@ -640,20 +734,16 @@
 
     // Load questions from JSON and populate the quiz
     function initializeQuiz(allQuestions) {
-      // JSON rows expected columns:
-      // category, domain (optional), stem, option_A..D, correct_option, correct_answer
+      // Clear any previous recordings (in case of hot reload)
+      Object.keys(questionsByDomain).forEach(k => { questionsByDomain[k] = []; });
+      Object.keys(questionMeta).forEach(k => { delete questionMeta[k]; });
 
       Object.keys(DOMAIN_CONFIG).forEach(domainName => {
         const cfg = DOMAIN_CONFIG[domainName];
         const domainKey = cfg.key;
         const containerId = cfg.containerId;
 
-        // Prefer explicit domain text if present, else fall back to category mapping if you add it later
-        const domainQuestions = allQuestions.filter(q => {
-          const dom = (q.domain || '').toString().trim();
-          return dom === domainName.trim();
-        });
-
+        const domainQuestions = allQuestions.filter(q => (q.domain || '').trim() === domainName.trim());
         const shuffled = shuffle(domainQuestions);
         const selected = shuffled.slice(0, 5);
 
@@ -664,25 +754,20 @@
         selected.forEach((q, index) => {
           const uniqueId = domainKey + '_' + (index + 1);
 
-          const correctLetter = (q.correct_option || q.correct_option_letter || '')
-            .toString()
-            .trim()
-            .toUpperCase();
-
-          const correctTextField =
-            (q.correct_answer || '').toString().trim() ||
-            getOptionText(q, correctLetter);
+          const options = getOptionsFromQuestion(q);
+          const correctLetter = detectCorrectLetter(q, options);
+          const correctOptionObj = options.find(o => o.letter === correctLetter) || options[0] || { text: '' };
 
           questionMeta[uniqueId] = {
             domainKey: domainKey,
             correctOption: correctLetter,
-            correctText: correctTextField,
+            correctText: correctOptionObj ? correctOptionObj.text : '',
             isCorrect: null
           };
 
           questionsByDomain[domainKey].push(uniqueId);
 
-          const card = buildQuestionCard(q, uniqueId, domainKey);
+          const card = buildQuestionCard(q, uniqueId, domainKey, options);
           container.appendChild(card);
         });
       });
