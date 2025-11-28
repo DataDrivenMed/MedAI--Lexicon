@@ -24,7 +24,7 @@
   <div class="min-h-screen flex flex-col">
     <!-- Header -->
     <header class="bg-white shadow">
-      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div>
           <h1 class="text-xl md:text-2xl font-semibold tracking-tight">MedAI Fluency Studio</h1>
           <p class="text-sm text-slate-600">
@@ -39,9 +39,9 @@
 
     <!-- Main content -->
     <main class="flex-1">
-      <div class="max-w-6xl mx-auto px-4 py-6 md:py-8 space-y-6">
+      <div class="max-w-7xl mx-auto px-4 py-6 md:py-8 space-y-6">
 
-        <!-- Step indicator -->
+        <!-- Step indicator - six steps -->
         <section class="bg-white rounded-lg shadow-sm p-4 md:p-5">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
@@ -59,17 +59,27 @@
                 </li>
                 <li class="flex-1 flex items-center step-indicator" data-step="2">
                   <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">2</span>
-                  <span class="hidden sm:inline text-slate-500">Prompt and technical quiz</span>
+                  <span class="hidden sm:inline text-slate-500">Prompt mastery</span>
                   <div class="flex-1 h-px bg-slate-200 ml-2 sm:ml-3"></div>
                 </li>
                 <li class="flex-1 flex items-center step-indicator" data-step="3">
                   <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">3</span>
-                  <span class="hidden sm:inline text-slate-500">Practical and critical quiz</span>
+                  <span class="hidden sm:inline text-slate-500">Model fundamentals</span>
                   <div class="flex-1 h-px bg-slate-200 ml-2 sm:ml-3"></div>
                 </li>
-                <li class="flex items-center step-indicator" data-step="4">
+                <li class="flex-1 flex items-center step-indicator" data-step="4">
                   <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">4</span>
-                  <span class="hidden sm:inline text-slate-500">Workflow quiz and results</span>
+                  <span class="hidden sm:inline text-slate-500">Practical use</span>
+                  <div class="flex-1 h-px bg-slate-200 ml-2 sm:ml-3"></div>
+                </li>
+                <li class="flex-1 flex items-center step-indicator" data-step="5">
+                  <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">5</span>
+                  <span class="hidden sm:inline text-slate-500">Critical evaluation</span>
+                  <div class="flex-1 h-px bg-slate-200 ml-2 sm:ml-3"></div>
+                </li>
+                <li class="flex items-center step-indicator" data-step="6">
+                  <span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-300 bg-white text-slate-500 text-xs font-semibold mr-2">6</span>
+                  <span class="hidden sm:inline text-slate-500">Workflow and map</span>
                 </li>
               </ol>
             </div>
@@ -98,26 +108,26 @@
                 The quiz selects a subset of questions from the MedAI Question Bank each time you visit. It is not a high stakes exam. Use it as a structured way to see where you are solid and where you might want to grow.
               </p>
               <p class="text-xs text-slate-600">
-                There are 25 questions in total, 5 from each competency. You will see immediate feedback for each question and a radar chart at the end.
+                There are 25 questions in total, five from each competency. You will see immediate feedback for each question and a radar chart at the end.
               </p>
               <div class="flex justify-end pt-2">
                 <button
                   class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
                   data-next="2"
                 >
-                  Start quiz - prompt and technical
+                  Start - prompt mastery
                 </button>
               </div>
             </section>
 
-            <!-- Step 2: Prompt + Technical (quiz based) -->
+            <!-- Step 2: Prompt mastery and conversation patterns -->
             <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="2">
               <div class="flex flex-col gap-2">
                 <div class="flex justify-between items-start gap-4">
                   <div>
-                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 2 - Prompt mastery and model fundamentals</h3>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 2 - Prompt mastery and conversation patterns</h3>
                     <p class="text-xs text-slate-600">
-                      This section uses knowledge questions on prompting and core model concepts. Each question gives instant feedback.
+                      These questions focus on how you talk to AI tools, shape outputs, and reuse patterns.
                     </p>
                   </div>
                 </div>
@@ -127,35 +137,16 @@
                     class="inline-flex text-blue-600 hover:underline"
                     target="_blank" rel="noopener"
                   >
-                    Prompt related Lexicon terms
-                  </a>
-                  <span class="text-slate-400">•</span>
-                  <a
-                    href="index.html#model-fundamentals"
-                    class="inline-flex text-blue-600 hover:underline"
-                    target="_blank" rel="noopener"
-                  >
-                    Model fundamentals Lexicon terms
+                    Prompting and conversation Lexicon terms
                   </a>
                 </div>
               </div>
 
-              <!-- Prompt questions container -->
               <div class="space-y-3 pt-2 border-t border-slate-100">
-                <h4 class="text-sm font-semibold text-slate-900">Prompt mastery and conversation patterns</h4>
                 <p class="text-xs text-slate-600 mb-1">
                   Five questions are drawn from the MedAI Question Bank for this domain.
                 </p>
                 <div id="promptQuestionsContainer" class="space-y-3"></div>
-              </div>
-
-              <!-- Technical questions container -->
-              <div class="space-y-3 pt-3 border-t border-slate-100">
-                <h4 class="text-sm font-semibold text-slate-900">Model fundamentals and limitations</h4>
-                <p class="text-xs text-slate-600 mb-1">
-                  Five questions are drawn from the MedAI Question Bank for this domain.
-                </p>
-                <div id="technicalQuestionsContainer" class="space-y-3"></div>
               </div>
 
               <div class="flex justify-between pt-3">
@@ -169,57 +160,38 @@
                   class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
                   data-next="3"
                 >
-                  Next, practical and critical quiz
+                  Next - model fundamentals
                 </button>
               </div>
             </section>
 
-            <!-- Step 3: Practical + Critical (quiz based) -->
+            <!-- Step 3: Model fundamentals and limitations -->
             <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="3">
               <div class="flex flex-col gap-2">
                 <div class="flex justify-between items-start gap-4">
                   <div>
-                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 3 - Practical use and critical evaluation</h3>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 3 - Model fundamentals and limitations</h3>
                     <p class="text-xs text-slate-600">
-                      These questions focus on how AI can be used in real educational, research, and clinical tasks, and how to evaluate outputs for safety and bias.
+                      These questions focus on tokens, embeddings, latent space, attention, hallucinations, and what these tools can and cannot do.
                     </p>
                   </div>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs">
                   <a
-                    href="index.html#practical-use-cases"
+                    href="index.html#model-fundamentals"
                     class="inline-flex text-blue-600 hover:underline"
                     target="_blank" rel="noopener"
                   >
-                    Practical use Lexicon terms
-                  </a>
-                  <span class="text-slate-400">•</span>
-                  <a
-                    href="index.html#evaluation-and-safety"
-                    class="inline-flex text-blue-600 hover:underline"
-                    target="_blank" rel="noopener"
-                  >
-                    Evaluation, bias, and safety terms
+                    Model fundamentals Lexicon terms
                   </a>
                 </div>
               </div>
 
-              <!-- Practical questions container -->
               <div class="space-y-3 pt-2 border-t border-slate-100">
-                <h4 class="text-sm font-semibold text-slate-900">Practical use cases in education, research, and clinical work</h4>
                 <p class="text-xs text-slate-600 mb-1">
                   Five questions are drawn from the MedAI Question Bank for this domain.
                 </p>
-                <div id="practicalQuestionsContainer" class="space-y-3"></div>
-              </div>
-
-              <!-- Critical questions container -->
-              <div class="space-y-3 pt-3 border-t border-slate-100">
-                <h4 class="text-sm font-semibold text-slate-900">Critical evaluation, bias, and safety</h4>
-                <p class="text-xs text-slate-600 mb-1">
-                  Five questions are drawn from the MedAI Question Bank for this domain.
-                </p>
-                <div id="criticalQuestionsContainer" class="space-y-3"></div>
+                <div id="technicalQuestionsContainer" class="space-y-3"></div>
               </div>
 
               <div class="flex justify-between pt-3">
@@ -233,17 +205,107 @@
                   class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
                   data-next="4"
                 >
-                  Next, workflow quiz and results
+                  Next - practical use cases
                 </button>
               </div>
             </section>
 
-            <!-- Step 4: Workflow + Results trigger (quiz based) -->
+            <!-- Step 4: Practical use cases -->
             <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="4">
               <div class="flex flex-col gap-2">
                 <div class="flex justify-between items-start gap-4">
                   <div>
-                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 4 - Workflow design and fluency map</h3>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 4 - Practical use cases in education, research, and clinical work</h3>
+                    <p class="text-xs text-slate-600">
+                      These questions focus on how AI can be built into real workflows like curriculum design, research drafting, and clinic documentation.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <a
+                    href="index.html#practical-use-cases"
+                    class="inline-flex text-blue-600 hover:underline"
+                    target="_blank" rel="noopener"
+                  >
+                    Practical use Lexicon terms
+                  </a>
+                </div>
+              </div>
+
+              <div class="space-y-3 pt-2 border-t border-slate-100">
+                <p class="text-xs text-slate-600 mb-1">
+                  Five questions are drawn from the MedAI Question Bank for this domain.
+                </p>
+                <div id="practicalQuestionsContainer" class="space-y-3"></div>
+              </div>
+
+              <div class="flex justify-between pt-3">
+                <button
+                  class="prev-step inline-flex items-center px-3 py-2 rounded-md border border-slate-300 text-slate-700 text-sm hover:bg-slate-50"
+                  data-prev="3"
+                >
+                  Back
+                </button>
+                <button
+                  class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
+                  data-next="5"
+                >
+                  Next - critical evaluation and safety
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 5: Critical evaluation, bias, and safety -->
+            <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="5">
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-start gap-4">
+                  <div>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 5 - Critical evaluation, bias, and safety</h3>
+                    <p class="text-xs text-slate-600">
+                      These questions focus on hallucinations, bias, evaluation, and safe patterns of use in medicine and education.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <a
+                    href="index.html#evaluation-and-safety"
+                    class="inline-flex text-blue-600 hover:underline"
+                    target="_blank" rel="noopener"
+                  >
+                    Evaluation, bias, and safety Lexicon terms
+                  </a>
+                </div>
+              </div>
+
+              <div class="space-y-3 pt-2 border-t border-slate-100">
+                <p class="text-xs text-slate-600 mb-1">
+                  Five questions are drawn from the MedAI Question Bank for this domain.
+                </p>
+                <div id="criticalQuestionsContainer" class="space-y-3"></div>
+              </div>
+
+              <div class="flex justify-between pt-3">
+                <button
+                  class="prev-step inline-flex items-center px-3 py-2 rounded-md border border-slate-300 text-slate-700 text-sm hover:bg-slate-50"
+                  data-prev="4"
+                >
+                  Back
+                </button>
+                <button
+                  class="next-step inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 active:bg-blue-800"
+                  data-next="6"
+                >
+                  Next - workflow design and results
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 6: Workflow design and governance + calculate -->
+            <section class="step-panel bg-white rounded-lg shadow-sm p-5 md:p-6 space-y-4 hidden" data-step="6">
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-start gap-4">
+                  <div>
+                    <h3 class="text-base md:text-lg font-semibold text-slate-900">Step 6 - Workflow design and governance</h3>
                     <p class="text-xs text-slate-600">
                       These questions focus on how you design AI supported workflows, governance, and human in the loop oversight.
                     </p>
@@ -260,9 +322,7 @@
                 </div>
               </div>
 
-              <!-- Workflow questions container -->
               <div class="space-y-3 pt-2 border-t border-slate-100">
-                <h4 class="text-sm font-semibold text-slate-900">Workflow design and governance</h4>
                 <p class="text-xs text-slate-600 mb-1">
                   Five questions are drawn from the MedAI Question Bank for this domain.
                 </p>
@@ -272,7 +332,7 @@
               <div class="flex justify-between pt-3">
                 <button
                   class="prev-step inline-flex items-center px-3 py-2 rounded-md border border-slate-300 text-slate-700 text-sm hover:bg-slate-50"
-                  data-prev="3"
+                  data-prev="5"
                 >
                   Back
                 </button>
@@ -294,7 +354,7 @@
                 MedAI fluency map
               </h3>
               <p class="text-xs md:text-sm text-slate-600">
-                The radar chart will show quiz based scores for five competencies. Complete all questions, then click the button in Step 4 to update your map.
+                The radar chart will show quiz based scores for five competencies. Complete all questions, then click the button in Step 6 to update your map.
               </p>
               <div class="bg-slate-50 rounded-md p-3">
                 <canvas id="fluencyChart" width="400" height="400"></canvas>
@@ -346,7 +406,7 @@
 
     <!-- Footer -->
     <footer class="bg-slate-100 border-t">
-      <div class="max-w-6xl mx-auto px-4 py-3 text-xs text-slate-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <div class="max-w-7xl mx-auto px-4 py-3 text-xs text-slate-500 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <span>MedAI Lexicon, LSU Health Sciences Center New Orleans</span>
         <span>Educational quiz and reflection tool, not a clinical decision support system.</span>
       </div>
@@ -523,110 +583,8 @@
       return arr;
     }
 
-    // Helper: get question text from any reasonable field name
-    function getQuestionText(q) {
-      const candidates = ['question', 'Question', 'stem', 'Stem', 'prompt', 'Prompt', 'item', 'Item'];
-      for (const key of candidates) {
-        if (q.hasOwnProperty(key) && q[key] != null) {
-          const val = String(q[key]).trim();
-          if (val !== '') return val;
-        }
-      }
-      // fallback: try first non-domain/answer key
-      const keys = Object.keys(q);
-      for (const key of keys) {
-        if (/domain/i.test(key)) continue;
-        if (/correct/i.test(key)) continue;
-        if (/explanation/i.test(key)) continue;
-        if (q[key] != null) {
-          const val = String(q[key]).trim();
-          if (val !== '') return val;
-        }
-      }
-      return '(no question text found)';
-    }
-
-    // Helper: get list of option fields and texts from arbitrary column names
-    function getOptionsFromQuestion(q) {
-      const keys = Object.keys(q);
-      const optionCandidates = [];
-
-      keys.forEach(key => {
-        const lower = key.toLowerCase();
-        // Skip non-option fields
-        if (lower.includes('domain')) return;
-        if (lower === 'question' || lower === 'prompt' || lower === 'stem' || lower === 'item') return;
-        if (lower.includes('correct') || lower.includes('answerkey') || lower.includes('answer_key')) return;
-        if (lower.includes('explanation')) return;
-
-        const val = q[key];
-        if (val == null) return;
-        const text = String(val).trim();
-        if (text === '') return;
-
-        optionCandidates.push({ key, text });
-      });
-
-      // Sort keys alphabetically for a stable order, then map to A/B/C/D…
-      optionCandidates.sort((a, b) => a.key.localeCompare(b.key));
-
-      const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
-      const options = optionCandidates.slice(0, letters.length).map((opt, idx) => ({
-        letter: letters[idx],
-        text: opt.text,
-        sourceKey: opt.key
-      }));
-
-      return options;
-    }
-
-    // Helper: find correct option letter
-    function detectCorrectLetter(q, options) {
-      if (options.length === 0) return '';
-
-      const correctFieldCandidates = [
-        'correct_option',
-        'CorrectOption',
-        'Correct_Option',
-        'correctOption',
-        'correct',
-        'Correct',
-        'answer',
-        'Answer',
-        'AnswerKey',
-        'Answer Key',
-        'answer_key',
-        'right_answer',
-        'RightAnswer'
-      ];
-
-      // 1) Try reading a stored letter
-      for (const key of correctFieldCandidates) {
-        if (q.hasOwnProperty(key) && q[key] != null) {
-          const raw = String(q[key]).trim();
-          const asLetter = raw.toUpperCase();
-          if (options.some(o => o.letter === asLetter)) {
-            return asLetter;
-          }
-        }
-      }
-
-      // 2) Try matching stored correct text to an option text
-      for (const key of correctFieldCandidates) {
-        if (q.hasOwnProperty(key) && q[key] != null) {
-          const raw = String(q[key]).trim().toLowerCase();
-          if (raw === '') continue;
-          const match = options.find(o => o.text.trim().toLowerCase() === raw);
-          if (match) return match.letter;
-        }
-      }
-
-      // 3) Fallback: default to first option (so quiz still works, even if key missing)
-      return options[0].letter;
-    }
-
     // Build one quiz card
-    function buildQuestionCard(questionObj, uniqueId, domainKey, options) {
+    function buildQuestionCard(questionObj, uniqueId, domainKey) {
       const card = document.createElement('div');
       card.className = 'question border border-slate-200 rounded-md p-3';
       card.dataset.questionId = uniqueId;
@@ -634,37 +592,37 @@
 
       const stem = document.createElement('p');
       stem.className = 'text-sm font-medium text-slate-800 mb-2';
-      stem.textContent = getQuestionText(questionObj);
+      stem.textContent = questionObj.question || '';
       card.appendChild(stem);
 
       const optionsWrapper = document.createElement('div');
       optionsWrapper.className = 'space-y-1 text-sm text-slate-700';
 
-      if (options.length === 0) {
-        const warn = document.createElement('p');
-        warn.className = 'text-xs text-red-700';
-        warn.textContent = 'No options found for this question in the JSON.';
-        optionsWrapper.appendChild(warn);
-      } else {
-        options.forEach(opt => {
-          const label = document.createElement('label');
-          label.className = 'flex items-start gap-2 option-row';
-          label.dataset.optionKey = opt.letter;
+      const options = [
+        { key: 'A', text: questionObj.option_a },
+        { key: 'B', text: questionObj.option_b },
+        { key: 'C', text: questionObj.option_c },
+        { key: 'D', text: questionObj.option_d }
+      ].filter(opt => opt.text && String(opt.text).trim() !== '');
 
-          const input = document.createElement('input');
-          input.type = 'radio';
-          input.name = 'q_' + uniqueId;
-          input.value = opt.letter;
-          input.className = 'mt-1';
+      options.forEach(opt => {
+        const label = document.createElement('label');
+        label.className = 'flex items-start gap-2 option-row';
+        label.dataset.optionKey = opt.key;
 
-          const span = document.createElement('span');
-          span.innerHTML = '<span class="font-semibold mr-1">' + opt.letter + '.</span>' + opt.text;
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'q_' + uniqueId;
+        input.value = opt.key;
+        input.className = 'mt-1';
 
-          label.appendChild(input);
-          label.appendChild(span);
-          optionsWrapper.appendChild(label);
-        });
-      }
+        const span = document.createElement('span');
+        span.innerHTML = '<span class="font-semibold mr-1">' + opt.key + '.</span>' + opt.text;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        optionsWrapper.appendChild(label);
+      });
 
       card.appendChild(optionsWrapper);
 
@@ -675,7 +633,7 @@
       // Attach event listeners
       card.querySelectorAll('input[type="radio"]').forEach(input => {
         input.addEventListener('change', () => {
-          handleAnswerSelection(card, input.value);
+          handleAnswerSelection(card, questionObj, input.value);
         });
       });
 
@@ -692,7 +650,7 @@
       });
     }
 
-    function handleAnswerSelection(cardEl, selectedOption) {
+    function handleAnswerSelection(cardEl, questionObj, selectedOption) {
       const questionId = cardEl.dataset.questionId;
       const meta = questionMeta[questionId];
       if (!meta) return;
@@ -734,10 +692,8 @@
 
     // Load questions from JSON and populate the quiz
     function initializeQuiz(allQuestions) {
-      // Clear any previous recordings (in case of hot reload)
-      Object.keys(questionsByDomain).forEach(k => { questionsByDomain[k] = []; });
-      Object.keys(questionMeta).forEach(k => { delete questionMeta[k]; });
-
+      // Expect JSON rows with columns:
+      // domain, question, option_a, option_b, option_c, option_d, correct_option
       Object.keys(DOMAIN_CONFIG).forEach(domainName => {
         const cfg = DOMAIN_CONFIG[domainName];
         const domainKey = cfg.key;
@@ -754,20 +710,24 @@
         selected.forEach((q, index) => {
           const uniqueId = domainKey + '_' + (index + 1);
 
-          const options = getOptionsFromQuestion(q);
-          const correctLetter = detectCorrectLetter(q, options);
-          const correctOptionObj = options.find(o => o.letter === correctLetter) || options[0] || { text: '' };
+          const correctLetter = (q.correct_option || '').toString().trim().toUpperCase();
+          const correctTextField = {
+            'A': q.option_a,
+            'B': q.option_b,
+            'C': q.option_c,
+            'D': q.option_d
+          }[correctLetter] || '';
 
           questionMeta[uniqueId] = {
             domainKey: domainKey,
             correctOption: correctLetter,
-            correctText: correctOptionObj ? correctOptionObj.text : '',
+            correctText: correctTextField,
             isCorrect: null
           };
 
           questionsByDomain[domainKey].push(uniqueId);
 
-          const card = buildQuestionCard(q, uniqueId, domainKey, options);
+          const card = buildQuestionCard(q, uniqueId, domainKey);
           container.appendChild(card);
         });
       });
