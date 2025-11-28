@@ -449,456 +449,278 @@
     "option_d": "The model cannot generate text",
     "correct_option": "B"
   },
-  {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "Retrieval augmented generation (RAG) combines:",
-    "option_c": "Only free text prompts",
-    "option_d": "Search over external documents with language model generation",
-    "correct_option": "IMAGE RECOGNITION WITH BILLING"
+    {
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "Retrieval augmented generation (RAG) combines:",
+    "option_a": "Only free text prompts with no external data",
+    "option_b": "Search over external documents with language model generation",
+    "option_c": "Only image recognition models",
+    "option_d": "Only structured EHR data without text",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "A good use of RAG in a medical school is:",
-    "option_c": "Randomly writing policies",
-    "option_d": "Grounding answers in local policies and guidelines pulled from institutional documents",
-    "correct_option": "REPLACING ALL FACULTY"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "A realistic early use of RAG in a medical school is:",
+    "option_a": "Letting AI automatically sign off grades",
+    "option_b": "Grounding answers in local policies, handbooks, and guidelines pulled from institutional documents",
+    "option_c": "Allowing AI to update the student handbook with no human review",
+    "option_d": "Using AI to assign on-call schedules autonomously",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "AI agents in the MedAI sense are:",
-    "option_c": "Single static prompts",
-    "option_d": "Systems where models can plan, call tools, review results, and iterate",
-    "correct_option": "ONLY CHATBOTS THAT TRANSLATE LANGUAGES"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "In curriculum design, a safe and useful AI supported workflow is:",
+    "option_a": "Having AI approve final learning objectives without faculty review",
+    "option_b": "Using AI to draft learning objectives and sample questions that faculty then revise",
+    "option_c": "Letting AI assign clerkship grades directly",
+    "option_d": "Asking AI to change LCME standards",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "Human in the loop review in an AI workflow means:",
-    "option_c": "No human oversight",
-    "option_d": "A human reviews and can override AI outputs at defined points",
-    "correct_option": "HUMANS ONLY SET UP HARDWARE"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "In research writing, a safe starting use case for generative AI is:",
+    "option_a": "Letting AI fabricate data for a trial",
+    "option_b": "Using AI to help draft background or significance sections that are checked against primary sources",
+    "option_c": "Asking AI to invent extra enrolled subjects",
+    "option_d": "Letting AI sign IRB forms",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "Quantization of a model mainly:",
-    "option_c": "Increases floating point precision",
-    "option_d": "Compresses model weights to fewer bits to save memory and compute",
-    "correct_option": "DELETES SAFETY FILTERS"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "For resident coaching, a good use of AI is:",
+    "option_a": "Replacing all faculty coaching with a chatbot",
+    "option_b": "Using AI to generate practice questions and sample answers for debrief with faculty",
+    "option_c": "Letting AI decide promotion to senior resident",
+    "option_d": "Letting AI complete summative evaluations alone",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "LoRA (low rank adaptation) is designed to:",
-    "option_c": "Retrain the whole model from scratch",
-    "option_d": "Adapt a large model by training small add on matrices instead of all weights",
-    "correct_option": "ENCRYPT EHR DATA"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "For patient education materials, generative AI can most appropriately:",
+    "option_a": "Send materials directly to patients without clinician review",
+    "option_b": "Draft plain language explanations that clinicians review and adapt for their population",
+    "option_c": "Guarantee materials are at the right literacy level with no checking",
+    "option_d": "Collect PHI for future training without disclosure",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "Diffusion models are most commonly used for:",
-    "option_c": "Tabular billing data",
-    "option_d": "Image generation and image like data such as medical image synthesis",
-    "correct_option": "AUDIO ONLY TASKS"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "A good use of embeddings in education is:",
+    "option_a": "Encrypting passwords",
+    "option_b": "Building a semantic search tool over local teaching cases and guidelines",
+    "option_c": "Storing raw images only",
+    "option_d": "Replacing standard EHR search features",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "Multimodal models in MedAI are models that:",
-    "option_c": "Only use text input",
-    "option_d": "Jointly process text, images, and other modalities",
-    "correct_option": "ONLY USE LAB DATA"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "In a busy clinic, how should AI scribing tools be used?",
+    "option_a": "Allow the note to be signed automatically with no human review",
+    "option_b": "Have the clinician review and edit the AI drafted note before signing",
+    "option_c": "Let AI choose diagnoses based on billing alone",
+    "option_d": "Use AI notes only for billing and not for care",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "AI data centers used for MedAI workloads mainly require:",
-    "option_c": "Only office chairs",
-    "option_d": "GPU or similar accelerators, high bandwidth networking, and strong cooling",
-    "correct_option": "ONLY LARGE WAITING ROOMS"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "For journal club preparation, a good practice when using AI summaries is:",
+    "option_a": "Skip reading the full paper and trust the summary",
+    "option_b": "Compare the AI summary with the original paper before teaching or making claims",
+    "option_c": "Ask AI to change the study results to match your hypothesis",
+    "option_d": "Use AI summaries as the official record in the EHR",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "A practical safe early use case of generative AI for faculty is:",
-    "option_c": "Letting it write final prescriptions for patients",
-    "option_d": "Using it to draft formative feedback that you review and edit before sending",
-    "correct_option": "LETTING IT ENTER ORDERS DIRECTLY"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "In simulation education, a practical AI use case is:",
+    "option_a": "Letting AI run debriefings without faculty",
+    "option_b": "Using AI to create variations of scenarios and checklists that faculty test and refine",
+    "option_c": "Letting AI assign final simulation grades",
+    "option_d": "Having AI rewrite accreditor requirements",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "In curriculum design, a realistic AI supported workflow is:",
-    "option_c": "Asking AI to approve promotions",
-    "option_d": "Using AI to draft learning objectives and sample questions that faculty then revise",
-    "correct_option": "LETTING AI ASSIGN CLERKSHIP GRADES"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "In quality improvement projects, AI can help by:",
+    "option_a": "Approving interventions with no committee review",
+    "option_b": "Drafting fishbone or driver diagrams that teams refine",
+    "option_c": "Changing institutional policies automatically",
+    "option_d": "Selecting patients for interventions with no oversight",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "In research, a safe starting use case is:",
-    "option_c": "Letting AI fabricate data for a trial",
-    "option_d": "Using AI to help draft background sections that are then checked against primary sources",
-    "correct_option": "LETTING AI SIGN IRB FORMS"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "For program evaluation, AI can:",
+    "option_a": "Replace institutional research staff completely",
+    "option_b": "Summarize open ended survey comments into themes for human review",
+    "option_c": "Decide which programs should close",
+    "option_d": "Change evaluation scales without approval",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "A good use of AI for resident coaching is:",
-    "option_c": "Letting AI replace all faculty coaching",
-    "option_d": "Using AI to generate practice questions and sample answers for debrief with faculty",
-    "correct_option": "LETTING AI CONDUCT SUMMATIVE EVALUATIONS ALONE"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "When introducing AI into a clerkship, a reasonable first step is to:",
+    "option_a": "Make AI required in all patient interactions immediately",
+    "option_b": "Pilot a narrow use case such as drafting feedback, with clear rules and supervision",
+    "option_c": "Let students use any public tool with PHI",
+    "option_d": "Allow AI to document in the EHR without attestation",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "For patient education materials, generative AI can:",
-    "option_c": "Directly send materials without clinician review",
-    "option_d": "Draft plain language explanations that clinicians review and adapt for their population",
-    "correct_option": "IGNORE LITERACY LEVELS"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "A practical use of AI in grant writing is:",
+    "option_a": "Letting AI submit grants and sign as PI",
+    "option_b": "Using AI to draft narrative sections that investigators review and edit",
+    "option_c": "Having AI invent fake collaborators",
+    "option_d": "Using AI to change budget numbers without approval",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "Using RAG against institutional policies mainly helps:",
-    "option_c": "Increase hallucinations",
-    "option_d": "Keep answers aligned with local rules and reduce unsupported claims",
-    "correct_option": "REPLACE COMPLIANCE OFFICERS"
+    "domain": "Practical use cases in education, research, and clinical work",
+    "question": "In clinical decision support pilots, a safe practical use is:",
+    "option_a": "Letting AI override clinician decisions",
+    "option_b": "Using AI to surface relevant guidelines while keeping clinicians in charge of decisions",
+    "option_c": "Having AI order medications automatically",
+    "option_d": "Letting AI discharge patients autonomously",
+    "correct_option": "B"
+  },
+
+  {
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "Hallucinations in clinical education content are dangerous mainly because:",
+    "option_a": "They are always easy to detect",
+    "option_b": "They can look plausible and confident while being wrong",
+    "option_c": "They never mention references",
+    "option_d": "They only occur in non medical topics",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "A safe teaching use of an image generation model is:",
-    "option_c": "Generating identifiable images of local patients",
-    "option_d": "Creating generic diagrams or conceptual images that do not depict real patients",
-    "correct_option": "UPLOADING REAL CT SCANS WITH IDENTIFIERS TO PUBLIC TOOLS"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "A safe first reaction when a model gives a surprising clinical claim is to:",
+    "option_a": "Accept it if the wording is confident",
+    "option_b": "Verify it against trusted sources such as guidelines or primary literature",
+    "option_c": "Share it widely on social media",
+    "option_d": "Immediately change local policy based on it",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "In quality improvement projects, AI can help by:",
-    "option_c": "Signing off on interventions",
-    "option_d": "Drafting fishbone diagrams or driver diagrams that teams refine",
-    "correct_option": "APPROVING BUDGETS"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "RLHF (reinforcement learning from human feedback) can introduce bias because:",
+    "option_a": "It removes all human input",
+    "option_b": "Human raters' preferences and blind spots are encoded into the reward model",
+    "option_c": "It deletes all training data",
+    "option_d": "It only adjusts hardware settings",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "In a busy clinic, AI scribing tools should be used so that:",
-    "option_c": "The note is accepted automatically",
-    "option_d": "The clinician reviews and edits the draft note before signing",
-    "correct_option": "RESIDENTS NEVER SEE THE NOTE"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "A strong guardrail for AI use with PHI in a medical school is:",
+    "option_a": "Copying PHI into any public chatbot",
+    "option_b": "Restricting PHI to approved systems with encryption and business associate agreements",
+    "option_c": "Sharing screenshots with PHI in chat apps",
+    "option_d": "Letting students upload clinical pictures to public tools",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "When using AI to summarize long articles for journal club, a good practice is to:",
-    "option_c": "Skip reading the full paper",
-    "option_d": "Use summaries only",
-    "correct_option": "COMPARE THE AI SUMMARY WITH THE ORIGINAL PAPER BEFORE TEACHING OR MAKING CLAIMS"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "Data governance for AI in an academic health center should include:",
+    "option_a": "Only buying more GPUs",
+    "option_b": "Clear rules on which data can train models, where data can be stored, and who can access outputs",
+    "option_c": "Ignoring where data are sent",
+    "option_d": "Letting vendors copy data without contracts",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "For a grant proposal, AI can most safely help:",
-    "option_c": "Fill in the budget tables without oversight",
-    "option_d": "Draft narrative sections that investigators review and edit",
-    "correct_option": "SIGN SUBMISSION FORMS"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "A red flag in a vendor claim about a clinical AI tool is:",
+    "option_a": "They share evaluation methods and limitations openly",
+    "option_b": "They state the model never hallucinates and needs no human review",
+    "option_c": "They publish validation datasets for scrutiny",
+    "option_d": "They support local testing before deployment",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "In simulation education, AI can:",
-    "option_c": "Replace all debriefing faculty",
-    "option_d": "Help create variations of case scenarios and checklists that faculty test and refine",
-    "correct_option": "RUN SIMULATIONS WITHOUT HUMAN OBSERVERS"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "When teaching trainees about AI bias, a helpful exercise is:",
+    "option_a": "Avoiding concrete examples",
+    "option_b": "Designing small tests where they check outputs for different patient groups and discuss differences",
+    "option_c": "Using only vendor marketing slides",
+    "option_d": "Assuming AI is always neutral",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "A practical use of embeddings in education is:",
-    "option_c": "Matching random articles",
-    "option_d": "Building a semantic search tool over local teaching cases",
-    "correct_option": "ENCRYPTING PASSWORDS"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "Data privacy in MedAI mainly concerns:",
+    "option_a": "Monitor size and desk layout",
+    "option_b": "How identifiable information is protected, shared, and used for training or inference",
+    "option_c": "Only GPU utilization",
+    "option_d": "Only the length of prompts",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "When introducing AI into a clerkship, a reasonable first step is:",
-    "option_c": "Make it mandatory in all patient interactions",
-    "option_d": "Pilot a narrow use case such as drafting feedback, with clear rules and supervision",
-    "correct_option": "LET STUDENTS USE ANY PUBLIC TOOL WITH PHI"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "An AI safety incident report in a health system should capture:",
+    "option_a": "Only hardware failures",
+    "option_b": "Near misses, unexpected behaviors, and potential patient or learner impact related to AI use",
+    "option_c": "Only marketing issues",
+    "option_d": "Only billing discrepancies",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "AI can help with program evaluation by:",
-    "option_c": "Replacing institutional research staff",
-    "option_d": "Summarizing open ended survey comments into themes for human review",
-    "correct_option": "WRITING ACCREDITATION LETTERS WITH NO OVERSIGHT"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "One way to reduce bias when using AI in admissions is to:",
+    "option_a": "Allow AI to make final admission decisions",
+    "option_b": "Use AI summaries only as an optional aid and keep human holistic review with clear guidelines",
+    "option_c": "Hide selection criteria from reviewers",
+    "option_d": "Let AI automatically rank applicants based on name and address",
+    "correct_option": "B"
   },
   {
-    "domain": "Practical use cases in education",
-    "question": "research",
-    "option_a": "and clinical work",
-    "option_b": "In a research data pipeline, an AI helper script might:",
-    "option_c": "Invent outcome data",
-    "option_d": "Help generate code snippets for cleaning data that analysts then review",
-    "correct_option": "SUBMIT DATA DIRECTLY TO REGULATORS"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "Model cards are:",
+    "option_a": "Only hardware specification sheets",
+    "option_b": "Documents that describe a model's training data, intended uses, and limitations",
+    "option_c": "Social media posts about AI",
+    "option_d": "Billing reports",
+    "correct_option": "B"
   },
   {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Hallucinations in clinical education content are dangerous mainly because:",
-    "option_c": "They are always easy to detect",
-    "option_d": "They can look plausible and confident while being wrong",
-    "correct_option": "THEY NEVER MENTION REFERENCES"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "A safe policy for trainees using AI on assignments is:",
+    "option_a": "Require AI for all assignments without disclosure",
+    "option_b": "Allow use with clear disclosure, guardrails, and human review",
+    "option_c": "Never mention AI at all",
+    "option_d": "Allow AI use but forbid faculty from asking about it",
+    "correct_option": "B"
   },
   {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "A safe first reaction when a model gives a surprising clinical claim is to:",
-    "option_c": "Accept it if the wording is confident",
-    "option_d": "Verify it against trusted sources such as guidelines or primary literature",
-    "correct_option": "SHARE IT WIDELY ON SOCIAL MEDIA"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "A sign of automation bias is:",
+    "option_a": "Users always ignore AI outputs",
+    "option_b": "Users rely on AI suggestions even when they conflict with obvious evidence or their own judgment",
+    "option_c": "Users never open AI tools",
+    "option_d": "AI tools never give suggestions",
+    "correct_option": "B"
   },
   {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "RLHF can introduce bias because:",
-    "option_c": "It removes all human input",
-    "option_d": "Human raters' preferences and blind spots are encoded into the reward model",
-    "correct_option": "IT DELETES TRAINING DATA"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "When evaluating AI outputs for health disparities, an important step is to:",
+    "option_a": "Assume outputs are unbiased by default",
+    "option_b": "Intentionally test examples across different demographic groups and check for differences in recommendations or language",
+    "option_c": "Avoid mentioning race or gender in any analysis",
+    "option_d": "Only test outputs for one demographic group",
+    "correct_option": "B"
   },
   {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Catastrophic forgetting is most relevant when:",
-    "option_c": "A model is trained sequentially on new tasks and loses performance on earlier tasks",
-    "option_d": "A model is never updated",
-    "correct_option": "A MODEL IS ONLY USED FOR TRANSLATION"
+    "domain": "Critical evaluation, bias, and safety",
+    "question": "Safety filters that block self harm or violence content exist mainly to:",
+    "option_a": "Increase GPU heat",
+    "option_b": "Reduce harmful outputs and protect users",
+    "option_c": "Slow down all responses",
+    "option_d": "Change model size",
+    "correct_option": "B"
   },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Emergent abilities in larger models mean that:",
-    "option_c": "New skills can appear at scale and need fresh evaluation in clinical contexts",
-    "option_d": "Models never change with scale",
-    "correct_option": "SMALL MODELS ARE ALWAYS BETTER"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Prompt injection attacks usually try to:",
-    "option_c": "Improve note clarity",
-    "option_d": "Hide malicious instructions inside text that the model will follow",
-    "correct_option": "ENCRYPT THE CONTEXT WINDOW"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "A strong guardrail for AI use with PHI in a medical school is:",
-    "option_c": "Copying PHI into any public chatbot",
-    "option_d": "Restricting PHI to approved systems with encryption and business associate agreements",
-    "correct_option": "SHARING SCREENSHOTS IN CHAT APPS"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Data governance for AI in an academic health center should include:",
-    "option_c": "Clear rules on which data can train models, where data can be stored, and who can access outputs",
-    "option_d": "Only buying more GPUs",
-    "correct_option": "ONLY TRACKING INTERNET SPEED"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "A red flag in a vendor claim about a clinical AI tool is:",
-    "option_c": "They openly share evaluation methods and limitations",
-    "option_d": "They state that the model never hallucinates and needs no human review",
-    "correct_option": "THEY PUBLISH VALIDATION DATASETS"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "When teaching trainees about AI bias a helpful exercise is:",
-    "option_c": "Never discussing examples",
-    "option_d": "Designing small tests where they check outputs for different patient groups and discuss differences",
-    "correct_option": "ONLY USING MARKETING SLIDES"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Data privacy in MedAI mainly concerns:",
-    "option_c": "Where models store weights only",
-    "option_d": "How identifiable information is protected, shared, and used for training or inference",
-    "correct_option": "MONITOR SIZE"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "An AI safety incident report in a health system should capture:",
-    "option_c": "Only hardware failures",
-    "option_d": "Near misses, unexpected behaviors, and potential patient or learner impact related to AI use",
-    "correct_option": "ONLY BILLING ISSUES"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Benchmarking a model on clinical tasks is important because:",
-    "option_c": "Benchmarks always match real life",
-    "option_d": "It provides one structured view of performance and limitations that must still be interpreted in context",
-    "correct_option": "IT REPLACES LOCAL TESTING"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "One way to reduce bias when using AI in admissions is to:",
-    "option_c": "Allow AI to make final admission decisions",
-    "option_d": "Use AI summaries only as an optional aid and keep human holistic review with clear guidelines",
-    "correct_option": "HIDE CRITERIA FROM REVIEWERS"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Model cards are:",
-    "option_c": "Social media posts",
-    "option_d": "Documents that describe a model's training data, intended uses, and limitations",
-    "correct_option": "ONLY HARDWARE SPECS"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "A safe policy for trainees using AI on assignments is:",
-    "option_c": "Never talk about AI",
-    "option_d": "Allow use with clear disclosure, guardrails, and human review",
-    "correct_option": "REQUIRE AI FOR ALL ASSIGNMENTS"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Overreliance on AI in clinical note generation can lead to:",
-    "option_c": "Shorter notes with no risk",
-    "option_d": "Template drift, propagation of errors, and weaker critical thinking if not reviewed",
-    "correct_option": "PERFECT ACCURACY"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "An example of distribution shift is:",
-    "option_c": "The model is tested on the same data it was trained on",
-    "option_d": "The model is used on a population very different from its training data",
-    "correct_option": "THE MODEL IS NEVER DEPLOYED"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "A responsible way to use AI for exam writing is:",
-    "option_c": "Let AI write all high stakes questions with no review",
-    "option_d": "Use AI to propose draft questions that faculty edit and validate against blueprints",
-    "correct_option": "LET AI ASSIGN SCORES AUTOMATICALLY"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "When evaluating AI outputs for health disparities, one important step is to:",
-    "option_c": "Assume outputs are neutral",
-    "option_d": "Intentionally test examples across different demographic groups and check for differences in recommendations or language",
-    "correct_option": "AVOID MENTIONING RACE OR GENDER EVER"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "A sign of automation bias is:",
-    "option_c": "Users ignore AI",
-    "option_d": "Users rely on AI suggestions even when they conflict with obvious evidence or their own judgment",
-    "correct_option": "USERS ALWAYS DISAGREE WITH AI"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "Safety filters that block self harm or violence content exist mainly to:",
-    "option_c": "Slow down responses",
-    "option_d": "Reduce harmful outputs and protect users",
-    "correct_option": "INCREASE GPU HEAT"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "When using AI to summarize sensitive narratives from learners, a respectful practice is to:",
-    "option_c": "Share raw text with all vendors",
-    "option_d": "Remove identifiers and only use approved secure systems for analysis",
-    "correct_option": "POST EXCERPTS ON SOCIAL MEDIA"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "A hospital AI oversight committee reviewing a new sepsis prediction model should ask:",
-    "option_c": "What color the dashboard is",
-    "option_d": "How it was validated, how it performs for different units, and how clinicians can override it",
-    "correct_option": "WHETHER IT IS TRENDY"
-  },
-  {
-    "domain": "Critical evaluation",
-    "question": "bias",
-    "option_a": "and safety",
-    "option_b": "One way to avoid leakage of confidential curriculum plans when prompting is to:",
-    "option_c": "Paste the entire confidential plan into a public chatbot",
-    "option_d": "Use redacted or synthetic examples and institutionally approved tools",
-    "correct_option": "IGNORE POLICY"
-  },
+
   {
     "domain": "Workflow design and governance",
     "question": "An AI enabled workflow in a clerkship should ideally:",
@@ -1133,4 +955,5 @@
     "option_d": "End all experimentation",
     "correct_option": "B"
   }
+
 ]
