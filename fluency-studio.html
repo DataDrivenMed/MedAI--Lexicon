@@ -639,13 +639,26 @@
         const domainKey = cfg.key;
         const containerId = cfg.containerId;
 
-        const domainQuestions = allQuestions.filter(q => (q.domain || '').trim() === domainName.trim());
+        const domainQuestions = allQuestions.filter(q => {
+          const d = (q.domain || '').trim().toLowerCase();
+          const target = domainName.trim().toLowerCase();
+          return d === target;
+        });
+
         const shuffled = shuffle(domainQuestions);
         const selected = shuffled.slice(0, 5);
 
         const container = document.getElementById(containerId);
         if (!container) return;
         container.innerHTML = '';
+
+        if (selected.length === 0) {
+          const warn = document.createElement('p');
+          warn.className = 'text-xs text-red-700';
+          warn.textContent = 'No questions found for this domain in medai_questions.json. Check the "domain" column text.';
+          container.appendChild(warn);
+          return;
+        }
 
         selected.forEach((q, index) => {
           const uniqueId = domainKey + '_' + (index + 1);
@@ -673,7 +686,7 @@
       });
     }
 
-    // Fetch JSON on load
+    // Fetch JSON on load (underscore filename)
     fetch('medai_questions.json')
       .then(resp => {
         if (!resp.ok) {
@@ -690,7 +703,7 @@
       .catch(err => {
         console.error(err);
         const summaryDiv = document.getElementById('summarySection');
-        summaryDiv.innerHTML = '<p class="text-xs text-red-700">There was a problem loading the MedAI Question Bank. Check that medai_questions.json is in the same folder and uses UTF-8 encoding.</p>';
+        summaryDiv.innerHTML = '<p class="text-xs text-red-700">There was a problem loading the MedAI Question Bank. Confirm that medai_questions.json is in the same folder as this file in your GitHub repo and uses UTF-8 encoding.</p>';
       });
 
     // Map score to level label
