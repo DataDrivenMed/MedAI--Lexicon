@@ -69,39 +69,41 @@
       </p>
     </section>
 
-    <!-- Fluency Studio Callout -->
+    <!-- NEW: Fluency Studio Callout -->
     <section class="max-w-7xl mx-auto mt-6 px-4">
-      <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-md border border-indigo-200 p-6 md:p-8">
-        <h2 class="text-2xl font-bold text-slate-900 mb-3">MedAI Fluency Studio</h2>
-        <p class="text-base text-slate-700 mb-5">
+      <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-md border border-indigo-200 p-7 md:p-9">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">MedAI Fluency Studio</h2>
+        <p class="text-base md:text-lg text-slate-700 mb-6 max-w-4xl">
           A 5-minute guided self-assessment that instantly builds your personal AI fluency radar chart across five core competencies — and shows you exactly which MicroModules to watch next.
         </p>
         <a href="fluency-studio-v2.html"
-           class="inline-block px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-lg rounded-full shadow-lg transition transform hover:scale-105">
-          Take the Fluency Assessment →
+           class="inline-block px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg rounded-full shadow-xl transition transform hover:scale-105">
+          Take the Fluency Assessment
         </a>
       </div>
     </section>
 
-    <!-- MicroModules Callout -->
-    <section class="max-w-7xl mx-auto mt-6 px-4">
-      <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl shadow-md border border-emerald-200 p-6 md:p-8">
-        <h2 class="text-2xl font-bold text-slate-900 mb-3">MedAI MicroModules</h2>
-        <p class="text-base text-slate-700 mb-5">
-          <strong>15 bite-sized videos</strong> (3–8 minutes each) that walk you through every core concept — perfect for busy schedules. Watch in order or jump to your focus areas.
+    <!-- NEW: MicroModules Callout -->
+    <section class="max-w-7xl mx-auto mt-8 px-4">
+      <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl shadow-md border border-emerald-200 p-7 md:p-9">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">MedAI MicroModules</h2>
+        <p class="text-base md:text-lg text-slate-700 mb-6 max-w-4xl">
+          <strong>15 short videos</strong> (3–8 minutes each) that teach every core concept from the Lexicon — perfect for busy clinicians and researchers. Watch sequentially or jump to your focus areas.
         </p>
         <a href="micromodules.html"
-           class="inline-block px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-lg rounded-full shadow-lg transition transform hover:scale-105">
-          Watch the MicroModules →
+           class="inline-block px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-full shadow-xl transition transform hover:scale-105">
+          Watch the MicroModules
         </a>
       </div>
     </section>
 
-    <!-- Main content continues exactly as before -->
+    <!-- Main content -->
     <main class="flex-1">
-      <div class="max-w-7xl mx-auto px-4 py-4 md:py-6 grid gap-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)]">
-        <!-- Left panel - unchanged -->
+      <div class="max-w-7xl mx-auto px-4 py-6 grid gap-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)]">
+
+        <!-- Left Panel -->
         <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-5 flex flex-col h-[32rem] md:h-[36rem]">
+          <!-- Companion Resources -->
           <div class="mb-4 rounded-2xl border border-indigo-100 bg-indigo-50 p-3 text-sm">
             <h3 class="text-base font-semibold text-indigo-900">MedAI companion resources</h3>
             <p class="mt-1 text-xs text-indigo-900/80">Additional tools to support responsible use of medical AI.</p>
@@ -111,10 +113,12 @@
               <li><a href="Louisiana-Governor-EO-AI.pdf" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-800 underline">Louisiana Governor Executive Order on Responsible AI Use (PDF)</a></li>
             </ul>
           </div>
+
           <div class="mb-3">
             <h3 class="text-lg font-semibold text-slate-900">AI Terms</h3>
             <p class="text-xs text-slate-500 mt-1">Search or browse. Click a term to see tailored explanations by persona.</p>
           </div>
+
           <div class="relative mb-2">
             <input id="searchInput" type="text" placeholder="Search terms, e.g. tokenization, RAG, LoRA..."
               class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
@@ -122,26 +126,101 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" />
             </svg>
           </div>
+
           <p class="text-xs text-slate-600 mb-2 flex items-center gap-1">
             <svg class="w-3.5 h-3.5 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
             Scroll inside the panel below to see all terms.
           </p>
-          <div id="termList" class="mt-1 flex-1 overflow-y-auto scrollbar-thin space-y-1 text-sm bg-slate-50 rounded-xl border border-slate-200 p-1"></div>
+
+          <div id="termList" class="mt-1 flex-1 overflow-y-auto scrollbar-thin space-y-1 text-sm bg-slate-50 rounded-xl border border-slate-200 p-1">
+            <!-- Terms injected by JS -->
+          </div>
         </section>
 
-        <!-- Right panel - unchanged (your original code continues here) -->
-        <!-- ... [all your existing right-panel and script code] ... -->
+        <!-- Right Panel -->
+        <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-6 flex flex-col h-[32rem] md:h-[36rem]">
+          <div id="detailEmptyState" class="flex-1 flex items-center justify-center text-center text-slate-400 text-sm">
+            <p>Select a term on the left to see its definition and persona-based explanations.</p>
+          </div>
+          <div id="detailPanel" class="hidden flex-1 flex flex-col">
+            <div class="mb-3 border-b border-slate-100 pb-3">
+              <p class="text-xs uppercase tracking-wide text-indigo-600 font-semibold">MedAI concept</p>
+              <h2 id="detailTerm" class="text-2xl font-bold text-slate-900 mt-1"></h2>
+              <p id="detailShort" class="text-sm text-slate-700 mt-2"></p>
+            </div>
+            <div class="mb-4 grid gap-3 md:grid-cols-2">
+              <div>
+                <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Visual definition</h3>
+                <p id="detailVisual" class="text-sm"></p>
+              </div>
+              <div>
+                <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Usage and context</h3>
+                <p id="detailUsage" class="text-sm"></p>
+              </div>
+            </div>
+            <div class="border border-slate-200 rounded-2xl flex-1 flex flex-col overflow-hidden">
+              <div class="border-b border-slate-200 bg-slate-50 px-2 pt-2 pb-1 flex gap-1 md:gap-2 text-xs md:text-sm">
+                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-emerald-50 text-emerald-800" data-role="physician">
+                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span> Physician
+                </button>
+                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-sky-50 text-sky-800" data-role="scientist">
+                  <span class="inline-block w-2 h-2 rounded-full bg-sky-500"></span> Basic science researcher
+                </button>
+                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-amber-50 text-amber-800" data-role="researcher">
+                  <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span> Clinical researcher
+                </button>
+              </div>
+              <div class="flex-1 overflow-y-auto p-3 md:p-4 text-sm">
+                <div id="roleLabel" class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1"></div>
+                <div id="roleBody" class="text-sm text-slate-900 whitespace-pre-line"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <!-- Suggested clusters section unchanged -->
+      <!-- Suggested MedAI Lexicon term clusters -->
       <section class="max-w-7xl mx-auto px-4 pb-6 space-y-4">
-        <!-- your existing clusters -->
+        <h2 class="text-lg md:text-xl font-semibold text-slate-900">Suggested MedAI Lexicon term clusters</h2>
+        <p class="text-sm text-slate-600">
+          These clusters group terms that support each MedAI fluency competency. You can use them before or after completing the MedAI Fluency Studio.
+        </p>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Prompt mastery and conversation patterns</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: prompt engineering, system prompt, few shot prompting, chain of thought, temperature, sampling methods, style transfer.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Model fundamentals and limitations</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: tokenization, embeddings, latent space, attention heads, residual streams, scaling laws, hallucinations, training vs inference.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Practical use cases in education, research, and clinical work</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: RAG, AI agents and feedback loops, quantization, LoRA, diffusion models, multimodal fusion, AI data centers.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Critical evaluation, bias, and safety</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: hallucinations, RLHF, catastrophic forgetting, emergent abilities, data privacy and governance, guardrails and safety filters, prompt injection and security.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Workflow design and governance</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: RAG workflows, AI agents, workflow orchestration, human in the loop patterns, governance, evaluation frameworks for AI tools in clinical and educational settings.
+          </p>
+        </div>
       </section>
     </main>
 
-    <!-- Footer unchanged -->
+    <!-- Footer -->
     <footer class="border-t border-slate-200 bg-slate-50">
       <div class="max-w-7xl mx-auto px-4 py-3 text-xs text-slate-500 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
         <a href="https://swimed.substack.com/" target="_blank" rel="noopener noreferrer" class="text-[12px] text-red-500 underline">
@@ -153,9 +232,91 @@
     </footer>
   </div>
 
-  <!-- Your original script continues here (unchanged) -->
+  <!-- Original script (unchanged) -->
   <script>
-    // ... [paste your full existing script here exactly as you have it now] ...
+    const TERMS = [ /* ... your full TERMS array exactly as before ... */ ];
+    const termListEl = document.getElementById("termList");
+    const searchInputEl = document.getElementById("searchInput");
+    const detailEmptyStateEl = document.getElementById("detailEmptyState");
+    const detailPanelEl = document.getElementById("detailPanel");
+    const detailTermEl = document.getElementById("detailTerm");
+    const detailShortEl = document.getElementById("detailShort");
+    const detailVisualEl = document.getElementById("detailVisual");
+    const detailUsageEl = document.getElementById("detailUsage");
+    const roleLabelEl = document.getElementById("roleLabel");
+    const roleBodyEl = document.getElementById("roleBody");
+    const roleTabs = document.querySelectorAll(".role-tab");
+    let selectedTermId = null;
+    let selectedRole = "physician";
+
+    function renderTermList(filter = "") {
+      termListEl.innerHTML = "";
+      const lower = filter.toLowerCase();
+      const filtered = TERMS.filter(t =>
+        t.term.toLowerCase().includes(lower) ||
+        t.id.toLowerCase().includes(lower)
+      );
+      filtered.forEach(term => {
+        const pill = document.createElement("div");
+        pill.className = "term-pill";
+        pill.textContent = term.term;
+        pill.dataset.termId = term.id;
+        if (term.id === selectedTermId) pill.classList.add("active");
+        pill.onclick = () => {
+          selectedTermId = term.id;
+          document.querySelectorAll(".term-pill").forEach(p => p.classList.remove("active"));
+          pill.classList.add("active");
+          showTermDetail(term);
+        };
+        termListEl.appendChild(pill);
+      });
+    }
+
+    function showTermDetail(term) {
+      detailEmptyStateEl.classList.add("hidden");
+      detailPanelEl.classList.remove("hidden");
+      detailTermEl.textContent = term.term;
+      detailShortEl.textContent = term.short;
+      detailVisualEl.textContent = term.visual;
+      detailUsageEl.textContent = term.usage;
+      setRole(selectedRole, term);
+    }
+
+    function setRole(role, term) {
+      selectedRole = role;
+      roleTabs.forEach(tab => {
+        const isActive = tab.dataset.role === role;
+        tab.classList.toggle("ring-2", isActive);
+        tab.classList.toggle("ring-slate-300", isActive);
+        tab.classList.toggle("shadow-sm", isActive);
+        tab.classList.toggle("border", isActive);
+        tab.classList.toggle("border-slate-300", isActive);
+      });
+      const labels = {
+        physician: "Explanation for physicians",
+        scientist: "Explanation for basic science researchers",
+        researcher: "Explanation for clinical researchers"
+      };
+      roleLabelEl.textContent = labels[role];
+      roleBodyEl.textContent = term[role] || "";
+    }
+
+    roleTabs.forEach(tab => {
+      tab.onclick = () => {
+        const term = TERMS.find(t => t.id === selectedTermId);
+        if (term) setRole(tab.dataset.role, term);
+      };
+    });
+
+    searchInputEl.oninput = (e) => renderTermList(e.target.value);
+
+    // Initial load
+    renderTermList();
+    if (TERMS.length > 0) {
+      selectedTermId = TERMS[0].id;
+      showTermDetail(TERMS[0]);
+      setTimeout(() => document.querySelector(".term-pill")?.classList.add("active"), 100);
+    }
   </script>
 </body>
 </html>
