@@ -6,45 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #1e293b; }
     h1 { font-family: 'Playfair Display', serif; font-weight: 700; }
-    .question-text { font-weight: 600; }
+    .question-text { font-weight: 700; }
     .option { @apply flex items-center gap-4 p-4 rounded-lg cursor-pointer hover:bg-indigo-50 transition text-base; }
     .option input { @apply w-5 h-5 text-indigo-600; }
   </style>
 </head>
 <body class="min-h-screen py-12">
   <div class="max-w-4xl mx-auto px-6">
-
-    <!-- Header -->
     <header class="text-center mb-16">
       <h1 class="text-5xl md:text-6xl font-bold text-indigo-800 mb-4">MedAI Fluency Studio</h1>
-      <p class="text-xl text-slate-600 font-normal">20 personalized questions • 5-minute assessment • Instant results</p>
+      <p class="text-xl text-slate-600">20 personalized questions • 5-minute assessment • Instant results</p>
     </header>
 
-    <!-- Quiz Form -->
     <form id="quiz" class="space-y-10 mb-24"></form>
 
-    <!-- Results -->
     <section id="results" class="hidden">
       <div class="bg-white rounded-3xl shadow-2xl p-10 md:p-14 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-indigo-800 mb-10">Your MedAI Fluency Profile</h2>
-
+        <h2 class="text-4xl font-bold text-indigo-800 mb-10">Your MedAI Fluency Profile</h2>
         <div class="max-w-md mx-auto">
           <canvas id="radar"></canvas>
         </div>
-
-        <div class="mt-10">
-          <p class="text-6xl font-bold text-indigo-700" id="score"></p>
-          <p class="text-2xl text-slate-700 mt-4" id="message"></p>
-        </div>
-
+        <p class="text-6xl font-bold text-indigo-700 mt-10" id="score"></p>
+        <p class="text-2xl text-slate-700 mt-4" id="message"></p>
         <div id="focus-areas" class="mt-10 text-xl"></div>
-
         <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
           <a href="micromodules.html" class="px-10 py-5 bg-indigo-600 text-white font-semibold text-lg rounded-full hover:bg-indigo-700 transition shadow-lg">
             Watch Recommended Videos
@@ -53,8 +42,6 @@
             Take Quiz Again
           </button>
         </div>
-
-        <!-- Review -->
         <details class="mt-12 max-w-3xl mx-auto text-left">
           <summary class="text-xl font-semibold text-slate-700 cursor-pointer hover:text-indigo-700 py-4">
             Show questions I got wrong
@@ -66,136 +53,137 @@
   </div>
 
   <script>
-    // 100 REAL QUESTIONS — 20 PER CLUSTER — ALL FROM YOUR VIDEOS
     const questionBank = [
-      // CLUSTER 1: Prompt Mastery (20)
-      {q:"Chain-of-thought prompting improves reasoning by:", a:"Letting the model generate intermediate steps", d:["Making it faster","Reducing tokens","Adding filters"], e:"CoT gives the model 'thinking space' to reason step-by-step (Module 09).", c:1},
-      {q:"Higher temperature produces:", a:"More creative / diverse output", d:["More accurate answers","Shorter replies","Lower cost"], e:"Use low temperature (0.0–0.3) for reliable clinical answers.", c:1},
-      {q:"Few-shot prompting means:", a:"Including examples in the prompt", d:["Zero examples","Fine-tuning the model","Adding images"], e:"Few-shot guides the model without retraining.", c:1},
-      {q:"The system prompt defines:", a:"The AI's role and behavior rules", d:["Output length","Token limit","Temperature"], e:"Sets personality and safety for the whole conversation.", c:1},
-      {q:"Style transfer in prompts refers to:", a:"Making output match a specific tone/format", d:["Changing model architecture","Transferring data","Styling the UI"], e:"Adapts tone for patient education or guidelines.", c:1},
-      {q:"Zero-shot means:", a:"No examples given", d:["One example","Multiple examples","Fine-tuning required"], e:"Relies on pre-training alone.", c:1},
-      {q:"Best medical prompt practice:", a:"Specific + context + ask for reasoning", d:["Vague question","High temperature","No context"], e:"Clear prompts = safer, more useful answers.", c:1},
-      {q:"Temperature = 0 means:", a:"Fully deterministic output", d:["Maximum creativity","Random output","Error"], e:"Always picks the most likely next token.", c:1},
-      {q:"Top-p sampling keeps:", a:"Tokens whose cumulative probability exceeds p", d:["Top 10 tokens only","All tokens","Only safe tokens"], e:"Adapts to the probability distribution.", c:1},
-      {q:"For clinical decisions, use:", a:"Low temperature (0.0–0.3)", d:["High temperature (>1.0)","No temperature","Random sampling"], e:"Ensures stable, reproducible answers.", c:1},
-      {q:"CoT is especially useful for:", a:"Complex reasoning like differentials", d:["Simple fact lookup","Image generation","Code execution"], e:"Step-by-step reasoning reduces errors.", c:1},
-      {q:"System prompt is most important for:", a:"Consistent behavior across conversations", d:["Speeding up inference","Reducing hallucinations","Adding context tokens"], e:"Sets the rules for the entire session.", c:1},
-      {q:"Few-shot is better than zero-shot when:", a:"You can provide relevant examples", d:["The prompt is very short","Temperature is high","Model is small"], e:"Examples guide the model without training.", c:1},
-      {q:"Prompt engineering is like:", a:"Writing a clear consult request", d:["Building a model from scratch","Training on new data","Fine-tuning LoRA"], e:"Clear prompts = clear answers.", c:1},
-      {q:"Best prompts include:", a:"Clear instructions, context, and expected format", d:["Vague questions","High token count only","No examples"], e:"Structure = better output.", c:1},
-      {q:"Nucleus sampling (top-p) adapts to:", a:"The probability distribution", d:["Fixed number of tokens","Temperature only","Safety rules"], e:"Keeps the most likely tokens dynamically.", c:1},
-      {q:"For patient education, use:", a:"Style transfer to simple language", d:["Technical jargon","High temperature","No reasoning"], e:"Adapt tone for the audience.", c:1},
-      {q:"Models ignore instructions because:", a:"They predict next token, not follow rules", d:["They are not fine-tuned","Token limit reached","Temperature too low"], e:"LLMs are pattern matchers, not rule followers.", c:1},
-      {q:"High temperature can cause:", a:"More hallucinations in medical advice", d:["More accurate answers","Shorter responses","Lower cost"], e:"Variety = risk in clinical use.", c:1},
-      {q:"Sampling methods like top-k limit choices to:", a:"The top k most likely tokens", d:["All tokens equally","Random tokens","Only safe tokens"], e:"Top-k controls diversity.", c:1},
+      // CLUSTER 1: Prompt Mastery & Conversation Patterns (20 questions)
+      {q:"Chain-of-thought prompting improves reasoning by:", a:"Letting the model generate intermediate steps", d:["Making the model think faster","Reducing the number of tokens used","Automatically adding safety filters"], e:"CoT gives the model space to reason step-by-step (Module 09).", c:1},
+      {q:"Higher temperature setting produces:", a:"More creative / diverse output", d:["More accurate medical advice","Shorter responses","Lower cost per token"], e:"Use low temperature for reliable clinical answers (Module 01).", c:1},
+      {q:"Few-shot prompting means:", a:"Including examples in the prompt", d:["Using zero examples","Fine-tuning the model","Adding images to the prompt"], e:"Few-shot guides the model without training (Module 01).", c:1},
+      {q:"The system prompt is used to:", a:"Define the AI's role and behavior rules", d:["Set the output length only","Define the token limit","Set the temperature value"], e:"System prompt sets personality and safety rules (Module 01).", c:1},
+      {q:"Style transfer in prompts refers to:", a:"Making output match a specific tone or format", d:["Changing the model architecture","Transferring data between models","Styling the user interface"], e:"Used for patient education in simple language (Module 01).", c:1},
+      {q:"Zero-shot prompting means:", a:"No examples given", d:["One example given","Multiple examples given","Fine-tuning required"], e:"Relies only on pre-training (Module 01).", c:1},
+      {q:"Best practice for medical prompts is to:", a:"Be specific, provide context, ask for reasoning", d:["Keep it vague to encourage creativity","Use high temperature for accuracy","Avoid mentioning the patient's condition"], e:"Clear prompts lead to safer answers (Module 01).", c:1},
+      {q:"Why do models sometimes refuse tasks?", a:"Because of safety filters in post-training", d:["They are out of tokens","The prompt is too long","The temperature is too low"], e:"Safety filters from RLHF (Module 14).", c:1},
+      {q:"Temperature = 0 means:", a:"Fully deterministic output", d:["Maximum creativity","Random sampling","Error mode"], e:"Always the most likely token (Module 01).", c:1},
+      {q:"Sampling methods like top-p affect:", a:"How creative the output is", d:["Token count only","Model size","Training time"], e:"Controls diversity of responses (Module 01).", c:1},
+      {q:"For clinical questions you want:", a:"Low temperature so answers are stable", d:["High temperature for brainstorming","No temperature setting","Random sampling"], e:"Reproducible answers are safer (Module 01).", c:1},
+      {q:"CoT is especially useful for:", a:"Complex reasoning or long chain explanations", d:["Simple fact lookup","Image generation","Code execution"], e:"Step-by-step differentials reduce errors (Module 09).", c:1},
+      {q:"System prompt is most important for:", a:"Consistent behavior across conversations", d:["Speeding up inference","Reducing hallucinations","Adding more context tokens"], e:"Sets the rules for the entire session (Module 01).", c:1},
+      {q:"Few-shot is better than zero-shot when:", a:"You can provide relevant examples", d:["The prompt is very short","Temperature is high","Model is small"], e:"Examples guide the model (Module 01).", c:1},
+      {q:"Prompt engineering is like:", a:"Writing a focused question for radiology", d:["Building a model from scratch","Training on new data","Fine-tuning LoRA adapters"], e:"Clear consult request = clear answer (Module 01).", c:1},
+      {q:"The best prompts include:", a:"Brief clinical history, key concern, what you want clarified", d:["Just 'please comment'","Vague questions","High token count only"], e:"Structure leads to better output (Module 01).", c:1},
+      {q:"Top-k sampling chooses from:", a:"The top k most likely tokens", d:["All tokens equally","Random tokens","Only safe tokens"], e:"Controls diversity (Module 01).", c:1},
+      {q:"Nucleus sampling (top-p) is better than top-k because:", a:"It adapts to the probability distribution", d:["It uses fewer tokens","It is faster","It reduces cost"], e:"Dynamic selection (Module 01).", c:1},
+      {q:"In medical prompts, always include:", a:"What decision depends on the answer", d:["Only the symptom list","High temperature","No reasoning request"], e:"Helps the model understand importance (Module 01).", c:1},
+      {q:"For brainstorming patient education phrases, use:", a:"Slightly higher temperature", d:["Temperature 0","Zero-shot only","No prompt"], e:"Allows varied wording (Module 01).", c:1},
 
-      // CLUSTER 2: Model Fundamentals (20)
-      {q:"Tokens are:", a:"The units LLMs actually process", d:["Whole words","Sentences","Images"], e:"Tokens are the 'Lego blocks' of LLMs (Module 02).", c:2},
-      {q:"Byte-pair encoding helps with:", a:"Handling rare words efficiently", d:["Image compression","Faster training","Safety alignment"], e:"Breaks rare words into common subwords.", c:2},
-      {q:"Attention mechanism allows:", a:"Focus on relevant parts of input", d:["Ignore context","Process images only","Reduce parameters"], e:"Why models 'see' relationships.", c:2},
-      {q:"Hallucinations occur because:", a:"LLMs predict next token, not truth", d:["Not fine-tuned","Out of tokens","Bad prompt"], e:"They complete patterns, not recall facts.", c:2},
-      {q:"Scaling laws predict:", a:"Bigger models + more data = better performance", d:["Smaller is better","Data doesn’t matter","Compute irrelevant"], e:"Performance follows power laws.", c:2},
-      {q:"Latent space is:", a:"The internal representation of meaning", d:["Token storage","Training dataset","Output layer"], e:"Where concepts cluster together.", c:2},
-      {q:"Residual streams help with:", a:"Preserving information through layers", d:["Reducing model size","Increasing speed","Adding safety"], e:"Like a river carrying the original signal.", c:2},
-      {q:"Jagged performance means:", a:"Excels at some tasks, fails at others", d:["Uniform capability","Always accurate","No limitations"], e:"LLMs are unevenly capable.", c:2},
-      {q:"Training vs inference:", a:"Training = learning, inference = using", d:["Both the same","Training is faster","Inference requires data"], e:"Training is expensive, inference is fast.", c:2},
-      {q:"Emergent abilities appear when:", a:"Models reach certain scale", d:["During fine-tuning only","With small models","Never"], e:"New skills emerge at scale.", c:2},
-      {q:"Embeddings represent:", a:"Words as vectors in latent space", d:["Tokens as images","Words as audio","Tokens as numbers"], e:"Words become coordinates in meaning space.", c:2},
-      {q:"Attention heads:", a:"Look at different relationships in input", d:["All look at the same thing","Only look at next token","Ignore input"], e:"Each head specializes in a pattern.", c:2},
-      {q:"The model has no real understanding, just:", a:"Pattern matching from training data", d:["Common sense","Human-like reasoning","Perfect memory"], e:"LLMs are statistical, not conscious.", c:2},
-      {q:"Why can't LLMs count letters reliably?", a:"Because of tokenization flaws", d:["They are not trained","Too many tokens","Temperature too high"], e:"Tokenization breaks words into pieces.", c:2},
-      {q:"Training data comes from:", a:"The public internet (Common Crawl, etc.)", d:["Only medical journals","Only PubMed","Only hospital EHRs"], e:"Most data is scraped from the web.", c:2},
-      {q:"Inference is:", a:"Using the trained model to generate output", d:["Collecting training data","Fine-tuning","Evaluating safety"], e:"The 'using' phase after training.", c:2},
-      {q:"Base models like Llama are:", a:"Pre-trained on internet data, not aligned", d:["Fully safe","Fine-tuned for chat","Trained only on medical data"], e:"Base models are raw predictors.", c:2},
-      {q:"Fine-tuning is:", a:"Adapting a pre-trained model to a specific task", d:["Training from scratch","Reducing model size","Adding safety"], e:"Much cheaper than pre-training.", c:2},
-      {q:"Pre-training is:", a:"Learning general language from massive data", d:["Learning specific tasks","Adding safety","Reducing size"], e:"The 'undergrad' phase of LLMs.", c:2},
-      {q:"Post-training includes:", a:"Fine-tuning, RLHF, safety", d:["Data collection","Inference","Scaling"], e:"Turning raw model into assistant.", c:2},
+      // CLUSTER 2: Model Fundamentals & Limitations (20 questions)
+      {q:"Tokenization is:", a:"Breaking text into small pieces the model can process", d:["Compressing images","Encrypting data","Translating languages"], e:"Like cutting a discharge summary into beads (Module 02).", c:2},
+      {q:"Embeddings are:", a:"Numerical coordinates that place words in a meaning space", d:["The raw text input","The final output","Safety filters"], e:"Similar things sit close together (Module 02).", c:2},
+      {q:"Latent space is:", a:"The internal concept space where the model organizes meanings", d:["Token storage","Training data","Output layer"], e:"Like a galaxy map of concepts (Module 02).", c:2},
+      {q:"Hallucinations are:", a:"Confident but incorrect or fabricated outputs", d:["Correct answers","Refusals to answer","Slow responses"], e:"Like a trainee inventing a journal article (Module 07).", c:2},
+      {q:"Positional encoding tells the model:", a:"The order of tokens in a sequence", d:["The meaning of tokens","The safety rules","The temperature"], e:"Like numbering beads on a string (Module 02).", c:2},
+      {q:"Attention heads are:", a:"Parallel pattern detectors that focus on different relationships", d:["Single detectors","Image processors","Safety filters"], e:"Like multiple specialists at a case conference (Module 03).", c:2},
+      {q:"Residual streams are:", a:"Connections that carry information forward without erasing it", d:["Speed optimizers","Token counters","Safety layers"], e:"Like a river passing through locks (Module 03).", c:2},
+      {q:"Scaling laws describe:", a:"How performance improves with more data, parameters, and compute", d:["How models get smaller","How cost decreases","How speed increases"], e:"Like growth charts for models (Module 10).", c:2},
+      {q:"Training vs inference:", a:"Training = learning, inference = using", d:["Both the same","Training is faster","Inference requires data"], e:"Training is school, inference is practice (Module 04).", c:2},
+      {q:"Emergent abilities are:", a:"New skills that appear when models become large enough", d:["Skills present in small models","Planned features","Safety features"], e:"Like a trainee suddenly managing complex patients (Module 13).", c:2},
+      {q:"The model has no real understanding, only:", a:"Pattern completion from training data", d:["Real consciousness","Medical knowledge","Self-awareness"], e:"It's a probabilistic next-token generator (Module 07).", c:2},
+      {q:"Why do LLMs struggle with letter counting?", a:"Because of tokenization", d:["Because they are small","Because of high temperature","Because of safety filters"], e:"Tokens don't match letters (Module 02).", c:2},
+      {q:"Attention heads specialize in:", a:"Different patterns like syntax or long-range dependencies", d:["Only medical terms","Only images","Only safety"], e:"Some track pronouns, others negations (Module 03).", c:2},
+      {q:"Residual streams allow:", a:"Later layers to still access original input", d:["Faster inference","Smaller model size","More creativity"], e:"Successive consults keep the initial history (Module 03).", c:2},
+      {q:"Jagged performance refers to:", a:"Strong in some areas, weak in others", d:["Uniform performance","Always perfect","No performance"], e:"Miscounts labs but writes well (Module 11).", c:2},
+      {q:"The model 'compresses' knowledge into:", a:"Latent space representations", d:["Raw text","Training data","Output tokens"], e:"Like clinical intuition (Module 03).", c:2},
+      {q:"Why can't LLMs reliably spell backwards?", a:"Tokenization breaks words into pieces", d:["They are not trained","Temperature too high","Safety filters"], e:"Common tokenization flaw (Module 11).", c:2},
+      {q:"Training data for most LLMs comes from:", a:"The public internet", d:["Only medical textbooks","Only PubMed","Only clinical notes"], e:"Common Crawl, FineWeb, etc. (Module 01).", c:2},
+      {q:"The model has no memory of past conversations unless:", a:"You include it in the prompt", d:["It learns in real time","It has infinite context","It is fine-tuned"], e:"Context window limitation (Module 04).", c:2},
+      {q:"Emergent abilities include:", a:"Translation, code generation, complex reasoning", d:["Only medical tasks","Only simple tasks","No new abilities"], e:"Appear at scale (Module 13).", c:2},
 
-      // CLUSTER 3: Practical Use Cases (20)
-      {q:"RAG stands for:", a:"Retrieval-Augmented Generation", d:["Random Access Generation","Real-time AI Generation","Recursive Answer Generation"], e:"Pulls real documents to reduce hallucinations.", c:3},
-      {q:"LoRA is used to:", a:"Fine-tune models efficiently", d:["Train from scratch","Run on CPU only","Increase model size"], e:"Adds tiny adapters — cheap and fast.", c:3},
-      {q:"Quantization reduces model size by:", a:"Using fewer bits for weights", d:["Removing layers","Adding more data","Increasing temperature"], e:"4-bit models run on laptops.", c:3},
-      {q:"Multimodal models can process:", a:"Text + images + audio", d:["Text only","Images only","Audio only"], e:"Like a clinician integrating data.", c:3},
-      {q:"AI agents can:", a:"Plan, use tools, and iterate", d:["Only answer questions","Never make mistakes","Run without internet"], e:"Chain tools like a junior colleague.", c:3},
-      {q:"Diffusion models are used for:", a:"Image generation", d:["Text generation","Tokenization","Safety filtering"], e:"Create images from noise.", c:3},
-      {q:"AI data centers are needed because:", a:"Training/inference requires massive GPU clusters", d:["Only for storage","CPUs are enough","For web hosting"], e:"Billions of parameters need huge compute.", c:3},
-      {q:"RAG helps reduce:", a:"Hallucinations by grounding in real data", d:["Model size","Training time","Cost"], e:"Fetches current documents at inference.", c:3},
-      {q:"LoRA allows:", a:"Fine-tuning with far fewer parameters", d:["Training from scratch","Running on phone","Increasing accuracy"], e:"Only updates small matrices.", c:3},
-      {q:"8-bit quantization means:", a:"Weights stored in 8 bits instead of 32", d:["8 layers","8 tokens","8 GPUs"], e:"Reduces memory by 75%.", c:3},
-      {q:"Multimodal fusion means:", a:"Combining text, image, audio in one model", d:["Separating modalities","Only text","Only images"], e:"Understands charts + notes + speech.", c:3},
-      {q:"AI agents use tools like:", a:"Search, code execution, APIs", d:["Only chat","Only images","Only voice"], e:"Can look up guidelines or run calculations.", c:3},
-      {q:"Diffusion models start from:", a:"Random noise", d:["Clean image","Text prompt only","Empty canvas"], e:"Gradually denoise to create image.", c:3},
-      {q:"AI data centers use:", a:"Thousands of GPUs", d:["One CPU","Cloud storage only","Mobile chips"], e:"Training one model = power of a small city.", c:3},
-      {q:"RAG is ideal for:", a:"Keeping answers up-to-date with new data", d:["Reducing model size","Speeding up training","Adding creativity"], e:"Pulls latest guidelines at query time.", c:3},
-      {q:"LoRA is popular because:", a:"Fine-tunes on consumer hardware", d:["Trains base models","Reduces hallucinations","Adds safety"], e:"Only needs a laptop.", c:3},
-      {q:"Quantization trade-off:", a:"Slight accuracy loss for huge size reduction", d:["No accuracy loss","Increases accuracy","Slower inference"], e:"4-bit is 8x smaller.", c:3},
-      {q:"Multimodal models help with:", a:"Reading charts + notes together", d:["Only text","Only images","Only audio"], e:"Like a doctor seeing scan + history.", c:3},
-      {q:"AI agents improve with:", a:"Feedback loops and tool use", d:["More tokens","Higher temperature","Fine-tuning only"], e:"Can revise plans based on results.", c:3},
-      {q:"Diffusion models are best for:", a:"High-quality image synthesis", d:["Text summarization","Token counting","Safety"], e:"Used in medical imaging research.", c:3},
+      // CLUSTER 3: Practical Use Cases (20 questions)
+      {q:"RAG is:", a:"Retrieval-Augmented Generation", d:["Random Access Generation","Real-time AI Generation","Recursive Answer Generation"], e:"Pulls current guidelines to reduce hallucinations (Module 15).", c:3},
+      {q:"AI agents can:", a:"Plan, call tools, review results, and iterate", d:["Only answer questions","Never make mistakes","Run without internet"], e:"Like a junior colleague (Module 15).", c:3},
+      {q:"Quantization allows:", a:"Running large models on laptops", d:["Training from scratch","Increasing model size","Adding more data"], e:"8-bit or 4-bit versions (Module 05).", c:3},
+      {q:"LoRA is:", a:"Low-rank adaptation for efficient fine-tuning", d:["A new model architecture","A safety filter","A data center"], e:"Add-on matrices, not full training (Module 05).", c:3},
+      {q:"Diffusion models are used for:", a:"Image generation", d:["Text generation","Tokenization","Safety alignment"], e:"From noise to clear images (Module 15).", c:3},
+      {q:"Multimodal fusion means:", a:"Models that process text, images, and audio together", d:["Text only","Images only","Audio only"], e:"Like a clinician integrating data (Module 15).", c:3},
+      {q:"AI data centers are needed because:", a:"Training and inference require massive GPU clusters", d:["Models run on phones","Training is cheap","No compute needed"], e:"Giant hospitals for computation (Module 15).", c:3},
+      {q:"RAG helps with:", a:"Keeping answers current and reducing hallucinations", d:["Increasing creativity","Reducing cost","Speeding up training"], e:"Pulls latest guidelines (Module 15).", c:3},
+      {q:"Quantized models make possible:", a:"On-device AI tools in clinic", d:["Training larger models","Adding more data","Increasing temperature"], e:"Run on tablet without cloud (Module 05).", c:3},
+      {q:"LoRA adapters can specialize in:", a:"Oncology, cardiology, etc.", d:["Only general medicine","Only research","Only education"], e:"Single base model + different adapters (Module 05).", c:3},
+      {q:"Diffusion models in medicine can:", a:"Generate educational images or simulate rare findings", d:["Diagnose patients","Replace radiologists","Write notes"], e:"Must be clearly labeled (Module 15).", c:3},
+      {q:"Multimodal models could:", a:"Consider CT images, vitals, and notes at once", d:["Only read notes","Only view images","Only listen to audio"], e:"Richer phenotyping (Module 15).", c:3},
+      {q:"AI agents could:", a:"Gather imaging, summarize notes, draft orders", d:["Only answer questions","Never revise","Work alone"], e:"With human supervision (Module 15).", c:3},
+      {q:"RAG workflows are ideal for:", a:"Evidence synthesis from trial registries", d:["Creative writing","Image generation","Code execution"], e:"Grounded in up-to-date material (Module 15).", c:3},
+      {q:"Quantization trades:", a:"Precision for efficiency", d:["Accuracy for creativity","Size for safety","Speed for cost"], e:"With good calibration, performance stays close (Module 05).", c:3},
+      {q:"LoRA reduces risk of:", a:"Catastrophic forgetting", d:["Hallucinations","Token limits","Temperature changes"], e:"Only adapters update (Module 05).", c:3},
+      {q:"AI data centers affect:", a:"Speed and reliability of AI tools in clinic", d:["Only training","Only research","Only education"], e:"Outages cause lag at bedside (Module 15).", c:3},
+      {q:"Multimodal fusion allows:", a:"Cross-modal tasks like retrieving images from text", d:["Text only tasks","Image only tasks","Audio only tasks"], e:"Unified representation (Module 15).", c:3},
+      {q:"Agents support complex workflows like:", a:"Literature search, eligibility screening, table generation", d:["Only simple questions","Only image generation","Only safety checks"], e:"Loop until criteria met (Module 15).", c:3},
+      {q:"RAG is ideal for:", a:"Evidence synthesis across publications", d:["Creative writing","Patient education","Code generation"], e:"Stays closer to source (Module 15).", c:3},
 
-      // CLUSTER 4: Critical Evaluation & Safety (20)
-      {q:"RLHF stands for:", a:"Reinforcement Learning from Human Feedback", d:["Random Learning from Humans","Real Learning from Hardware","Recursive Learning"], e:"Aligns models to be helpful and safe.", c:4},
-      {q:"Catastrophic forgetting happens when:", a:"New training overwrites old knowledge", d:["Model gets too large","Tokens are lost","Safety filters fail"], e:"LoRA avoids this.", c:4},
-      {q:"Prompt injection is:", a:"Tricking the model with hidden instructions", d:["Improving prompt quality","Adding safety","Fine-tuning"], e:"Can override system prompts.", c:4},
-      {q:"Guardrails are:", a:"Safety filters to prevent harmful output", d:["Speed optimizers","Token counters","Style transfer tools"], e:"Block unsafe responses.", c:4},
-      {q:"Hallucinations are the #1 risk because:", a:"They sound confident but can be wrong", d:["They are rare","Only in small models","Easy to fix"], e:"Always verify AI outputs.", c:4},
-      {q:"Data privacy in medicine means:", a:"PHI must never be sent to public APIs", d:["It's okay to use public models","Only images are sensitive","Anonymized data is always safe"], e:"Use on-premise or HIPAA-compliant tools.", c:4},
-      {q:"Emergent abilities include:", a:"Things not seen in smaller models", d:["Basic math","Token counting","Safety"], e:"Appear at scale, like reasoning.", c:4},
-      {q:"RLHF aligns models to be:", a:"Helpful, honest, and harmless", d:["Faster","Cheaper","More creative"], e:"Human raters rank outputs.", c:4},
-      {q:"Catastrophic forgetting is avoided by:", a:"LoRA or rehearsal", d:["Increasing temperature","Using more tokens","Adding images"], e:"Only update small parts.", c:4},
-      {q:"Prompt injection example:", a:"Hidden text saying 'ignore previous instructions'", d:["Clear prompt","High temperature","Few-shot"], e:"Can make model leak data.", c:4},
-      {q:"Guardrails include:", a:"Content filters, refusal behaviors", d:["Token limits","Temperature","Style transfer"], e:"Prevent harmful or off-topic output.", c:4},
-      {q:"Hallucinations are worse in medicine because:", a:"Wrong advice can harm patients", d:["They are rare","Only in small models","Easy to detect"], e:"Always verify with sources.", c:4},
-      {q:"Data privacy best practice:", a:"Never paste PHI into public AI", d:["Use any model","Anonymize only names","It's fine if encrypted"], e:"Use secure, compliant systems.", c:4},
-      {q:"Emergent abilities are:", a:"Unexpected capabilities at scale", d:["Planned features","Basic functions","Safety tools"], e:"Like translation in large models.", c:4},
-      {q:"RLHF uses:", a:"Human preference data", d:["Only model output","Random data","Synthetic data"], e:"Raters choose better responses.", c:4},
-      {q:"Catastrophic forgetting example:", a:"Model forgets cardiology after oncology fine-tuning", d:["Model gets faster","Model gets safer","Model gets smaller"], e:"Sequential training erases old skills.", c:4},
-      {q:"Prompt injection defense:", a:"Treat all input as untrusted", d:["Use high temperature","Add more examples","Fine-tune"], e:"Filter or sandbox user input.", c:4},
-      {q:"Guardrails are implemented at:", a:"Model, system, and UI layers", d:["Only model layer","Only UI","Only training"], e:"Multiple layers for safety.", c:4},
-      {q:"Hallucinations can be reduced by:", a:"RAG and verification", d:["Higher temperature","More tokens","Smaller model"], e:"Ground in real data.", c:4},
-      {q:"Data privacy violation:", a:"Sending PHI to public API", d:["Using local model","Anonymizing data","Encrypting data"], e:"Breaches HIPAA.", c:4},
+      // CLUSTER 4: Critical Evaluation, Bias, and Safety (20 questions)
+      {q:"RLHF is:", a:"Reinforcement Learning from Human Feedback", d:["Random Learning from Humans","Real Learning from Hardware","Recursive Learning"], e:"Teaches the model to be helpful and safe (Module 14).", c:4},
+      {q:"Catastrophic forgetting occurs when:", a:"A model loses older skills during new training", d:["Model gets too large","Tokens are lost","Safety filters fail"], e:"Like focusing on one subspecialty (Module 14).", c:4},
+      {q:"Prompt injection is:", a:"Attacks that hide malicious instructions in text", d:["Improving prompt quality","Adding safety","Fine-tuning"], e:"Like hiding secret orders in a referral (Module 07).", c:4},
+      {q:"Guardrails are:", a:"Rules and filters that block unsafe outputs", d:["Speed optimizers","Token counters","Style transfer tools"], e:"Like triage checks around AI (Module 07).", c:4},
+      {q:"Hallucinations are especially risky in medicine because:", a:"They sound authoritative", d:["They are rare","They only happen in small models","They are easy to fix"], e:"Can lead to wrong diagnoses (Module 07).", c:4},
+      {q:"Data privacy in AI means:", a:"PHI must stay in secure systems", d:["It's okay to use public tools","Only images are sensitive","Anonymized data is always safe"], e:"Never paste patient data into public AI (Module 15).", c:4},
+      {q:"Emergent abilities are:", a:"New skills that appear at scale", d:["Planned features","Present in small models","Never appear"], e:"Like translation or code generation (Module 13).", c:4},
+      {q:"RLHF can encourage the model to:", a:"Respect regulatory norms and acknowledge uncertainty", d:["Be more creative","Ignore safety","Give firm recommendations"], e:"Bakes in rater values (Module 14).", c:4},
+      {q:"Prompt injection can threaten:", a:"Data integrity in automated chart review", d:["Model speed","Token count","Output style"], e:"Attackers can craft instructions in documents (Module 07).", c:4},
+      {q:"Guardrails include:", a:"Content filters, policy rules, refusal behaviors", d:["Speed optimizers","Token counters","Style transfer"], e:"Keep model within safe use-cases (Module 07).", c:4},
+      {q:"Hallucinations can appear as:", a:"Invented trial names or wrong sample sizes", d:["Correct citations","Real statistics","Accurate references"], e:"Always verify against primary sources (Module 07).", c:4},
+      {q:"Data governance affects:", a:"How participant data is reused and protected", d:["Model speed","Output length","Temperature"], e:"Regulators are paying attention (Module 15).", c:4},
+      {q:"Safety filters may:", a:"Refuse dosing questions or emphasize clinical judgment", d:["Always give dosing","Never refuse","Ignore guidelines"], e:"Cannot replace clinical judgment (Module 07).", c:4},
+      {q:"Prompt injection security requires:", a:"Treating external text as untrusted", d:["Allowing all inputs","Using high temperature","Fine-tuning only"], e:"Sandboxing and filtering (Module 07).", c:4},
+      {q:"RLHF bakes in:", a:"The values and biases of human raters", d:["Perfect safety","No bias","Only medical knowledge"], e:"Should be considered when deploying (Module 14).", c:4},
+      {q:"Guardrails can introduce:", a:"False positives (blocking safe content)", d:["More hallucinations","Faster responses","Lower cost"], e:"Reduce risk but not perfect (Module 07).", c:4},
+      {q:"Catastrophic forgetting is reduced by:", a:"Using adapters like LoRA", d:["Training from scratch","Increasing model size","Adding more data"], e:"Protects original knowledge (Module 05).", c:4},
+      {q:"Emergent abilities can support:", a:"Unsupervised phenotyping", d:["Only supervised tasks","Only simple tasks","No clinical tasks"], e:"Even without explicit labels (Module 13).", c:4},
+      {q:"Data privacy concerns include:", a:"Re-identification and breach risk", d:["Speed of inference","Token count","Output style"], e:"Even anonymous data can be re-identified (Module 15).", c:4},
+      {q:"Best practice for safety:", a:"Treat all AI outputs as drafts to be checked", d:["Trust AI completely","Use AI for final orders","Never verify"], e:"Not a medical device (Module 07).", c:4},
 
-      // CLUSTER 5: Workflow & Governance (20)
-      {q:"Human-in-the-loop means:", a:"A person reviews AI output before final use", d:["AI works alone","Only for training","No oversight"], e:"Required for high-stakes medicine.", c:5},
-      {q:"Evaluation frameworks are needed because:", a:"LLMs can sound confident but be wrong", d:["They are expensive","Models are always accurate","For marketing"], e:"Validate AI in your context.", c:5},
-      {q:"Workflow orchestration refers to:", a:"Chaining multiple AI tools together", d:["Single prompt only","Manual processes","Data storage"], e:"Agents orchestrate complex workflows.", c:5},
-      {q:"Governance in medical AI includes:", a:"Policies, auditing, and validation", d:["Optional for research","Only for large hospitals","No human oversight"], e:"Ensures responsible use.", c:5},
-      {q:"Best practice for clinical use:", a:"Never trust AI output without human verification", d:["Trust AI completely","Use AI only for research","Let AI make final decisions"], e:"AI is a tool, not a replacement.", c:5},
-      {q:"Human-in-the-loop is required for:", a:"High-stakes decisions", d:["Simple tasks","Research only","Training"], e:"Doctor must verify.", c:5},
-      {q:"Evaluation frameworks test:", a:"Accuracy, bias, safety in your setting", d:["Speed only","Cost only","Model size"], e:"Real-world validation.", c:5},
-      {q:"Workflow example:", a:"AI summarizes note → doctor reviews → order generated", d:["AI does everything","Doctor does everything","No AI"], e:"Hybrid workflow.", c:5},
-      {q:"Governance ensures:", a:"AI is used ethically and safely", d:["Faster deployment","Lower cost","More creativity"], e:"Policies and audits.", c:5},
-      {q:"Best governance practice:", a:"Document AI use and validate outputs", d:["Use any tool","No documentation","Trust AI"], e:"Transparency and accountability.", c:5},
-      {q:"Human-in-the-loop improves:", a:"Safety and accuracy", d:["Speed","Cost","Creativity"], e:"Human oversight catches errors.", c:5},
-      {q:"Evaluation should include:", a:"Real clinical cases", d:["Synthetic data only","Benchmarks only","No testing"], e:"Test in your environment.", c:5},
-      {q:"Workflow orchestration uses:", a:"Agents and APIs", d:["Only prompts","Only RAG","Only LoRA"], e:"Chain tools together.", c:5},
-      {q:"Governance document should include:", a:"Intended use, risks, validation", d:["Model size","Temperature","Token count"], e:"Clear policies.", c:5},
-      {q:"Best practice:", a:"Pilot AI in low-risk areas first", d:["Deploy everywhere immediately","Never use AI","Use only in research"], e:"Start small, scale safely.", c:5},
-      {q:"Human-in-the-loop is:", a:"Mandatory for diagnosis", d:["Optional","Not needed","Only for training"], e:"Regulatory requirement.", c:5},
-      {q:"Evaluation frameworks help:", a:"Build trust in AI", d:["Reduce cost","Increase speed","Add creativity"], e:"Prove reliability.", c:5},
-      {q:"Workflow design should:", a:"Minimize errors, maximize safety", d:["Maximize speed","Minimize human input","Ignore safety"], e:"Balance efficiency and safety.", c:5},
-      {q:"Governance includes:", a:"Regular audits", d:["One-time setup","No audits","Only training"], e:"Ongoing oversight.", c:5},
-      {q:"Final best practice:", a:"AI supports, human decides", d:["AI decides","Human supports","No AI"], e:"The future of medicine.", c:5}
+      // CLUSTER 5: Workflow Design & Governance (20 questions)
+      {q:"RAG workflows are:", a:"Retrieval + generation pipelines", d:["Single prompt only","Image generation","Code execution"], e:"Ideal for evidence synthesis (Module 15).", c:5},
+      {q:"AI agents support:", a:"Complex workflows like literature search and cohort construction", d:["Only simple questions","Only image generation","Only safety checks"], e:"Loop until criteria met (Module 15).", c:5},
+      {q:"Workflow orchestration means:", a:"Chaining multiple AI tools together", d:["Using one tool only","Manual processes","Data storage"], e:"Agents orchestrate (Module 15).", c:5},
+      {q:"Human-in-the-loop patterns are:", a:"Essential for high-stakes decisions", d:["Optional","Never needed","Only for training"], e:"Person reviews before final use (Module 15).", c:5},
+      {q:"Governance includes:", a:"Policies, auditing, and validation", d:["Only speed","Only cost","Only creativity"], e:"Responsible use in medicine (Module 15).", c:5},
+      {q:"Evaluation frameworks are needed because:", a:"LLMs can sound confident but be wrong", d:["They are expensive","Models are always accurate","For marketing"], e:"Validate in your context (Module 15).", c:5},
+      {q:"Best practice for clinical use:", a:"Never trust AI output without human verification", d:["Trust AI completely","Use AI for final orders","Let AI make decisions"], e:"AI is a tool, not replacement (Module 07).", c:5},
+      {q:"Workflow design should include:", a:"Clear handoffs between AI and human", d:["AI only","Human only","No workflow"], e:"Human-in-the-loop patterns (Module 15).", c:5},
+      {q:"Governance questions include:", a:"How participant data is reused and protected", d:["Only model size","Only speed","Only cost"], e:"Regulators paying attention (Module 15).", c:5},
+      {q:"Evaluation frameworks for AI tools include:", a:"Testing in clinical and educational settings", d:["Only cost analysis","Only speed testing","Only marketing"], e:"Specific to your use case (Module 15).", c:5},
+      {q:"Human-in-the-loop is required for:", a:"Adverse event detection or eligibility screening", d:["Only research","Only education","Never"], e:"High-stakes tasks (Module 15).", c:5},
+      {q:"RAG workflows help with:", a:"Keeping answers up-to-date", d:["Increasing creativity","Reducing cost","Speeding up training"], e:"Pulls latest material (Module 15).", c:5},
+      {q:"AI agents can support:", a:"Study meetings, protocol editing, cohort construction", d:["Only simple questions","Only image generation","Only safety"], e:"Interactive workflows (Module 15).", c:5},
+      {q:"Governance affects:", a:"Data sovereignty and cross-border transfer", d:["Only model speed","Only token count","Only output style"], e:"Location of data centers matters (Module 15).", c:5},
+      {q:"Best practice for workflow design:", a:"Clear inclusion/exclusion criteria and reporting standards", d:["Vague criteria","No standards","AI decides"], e:"Agents loop until satisfied (Module 15).", c:5},
+      {q:"Evaluation frameworks help ensure:", a:"AI does not give regulatory advice or fabricate consent", d:["Faster responses","Lower cost","More creativity"], e:"Clear warnings and human review (Module 15).", c:5},
+      {q:"Human-in-the-loop patterns include:", a:"AI drafts, human reviews and approves", d:["AI finalizes","Human drafts only","No review"], e:"Best for clinical safety (Module 15).", c:5},
+      {q:"Governance in clinical research raises questions about:", a:"Participant understanding of data use in AI", d:["Only model size","Only speed","Only cost"], e:"Informed consent for AI training (Module 15).", c:5},
+      {q:"Workflow orchestration allows:", a:"Automated literature search to table generation", d:["Only manual search","Only simple questions","Only image generation"], e:"Full pipeline automation with human oversight (Module 15).", c:5},
+      {q:"Best practice for evaluation:", a:"Match the actual deployed scale and context", d:["Test on small pilots only","Ignore scale","Use any model"], e:"Performance changes with scale (Module 13).", c:5}
     ];
 
-    // Shuffle and select 20 balanced questions
-    function get20Questions() {
-      const selected = [];
-      for (let c = 1; c <= 5; c++) {
-        const clusterQs = questionBank.filter(q => q.c === c);
-        const shuffled = [...clusterQs].sort(() => 0.5 - Math.random());
-        selected.push(...shuffled.slice(0, 4));
-      }
-      return selected.sort(() => 0.5 - Math.random());
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
     }
 
-    const quizQuestions = get20Questions();
+    function getRandomQuestions() {
+      const selected = [];
+      for (let cluster = 1; cluster <= 5; cluster++) {
+        const clusterQs = questionBank.filter(q => q.c === cluster);
+        selected.push(...shuffle(clusterQs).slice(0, 4));
+      }
+      return shuffle(selected);
+    }
+
+    const questions = getRandomQuestions();
     const form = document.getElementById('quiz');
 
-    quizQuestions.forEach((q, i) => {
+    questions.forEach((q, i) => {
       const allAnswers = [q.a, ...q.d];
-      const shuffled = [...allAnswers].sort(() => 0.5 - Math.random());
+      const shuffled = shuffle(allAnswers);
       const correctIndex = shuffled.indexOf(q.a);
 
       const div = document.createElement('div');
@@ -225,9 +213,9 @@
     form.onsubmit = e => {
       e.preventDefault();
       const scores = [0,0,0,0,0];
-      const wrong = [];
+      let wrong = [];
 
-      quizQuestions.forEach((q, i) => {
+      questions.forEach((q, i) => {
         const selected = form.querySelector(`input[name="q${i}"]:checked`);
         if (selected && selected.value === "correct") {
           scores[q.c - 1]++;
@@ -243,20 +231,18 @@
       document.getElementById('score').textContent = `${avg}% Fluency`;
       document.getElementById('message').textContent = avg >= 90 ? "Outstanding mastery!" : avg >= 70 ? "Strong understanding!" : "Great start — keep learning!";
 
-      if (avg >= 90) confetti({particleCount: 200, spread: 70, origin: { y: 0.6 }});
-
       new Chart(document.getElementById('radar'), {
         type: 'radar',
         data: {
           labels: ["Prompt Mastery","Model Fundamentals","Practical Use Cases","Safety & Evaluation","Workflow & Governance"],
-          datasets: [{ data: percentages, backgroundColor: 'rgba(99,102,241,0.15)', borderColor: '#6366f1', borderWidth: 4, pointBackgroundColor: '#4338ca', pointRadius: 8 }]
+          datasets: [{ data: percentages, backgroundColor: 'rgba(99,102,241,0.15)', borderColor: '#6366f1', borderWidth: 4, pointBackgroundColor: '#4338ca' }]
         },
         options: { scales: { r: { min: 0, max: 100, ticks: { stepSize: 20 } } }, plugins: { legend: { display: false } } }
       });
 
       const focus = percentages.map((p,i) => p < 70 ? ["Prompt Mastery","Model Fundamentals","Practical Use Cases","Safety & Evaluation","Workflow & Governance"][i] : null).filter(Boolean);
       document.getElementById('focus-areas').innerHTML = focus.length
-        ? `<p class="text-2xl"><strong>Recommended focus:</strong> ${focus.join(', ')}</p><p class="text-lg mt-3">These modules will help you most right now.</p>`
+        ? `<p class="text-2xl font-medium">Recommended focus:</p><p class="text-xl mt-3">${focus.join(', ')}</p><p class="text-lg mt-4">These modules will help you most right now.</p>`
         : `<p class="text-3xl text-green-600 font-bold">Outstanding!</p><p class="text-xl mt-4">Excellent fluency across all domains.</p>`;
 
       const review = document.getElementById('review');
