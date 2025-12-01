@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <title>MedAI Lexicon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts: Roboto for body, Playfair Display for headings -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -18,31 +20,74 @@
       font-family: 'Playfair Display', serif;
       letter-spacing: -0.02em;
     }
-    .scrollbar-thin::-webkit-scrollbar { width: 7px; }
-    .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
-    .scrollbar-thin::-webkit-scrollbar-thumb { background-color: #a78bfa; border-radius: 9999px; }
-    #termList { display: flex; flex-wrap: wrap; gap: 10px; padding: 12px 8px 20px; overflow-y: auto; justify-content: flex-start; }
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 8px; /* more visible */
+    }
+        /* Custom scrollbar - keep it nice */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 7px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background-color: #a78bfa;
+      border-radius: 9999px;
+    }
+
+    /* === VIBRANT COMPACT PILLS === */
+    #termList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px 8px 20px;
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+
     .term-pill {
-      padding: 7px 16px; background: white; border: 1.7px solid #cbd5ff; border-radius: 999px;
-      font-size: 14px; font-weight: 600; color: #3b2aff; white-space: nowrap; cursor: pointer;
-      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 2px 6px rgba(99, 102, 241, 0.1);
+      padding: 7px 16px;
+      background: white;
+      border: 1.7px solid #cbd5ff;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #3b2aff;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(99, 102, 241, 0.1);
       background: linear-gradient(145deg, #ffffff, #f9f8ff);
     }
+
     .term-pill:hover {
-      transform: translateY(-2.5px) scale(1.04); border-color: #8b5cf6;
-      background: linear-gradient(145deg, #f3f0ff, #e6e0ff); box-shadow: 0 9px 22px rgba(139, 92, 246, 0.32);
+      transform: translateY(-2.5px) scale(1.04);
+      border-color: #8b5cf6;
+      background: linear-gradient(145deg, #f3f0ff, #e6e0ff);
+      box-shadow: 0 9px 22px rgba(139, 92, 246, 0.32);
       color: #6d28d9;
     }
+
     .term-pill.active {
-      background: linear-gradient(135deg, #7c3aed, #a855f7); color: white !important; border-color: #a855f7;
-      font-weight: 700; box-shadow: 0 9px 26px rgba(139, 92, 246, 0.5); transform: translateY(-1px);
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: white !important;
+      border-color: #a855f7;
+      font-weight: 700;
+      box-shadow: 0 9px 26px rgba(139, 92, 246, 0.5);
+      transform: translateY(-1px);
     }
-    #detailVisual, #detailUsage { font-weight: 400; color: #0f172a; }
+
+    /* Visual and usage content: black, normal weight */
+    #detailVisual,
+    #detailUsage {
+      font-weight: 400;
+      color: #0f172a;
+    }
+    }
   </style>
 </head>
 <body class="min-h-screen">
   <div class="min-h-screen flex flex-col">
-
     <!-- Header -->
     <header class="bg-slate-900 text-slate-50 border-b border-slate-800">
       <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -58,7 +103,7 @@
       </div>
     </header>
 
-    <!-- Intro -->
+    <!-- Intro section -->
     <section class="max-w-7xl mx-auto px-4 pt-6 pb-2">
       <h2 class="text-xl md:text-2xl font-bold text-slate-900">The Language of Medical AI</h2>
       <p class="text-sm md:text-base text-slate-600 mt-1">
@@ -69,64 +114,92 @@
       </p>
     </section>
 
-    <!-- NEW: Fluency Studio Callout -->
-    <section class="max-w-7xl mx-auto mt-6 px-4">
-      <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-md border border-indigo-200 p-7 md:p-9">
-        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">MedAI Fluency Studio</h2>
-        <p class="text-base md:text-lg text-slate-700 mb-6 max-w-4xl">
-          A 5-minute guided self-assessment that instantly builds your personal AI fluency radar chart across five core competencies — and shows you exactly which MicroModules to watch next.
-        </p>
-        <a href="fluency-studio-v2.html"
-           class="inline-block px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg rounded-full shadow-xl transition transform hover:scale-105">
-          Take the Fluency Assessment
-        </a>
-      </div>
-    </section>
-
-    <!-- NEW: MicroModules Callout -->
-    <section class="max-w-7xl mx-auto mt-8 px-4">
-      <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl shadow-md border border-emerald-200 p-7 md:p-9">
-        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">MedAI MicroModules</h2>
-        <p class="text-base md:text-lg text-slate-700 mb-6 max-w-4xl">
-          <strong>15 short videos</strong> (3–8 minutes each) that teach every core concept from the Lexicon — perfect for busy clinicians and researchers. Watch sequentially or jump to your focus areas.
-        </p>
-        <a href="micromodules.html"
-           class="inline-block px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-full shadow-xl transition transform hover:scale-105">
-          Watch the MicroModules
-        </a>
+    <!-- MedAI Fluency Studio callout -->
+    <section class="max-w-7xl mx-auto mt-4 px-4">
+      <div class="bg-white rounded-2xl shadow-sm border border-indigo-100 p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-lg md:text-xl font-semibold text-slate-900">MedAI Fluency Studio</h2>
+          <p class="text-sm md:text-base text-slate-700 mt-1">
+            A short guided self assessment developed to help faculty, residents, fellows, and staff understand their current AI fluency and plan practical next steps using the MedAI Lexicon.
+          </p>
+        </div>
+        <div class="flex flex-col items-stretch md:items-end gap-2">
+          <a
+            href="fluency-studio.html"
+            class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-medium shadow-sm hover:bg-indigo-700 active:bg-indigo-800"
+          >
+            Start the assessment
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Main content -->
     <main class="flex-1">
-      <div class="max-w-7xl mx-auto px-4 py-6 grid gap-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)]">
-
-        <!-- Left Panel -->
+      <div class="max-w-7xl mx-auto px-4 py-4 md:py-6 grid gap-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)]">
+        <!-- Left: Term list and search -->
         <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-5 flex flex-col h-[32rem] md:h-[36rem]">
-          <!-- Companion Resources -->
+
+          <!-- MedAI companion resources card (left top) -->
           <div class="mb-4 rounded-2xl border border-indigo-100 bg-indigo-50 p-3 text-sm">
             <h3 class="text-base font-semibold text-indigo-900">MedAI companion resources</h3>
-            <p class="mt-1 text-xs text-indigo-900/80">Additional tools to support responsible use of medical AI.</p>
+            <p class="mt-1 text-xs text-indigo-900/80">
+              Additional tools to support responsible use of medical AI.
+            </p>
             <ul class="mt-2 space-y-1">
-              <li><a href="https://datadrivenmed.github.io/Vetting-AI-Tools/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-800 underline">Vetting Medical AI Tools</a></li>
-              <li><a href="AI-Buyers-Playbook.pdf" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-800 underline">Medical AI Buyers Playbook (PDF)</a></li>
-              <li><a href="Louisiana-Governor-EO-AI.pdf" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-800 underline">Louisiana Governor Executive Order on Responsible AI Use (PDF)</a></li>
+              <li>
+                <a
+                  href="https://datadrivenmed.github.io/Vetting-AI-Tools/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-indigo-800 underline"
+                >
+                  Vetting Medical AI Tools
+                </a>
+              </li>
+              <li>
+                <a
+                  href="AI-Buyers-Playbook.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-indigo-800 underline"
+                >
+                  Medical AI Buyers Playbook (PDF)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="Louisiana-Governor-EO-AI.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-indigo-800 underline"
+                >
+                  Louisiana Governor Executive Order on Responsible AI Use (PDF)
+                </a>
+              </li>
             </ul>
           </div>
 
           <div class="mb-3">
             <h3 class="text-lg font-semibold text-slate-900">AI Terms</h3>
-            <p class="text-xs text-slate-500 mt-1">Search or browse. Click a term to see tailored explanations by persona.</p>
+            <p class="text-xs text-slate-500 mt-1">
+              Search or browse. Click a term to see tailored explanations by persona.
+            </p>
           </div>
 
           <div class="relative mb-2">
-            <input id="searchInput" type="text" placeholder="Search terms, e.g. tokenization, RAG, LoRA..."
-              class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search terms, for example tokenization, RAG, LoRA..."
+              class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
             <svg class="w-4 h-4 text-slate-400 absolute right-3 top-2.5 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" />
             </svg>
           </div>
 
+          <!-- Scroll hint -->
           <p class="text-xs text-slate-600 mb-2 flex items-center gap-1">
             <svg class="w-3.5 h-3.5 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -134,22 +207,27 @@
             Scroll inside the panel below to see all terms.
           </p>
 
-          <div id="termList" class="mt-1 flex-1 overflow-y-auto scrollbar-thin space-y-1 text-sm bg-slate-50 rounded-xl border border-slate-200 p-1">
-            <!-- Terms injected by JS -->
+          <div
+            id="termList"
+            class="mt-1 flex-1 overflow-y-auto scrollbar-thin space-y-1 text-sm bg-slate-50 rounded-xl border border-slate-200 p-1"
+          >
+            <!-- terms will be injected here -->
           </div>
         </section>
 
-        <!-- Right Panel -->
+        <!-- Right: Term detail -->
         <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-6 flex flex-col h-[32rem] md:h-[36rem]">
           <div id="detailEmptyState" class="flex-1 flex items-center justify-center text-center text-slate-400 text-sm">
-            <p>Select a term on the left to see its definition and persona-based explanations.</p>
+            <p>Select a term on the left to see its definition and persona based explanations.</p>
           </div>
+
           <div id="detailPanel" class="hidden flex-1 flex flex-col">
             <div class="mb-3 border-b border-slate-100 pb-3">
               <p class="text-xs uppercase tracking-wide text-indigo-600 font-semibold">MedAI concept</p>
               <h2 id="detailTerm" class="text-2xl font-bold text-slate-900 mt-1"></h2>
               <p id="detailShort" class="text-sm text-slate-700 mt-2"></p>
             </div>
+
             <div class="mb-4 grid gap-3 md:grid-cols-2">
               <div>
                 <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Visual definition</h3>
@@ -160,16 +238,30 @@
                 <p id="detailUsage" class="text-sm"></p>
               </div>
             </div>
+
+            <!-- Role tabs -->
             <div class="border border-slate-200 rounded-2xl flex-1 flex flex-col overflow-hidden">
               <div class="border-b border-slate-200 bg-slate-50 px-2 pt-2 pb-1 flex gap-1 md:gap-2 text-xs md:text-sm">
-                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-emerald-50 text-emerald-800" data-role="physician">
-                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span> Physician
+                <button
+                  class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-emerald-50 text-emerald-800"
+                  data-role="physician"
+                >
+                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>Physician</span>
                 </button>
-                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-sky-50 text-sky-800" data-role="scientist">
-                  <span class="inline-block w-2 h-2 rounded-full bg-sky-500"></span> Basic science researcher
+                <button
+                  class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-sky-50 text-sky-800"
+                  data-role="scientist"
+                >
+                  <span class="inline-block w-2 h-2 rounded-full bg-sky-500"></span>
+                  <span>Basic science researcher</span>
                 </button>
-                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-amber-50 text-amber-800" data-role="researcher">
-                  <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span> Clinical researcher
+                <button
+                  class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-amber-50 text-amber-800"
+                  data-role="researcher"
+                >
+                  <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
+                  <span>Clinical researcher</span>
                 </button>
               </div>
               <div class="flex-1 overflow-y-auto p-3 md:p-4 text-sm">
@@ -181,37 +273,44 @@
         </section>
       </div>
 
-      <!-- Suggested MedAI Lexicon term clusters -->
+      <!-- Suggested Lexicon term clusters for Fluency Studio -->
       <section class="max-w-7xl mx-auto px-4 pb-6 space-y-4">
-        <h2 class="text-lg md:text-xl font-semibold text-slate-900">Suggested MedAI Lexicon term clusters</h2>
+        <h2 class="text-lg md:text-xl font-semibold text-slate-900">
+          Suggested MedAI Lexicon term clusters
+        </h2>
         <p class="text-sm text-slate-600">
           These clusters group terms that support each MedAI fluency competency. You can use them before or after completing the MedAI Fluency Studio.
         </p>
-        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+
+        <div id="prompting-and-conversation" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
           <h3 class="text-sm font-semibold text-slate-900">Prompt mastery and conversation patterns</h3>
           <p class="text-xs md:text-sm text-slate-600 mt-1">
             Example terms: prompt engineering, system prompt, few shot prompting, chain of thought, temperature, sampling methods, style transfer.
           </p>
         </div>
-        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+
+        <div id="model-fundamentals" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
           <h3 class="text-sm font-semibold text-slate-900">Model fundamentals and limitations</h3>
           <p class="text-xs md:text-sm text-slate-600 mt-1">
             Example terms: tokenization, embeddings, latent space, attention heads, residual streams, scaling laws, hallucinations, training vs inference.
           </p>
         </div>
-        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+
+        <div id="practical-use-cases" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
           <h3 class="text-sm font-semibold text-slate-900">Practical use cases in education, research, and clinical work</h3>
           <p class="text-xs md:text-sm text-slate-600 mt-1">
             Example terms: RAG, AI agents and feedback loops, quantization, LoRA, diffusion models, multimodal fusion, AI data centers.
           </p>
         </div>
-        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+
+        <div id="evaluation-and-safety" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
           <h3 class="text-sm font-semibold text-slate-900">Critical evaluation, bias, and safety</h3>
           <p class="text-xs md:text-sm text-slate-600 mt-1">
             Example terms: hallucinations, RLHF, catastrophic forgetting, emergent abilities, data privacy and governance, guardrails and safety filters, prompt injection and security.
           </p>
         </div>
-        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+
+        <div id="workflow-and-governance" class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
           <h3 class="text-sm font-semibold text-slate-900">Workflow design and governance</h3>
           <p class="text-xs md:text-sm text-slate-600 mt-1">
             Example terms: RAG workflows, AI agents, workflow orchestration, human in the loop patterns, governance, evaluation frameworks for AI tools in clinical and educational settings.
@@ -223,7 +322,12 @@
     <!-- Footer -->
     <footer class="border-t border-slate-200 bg-slate-50">
       <div class="max-w-7xl mx-auto px-4 py-3 text-xs text-slate-500 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-        <a href="https://swimed.substack.com/" target="_blank" rel="noopener noreferrer" class="text-[12px] text-red-500 underline">
+        <a
+          href="https://swimed.substack.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[12px] text-red-500 underline"
+        >
           My Substack: swimed.substack.com
         </a>
         <span>MedAI Lexicon - educational tool, not a medical device.</span>
@@ -232,10 +336,321 @@
     </footer>
   </div>
 
-  <!-- Original script (unchanged) -->
   <script>
-    const TERMS = [ /* ... your full TERMS array exactly as before ... */ ];
-    const termListEl = document.getElementById("termList");
+    const TERMS = [
+      {
+        id: "tokenization",
+        term: "Tokenization",
+        short: "Breaking text into small pieces that the model can count and process.",
+        visual: "Imagine a long discharge summary as a necklace. Tokenization cuts it into beads - tokens. The model works with beads, not the whole necklace.",
+        usage: "People talk about token limits and cost per token. Models read and bill in tokens, not words, which explains why they can struggle with letter counting or word puzzles.",
+        physician: "Think of tokenization like splitting a discharge summary into short bullet points so a colleague can skim it quickly. The AI splits text into units it understands and charges by those units.",
+        scientist: "Tokenization maps raw text to a sequence of discrete vocabulary indices that the model operates on. It is analogous to converting DNA sequences into k-mers or amino acids into numeric codes before modeling.",
+        researcher: "Tokenization defines the unit of analysis and sets hard context limits. When you send a trial protocol or paper, only a fixed number of tokens fit in a single request, which constrains how much material the assistant can process at once."
+      },
+      {
+        id: "embeddings",
+        term: "Embeddings",
+        short: "Numerical coordinates that place words and concepts in a shared meaning space.",
+        visual: "Picture a huge 3D map where similar things sit close together: aspirin near NSAID, far from tourism. Embeddings are the coordinates of each word on that map.",
+        usage: "People say they use embeddings for search or similarity. They compare numeric vectors instead of raw strings, so models know that myocardial infarction and heart attack are related.",
+        physician: "Embeddings let an AI know that MI, myocardial infarction, and heart attack belong together. It can find relevant information even when wording differs from the guideline you remember.",
+        scientist: "Embeddings are high dimensional feature vectors learned from data. Distances encode semantic similarity, similar to representing gene expression profiles or molecular fingerprints in a common space.",
+        researcher: "Embeddings allow smart search and patient-like-this retrieval. Trial documents, patient notes, and outcomes can be embedded and compared to find similar cases, protocols, or cohorts."
+      },
+      {
+        id: "latent-space",
+        term: "Latent space",
+        short: "The internal concept space where the model organizes meanings and patterns.",
+        visual: "Latent space is like a galaxy map of concepts. When you ask a question, the model flies to the region where similar meanings cluster and samples an answer from there.",
+        usage: "Researchers talk about navigating latent space or latent representations when describing how models encode topics, disease clusters, or language structure internally.",
+        physician: "Imagine every patient you have seen arranged in a big mental space where similar cases sit near each other. Latent space is the model's internal version of that clinical intuition.",
+        scientist: "Latent space is a compressed internal representation, like the low dimensional manifolds discovered by PCA or autoencoders. It captures structure such as topics or phenotypes without explicit labels.",
+        researcher: "Latent space can implicitly separate disease subtypes, risk groups, or response patterns, even if they were never labeled. It is one reason large models can support unsupervised phenotyping and stratification."
+      },
+      {
+        id: "hallucinations",
+        term: "Hallucinations",
+        short: "Confident but incorrect or fabricated outputs produced by the model.",
+        visual: "Hallucinations are like a trainee who, instead of saying I do not know, confidently invents a journal article or lab value that sounds right but does not exist.",
+        usage: "Hallucinations happen when the model fills gaps in its knowledge by pattern completion instead of accessing ground truth. They are especially risky in medicine because they sound authoritative.",
+        physician: "A hallucination might be a made up reference, a non-existent drug interaction, or a plausible but wrong diagnostic explanation. Treat model outputs as drafts to be checked, not final orders.",
+        scientist: "Hallucinations arise because the model is a probabilistic next-token generator, not a database. In sparse areas of latent space it extrapolates, sometimes producing text with no factual grounding.",
+        researcher: "In clinical research, hallucinations can appear as invented trial names, wrong sample sizes, or fabricated statistics. Always verify citations, numbers, and claims against primary sources and registries."
+      },
+      {
+        id: "positional-encoding",
+        term: "Positional encoding",
+        short: "Signals that tell the model the order of tokens in a sequence.",
+        visual: "If tokens are beads on a string, positional encoding is the numbering of each bead so the model knows which came first. It is like giving every word a timestamp in a sentence's dance routine.",
+        usage: "Transformers ignore order by default. Positional encodings, often sine and cosine waves or rotary embeddings, reintroduce information about word positions.",
+        physician: "The sentence the patient denied chest pain is different from initially chest pain, now resolved. Positional encoding helps the model keep track of such sequences and avoid mixing up who did what to whom.",
+        scientist: "Positional encodings add structured signals (often sinusoidal patterns) to token vectors so attention layers can distinguish positions. They are analogous to including time indices in time series models.",
+        researcher: "Order matters for clinical course descriptions. Positional encodings allow the model to reason about symptom onset, imaging, treatment, and outcome as a sequence rather than a bag of events."
+      },
+      {
+        id: "prompt-engineering",
+        term: "Prompt engineering",
+        short: "The craft of writing good instructions and context for the model.",
+        visual: "Think of a prompt as a consult request. If you write a vague consult, you get a vague answer. If you clearly state the question, context, and what decision depends on it, the response is more useful.",
+        usage: "People say they engineer prompts when they structure instructions, examples, and constraints so the model stays on task and behaves consistently.",
+        physician: "Prompt engineering is like writing a focused question for radiology or pathology. You give brief clinical history, the key concern, and what you want clarified, not just please comment.",
+        scientist: "It is similar to specifying clear inputs and outputs for a bioinformatics pipeline. The clearer your constraints, the fewer ambiguous or off target outputs you get.",
+        researcher: "You can think of prompts as mini protocols for the model, specifying what data to consider, which comparisons to make, and what form of answer is desired, such as a PICO style summary."
+      },
+      {
+        id: "temperature",
+        term: "Temperature (creativity setting)",
+        short: "A dial that controls how predictable or creative the model's outputs are.",
+        visual: "Temperature is a creativity thermostat. Turn it down and you get calm, predictable answers. Turn it up and answers become more varied, sometimes brilliant, sometimes chaotic.",
+        usage: "Low temperature is used for coding, math, and factual tasks. Higher temperature is used for brainstorming, wording variations, and creative writing.",
+        physician: "For clinical questions you want low temperature so answers are stable and reproducible. For brainstorming patient education phrases or analogies, a slightly higher setting can be helpful.",
+        scientist: "For code, analysis plans, or reproducible protocol steps, keep the temperature low. For hypothesis generation, idea exploration, or alternative mechanisms, a higher temperature can give useful variety.",
+        researcher: "When summarizing evidence or interpreting statistics, low temperature is safer. When exploring alternative trial designs, inclusion criteria, or grant language, moderate temperature can inspire options you might not have written yourself."
+      },
+      {
+        id: "context-window",
+        term: "Context window",
+        short: "The amount of text the model can consider at once.",
+        visual: "The context window is like a limited stack of chart pages on your desk. Once the pile is full, new pages push old ones off the stack.",
+        usage: "People compare models by context size, such as 8k tokens versus 200k tokens. Larger windows can hold longer documents or conversation history in one request.",
+        physician: "A larger context allows the AI to read more of the chart, meds, and problem list at once, but still not an entire record. You sometimes need to send separate sections if they are very long.",
+        scientist: "The context window limits how much text, code, or methods detail you can give in a single prompt. For very long protocols you may need chunking strategies and retrieval.",
+        researcher: "For trial protocols, statistical analysis plans, or long manuscripts, context limits determine how much can be summarized or critiqued in one go. Retrieval augmented setups help extend this by pulling in only relevant sections."
+      },
+      {
+        id: "sampling-methods",
+        term: "Sampling methods",
+        short: "Rules the model uses to pick the next word from its probability distribution.",
+        visual: "Sampling is like driving on a highway. Beam search looks ahead for the best overall route, top k chooses from the top few exits, and nucleus sampling picks from the core cluster of likely options.",
+        usage: "Developers choose sampling methods to trade off determinism and variety. Sampling choices shape style, coherence, and diversity of outputs.",
+        physician: "Conservative sampling is better for dosing, guidelines, and documentation. More playful sampling is reasonable when you want different ways to explain a diagnosis or plan to a patient.",
+        scientist: "Deterministic strategies such as greedy or low temperature top k help with reproducibility. More stochastic sampling discovers diverse phrasings, arguments, or hypotheses.",
+        researcher: "Stable sampling is useful when extracting endpoints or summarizing trials. More varied sampling can surface alternative interpretations, subgroup considerations, or study designs you might explore in planning stages."
+      },
+      {
+        id: "attention-heads",
+        term: "Attention heads",
+        short: "Parallel pattern detectors that focus on different relationships in the text.",
+        visual: "Attention heads are like many inspectors reading the same document, each looking for a different pattern: drug names, numbers, pronouns, or negations.",
+        usage: "Researchers visualize attention heads to interpret what models are tracking. Some heads specialize in syntax, others in long range dependencies or specific tokens.",
+        physician: "It is like having multiple specialists at a case conference. One notices the medication interactions, another the subtle physical exam detail, another the imaging history. Attention heads do that mechanically for text.",
+        scientist: "Each head computes a separate attention pattern over tokens, often emerging as specialized detectors for features such as coreference, negation, or numerical relationships.",
+        researcher: "Some heads may implicitly track PICO elements or trial structure, which helps explain why models can often extract eligibility criteria or endpoints even without task specific training."
+      },
+      {
+        id: "residual-streams",
+        term: "Residual streams",
+        short: "Connections that carry information forward through layers without erasing it.",
+        visual: "Imagine a river passing through many locks. Each lock adds new features but the original water keeps flowing. Residual streams let layers add insight without losing the original signal.",
+        usage: "Residual connections are crucial for deep models. They stabilize training and allow many layers to refine the same underlying representation.",
+        physician: "Residual streams are like successive consults that add notes but never erase the initial history. Later reasoning stages still have access to your original question and context.",
+        scientist: "Residual pathways support gradient flow in very deep networks and allow linear probes to read off features accumulated across layers.",
+        researcher: "Thanks to residual streams, the model can preserve your initial clinical question deep into its computation, which helps with long reasoning chains in complex trial or cohort queries."
+      },
+      {
+        id: "feature-superposition",
+        term: "Feature superposition",
+        short: "Packing many concepts into overlapping patterns in the same neurons.",
+        visual: "A single neuron can act like a closet that holds several outfits. Depending on context, a different outfit comes to the front. One unit may respond to several unrelated ideas.",
+        usage: "Feature superposition helps models use parameters efficiently but can cause strange associations when overlapping concepts interfere.",
+        physician: "Think of fatigue as a symptom that appears in many diseases. A single neuron may partially represent several concepts, which can blur boundaries and sometimes produce odd analogies.",
+        scientist: "Superposition is similar to compressed sparse coding. Many features share dimensions instead of each concept owning a separate dedicated neuron, which reduces parameter counts.",
+        researcher: "Overlapping representations may contribute to unexpected correlations in outputs, such as linking diseases or populations that are not obviously related, which must be interpreted cautiously in clinical decision-support settings."
+      },
+      {
+        id: "mixture-of-experts",
+        term: "Mixture of experts",
+        short: "Architectures that route each input to a small subset of specialized submodels.",
+        visual: "Instead of using its whole brain every time, the model consults a panel of subspecialists. For a math question it calls the math experts, for a language question it calls language experts.",
+        usage: "Mixture of experts models scale parameters while keeping compute per token lower, by activating only a few experts per input.",
+        physician: "Conceptually it is like routing a referral to cardiology instead of paging every specialty at once. Only the relevant expert layers are used for your cardiology style question.",
+        scientist: "Sparse MoE architectures use learned routers to pick a subset of expert blocks for each token. This greatly increases capacity without proportional increases in computation.",
+        researcher: "In principle, different experts could specialize in oncology, cardiology, or neurology trial patterns, while sharing a base system. That could allow targeted performance boosts in each domain without training many separate models."
+      },
+      {
+        id: "gradient-descent",
+        term: "Gradient descent",
+        short: "The process by which models learn from error by iteratively adjusting weights.",
+        visual: "Picture a ball rolling down a bumpy mountain toward the valley of lowest error. At each step the model checks which direction error decreases and rolls a bit that way.",
+        usage: "Gradient descent and its variants are the workhorse optimization methods for deep learning. They operate over huge datasets and parameter spaces.",
+        physician: "It is like adjusting a treatment plan based on daily labs and clinical response. Small, repeated adjustments improve control over time.",
+        scientist: "Parameters are updated by moving in the negative gradient direction of a loss function, with learning rates, momentum, and schedules shaping convergence behavior.",
+        researcher: "Training a predictive model for risk or outcome involves many cycles where predictions are compared to ground truth and weights are adjusted. Gradient descent is that cycle scaled up to billions of parameters and examples."
+      },
+      {
+        id: "pretraining-finetuning",
+        term: "Pre training vs fine tuning",
+        short: "General education on broad data vs specialized training on domain data.",
+        visual: "Pre training is like undergraduate education plus reading widely. Fine tuning is residency or a PhD that sharpens skills in one field.",
+        usage: "Foundation models are pre trained on massive generic text. Organizations then fine tune them on domain specific corpora such as clinical notes or radiology reports.",
+        physician: "A general model may know medical language. Fine tuning on your hospital's notes can make it better at your documentation style, common diagnoses, and workflows.",
+        scientist: "Pre training captures general language and world knowledge. Fine tuning adjusts weights or adapters on smaller, more focused datasets, often with fewer steps and lower risk of catastrophic forgetting.",
+        researcher: "Fine tuned models built on trial protocols, registries, or EHR data can specialize in tasks like eligibility screening, endpoint extraction, or adverse event detection, while resting on a broad pre trained base."
+      },
+      {
+        id: "rlhf",
+        term: "RLHF (Reinforcement learning from human feedback)",
+        short: "A way to shape model behavior using human ratings of output quality.",
+        visual: "RLHF is like grading a trainee's notes with thumbs up and down. Over time the trainee learns what the attending considers clear, safe, and professional.",
+        usage: "RLHF is widely used to align models to be helpful and safe. Human raters rank outputs, and a reward model learns which responses people prefer.",
+        physician: "Human reviewers rate AI answers about clinical scenarios, flagging unsafe or unhelpful replies. The model then learns to avoid dangerous suggestions and to respond in a more cautious, guideline respecting style.",
+        scientist: "A reward model is trained on human preference data, then policy optimization methods such as PPO adjust the language model to maximize expected reward under that model.",
+        researcher: "RLHF can encourage the model to respect regulatory norms, acknowledge uncertainty, and avoid firm recommendations where evidence is weak. It also bakes in the values and biases of raters, which should be considered when deploying in clinical research."
+      },
+      {
+        id: "catastrophic-forgetting",
+        term: "Catastrophic forgetting",
+        short: "When a model loses older skills while being trained on new tasks.",
+        visual: "It is like writing new notes over an old chalkboard without saving a copy. After enough new writing, the old content is gone.",
+        usage: "Naive sequential training can cause models to forget earlier tasks. Methods such as rehearsal, regularization, or adapters attempt to reduce this.",
+        physician: "If you retrain a model heavily on oncology data, it might become worse at cardiology questions, similar to how focusing intensely on one subspecialty can dull skills in another.",
+        scientist: "Sequential training without replay or constraints can cause performance collapse on earlier tasks. Techniques such as elastic weight consolidation try to protect important weights.",
+        researcher: "When updating a model with new evidence or new populations, you must guard against hurting performance on previously validated applications. Separate adapters or careful evaluation across cohorts are important."
+      },
+      {
+        id: "emergent-abilities",
+        term: "Emergent abilities",
+        short: "New skills that appear when models become large and well trained enough.",
+        visual: "As models grow, they sometimes suddenly snap into new abilities, like a trainee who after enough cases can suddenly manage complex patients more independently.",
+        usage: "Researchers observed that abilities such as translation or code generation appear as scale increases, although there is debate about how sudden these shifts are.",
+        physician: "A larger model may handle complex reasoning or long chain explanations that a smaller model cannot produce reliably, even though you never explicitly told it to be a diagnostician.",
+        scientist: "Emergent behavior relates to scaling laws and capacity. As data, parameters, or compute cross certain levels, new qualitative patterns of behavior arise from quantitative changes.",
+        researcher: "This means that increasing model size or training data can alter performance in ways that are hard to extrapolate from small pilots. Clinical validation should match the actual deployed scale."
+      },
+      {
+        id: "rag",
+        term: "Retrieval augmented generation (RAG)",
+        short: "Combining search over external data with language model generation.",
+        visual: "RAG is like letting a student look up current guidelines during an exam. First they search the bookshelf, then they answer using what they found.",
+        usage: "RAG reduces hallucinations and keeps answers current by fetching relevant documents and feeding them into the model as context.",
+        physician: "An assistant using RAG can pull current guidelines, local formularies, or imaging protocols and then write a summary tailored to your patient scenario.",
+        scientist: "You can connect models to PubMed, preprints, or lab notebooks. The retriever finds relevant passages, and the generator synthesizes them into an answer that stays closer to the source.",
+        researcher: "RAG is ideal for evidence synthesis across trial registries and publications. It helps the model ground its summaries in up to date material instead of relying only on pre training memory."
+      },
+      {
+        id: "agents",
+        term: "AI agents and feedback loops",
+        short: "Systems where models plan, call tools, review results, and iterate.",
+        visual: "An agent is like a junior colleague who can make a plan, run tasks, check results, realize something is missing, and loop until the job is done.",
+        usage: "Agents chain multiple model calls and external tools such as search, code execution, or APIs. They can autonomously decompose and solve multi step problems.",
+        physician: "An agent could gather prior imaging, summarize key notes, draft orders, and revise them as new labs appear, with you supervising the final decisions.",
+        scientist: "Agents can orchestrate pipelines: they generate an analysis plan, run scripts, inspect figures, adjust parameters, and repeat until criteria are met.",
+        researcher: "They can support complex workflows like literature search, eligibility screening, cohort construction, and table generation, looping until specific inclusion criteria or reporting standards are satisfied."
+      },
+      {
+        id: "speculative-decoding",
+        term: "Speculative decoding",
+        short: "Speeding up generation by letting a small model draft and a big model verify.",
+        visual: "Speculative decoding is like a fast intern drafting the next few sentences and an attending quickly checking them. Correct parts are kept, errors are corrected.",
+        usage: "A smaller model proposes several tokens. The larger model confirms or rejects them, saving time compared to having the large model generate every token itself.",
+        physician: "You mostly notice this as faster responses from chat assistants without a big drop in quality, especially during long explanations.",
+        scientist: "It is a systems optimization that reduces latency and compute per token. It is especially relevant for serving large models at scale in data centers.",
+        researcher: "Faster decoding improves usability in live settings such as study meetings, bedside documentation, or interactive protocol editing, where delays can interrupt workflow."
+      },
+      {
+        id: "scaling-laws",
+        term: "Scaling laws",
+        short: "Empirical rules describing how performance improves with more data, parameters, and compute.",
+        visual: "Scaling laws are like growth charts for models. As you feed in more data and compute, performance follows a predictable curve, though gains slow at very large scales.",
+        usage: "Papers have shown that loss often follows power law relationships with scale. These findings guide choices about model size and dataset size.",
+        physician: "Scaling laws explain why models keep improving as they grow, but also why it is not efficient to make them arbitrarily large. At some point better design matters more than just more size.",
+        scientist: "Scaling laws help allocate budget between more data, more parameters, and more training steps. They suggest roughly optimal trade offs for a given compute budget.",
+        researcher: "For clinical models, scaling laws suggest that adding more data or compute often yields predictable benefits up to a point. Past that point, gains may be modest compared with costs and regulatory burden."
+      },
+      {
+        id: "quantization",
+        term: "Quantization",
+        short: "Compressing models by storing weights with fewer bits.",
+        visual: "Quantization is like lowering scan resolution so files are smaller but still diagnostic. Weights are stored in 8 or 4 bits instead of 16 or 32.",
+        usage: "Quantization is key for running large models on laptops, phones, or modest servers. People talk about 8 bit or 4 bit versions of popular models.",
+        physician: "Quantized models make on device tools more realistic, for example a summarizer that runs on a clinic tablet without constantly sending text to the cloud.",
+        scientist: "Quantization trades numerical precision for efficiency. With good calibration, performance stays close while memory and compute costs drop significantly.",
+        researcher: "For deployments inside hospitals or in low resource settings, quantized models can meet hardware constraints while still supporting useful tasks such as trial screening or note summarization."
+      },
+      {
+        id: "lora",
+        term: "LoRA (Low rank adaptation)",
+        short: "A way to adapt large models by training small add on matrices instead of all weights.",
+        visual: "LoRA is like adding accessories to a standard suit rather than buying a whole new wardrobe. The base model stays the same, but small adapters customize it.",
+        usage: "LoRA lets teams fine tune models cheaply by updating only low rank matrices. Many community models and style adapters use this approach.",
+        physician: "A health system can keep a general medical model and add LoRA adapters tuned to its own documentation style or specialty services, without training a completely new model.",
+        scientist: "LoRA inserts trainable low rank matrices into existing layers. During adaptation only those matrices update, which lowers compute and reduces the risk of forgetting.",
+        researcher: "Separate LoRA adapters can specialize in oncology, cardiology, or neurology trials. A single base model plus different adapters can support several research domains with lighter validation per adapter."
+      },
+      {
+        id: "prompt-injection",
+        term: "Prompt injection and security",
+        short: "Attacks that hide malicious instructions inside seemingly normal text.",
+        visual: "Prompt injection is like hiding a secret order in white text inside a referral letter. A human may not notice it, but the AI reads and obeys it.",
+        usage: "Security researchers warn that untrusted inputs such as web pages or resumes can contain instructions that override system prompts or leak information.",
+        physician: "If an AI reads unvetted patient documents or websites, embedded instructions could cause it to ignore safety rules or output misleading content. Systems must treat external text as untrusted.",
+        scientist: "Any pipeline where the model processes untrusted inputs or tools must guard against adversarial prompts that try to change its behavior, exfiltrate data, or execute unsafe actions.",
+        researcher: "Prompt injection can threaten data integrity in automated chart review, cohort selection, or trial matching if attackers can place crafted instructions inside source documents. Proper sandboxing and filtering are essential."
+      },
+      {
+        id: "diffusion-models",
+        term: "Diffusion models",
+        short: "Image generation models that learn to reverse a gradual noising process.",
+        visual: "A diffusion model starts from static like a noisy radiograph and gradually removes noise until a meaningful image appears, like developing a film into a clear picture.",
+        usage: "Diffusion models power many modern image generators. In medicine they are studied for data augmentation, simulation, and anonymization, but require strong validation.",
+        physician: "They can create educational examples, simulate rare findings, or generate images for teaching. Generated images must never be confused with real patient data unless clearly labeled.",
+        scientist: "Diffusion models define a forward process that adds noise and a learned reverse process that denoises. Training optimizes the reverse process to reconstruct samples from noise.",
+        researcher: "Synthetic images from diffusion models may help with data sharing and augmentation in clinical research but raise questions about bias, realism, and the regulatory status of models trained partly on synthetic data."
+      },
+      {
+        id: "multimodal-fusion",
+        term: "Multimodal fusion",
+        short: "Models that jointly process text, images, audio, and other data types.",
+        visual: "Multimodal fusion is like a clinician integrating imaging, labs, and patient speech into one coherent picture instead of treating each in isolation.",
+        usage: "New models can look at scans, read notes, and listen to audio, mapping them into a shared space so they can reason across modalities.",
+        physician: "A multimodal model could consider CT images, vital signs, and progress notes at the same time to suggest differential diagnoses or summarize overall status.",
+        scientist: "Fusion architectures combine embeddings from different modalities into a unified representation. This allows cross modal tasks such as retrieving images from text or vice versa.",
+        researcher: "Trials increasingly collect multimodal data. Models that understand all modalities together may support richer phenotyping, endpoint prediction, and analysis of complex study data."
+      },
+      {
+        id: "training-vs-inference",
+        term: "Training vs inference",
+        short: "Training is when the model learns; inference is when it uses what it learned to answer you.",
+        visual: "Training is school. Inference is practice. Training is reading thousands of textbooks; inference is answering your question during a clinic visit.",
+        usage: "Training is compute heavy and done in data centers over long periods. Inference is the lightweight forward pass that runs each time you send a prompt.",
+        physician: "When you use a chat assistant, you are almost always doing inference. The model is not learning from your patient in real time unless the system explicitly stores and uses that data for future training.",
+        scientist: "Training uses backpropagation to adjust parameters over large datasets. Inference applies the frozen parameters to new inputs without updating weights.",
+        researcher: "Consent, governance, and regulatory questions differ between training and inference. Training can involve large historical datasets, while inference touches live clinical or trial data and must follow privacy and logging requirements."
+      },
+      {
+        id: "data-centers",
+        term: "AI data centers",
+        short: "Large facilities with specialized hardware that power training and inference at scale.",
+        visual: "AI data centers are like giant hospitals for computation. Racks of GPU wards, power supplies, and cooling systems keep models alive and responsive.",
+        usage: "Modern AI depends on clusters of GPUs or TPUs, high speed networking, and advanced cooling. Design choices affect performance, cost, and environmental impact.",
+        physician: "The speed and reliability of AI tools you use in clinic depend on data center resources. Outages or throttling upstream can translate into lag or downtime at the bedside.",
+        scientist: "Access to GPUs or TPUs in data centers determines the scale of models and experiments you can run. Hardware efficiency strongly influences budget and feasibility of large projects.",
+        researcher: "Data centers that host models handling protected health information must meet security, compliance, and auditing standards. Their location and governance affect data sovereignty and cross border transfer issues for trials."
+      },
+      {
+        id: "data-privacy",
+        term: "Data privacy and governance",
+        short: "Rules and practices that control how sensitive data is collected, used, shared, and protected in AI.",
+        visual: "Data privacy is like controlling who can open which charts. Governance is the policy manual that defines how charts are created, stored, shared, and audited.",
+        usage: "With AI, concerns include re identification, breach risk, secondary use without consent, and models memorizing rare or sensitive information.",
+        physician: "You should assume that anything you paste into a public AI tool could leave your control. Protected health information belongs only in systems with proper agreements, encryption, and strict governance.",
+        scientist: "Training datasets must respect consent, de identification standards, and access control. Even anonymous data can sometimes be re identified when combined with other sources, so careful risk assessment is needed.",
+        researcher: "AI in clinical research raises questions about how participant data is reused, which jurisdictions it travels through, and whether participants understood that their data might train commercial models. Regulators are paying increasing attention to these points."
+      },
+      {
+        id: "guardrails",
+        term: "Guardrails and safety filters",
+        short: "Rules and filters that block unsafe, inappropriate, or out-of-scope outputs.",
+        visual: "Guardrails are like triage and pharmacy checks around an AI: they do not treat the patient, but they prevent obviously unsafe orders from reaching the bedside.",
+        usage: "Guardrails include content filters, policy rules, restricted tools, and refusal behaviors. They try to keep the model within safe, approved use-cases.",
+        physician: "Safety filters may refuse certain questions (for example, dosing for a specific patient) or rephrase answers to emphasize that the tool cannot replace clinical judgment.",
+        scientist: "Guardrails can be implemented at model, system, and UI layers: prompt engineering, classifiers, allow/deny lists, and tool access control. They reduce risk but can introduce false positives.",
+        researcher: "For clinical research workflows, guardrails help ensure the AI does not give regulatory advice, fabricate consent language, or suggest unapproved protocol deviations without clear warnings and human review."
+      }
+    ];
+
+       const termListEl = document.getElementById("termList");
     const searchInputEl = document.getElementById("searchInput");
     const detailEmptyStateEl = document.getElementById("detailEmptyState");
     const detailPanelEl = document.getElementById("detailPanel");
@@ -246,28 +661,34 @@
     const roleLabelEl = document.getElementById("roleLabel");
     const roleBodyEl = document.getElementById("roleBody");
     const roleTabs = document.querySelectorAll(".role-tab");
+
     let selectedTermId = null;
     let selectedRole = "physician";
 
     function renderTermList(filter = "") {
       termListEl.innerHTML = "";
       const lower = filter.toLowerCase();
-      const filtered = TERMS.filter(t =>
-        t.term.toLowerCase().includes(lower) ||
+
+      const filtered = TERMS.filter(t => 
+        t.term.toLowerCase().includes(lower) || 
         t.id.toLowerCase().includes(lower)
       );
+
       filtered.forEach(term => {
         const pill = document.createElement("div");
         pill.className = "term-pill";
         pill.textContent = term.term;
         pill.dataset.termId = term.id;
+
         if (term.id === selectedTermId) pill.classList.add("active");
+
         pill.onclick = () => {
           selectedTermId = term.id;
           document.querySelectorAll(".term-pill").forEach(p => p.classList.remove("active"));
           pill.classList.add("active");
           showTermDetail(term);
         };
+
         termListEl.appendChild(pill);
       });
     }
@@ -285,18 +706,19 @@
     function setRole(role, term) {
       selectedRole = role;
       roleTabs.forEach(tab => {
-        const isActive = tab.dataset.role === role;
-        tab.classList.toggle("ring-2", isActive);
-        tab.classList.toggle("ring-slate-300", isActive);
-        tab.classList.toggle("shadow-sm", isActive);
-        tab.classList.toggle("border", isActive);
-        tab.classList.toggle("border-slate-300", isActive);
+        tab.classList.toggle("ring-2", tab.dataset.role === role);
+        tab.classList.toggle("ring-slate-300", tab.dataset.role === role);
+        tab.classList.toggle("shadow-sm", tab.dataset.role === role);
+        tab.classList.toggle("border", tab.dataset.role === role);
+        tab.classList.toggle("border-slate-300", tab.dataset.role === role);
       });
+
       const labels = {
         physician: "Explanation for physicians",
         scientist: "Explanation for basic science researchers",
         researcher: "Explanation for clinical researchers"
       };
+
       roleLabelEl.textContent = labels[role];
       roleBodyEl.textContent = term[role] || "";
     }
@@ -310,13 +732,12 @@
 
     searchInputEl.oninput = (e) => renderTermList(e.target.value);
 
-    // Initial load
+    // First load
     renderTermList();
-    if (TERMS.length > 0) {
-      selectedTermId = TERMS[0].id;
-      showTermDetail(TERMS[0]);
-      setTimeout(() => document.querySelector(".term-pill")?.classList.add("active"), 100);
-    }
+    selectedTermId = TERMS[0].id;
+    showTermDetail(TERMS[0]);
+    setTimeout(() => document.querySelector(".term-pill")?.classList.add("active"), 100);
   </script>
 </body>
 </html>
+
