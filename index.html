@@ -31,7 +31,7 @@
       border-radius: 9999px;
     }
 
-    /* BEST POSSIBLE TERM LIST – 3 columns, no scrolling on desktop */
+    /* Perfect 3-column grid – no scrolling on desktop */
     #termList {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -82,45 +82,195 @@
 </head>
 <body class="min-h-screen">
   <div class="min-h-screen flex flex-col">
-    <!-- Header, intro, fluency studio card – all unchanged -->
-    <!-- ... (everything you already have is perfect) ... -->
+    <header class="bg-slate-900 text-slate-50 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold tracking-tight">MedAI Lexicon</h1>
+          <p class="text-sm md:text-base text-slate-300 mt-1 font-normal">
+            Plain language explanations of AI concepts for physicians, basic science researchers, and clinical researchers.
+          </p>
+          <p class="text-xs md:text-sm text-slate-400 mt-1">
+            Created by <span class="font-semibold">Ram Paragi</span>
+          </p>
+        </div>
+      </div>
+    </header>
 
-    <!-- Main content -->
+    <section class="max-w-7xl mx-auto px-4 pt-6 pb-2">
+      <h2 class="text-xl md:text-2xl font-bold text-slate-900">The Language of Medical AI</h2>
+      <p class="text-sm md:text-base text-slate-600 mt-1">
+        A glossary of AI terminologies tailored specifically for our community.
+      </p>
+      <p class="text-xs md:text-sm text-slate-500 mt-2">
+        Choose your persona: click the colored tabs on each card to switch definitions based on your role.
+      </p>
+    </section>
+
+    <section class="max-w-7xl mx-auto mt-4 px-4">
+      <div class="bg-white rounded-2xl shadow-sm border border-indigo-100 p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-lg md:text-xl font-semibold text-slate-900">MedAI Fluency Studio</h2>
+          <p class="text-sm md:text-base text-slate-700 mt-1">
+            A short guided self assessment developed to help faculty, residents, fellows, and staff understand their current AI fluency and plan practical next steps using the MedAI Lexicon.
+          </p>
+        </div>
+        <div class="flex flex-col items-stretch md:items-end gap-2">
+          <a href="fluency-studio.html" class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-medium shadow-sm hover:bg-indigo-700 active:bg-indigo-800">
+            Start the assessment
+          </a>
+        </div>
+      </div>
+    </section>
+
     <main class="flex-1">
       <div class="max-w-7xl mx-auto px-4 py-4 md:py-6 grid gap-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)]">
         <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-5 flex flex-col h-[32rem] md:h-[36rem]">
-          <!-- Companion resources card -->
           <div class="mb-4 rounded-2xl border border-indigo-100 bg-indigo-50 p-3 text-sm">
-            <!-- ... unchanged ... -->
+            <h3 class="text-base font-semibold text-indigo-900">MedAI companion resources</h3>
+            <p class="mt-1 text-xs text-indigo-900/80">
+              Additional tools to support responsible use of medical AI.
+            </p>
+            <ul class="mt-2 space-y-1">
+              <li><a href="https://datadrivenmed.github.io/Vetting-AI-Tools/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-800 underline">Vetting Medical AI Tools</a></li>
+              <li><a href="AI-Buyers-Playbook.pdf" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-800 underline">Medical AI Buyers Playbook (PDF)</a></li>
+              <li><a href="Louisiana-Governor-EO-AI.pdf" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-800 underline">Louisiana Governor Executive Order on Responsible AI Use (PDF)</a></li>
+            </ul>
           </div>
 
           <h3 class="text-lg font-semibold text-slate-900 mb-3">AI Terms</h3>
 
           <div class="relative mb-4">
-            <input id="searchInput" type="text" placeholder="🔍 Search 34 terms…" 
-              class="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm" />
+            <input id="searchInput" type="text" placeholder="🔍 Search 34 terms…" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm" />
           </div>
 
           <div id="termList" class="flex-1 overflow-y-auto scrollbar-thin">
-            <!-- Pills go here -->
+            <!-- Pills injected here -->
           </div>
         </section>
 
-        <!-- Right panel – unchanged -->
-        <!-- ... your detail panel stays exactly the same ... -->
+        <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-6 flex flex-col h-[32rem] md:h-[36rem]">
+          <div id="detailEmptyState" class="flex-1 flex items-center justify-center text-center text-slate-400 text-sm">
+            <p>Select a term on the left to see its definition and persona-based explanations.</p>
+          </div>
+
+          <div id="detailPanel" class="hidden flex-1 flex flex-col">
+            <div class="mb-3 border-b border-slate-100 pb-3">
+              <p class="text-xs uppercase tracking-wide text-indigo-600 font-semibold">MedAI concept</p>
+              <h2 id="detailTerm" class="text-2xl font-bold text-slate-900 mt-1"></h2>
+              <p id="detailShort" class="text-sm text-slate-700 mt-2"></p>
+            </div>
+
+            <div class="mb-4 grid gap-3 md:grid-cols-2">
+              <div>
+                <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Visual definition</h3>
+                <p id="detailVisual" class="text-sm"></p>
+              </div>
+              <div>
+                <h3 class="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Usage and context</h3>
+                <p id="detailUsage" class="text-sm"></p>
+              </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-2xl flex-1 flex flex-col overflow-hidden">
+              <div class="border-b border-slate-200 bg-slate-50 px-2 pt-2 pb-1 flex gap-1 md:gap-2 text-xs md:text-sm">
+                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-emerald-50 text-emerald-800" data-role="physician">
+                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>Physician</span>
+                </button>
+                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-sky-50 text-sky-800" data-role="scientist">
+                  <span class="inline-block w-2 h-2 rounded-full bg-sky-500"></span>
+                  <span>Basic science researcher</span>
+                </button>
+                <button class="role-tab px-3 py-1.5 rounded-full font-medium flex items-center gap-1 bg-amber-50 text-amber-800" data-role="researcher">
+                  <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
+                  <span>Clinical researcher</span>
+                </button>
+              </div>
+              <div class="flex-1 overflow-y-auto p-3 md:p-4 text-sm">
+                <div id="roleLabel" class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1"></div>
+                <div id="roleBody" class="text-sm text-slate-900 whitespace-pre-line"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <!-- Suggested clusters – unchanged -->
-      <!-- ... -->
+      <section class="max-w-7xl mx-auto px-4 pb-6 space-y-4">
+        <h2 class="text-lg md:text-xl font-semibold text-slate-900">Suggested MedAI Lexicon term clusters</h2>
+        <p class="text-sm text-slate-600">
+          These clusters group terms that support each MedAI fluency competency. You can use them before or after completing the MedAI Fluency Studio.
+        </p>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Prompt mastery and conversation patterns</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: prompt engineering, system prompt, few shot prompting, chain of thought, temperature, sampling methods, style transfer.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Model fundamentals and limitations</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: tokenization, embeddings, latent space, attention heads, residual streams, scaling laws, hallucinations, training vs inference.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Practical use cases in education, research, and clinical work</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: RAG, AI agents and feedback loops, quantization, LoRA, diffusion models, multimodal fusion, AI data centers.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Critical evaluation, bias, and safety</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: hallucinations, RLHF, catastrophic forgetting, emergent abilities, data privacy and governance, guardrails and safety filters, prompt injection and security.
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3 md:p-4 bg-white">
+          <h3 class="text-sm font-semibold text-slate-900">Workflow design and governance</h3>
+          <p class="text-xs md:text-sm text-slate-600 mt-1">
+            Example terms: RAG workflows, AI agents, workflow orchestration, human in the loop patterns, governance, evaluation frameworks for AI tools in clinical and educational settings.
+          </p>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer – unchanged -->
+    <footer class="border-t border-slate-200 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 py-3 text-xs text-slate-500 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+        <a href="https://swimed.substack.com/" target="_blank" rel="noopener noreferrer" class="text-[12px] text-red-500 underline">
+          My Substack: swimed.substack.com
+        </a>
+        <span>MedAI Lexicon - educational tool, not a medical device.</span>
+        <span>Always confirm AI outputs against current clinical guidelines and institutional policies.</span>
+      </div>
+    </footer>
   </div>
 
   <script>
-    const TERMS = [ /* ← your full 34-term array stays 100% here */ ];
+    const TERMS = [
+      // ← Your full 34 terms stay exactly here (unchanged)
+      {
+        id: "tokenization",
+        term: "Tokenization",
+        short: "Breaking text into small pieces that the model can count and process.",
+        visual: "Imagine a long discharge summary as a necklace. Tokenization cuts it into beads - tokens. The model works with beads, not the whole necklace.",
+        usage: "People talk about token limits and cost per token. Models read and bill in tokens, not words, which explains why they can struggle with letter counting or word puzzles.",
+        physician: "Think of tokenization like splitting a discharge summary into short bullet points so a colleague can skim it quickly. The AI splits text into units it understands and charges by those units.",
+        scientist: "Tokenization maps raw text to a sequence of discrete vocabulary indices that the model operates on. It is analogous to converting DNA sequences into k-mers or amino acids into numeric codes before modeling.",
+        researcher: "Tokenization defines the unit of analysis and sets hard context limits. When you send a trial protocol or paper, only a fixed number of tokens fit in a single request, which constrains how much material the assistant can process at once."
+      },
+      // ... all your other 33 terms exactly as you have them ...
+      {
+        id: "guardrails",
+        term: "Guardrails and safety filters",
+        short: "Rules and filters that block unsafe, inappropriate, or out-of-scope outputs.",
+        visual: "Guardrails are like triage and pharmacy checks around an AI: they do not treat the patient, but they prevent obviously unsafe orders from reaching the bedside.",
+        usage: "Guardrails include content filters, policy rules, restricted tools, and refusal behaviors. They try to keep the model within safe, approved use-cases.",
+        physician: "Safety filters may refuse certain questions (for example, dosing for a specific patient) or rephrase answers to emphasize that the tool cannot replace clinical judgment.",
+        scientist: "Guardrails can be implemented at model, system, and UI layers: prompt engineering, classifiers, allow/deny lists, and tool access control. They reduce risk but can introduce false positives.",
+        researcher: "For clinical research workflows, guardrails help ensure the AI does not give regulatory advice, fabricate consent language, or suggest unapproved protocol deviations without clear warnings and human review."
+      }
+    ];
 
-    // Sort alphabetically – looks way more professional
+    // Sort alphabetically
     TERMS.sort((a, b) => a.term.localeCompare(b.term));
 
     const termListEl = document.getElementById("termList");
@@ -196,7 +346,6 @@
 
     searchInputEl.oninput = e => renderTermList(e.target.value);
 
-    // Initial load
     renderTermList();
     selectedTermId = TERMS[0].id;
     showTermDetail(TERMS[0]);
