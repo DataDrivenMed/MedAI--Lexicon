@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MedAI MicroModules</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #0f172a; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
+    
+    .module-number {
+      @apply absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-700 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-2xl;
+    }
+    
+    .video-card {
+      @apply relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 60px rgba(139, 92, 246, 0.25);
+    }
+    
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      background: #000;
+    }
+    
+    .video-wrapper iframe {
+      @apply absolute top-0 left-0 w-full h-full;
+    }
+    
+    .subtitle {
+      @apply text-purple-700 font-medium text-sm uppercase tracking-wider;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <div class="flex-1">
+    <!-- Header -->
+    <header class="bg-slate-900 text-slate-50 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight">MedAI MicroModules</h1>
+          <p class="text-base md:text-lg text-slate-300 mt-2">15 bite-sized videos · watch in order or jump around</p>
+        </div>
+        <a href="index.html" class="text-slate-300 hover:text-white underline text-sm">← Back to Lexicon</a>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+      <p class="text-center text-lg text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+        A complete video journey from how LLMs are built from scratch to the frontiers of medical AI. 
+        Perfect for clinicians, researchers, residents, and faculty who want to truly understand — not just use — these tools.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+        
+        <!-- Module 01 -->
+        <div class="video-card">
+          <span class="module-number">01</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/K3rdzhvTMt8" title="Building an LLM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">Building an LLM</h3>
+            <p class="subtitle mt-2">The Internet is the Dataset</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Intro to pre-training; downloading/processing internet data (e.g., FineWeb); biases in medical sources like PubMed vs. forums.</p>
+          </div>
+        </div>
+
+        <!-- Module 02 -->
+        <div class="video-card">
+          <span class="module-number">02</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/2sMkivLF784" title="From Text to Tokens:The Lego Blocks of LLMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">From Text to Tokens:<br>The Lego Blocks of LLMs</h3>
+            <p class="subtitle mt-2">Tokens: The Lego Blocks of LLMs</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Tokenization process; byte-pair encoding; med example: Tokenizing patient symptoms or rare disease terms.</p>
+          </div>
+        </div>
+
+        <!-- Module 03 -->
+        <div class="video-card">
+          <span class="module-number">03</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/oUrjxTEqU5s" title="How AI Learns to Write: Neural Network I/O and Internals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">How AI Learns to Write:<br>Neural Network I/O and Internals</h3>
+            <p class="subtitle mt-2">Neural Network I/O and Internals</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Input/output of neural nets; Transformer architecture; how LLMs "compress" medical knowledge like diagnostic patterns.</p>
+          </div>
+        </div>
+
+        <!-- Module 04 -->
+        <div class="video-card">
+          <span class="module-number">04</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/wAnjuwu2zYg" title="Unlocking AI Training to Talking: LLM Inference, Optimization, and the Compute Rush" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">Unlocking AI Training to Talking</h3>
+            <p class="subtitle mt-2">Inference and Base Model Examples</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Generating text (inference); base models like GPT-2/Llama; med tie: Predicting next symptoms in a case history.</p>
+          </div>
+        </div>
+
+        <!-- Module 05 -->
+        <div class="video-card">
+          <span class="module-number">05</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/NZJFCB-tuqs" title="LLM Training Simulator to Assistant: The Post-Training Path to LLM Assistants" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Training Simulator to Assistant</h3>
+            <p class="subtitle mt-2">Pretraining to Post-Training Transition</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Shift from pre-training to fine-tuning; overview of stages; med: Building general knowledge before clinical specialization.</p>
+          </div>
+        </div>
+
+        <!-- Module 06 -->
+        <div class="video-card">
+          <span class="module-number">06</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/sCggXMOu6tE" title="Training ChatGPT's Behavior: Training and Encoding LLM Conversational Behavior" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">Training ChatGPT's Behavior</h3>
+            <p class="subtitle mt-2">Post-Training Data: Conversations and SFT</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Supervised fine-tuning on conversations; human labelers; med: Curating ideal responses for patient Q&A or ethics.</p>
+          </div>
+        </div>
+
+        <!-- Module 07 -->
+        <div class="video-card">
+          <span class="module-number">07</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/oVvhfaCDpCY" title="LLM Hallucinations:Hallucinations: The #1 Risk in Medicine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Hallucinations</h3>
+            <p class="subtitle mt-2">Hallucinations: The #1 Risk in Medicine</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Causes/mitigations for hallucinations; tool use; med: Risks like invented drug interactions or false diagnoses.</p>
+          </div>
+        </div>
+
+        <!-- Module 08 -->
+        <div class="video-card">
+          <span class="module-number">08</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/DZgKa06uDhI" title="Engineering the AI Self: Fabricating the LLM Sense of Self" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">Engineering the AI Self</h3>
+            <p class="subtitle mt-2">Self-Knowledge Tricks & Limitations</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Model's lack of self-awareness (e.g., knowledge cutoffs); med: Prompting for transparency in evidence-based advice.</p>
+          </div>
+        </div>
+
+        <!-- Module 09 -->
+        <div class="video-card">
+          <span class="module-number">09</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/kvGTNOCFOGw" title="Tokens to Think, Tools to Work:Models Need Tokens to Think" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">Tokens to Think, Tools to Work</h3>
+            <p class="subtitle mt-2">Models Need Tokens to Think</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Chain-of-thought reasoning; tokens as "thinking space"; med: Step-by-step differentials to avoid errors.</p>
+          </div>
+        </div>
+
+        <!-- Module 10 -->
+        <div class="video-card">
+          <span class="module-number">10</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/q7ZStuXUSV8" title="The Jagged Edges of LLM Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">The Jagged Edges of LLM Performance</h3>
+            <p class="subtitle mt-2">Tokenization Revisited: Spelling and Jagged Intelligence</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Tokenization flaws (e.g., spelling/math issues); jagged capabilities; med: Miscounting lab values or syndrome names.</p>
+          </div>
+        </div>
+
+        <!-- Module 11 -->
+        <div class="video-card">
+          <span class="module-number">11</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/68hnzITENCI" title="Architecting AI Assistants: Modeling Assistant Intelligence: Imitation and Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">Architecting AI Assistants</h3>
+            <p class="subtitle mt-2">From Supervised Fine-Tuning to Reinforcement Learning</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Transition to RL; analogies to med training (e.g., practice problems); med: Aligning for accurate consultations.</p>
+          </div>
+        </div>
+
+        <!-- Module 12 -->
+        <div class="video-card">
+          <span class="module-number">12</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/AeZpYU6UUCs" title="LLM Training Self Discovery: : Optimizing Token Sequences with RL" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Training Self Discovery</h3>
+            <p class="subtitle mt-2">Reinforcement Learning Process and Examples</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">RL basics; trial-and-error; med: Optimizing for better diagnostic simulations or treatment plans.</p>
+          </div>
+        </div>
+
+        <!-- Module 13 -->
+        <div class="video-card">
+          <span class="module-number">13</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/6H6EKUWwZVg" title="Emergent Reasoning: Fabricating the LLM Sense of Self" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">Emergent Reasoning</h3>
+            <p class="subtitle mt-2">DeepSeek-R1 and Advanced RL Models</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Examples like DeepSeek-R1, AlphaGo; emergent strategies; med: Potential for novel research insights.</p>
+          </div>
+        </div>
+
+        <!-- Module 14 -->
+        <div class="video-card">
+          <span class="module-number">14</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/UQSWFrS1Ij4" title="RL from human feedback; gaming issues; med: Ensuring helpful, harmless responses in high-stakes care." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">RLHF: Aligning Models to Be Good Doctors</h3>
+            <p class="subtitle mt-2">RL from human feedback; gaming issues</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">RL from human feedback; gaming issues; med: Ensuring helpful, harmless responses in high-stakes care.</p>
+          </div>
+        </div>
+
+        <!-- Module 15 -->
+        <div class="video-card">
+          <span class="module-number">15</span>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/wcVwecbNnLw" title="LLM Frontiers: Decoding LLMs: Modalities, Agents, and the Ecosystem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Frontiers</h3>
+            <p class="subtitle mt-2">Decoding LLMs: Modalities, Agents, and the Ecosystem</p>
+            <p class="text-slate-600 mt-4 leading-relaxed">Multimodality, agents, test-time training; med: Roadmap for diagnostics, supervision, ethical integration.</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer class="border-t border-slate-200 bg-slate-50 mt-20">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-center text-sm text-slate-500">
+      MedAI MicroModules © 2025 Ram Paragi • Educational resource • Not medical advice
+    </div>
+  </footer>
+</body>
+</html>
