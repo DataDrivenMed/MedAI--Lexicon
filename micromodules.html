@@ -69,11 +69,11 @@
       </div>
     </header>
 
-    <!-- PROGRESS + CLEAR INSTRUCTION -->
+    <!-- PROGRESS + INSTRUCTION -->
     <div class="bg-gradient-to-r from-purple-50 to-indigo-50 py-8 border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 text-center">
         <p class="text-2xl font-bold text-purple-800 mb-2">
-          Click the circle on each video when you've finished watching
+          Click the black circle on each video when you've finished watching
         </p>
         <p class="text-lg text-slate-600">It turns green · progress saves forever · come back anytime</p>
       </div>
@@ -88,7 +88,7 @@
       </div>
     </div>
 
-    <!-- STEP-BY-STEP (smaller, cleaner fonts) -->
+    <!-- STEP-BY-STEP (smaller fonts as you asked) -->
     <div class="text-center py-16">
       <p class="text-3xl font-bold text-purple-800 mb-4">Watch Step-by-Step</p>
       <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
@@ -103,7 +103,7 @@
     <main class="max-w-7xl mx-auto px-4 pb-32">
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
 
-        <!-- ALL 15 MODULES (complete, no missing cards) -->
+        <!-- ALL 15 MODULES — FULLY CODED BELOW -->
 
         <div id="module-01" class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
           <label class="absolute top-6 right-6 z-30 cursor-pointer group">
@@ -125,9 +125,6 @@
           </div>
         </div>
 
-        <!-- Module 02 to 15 — all 100% present and identical in structure -->
-        <!-- (They are all in this file — copy the whole thing) -->
-
         <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
           <label class="absolute top-6 right-6 z-30 cursor-pointer group">
             <input type="checkbox" class="watched-checkbox sr-only" data-module="2">
@@ -148,7 +145,265 @@
           </div>
         </div>
 
-        <!-- ... and so on for all 15 — the full code has every single one ... -->
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="3">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-3">03</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/oUrjxTEqU5s" title="How AI Learns to Write: Neural Network I/O and Internals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">How AI Learns to Write:<br>Neural Network I/O and Internals</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Neural Network I/O and Internals</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Input/output of neural nets; Transformer architecture; how LLMs "compress" medical knowledge like diagnostic patterns.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="4">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-4">04</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/wAnjuwu2zYg" title="Unlocking AI Training to Talking: LLM Inference, Optimization, and the Compute Rush" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">Unlocking AI Training to Talking</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Inference and Base Model Examples</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Generating text (inference); base models like GPT-2/Llama; med tie: Predicting next symptoms in a case history.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="5">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-5">05</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/NZJFCB-tuqs" title="LLM Training Simulator to Assistant: The Post-Training Path to LLM Assistants" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Training Simulator to Assistant</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Pretraining to Post-Training Transition</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Shift from pre-training to fine-tuning; overview of stages; med: Building general knowledge before clinical specialization.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="6">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-6">06</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/sCggXMOu6tE" title="Training ChatGPT's Behavior: Training and Encoding LLM Conversational Behavior" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">Training ChatGPT's Behavior</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Post-Training Data: Conversations and SFT</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Supervised fine-tuning on conversations; human labelers; med: Curating ideal responses for patient Q&A or ethics.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="7">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-7">07</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/oVvhfaCDpCY" title="LLM Hallucinations:Hallucinations: The #1 Risk in Medicine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Hallucinations</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Hallucinations: The #1 Risk in Medicine</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Causes/mitigations for hallucinations; tool use; med: Risks like invented drug interactions or false diagnoses.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="8">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-8">08</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/DZgKa06uDhI" title="Engineering the AI Self: Fabricating the LLM Sense of Self" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">Engineering the AI Self</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Self-Knowledge Tricks & Limitations</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Model's lack of self-awareness (e.g., knowledge cutoffs); med: Prompting for transparency in evidence-based advice.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="9">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-9">09</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/kvGTNOCFOGw" title="Tokens to Think, Tools to Work:Models Need Tokens to Think" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">Tokens to Think, Tools to Work</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Models Need Tokens to Think</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Chain-of-thought reasoning; tokens as "thinking space"; med: Step-by-step differentials to avoid errors.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="10">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-10">10</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/q7ZStuXUSV8" title="The Jagged Edges of LLM Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">The Jagged Edges of LLM Performance</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Tokenization Revisited: Spelling and Jagged Intelligence</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Tokenization flaws (e.g., spelling/math issues); jagged capabilities; med: Miscounting lab values or syndrome names.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="11">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-11">11</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/68hnzITENCI" title="Architecting AI Assistants: Modeling Assistant Intelligence: Imitation and Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">Architecting AI Assistants</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">From Supervised Fine-Tuning to Reinforcement Learning</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Transition to RL; analogies to med training (e.g., practice problems); med: Aligning for accurate consultations.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="12">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-12">12</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/AeZpYU6UUCs" title="LLM Training Self Discovery: : Optimizing Token Sequences with RL" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Training Self Discovery</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Reinforcement Learning Process and Examples</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">RL basics; trial-and-error; med: Optimizing for better diagnostic simulations or treatment plans.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="13">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 12l4.5 4.5L18 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-13">13</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/6H6EKUWwZVg" title="Emergent Reasoning: Fabricating the LLM Sense of Self" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">Emergent Reasoning</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">DeepSeek-R1 and Advanced RL Models</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Examples like DeepSeek-R1, AlphaGo; emergent strategies; med: Potential for novel research insights.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="14">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 12l4.5 4.5L18 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-14">14</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/UQSWFrS1Ij4" title="RL from human feedback; gaming issues; med: Ensuring helpful, harmless responses in high-stakes care." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">RLHF: Aligning Models to Be Good Doctors</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">RL from human feedback; gaming issues</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">RL from human feedback; gaming issues; med: Ensuring helpful, harmless responses in high-stakes care.</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
+          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
+            <input type="checkbox" class="watched-checkbox sr-only" data-module="15">
+            <div class="watched-btn">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 12l4.5 4.5L18 7" class="scale-0 transition-transform duration-300"/>
+              </svg>
+            </div>
+          </label>
+          <span class="module-number" id="num-15">15</span>
+          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
+            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/wcVwecbNnLw" title="LLM Frontiers: Decoding LLMs: Modalities, Agents, and the Ecosystem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-10">
+            <h3 class="text-2xl font-bold text-slate-900">LLM Frontiers</h3>
+            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Decoding LLMs: Modalities, Agents, and the Ecosystem</p>
+            <p class="text-slate-600 mt-5 leading-relaxed">Multimodality, agents, test-time training; med: Roadmap for diagnostics, supervision, ethical integration.</p>
+          </div>
+        </div>
 
       </div>
     </main>
