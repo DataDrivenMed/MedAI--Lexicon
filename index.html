@@ -23,20 +23,66 @@
     .scrollbar-thin::-webkit-scrollbar {
       width: 8px; /* more visible */
     }
+        /* Custom scrollbar - keep it nice */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 7px;
+    }
     .scrollbar-thin::-webkit-scrollbar-track {
-      background: #e5e7eb; /* light gray track */
-      border-radius: 9999px;
+      background: transparent;
     }
     .scrollbar-thin::-webkit-scrollbar-thumb {
-      background-color: #4f46e5; /* indigo */
+      background-color: #a78bfa;
       border-radius: 9999px;
-      border: 1px solid #e5e7eb;
     }
+
+    /* === VIBRANT COMPACT PILLS === */
+    #termList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px 8px 20px;
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+
+    .term-pill {
+      padding: 7px 16px;
+      background: white;
+      border: 1.7px solid #cbd5ff;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #3b2aff;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(99, 102, 241, 0.1);
+      background: linear-gradient(145deg, #ffffff, #f9f8ff);
+    }
+
+    .term-pill:hover {
+      transform: translateY(-2.5px) scale(1.04);
+      border-color: #8b5cf6;
+      background: linear-gradient(145deg, #f3f0ff, #e6e0ff);
+      box-shadow: 0 9px 22px rgba(139, 92, 246, 0.32);
+      color: #6d28d9;
+    }
+
+    .term-pill.active {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: white !important;
+      border-color: #a855f7;
+      font-weight: 700;
+      box-shadow: 0 9px 26px rgba(139, 92, 246, 0.5);
+      transform: translateY(-1px);
+    }
+
     /* Visual and usage content: black, normal weight */
     #detailVisual,
     #detailUsage {
       font-weight: 400;
       color: #0f172a;
+    }
     }
   </style>
 </head>
@@ -604,155 +650,94 @@
       }
     ];
 
-    const termListEl = document.getElementById("termList");
+       const termListEl = document.getElementById("termList");
     const searchInputEl = document.getElementById("searchInput");
     const detailEmptyStateEl = document.getElementById("detailEmptyState");
     const detailPanelEl = document.getElementById("detailPanel");
-
     const detailTermEl = document.getElementById("detailTerm");
     const detailShortEl = document.getElementById("detailShort");
     const detailVisualEl = document.getElementById("detailVisual");
     const detailUsageEl = document.getElementById("detailUsage");
     const roleLabelEl = document.getElementById("roleLabel");
     const roleBodyEl = document.getElementById("roleBody");
-
     const roleTabs = document.querySelectorAll(".role-tab");
+
     let selectedTermId = null;
     let selectedRole = "physician";
 
-    function renderTermList(filterText = "") {
-      const text = filterText.trim().toLowerCase();
+    function renderTermList(filter = "") {
       termListEl.innerHTML = "";
+      const lower = filter.toLowerCase();
 
-      const filtered = TERMS.filter(t => {
-        if (!text) return true;
-        return (
-          t.term.toLowerCase().includes(text) ||
-          t.short.toLowerCase().includes(text) ||
-          t.id.toLowerCase().includes(text)
-        );
-      });
+      const filtered = TERMS.filter(t => 
+        t.term.toLowerCase().includes(lower) || 
+        t.id.toLowerCase().includes(lower)
+      );
 
-      if (filtered.length === 0) {
-        const empty = document.createElement("div");
-        empty.className = "text-xs text-slate-400 mt-4";
-        empty.textContent = "No terms match your search. Try a different word.";
-        termListEl.appendChild(empty);
-        return;
-      }
+      filtered.forEach(term => {
+        const pill = document.createElement("div");
+        pill.className = "term-pill";
+        pill.textContent = term.term;
+        pill.dataset.termId = term.id;
 
-      filtered.forEach(t => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className =
-          "w-full text-left px-3 py-2 rounded-xl hover:bg-slate-100 border border-transparent flex flex-col gap-0.5";
-        button.dataset.termId = t.id;
+        if (term.id === selectedTermId) pill.classList.add("active");
 
-        const titleRow = document.createElement("div");
-        titleRow.className = "flex items-center justify-between gap-2";
+        pill.onclick = () => {
+          selectedTermId = term.id;
+          document.querySelectorAll(".term-pill").forEach(p => p.classList.remove("active"));
+          pill.classList.add("active");
+          showTermDetail(term);
+        };
 
-        const title = document.createElement("span");
-        title.className = "font-medium text-slate-900 text-xs md:text-sm";
-        title.textContent = t.term;
-
-        const badge = document.createElement("span");
-        badge.className = "text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-500";
-        badge.textContent = "AI concept";
-
-        titleRow.appendChild(title);
-        titleRow.appendChild(badge);
-
-        const short = document.createElement("p");
-        short.className = "text-[11px] md:text-xs text-slate-500 line-clamp-2";
-        short.textContent = t.short;
-
-        button.appendChild(titleRow);
-        button.appendChild(short);
-
-        button.addEventListener("click", () => {
-          selectedTermId = t.id;
-          updateActiveListItem();
-          showTermDetail(t);
-        });
-
-        termListEl.appendChild(button);
-      });
-
-      updateActiveListItem();
-    }
-
-    function updateActiveListItem() {
-      const buttons = termListEl.querySelectorAll("button[data-term-id]");
-      buttons.forEach(btn => {
-        const isActive = btn.dataset.termId === selectedTermId;
-        if (isActive) {
-          btn.classList.add("bg-indigo-50", "border-indigo-200");
-        } else {
-          btn.classList.remove("bg-indigo-50", "border-indigo-200");
-        }
+        termListEl.appendChild(pill);
       });
     }
 
     function showTermDetail(term) {
       detailEmptyStateEl.classList.add("hidden");
       detailPanelEl.classList.remove("hidden");
-
       detailTermEl.textContent = term.term;
       detailShortEl.textContent = term.short;
       detailVisualEl.textContent = term.visual;
       detailUsageEl.textContent = term.usage;
-
       setRole(selectedRole, term);
     }
 
     function setRole(role, term) {
       selectedRole = role;
-
       roleTabs.forEach(tab => {
-        if (tab.dataset.role === role) {
-          tab.classList.add("ring-2", "ring-slate-300", "shadow-sm", "border", "border-slate-300");
-        } else {
-          tab.classList.remove("ring-2", "ring-slate-300", "shadow-sm", "border", "border-slate-300");
-        }
+        tab.classList.toggle("ring-2", tab.dataset.role === role);
+        tab.classList.toggle("ring-slate-300", tab.dataset.role === role);
+        tab.classList.toggle("shadow-sm", tab.dataset.role === role);
+        tab.classList.toggle("border", tab.dataset.role === role);
+        tab.classList.toggle("border-slate-300", tab.dataset.role === role);
       });
 
-      let labelText = "";
-      let bodyText = "";
+      const labels = {
+        physician: "Explanation for physicians",
+        scientist: "Explanation for basic science researchers",
+        researcher: "Explanation for clinical researchers"
+      };
 
-      if (role === "physician") {
-        labelText = "Explanation for physicians";
-        bodyText = term.physician;
-      } else if (role === "scientist") {
-        labelText = "Explanation for basic science researchers";
-        bodyText = term.scientist;
-      } else {
-        labelText = "Explanation for clinical researchers";
-        bodyText = term.researcher;
-      }
-
-      roleLabelEl.textContent = labelText;
-      roleBodyEl.textContent = bodyText;
+      roleLabelEl.textContent = labels[role];
+      roleBodyEl.textContent = term[role] || "";
     }
 
     roleTabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        const role = tab.dataset.role;
-        const term = TERMS.find(t => t.id === selectedTermId) || TERMS[0];
-        setRole(role, term);
-      });
+      tab.onclick = () => {
+        const term = TERMS.find(t => t.id === selectedTermId);
+        if (term) setRole(tab.dataset.role, term);
+      };
     });
 
-    searchInputEl.addEventListener("input", () => {
-      renderTermList(searchInputEl.value);
-    });
+    searchInputEl.oninput = (e) => renderTermList(e.target.value);
 
-    document.addEventListener("DOMContentLoaded", () => {
-      renderTermList();
-      if (TERMS.length > 0) {
-        selectedTermId = TERMS[0].id;
-        showTermDetail(TERMS[0]);
-      }
-    });
+    // First load
+    renderTermList();
+    selectedTermId = TERMS[0].id;
+    showTermDetail(TERMS[0]);
+    setTimeout(() => document.querySelector(".term-pill")?.classList.add("active"), 100);
   </script>
 </body>
 </html>
+
