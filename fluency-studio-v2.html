@@ -2,38 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MedAI Fluency Quiz</title>
+  <title>MedAI Fluency Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #1e293b; }
-    h1 { font-family: 'Playfair Display', serif; font-weight: 500; }
-    .question-text { font-weight: 400; }
-    .option { @apply flex items-center gap-4 p-4 rounded-lg cursor-pointer hover:bg-indigo-50 transition text-base; }
+    h1 { font-family: 'Playfair Display', serif; font-weight: 700; }
+    .question-text { font-weight: 600; }
+    .answer-text { font-weight: 400; }
+    .option { @apply flex items-center gap-4 p-3 rounded-lg cursor-pointer hover:bg-indigo-50 transition text-base; }
     .option input { @apply w-5 h-5 text-indigo-600; }
   </style>
 </head>
 <body class="min-h-screen py-12">
   <div class="max-w-4xl mx-auto px-6">
     <header class="text-center mb-16">
-      <h1 class="text-5xl md:text-6xl font-bold text-indigo-500 mb-4">MedAI Fluency </h1>
-      <p class="text-xl text-slate-400">20 personalized questions • 5-minute assessment • Instant results</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">MedAI Fluency Studio</h1>
+      <p class="text-lg text-slate-600">20 personalized questions • 5-minute assessment • Instant results</p>
     </header>
 
     <form id="quiz" class="space-y-10 mb-24"></form>
 
     <section id="results" class="hidden">
       <div class="bg-white rounded-3xl shadow-2xl p-10 md:p-14 text-center">
-        <h2 class="text-4xl font-bold text-indigo-800 mb-10">Your MedAI Fluency Profile</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-10">Your MedAI Fluency Profile</h2>
         <div class="max-w-md mx-auto">
           <canvas id="radar"></canvas>
         </div>
-        <p class="text-6xl font-bold text-indigo-700 mt-10" id="score"></p>
-        <p class="text-2xl text-slate-700 mt-4" id="message"></p>
-        <div id="focus-areas" class="mt-10 text-xl"></div>
+        <p class="text-5xl font-bold text-indigo-700 mt-10" id="score"></p>
+        <p class="text-xl text-slate-600 mt-4" id="message"></p>
+        <div id="focus-areas" class="mt-10 text-lg"></div>
         <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
           <a href="micromodules.html" class="px-10 py-5 bg-indigo-600 text-white font-semibold text-lg rounded-full hover:bg-indigo-700 transition shadow-lg">
             Watch Recommended Videos
@@ -57,7 +59,7 @@
       // CLUSTER 1: Prompt Mastery & Conversation Patterns (20 questions)
       {q:"Chain-of-thought prompting improves reasoning by:", a:"Letting the model generate intermediate steps", d:["Making the model think faster","Reducing the number of tokens used","Automatically adding safety filters"], e:"CoT gives the model space to reason step-by-step (Module 09).", c:1},
       {q:"Higher temperature setting produces:", a:"More creative / diverse output", d:["More accurate medical advice","Shorter responses","Lower cost per token"], e:"Use low temperature for reliable clinical answers (Module 01).", c:1},
-      {q:"Few-shot prompting means:", a:"Including examples in the prompt", d:["Using zero examples","Fine-tuning the model","Adding images to the prompt"], e:"Few-shot guides the model without training (Module 01).", c:1},
+      {q:"Few-shot prompting means:", a:"Including examples in the prompt", d:["Using zero examples","Fine-tuning the model","Adding images to the prompt"], e:"Few-shot guides the model without retraining (Module 01).", c:1},
       {q:"The system prompt is used to:", a:"Define the AI's role and behavior rules", d:["Set the output length only","Define the token limit","Set the temperature value"], e:"System prompt sets personality and safety rules (Module 01).", c:1},
       {q:"Style transfer in prompts refers to:", a:"Making output match a specific tone or format", d:["Changing the model architecture","Transferring data between models","Styling the user interface"], e:"Used for patient education in simple language (Module 01).", c:1},
       {q:"Zero-shot prompting means:", a:"No examples given", d:["One example given","Multiple examples given","Fine-tuning required"], e:"Relies only on pre-training (Module 01).", c:1},
@@ -132,7 +134,7 @@
       {q:"Prompt injection can threaten:", a:"Data integrity in automated chart review", d:["Model speed","Token count","Output style"], e:"Attackers can craft instructions in documents (Module 07).", c:4},
       {q:"Guardrails include:", a:"Content filters, policy rules, refusal behaviors", d:["Speed optimizers","Token counters","Style transfer"], e:"Keep model within safe use-cases (Module 07).", c:4},
       {q:"Hallucinations can appear as:", a:"Invented trial names or wrong sample sizes", d:["Correct citations","Real statistics","Accurate references"], e:"Always verify against primary sources (Module 07).", c:4},
-      {q:"Data governance affects:", a:"How participant data is reused and protected", d:["Model speed","Output length","Temperature"], e:"Regulators are paying attention (Module 15).", c:4},
+      {q:"Data governance affects:", a:"How participant data is reused and protected", d:["Only model size","Only speed","Only cost"], e:"Regulators paying attention (Module 15).", c:4},
       {q:"Safety filters may:", a:"Refuse dosing questions or emphasize clinical judgment", d:["Always give dosing","Never refuse","Ignore guidelines"], e:"Cannot replace clinical judgment (Module 07).", c:4},
       {q:"Prompt injection security requires:", a:"Treating external text as untrusted", d:["Allowing all inputs","Using high temperature","Fine-tuning only"], e:"Sandboxing and filtering (Module 07).", c:4},
       {q:"RLHF bakes in:", a:"The values and biases of human raters", d:["Perfect safety","No bias","Only medical knowledge"], e:"Should be considered when deploying (Module 14).", c:4},
@@ -157,12 +159,12 @@
       {q:"RAG workflows help with:", a:"Keeping answers up-to-date", d:["Increasing creativity","Reducing cost","Speeding up training"], e:"Pulls latest material (Module 15).", c:5},
       {q:"AI agents can support:", a:"Study meetings, protocol editing, cohort construction", d:["Only simple questions","Only image generation","Only safety"], e:"Interactive workflows (Module 15).", c:5},
       {q:"Governance affects:", a:"Data sovereignty and cross-border transfer", d:["Only model speed","Only token count","Only output style"], e:"Location of data centers matters (Module 15).", c:5},
-      {q:"Best practice for workflow design:", a:"Clear inclusion/exclusion criteria and reporting standards", d:["Vague criteria","No standards","AI decides"], e:"Agents loop until satisfied (Module 15).", c:5},
-      {q:"Evaluation frameworks help ensure:", a:"AI does not give regulatory advice or fabricate consent", d:["Faster responses","Lower cost","More creativity"], e:"Clear warnings and human review (Module 15).", c:5},
+      {q:"Best practice for evaluation:", a:"Match the actual deployed scale and context", d:["Test on small pilots only","Ignore scale","Use any model"], e:"Performance changes with scale (Module 13).", c:5},
       {q:"Human-in-the-loop patterns include:", a:"AI drafts, human reviews and approves", d:["AI finalizes","Human drafts only","No review"], e:"Best for clinical safety (Module 15).", c:5},
       {q:"Governance in clinical research raises questions about:", a:"Participant understanding of data use in AI", d:["Only model size","Only speed","Only cost"], e:"Informed consent for AI training (Module 15).", c:5},
       {q:"Workflow orchestration allows:", a:"Automated literature search to table generation", d:["Only manual search","Only simple questions","Only image generation"], e:"Full pipeline automation with human oversight (Module 15).", c:5},
-      {q:"Best practice for evaluation:", a:"Match the actual deployed scale and context", d:["Test on small pilots only","Ignore scale","Use any model"], e:"Performance changes with scale (Module 13).", c:5}
+      {q:"Evaluation frameworks help ensure:", a:"AI does not give regulatory advice or fabricate consent", d:["Faster responses","Lower cost","More creativity"], e:"Clear warnings and human review (Module 15).", c:5},
+      {q:"RAG is ideal for:", a:"Evidence synthesis across publications", d:["Creative writing","Patient education","Code generation"], e:"Stays closer to source (Module 15).", c:5}
     ];
 
     function shuffle(array) {
@@ -189,12 +191,12 @@
       const div = document.createElement('div');
       div.className = 'bg-white rounded-2xl shadow-md p-6 border border-slate-200';
       div.innerHTML = `
-        <p class="question-text text-lg mb-5">${i+1}. ${q.q}</p>
+        <p class="question-text text-base mb-5">${i+1}. ${q.q}</p>
         <div class="space-y-3">
           ${shuffled.map((ans, j) => `
             <label class="option">
               <input type="radio" name="q${i}" value="${j === correctIndex ? 'correct' : 'wrong'}">
-              <span>${ans}</span>
+              <span class="answer-text">${ans}</span>
             </label>
           `).join('')}
         </div>
@@ -204,7 +206,7 @@
 
     form.innerHTML += `
       <div class="text-center mt-16">
-        <button type="submit" class="px-16 py-6 bg-indigo-600 text-white text-2xl font-bold rounded-full shadow-2xl hover:bg-indigo-400 transform hover:scale-105 transition">
+        <button type="submit" class="px-16 py-6 bg-indigo-600 text-white text-2xl font-bold rounded-full shadow-2xl hover:bg-indigo-700 transform hover:scale-105 transition">
           Generate My Fluency Profile →
         </button>
       </div>
@@ -250,9 +252,9 @@
         ? `<p class="text-2xl text-green-600 font-bold">Perfect score! You got everything right.</p>`
         : wrong.map(w => `
           <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500">
-            <p class="font-medium text-slate-800">${w.q}</p>
-            <p class="text-red-700 mt-3">You answered: ${w.your}</p>
-            <p class="text-green-700 font-medium mt-2">Correct: ${w.correct}</p>
+            <p class="question-text">${w.q}</p>
+            <p class="text-red-700 mt-3">You answered: <span class="answer-text">${w.your}</span></p>
+            <p class="text-green-700 font-medium mt-2">Correct: <span class="answer-text">${w.correct}</span></p>
             <p class="text-sm italic text-slate-600 mt-3">${w.exp}</p>
           </div>
         `).join('');
