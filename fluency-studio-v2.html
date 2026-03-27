@@ -1,278 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>MedAI Fluency Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #1e293b; }
-    h1, h2 { font-family: 'Playfair Display', serif; font-weight: 700; }
-    .question-text { font-weight: 600; }
-    .answer-text { font-weight: 400; }
-    .option { @apply flex items-center gap-4 p-3 rounded-lg cursor-pointer hover:bg-indigo-50 transition; }
-    .option input { @apply w-5 h-5 text-indigo-600; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedAI Fluency Studio — Ram Paragi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+:root{
+  --ink:#0d1117;--ink-soft:#2d3748;--ink-muted:#64748b;
+  --paper:#fafaf8;--cream:#f5f3ee;
+  --gold:#c9933a;--teal:#1a6b6b;--teal-light:#2d9f9f;
+  --rose:#8b3a52;--plum:#5a3a8b;--ocean:#3a6b8b;
+  --border:rgba(13,17,23,0.09);--border-mid:rgba(13,17,23,0.14);
+  --shadow:0 2px 14px rgba(13,17,23,0.07);
+  --shadow-md:0 6px 28px rgba(13,17,23,0.10);
+  --r:14px;--rs:8px;
+  --c1:#1a6b6b;--c2:#5a3a8b;--c3:#3a6b8b;--c4:#8b3a52;--c5:#6b5a3a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 clamp(16px,4vw,52px);}
+.header-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:34px;height:34px;background:var(--ink);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{width:18px;height:18px;}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);}
+.logo-sub{font-size:0.68rem;color:var(--ink-muted);display:block;line-height:1;}
+nav{display:flex;align-items:center;gap:4px;}
+nav a{font-size:0.8rem;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:6px 12px;border-radius:6px;transition:background 0.14s;}
+nav a:hover{background:var(--cream);}
+nav .back{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);}
+
+/* PAGE HERO */
+.page-hero{max-width:1320px;margin:0 auto;padding:clamp(36px,6vw,72px) clamp(16px,4vw,52px) clamp(20px,3vw,36px);}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);background:rgba(201,147,58,0.1);border:1px solid rgba(201,147,58,0.22);border-radius:100px;padding:4px 12px;margin-bottom:16px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;margin-bottom:10px;}
+h1 em{font-style:italic;color:var(--teal);}
+.hero-sub{font-size:0.95rem;color:var(--ink-muted);max-width:500px;line-height:1.7;font-weight:300;}
+
+/* STEP PROGRESS */
+.step-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--cream);padding:16px clamp(16px,4vw,52px);}
+.step-bar-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:0;position:relative;}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;position:relative;cursor:default;}
+.step-item:not(:last-child)::after{content:'';position:absolute;top:14px;left:calc(50% + 14px);right:calc(-50% + 14px);height:2px;background:var(--border-mid);z-index:0;}
+.step-item.done:not(:last-child)::after{background:var(--teal);}
+.step-circle{width:28px;height:28px;border-radius:50%;border:2px solid var(--border-mid);background:white;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:var(--ink-muted);z-index:1;transition:all 0.25s;flex-shrink:0;}
+.step-item.active .step-circle{border-color:var(--teal);background:var(--teal);color:white;}
+.step-item.done .step-circle{border-color:var(--teal);background:var(--teal);color:white;}
+.step-item.done .step-circle::after{content:'✓';}
+.step-item.done .step-num{display:none;}
+.step-lbl{font-size:0.62rem;font-weight:500;color:var(--ink-muted);white-space:nowrap;display:none;}
+@media(min-width:600px){.step-lbl{display:block;}}
+.step-item.active .step-lbl{color:var(--teal);font-weight:600;}
+.step-item.done .step-lbl{color:var(--teal);}
+
+/* MAIN LAYOUT */
+.main-wrap{max-width:1320px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(16px,4vw,52px);}
+.quiz-layout{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;}
+@media(max-width:900px){.quiz-layout{grid-template-columns:1fr;}}
+
+/* QUIZ CARD */
+.quiz-card{background:white;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;}
+.quiz-card-header{padding:18px 22px;background:var(--cream);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.quiz-card-header h2{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;letter-spacing:-0.01em;}
+.quiz-card-body{padding:22px;}
+
+/* DOMAIN TAG */
+.domain-tag{display:inline-flex;align-items:center;gap:5px;font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:3px 10px;border-radius:100px;}
+.dt-1{background:rgba(26,107,107,0.1);color:var(--c1);border:1px solid rgba(26,107,107,0.2);}
+.dt-2{background:rgba(90,58,139,0.1);color:var(--c2);border:1px solid rgba(90,58,139,0.2);}
+.dt-3{background:rgba(58,107,139,0.1);color:var(--c3);border:1px solid rgba(58,107,139,0.2);}
+.dt-4{background:rgba(139,58,82,0.1);color:var(--c4);border:1px solid rgba(139,58,82,0.2);}
+.dt-5{background:rgba(107,90,58,0.1);color:var(--c5);border:1px solid rgba(107,90,58,0.2);}
+
+/* QUESTION */
+.q-num{font-size:0.7rem;font-weight:600;color:var(--ink-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;}
+.q-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;line-height:1.45;color:var(--ink);margin-bottom:18px;}
+
+/* ANSWER OPTIONS */
+.options{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
+.option{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--rs);cursor:pointer;transition:all 0.15s;background:white;font-size:0;width:100%;text-align:left;font-family:inherit;}
+.option:hover:not([disabled]){border-color:var(--teal);background:rgba(26,107,107,0.04);}
+.option-letter{width:26px;height:26px;border-radius:6px;border:1.5px solid var(--border-mid);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:var(--ink-muted);flex-shrink:0;transition:all 0.15s;}
+.option-text{font-size:0.88rem;color:var(--ink-soft);line-height:1.45;padding-top:2px;}
+.option.selected{border-color:var(--teal);background:rgba(26,107,107,0.06);}
+.option.selected .option-letter{background:var(--teal);border-color:var(--teal);color:white;}
+.option.correct{border-color:#16a34a;background:rgba(22,163,74,0.06);}
+.option.correct .option-letter{background:#16a34a;border-color:#16a34a;color:white;}
+.option.wrong{border-color:#dc2626;background:rgba(220,38,38,0.05);}
+.option.wrong .option-letter{background:#dc2626;border-color:#dc2626;color:white;}
+
+/* FEEDBACK */
+.feedback{padding:12px 14px;border-radius:var(--rs);font-size:0.85rem;line-height:1.55;margin-bottom:16px;display:none;}
+.feedback.correct{background:rgba(22,163,74,0.07);border:1px solid rgba(22,163,74,0.2);color:#166534;}
+.feedback.wrong{background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.18);color:#991b1b;}
+.feedback.visible{display:block;}
+
+/* NAV BUTTONS */
+.q-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:var(--rs);font-size:0.83rem;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
+.btn-ghost{background:white;color:var(--ink-soft);border:1px solid var(--border);}
+.btn-ghost:hover{background:var(--cream);}
+.btn-primary{background:var(--ink);color:white;}
+.btn-primary:hover{background:var(--teal);}
+.btn-success{background:#16a34a;color:white;}
+.btn-success:hover{background:#15803d;}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+
+/* PROGRESS IN CARD */
+.q-progress{display:flex;align-items:center;gap:10px;font-size:0.75rem;color:var(--ink-muted);}
+.q-progress-bar{flex:1;height:4px;background:var(--cream);border-radius:2px;overflow:hidden;}
+.q-progress-fill{height:100%;background:var(--teal);border-radius:2px;transition:width 0.3s ease;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:80px;}
+.side-card{background:white;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;}
+.side-card-header{padding:14px 18px;background:var(--cream);border-bottom:1px solid var(--border);}
+.side-card-header h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:-0.01em;}
+.side-card-header p{font-size:0.73rem;color:var(--ink-muted);margin-top:2px;}
+.side-card-body{padding:16px 18px;}
+.radar-wrap{position:relative;padding:8px 0;}
+
+/* DOMAIN SCORES LIST */
+.domain-scores{display:flex;flex-direction:column;gap:8px;}
+.ds-item{display:flex;align-items:center;gap:10px;}
+.ds-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.ds-name{font-size:0.78rem;color:var(--ink-soft);flex:1;}
+.ds-bar-wrap{width:70px;height:5px;background:var(--cream);border-radius:3px;overflow:hidden;}
+.ds-bar{height:100%;border-radius:3px;transition:width 0.5s ease;}
+.ds-pct{font-size:0.72rem;font-weight:600;color:var(--ink-muted);width:32px;text-align:right;}
+
+/* RESULTS SECTION */
+.results-section{display:none;animation:fadeUp 0.3s ease;}
+.results-section.visible{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.results-hero{background:white;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:clamp(24px,4vw,48px);text-align:center;margin-bottom:24px;}
+.results-score{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:var(--teal);line-height:1;margin-bottom:8px;}
+.results-msg{font-size:1.1rem;color:var(--ink-soft);margin-bottom:24px;}
+.results-radar{max-width:360px;margin:0 auto 28px;}
+.results-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+.results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:24px;}
+.results-domain-card{background:white;border:1px solid var(--border);border-radius:var(--rs);padding:16px 18px;position:relative;overflow:hidden;}
+.results-domain-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;}
+.rdc-1::before{background:var(--c1);}
+.rdc-2::before{background:var(--c2);}
+.rdc-3::before{background:var(--c3);}
+.rdc-4::before{background:var(--c4);}
+.rdc-5::before{background:var(--c5);}
+.rdc-name{font-size:0.78rem;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.rdc-score{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;line-height:1;margin-bottom:6px;}
+.rdc-level{font-size:0.75rem;font-weight:500;padding:2px 8px;border-radius:100px;}
+.level-Advanced{background:rgba(22,163,74,0.1);color:#16a34a;}
+.level-Developing{background:rgba(201,147,58,0.1);color:var(--gold);}
+.level-Foundational{background:rgba(220,38,38,0.08);color:#dc2626;}
+
+/* REVIEW */
+.review-item{background:white;border:1px solid var(--border);border-radius:var(--rs);overflow:hidden;margin-bottom:10px;}
+.review-item-header{padding:12px 16px;background:rgba(220,38,38,0.04);border-bottom:1px solid rgba(220,38,38,0.1);}
+.review-item-body{padding:12px 16px;}
+.review-wrong{font-size:0.8rem;color:#dc2626;margin-bottom:4px;}
+.review-correct{font-size:0.8rem;color:#16a34a;font-weight:600;margin-bottom:6px;}
+.review-exp{font-size:0.78rem;color:var(--ink-muted);font-style:italic;}
+
+/* INTRO CARD */
+.intro-card{background:white;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);}
+.intro-hero{padding:28px 28px 20px;background:linear-gradient(135deg,rgba(26,107,107,0.05),rgba(201,147,58,0.05));}
+.intro-hero h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;}
+.intro-hero p{font-size:0.88rem;color:var(--ink-soft);line-height:1.65;}
+.intro-domains{display:flex;flex-direction:column;gap:8px;padding:18px 28px;border-top:1px solid var(--border);}
+.intro-domain{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--rs);border:1px solid var(--border);background:var(--cream);cursor:default;}
+.id-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.id-text{font-size:0.82rem;color:var(--ink-soft);}
+.id-num{font-size:0.7rem;color:var(--ink-muted);font-weight:500;margin-top:1px;}
+.intro-start{padding:16px 28px 24px;text-align:center;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);background:var(--ink);padding:26px clamp(16px,4vw,52px);}
+.footer-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:white;margin-bottom:3px;}
+.footer-disc{font-size:0.7rem;color:rgba(255,255,255,0.4);max-width:380px;line-height:1.5;}
+.footer-links{display:flex;gap:16px;}
+.footer-links a{font-size:0.77rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.14s;}
+.footer-links a:hover{color:white;}
+
+.section-label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:8px;}
+</style>
 </head>
-<body class="min-h-screen py-12">
-<!-- Top-right "Back to Lexicon" link -->
-  <div class="fixed top-4 right-6 z-50">
-    <a href="index.html" class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-full shadow-lg border border-slate-200 text-slate-700 font-medium hover:bg-indigo-50 hover:text-indigo-700 transition">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-      Back to MedAI Lexicon
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 2v12M3 6l7 4 7-4" stroke="white" stroke-width="1.5"/></svg></div>
+      <div><span class="logo-text">MedAI Lexicon</span><span class="logo-sub">by Ram Paragi</span></div>
     </a>
+    <nav>
+      <a href="index.html" class="back">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Lexicon
+      </a>
+    </nav>
   </div>
-  
-  <div class="max-w-4xl mx-auto px-6">
-    <header class="text-center mb-16">
-      <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">MedAI Fluency </h1>
-      <p class="text-lg text-slate-600">Answer the quiz questions, then view your MedAI fluency map and learning path at the bottom of the page.</p>
-    </header>
+</header>
 
-    <form id="quiz" class="space-y-10 mb-24"></form>
+<!-- HERO -->
+<div class="page-hero">
+  <div class="badge">🎯 Self-Assessment Tool</div>
+  <h1>MedAI <em>Fluency Studio</em></h1>
+  <p class="hero-sub">A guided quiz that builds your personal AI fluency map across five core domains — then gives you a tailored learning path.</p>
+</div>
 
-    <section id="results" class="hidden">
-      <div class="bg-white rounded-3xl shadow-2xl p-10 md:p-14 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-10">Your MedAI Fluency Profile</h2>
-        <div class="max-w-md mx-auto">
-          <canvas id="radar"></canvas>
-        </div>
-        <p class="text-5xl font-bold text-indigo-700 mt-10" id="score"></p>
-        <p class="text-xl text-slate-700 mt-4" id="message"></p>
-        <div id="focus-areas" class="mt-10 text-base text-slate-700"></div>
-        <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
-          <a href="micromodules.html" class="px-10 py-5 bg-indigo-600 text-white font-semibold text-base rounded-full hover:bg-indigo-700 transition shadow-lg">
-            Watch Recommended Videos
-          </a>
-          <button onclick="location.reload()" class="px-10 py-5 bg-white border-2 border-indigo-600 text-indigo-700 font-semibold text-base rounded-full hover:bg-indigo-50 transition">
-            Take Quiz Again
-          </button>
-        </div>
-        <details class="mt-12 max-w-3xl mx-auto text-left">
-          <summary class="text-xl font-semibold text-slate-700 cursor-pointer hover:text-indigo-700 py-4">
-            Show questions I got wrong
-          </summary>
-          <div id="review" class="mt-6 space-y-6"></div>
-        </details>
-      </div>
-    </section>
+<!-- STEP BAR -->
+<div class="step-bar">
+  <div class="step-bar-inner" id="stepBar">
+    <div class="step-item active" data-s="0"><div class="step-circle"><span class="step-num">1</span></div><span class="step-lbl">Intro</span></div>
+    <div class="step-item" data-s="1"><div class="step-circle"><span class="step-num">2</span></div><span class="step-lbl">Prompt Mastery</span></div>
+    <div class="step-item" data-s="2"><div class="step-circle"><span class="step-num">3</span></div><span class="step-lbl">Fundamentals</span></div>
+    <div class="step-item" data-s="3"><div class="step-circle"><span class="step-num">4</span></div><span class="step-lbl">Practical Use</span></div>
+    <div class="step-item" data-s="4"><div class="step-circle"><span class="step-num">5</span></div><span class="step-lbl">Safety</span></div>
+    <div class="step-item" data-s="5"><div class="step-circle"><span class="step-num">6</span></div><span class="step-lbl">Workflow</span></div>
+    <div class="step-item" data-s="6"><div class="step-circle"><span class="step-num">7</span></div><span class="step-lbl">Results</span></div>
   </div>
+</div>
 
-  <script>
-    const questionBank = [
-      // CLUSTER 1: Prompt Mastery & Conversation Patterns (20 questions)
-      {q:"Chain-of-thought prompting improves reasoning by:", a:"Letting the model generate intermediate steps", d:["Making the model think faster","Reducing the number of tokens used","Automatically adding safety filters"], e:"CoT gives the model space to reason step-by-step (Module 09).", c:1},
-      {q:"Higher temperature setting produces:", a:"More creative / diverse output", d:["More accurate medical advice","Shorter responses","Lower cost per token"], e:"Use low temperature for reliable clinical answers (Module 01).", c:1},
-      {q:"Few-shot prompting means:", a:"Including examples in the prompt", d:["Using zero examples","Fine-tuning the model","Adding images to the prompt"], e:"Few-shot guides the model without retraining (Module 01).", c:1},
-      {q:"The system prompt is used to:", a:"Define the AI's role and behavior rules", d:["Set the output length only","Define the token limit","Set the temperature value"], e:"System prompt sets personality and safety rules (Module 01).", c:1},
-      {q:"Style transfer in prompts refers to:", a:"Making output match a specific tone or format", d:["Changing the model architecture","Transferring data between models","Styling the user interface"], e:"Used for patient education in simple language (Module 01).", c:1},
-      {q:"Zero-shot prompting means:", a:"No examples given", d:["One example given","Multiple examples given","Fine-tuning required"], e:"Relies only on pre-training (Module 01).", c:1},
-      {q:"Best practice for medical prompts is to:", a:"Be specific, provide context, ask for reasoning", d:["Keep it vague to encourage creativity","Use high temperature for accuracy","Avoid mentioning the patient's condition"], e:"Clear prompts lead to safer answers (Module 01).", c:1},
-      {q:"Why do models sometimes refuse tasks?", a:"Because of safety filters in post-training", d:["They are out of tokens","The prompt is too long","The temperature is too low"], e:"Safety filters from RLHF (Module 14).", c:1},
-      {q:"Temperature = 0 means:", a:"Fully deterministic output", d:["Maximum creativity","Random sampling","Error mode"], e:"Always the most likely token (Module 01).", c:1},
-      {q:"Sampling methods like top-p affect:", a:"How creative the output is", d:["Token count only","Model size","Training time"], e:"Controls diversity of responses (Module 01).", c:1},
-      {q:"For clinical questions you want:", a:"Low temperature so answers are stable", d:["High temperature for brainstorming","No temperature setting","Random sampling"], e:"Reproducible answers are safer (Module 01).", c:1},
-      {q:"CoT is especially useful for:", a:"Complex reasoning or long chain explanations", d:["Simple fact lookup","Image generation","Code execution"], e:"Step-by-step differentials reduce errors (Module 09).", c:1},
-      {q:"System prompt is most important for:", a:"Consistent behavior across conversations", d:["Speeding up inference","Reducing hallucinations","Adding more context tokens"], e:"Sets the rules for the entire session (Module 01).", c:1},
-      {q:"Few-shot is better than zero-shot when:", a:"You can provide relevant examples", d:["The prompt is very short","Temperature is high","Model is small"], e:"Examples guide the model (Module 01).", c:1},
-      {q:"Prompt engineering is like:", a:"Writing a focused question for radiology", d:["Building a model from scratch","Training on new data","Fine-tuning LoRA adapters"], e:"Clear consult request = clear answer (Module 01).", c:1},
-      {q:"The best prompts include:", a:"Brief clinical history, key concern, what you want clarified", d:["Just 'please comment'","Vague questions","High token count only"], e:"Structure leads to better output (Module 01).", c:1},
-      {q:"Top-k sampling chooses from:", a:"The top k most likely tokens", d:["All tokens equally","Random tokens","Only safe tokens"], e:"Controls diversity (Module 01).", c:1},
-      {q:"Nucleus sampling (top-p) is better than top-k because:", a:"It adapts to the probability distribution", d:["It uses fewer tokens","It is faster","It reduces cost"], e:"Dynamic selection (Module 01).", c:1},
-      {q:"In medical prompts, always include:", a:"What decision depends on the answer", d:["Only the symptom list","High temperature","No reasoning request"], e:"Helps the model understand importance (Module 01).", c:1},
-      {q:"For brainstorming patient education phrases, use:", a:"Slightly higher temperature", d:["Temperature 0","Zero-shot only","No prompt"], e:"Allows varied wording (Module 01).", c:1},
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
 
-      // CLUSTER 2: Model Fundamentals & Limitations (20 questions)
-      {q:"Tokenization is:", a:"Breaking text into small pieces the model can process", d:["Compressing images","Encrypting data","Translating languages"], e:"Like cutting a discharge summary into beads (Module 02).", c:2},
-      {q:"Embeddings are:", a:"Numerical coordinates that place words in a meaning space", d:["The raw text input","The final output","Safety filters"], e:"Similar things sit close together (Module 02).", c:2},
-      {q:"Latent space is:", a:"The internal concept space where the model organizes meanings", d:["Token storage","Training data","Output layer"], e:"Like a galaxy map of concepts (Module 02).", c:2},
-      {q:"Hallucinations are:", a:"Confident but incorrect or fabricated outputs", d:["Correct answers","Refusals to answer","Slow responses"], e:"Like a trainee inventing a journal article (Module 07).", c:2},
-      {q:"Positional encoding tells the model:", a:"The order of tokens in a sequence", d:["The meaning of tokens","The safety rules","The temperature"], e:"Like numbering beads on a string (Module 02).", c:2},
-      {q:"Attention heads are:", a:"Parallel pattern detectors that focus on different relationships", d:["Single detectors","Image processors","Safety filters"], e:"Like multiple specialists at a case conference (Module 03).", c:2},
-      {q:"Residual streams are:", a:"Connections that carry information forward without erasing it", d:["Speed optimizers","Token counters","Safety layers"], e:"Like a river passing through locks (Module 03).", c:2},
-      {q:"Scaling laws describe:", a:"How performance improves with more data, parameters, and compute", d:["How models get smaller","How cost decreases","How speed increases"], e:"Like growth charts for models (Module 10).", c:2},
-      {q:"Training vs inference:", a:"Training = learning, inference = using", d:["Both the same","Training is faster","Inference requires data"], e:"Training is school, inference is practice (Module 04).", c:2},
-      {q:"Emergent abilities are:", a:"New skills that appear when models become large enough", d:["Skills present in small models","Planned features","Safety features"], e:"Like a trainee suddenly managing complex patients (Module 13).", c:2},
-      {q:"The model has no real understanding, only:", a:"Pattern completion from training data", d:["Real consciousness","Medical knowledge","Self-awareness"], e:"It's a probabilistic next-token generator (Module 07).", c:2},
-      {q:"Why do LLMs struggle with letter counting?", a:"Because of tokenization", d:["Because they are small","Because of high temperature","Because of safety filters"], e:"Tokens don't match letters (Module 02).", c:2},
-      {q:"Attention heads specialize in:", a:"Different patterns like syntax or long-range dependencies", d:["Only medical terms","Only images","Only safety"], e:"Some track pronouns, others negations (Module 03).", c:2},
-      {q:"Residual streams allow:", a:"Later layers to still access original input", d:["Faster inference","Smaller model size","More creativity"], e:"Successive consults keep the initial history (Module 03).", c:2},
-      {q:"Jagged performance refers to:", a:"Strong in some areas, weak in others", d:["Uniform performance","Always perfect","No performance"], e:"Miscounts labs but writes well (Module 11).", c:2},
-      {q:"The model 'compresses' knowledge into:", a:"Latent space representations", d:["Raw text","Training data","Output tokens"], e:"Like clinical intuition (Module 03).", c:2},
-      {q:"Why can't LLMs reliably spell backwards?", a:"Tokenization breaks words into pieces", d:["They are not trained","Temperature too high","Safety filters"], e:"Common tokenization flaw (Module 11).", c:2},
-      {q:"Training data for most LLMs comes from:", a:"The public.de internet", d:["Only medical textbooks","Only PubMed","Only clinical notes"], e:"Common Crawl, FineWeb, etc. (Module 01).", c:2},
-      {q:"The model has no memory of past conversations unless:", a:"You include it in the prompt", d:["It learns in real time","It has infinite context","It is fine-tuned"], e:"Context window limitation (Module 04).", c:2},
-      {q:"Emergent abilities include:", a:"Translation, code generation, complex reasoning", d:["Only medical tasks","Only simple tasks","No new abilities"], e:"Appear at scale (Module 13).", c:2},
-
-      // CLUSTER 3: Practical Use Cases (20 questions)
-      {q:"RAG is:", a:"Retrieval-Augmented Generation", d:["Random Access Generation","Real-time AI Generation","Recursive Answer Generation"], e:"Pulls current guidelines to reduce hallucinations (Module 15).", c:3},
-      {q:"AI agents can:", a:"Plan, call tools, review results, and iterate", d:["Only answer questions","Never make mistakes","Run without internet"], e:"Like a junior colleague (Module 15).", c:3},
-      {q:"Quantization allows:", a:"Running large models on laptops", d:["Training from scratch","Increasing model size","Adding more data"], e:"8-bit or 4-bit versions (Module 05).", c:3},
-      {q:"LoRA is:", a:"Low-rank adaptation for efficient fine-tuning", d:["A new model architecture","A safety filter","A data center"], e:"Add-on matrices, not full training (Module 05).", c:3},
-      {q:"Diffusion models are used for:", a:"Image generation", d:["Text generation","Tokenization","Safety alignment"], e:"From noise to clear images (Module 15).", c:3},
-      {q:"Multimodal fusion means:", a:"Models that process text, images, and audio together", d:["Text only","Images only","Audio only"], e:"Like a clinician integrating data (Module 15).", c:3},
-      {q:"AI data centers are needed because:", a:"Training and inference require massive GPU clusters", d:["Models run on phones","Training is cheap","No compute needed"], e:"Giant hospitals for computation (Module 15).", c:3},
-      {q:"RAG helps with:", a:"Keeping answers current and reducing hallucinations", d:["Increasing creativity","Reducing cost","Speeding up training"], e:"Pulls latest guidelines (Module 15).", c:3},
-      {q:"Quantized models make possible:", a:"On-device AI tools in clinic", d:["Training larger models","Adding more data","Increasing temperature"], e:"Run on tablet without cloud (Module 05).", c:3},
-      {q:"LoRA adapters can specialize in:", a:"Oncology, cardiology, etc.", d:["Only general medicine","Only research","Only education"], e:"Single base model + different adapters (Module 05).", c:3},
-      {q:"Diffusion models in medicine can:", a:"Generate educational images or simulate rare findings", d:["Diagnose patients","Replace radiologists","Write notes"], e:"Must be clearly labeled (Module 15).", c:3},
-      {q:"Multimodal models could:", a:"Consider CT images, vitals, and notes at once", d:["Only read notes","Only view images","Only listen to audio"], e:"Richer phenotyping (Module 15).", c:3},
-      {q:"AI agents could:", a:"Gather imaging, summarize notes, draft orders", d:["Only answer questions","Never revise","Work alone"], e:"With human supervision (Module 15).", c:3},
-      {q:"RAG workflows are ideal for:", a:"Evidence synthesis from trial registries", d:["Creative writing","Image generation","Code execution"], e:"Grounded in up-to-date material (Module 15).", c:3},
-      {q:"Quantization trades:", a:"Precision for efficiency", d:["Accuracy for creativity","Size for safety","Speed for cost"], e:"With good calibration, performance stays close (Module 05).", c:3},
-      {q:"LoRA reduces risk of:", a:"Catastrophic forgetting", d:["Hallucinations","Token limits","Temperature changes"], e:"Only adapters update (Module 05).", c:3},
-      {q:"AI data centers affect:", a:"Speed and reliability of AI tools in clinic", d:["Only training","Only research","Only education"], e:"Outages cause lag at bedside (Module 15).", c:3},
-      {q:"Multimodal fusion allows:", a:"Cross-modal tasks like retrieving images from text", d:["Text only tasks","Image only tasks","Audio only tasks"], e:"Unified representation (Module 15).", c:3},
-      {q:"Agents support complex workflows like:", a:"Literature search, eligibility screening, table generation", d:["Only simple questions","Only image generation","Only safety checks"], e:"Loop until criteria met (Module 15).", c:3},
-      {q:"RAG is ideal for:", a:"Evidence synthesis across publications", d:["Creative writing","Patient education","Code generation"], e:"Stays closer to source (Module 15).", c:3},
-
-      // CLUSTER 4: Critical Evaluation, Bias, and Safety (20 questions)
-      {q:"RLHF is:", a:"Reinforcement Learning from Human Feedback", d:["Random Learning from Humans","Real Learning from Hardware","Recursive Learning"], e:"Teaches the model to be helpful and safe (Module 14).", c:4},
-      {q:"Catastrophic forgetting occurs when:", a:"A model loses older skills during new training", d:["Model gets too large","Tokens are lost","Safety filters fail"], e:"Like focusing on one subspecialty (Module 14).", c:4},
-      {q:"Prompt injection is:", a:"Attacks that hide malicious instructions in text", d:["Improving prompt quality","Adding safety","Fine-tuning"], e:"Like hiding secret orders in a referral (Module 07).", c:4},
-      {q:"Guardrails are:", a:"Rules and filters that block unsafe outputs", d:["Speed optimizers","Token counters","Style transfer tools"], e:"Like triage checks around AI (Module 07).", c:4},
-      {q:"Hallucinations are especially risky in medicine because:", a:"They sound authoritative", d:["They are rare","They only happen in small models","They are easy to fix"], e:"Can lead to wrong diagnoses (Module 07).", c:4},
-      {q:"Data privacy in AI means:", a:"PHI must stay in secure systems", d:["It's okay to use public tools","Only images are sensitive","Anonymized data is always safe"], e:"Never paste patient data into public AI (Module 15).", c:4},
-      {q:"Emergent abilities are:", a:"New skills that appear at scale", d:["Planned features","Present in small models","Never appear"], e:"Like translation or code generation (Module 13).", c:4},
-      {q:"RLHF can encourage the model to:", a:"Respect regulatory norms and acknowledge uncertainty", d:["Be more creative","Ignore safety","Give firm recommendations"], e:"Bakes in rater values (Module 14).", c:4},
-      {q:"Prompt injection can threaten:", a:"Data integrity in automated chart review", d:["Model speed","Token count","Output style"], e:"Attackers can craft instructions in documents (Module 07).", c:4},
-      {q:"Guardrails include:", a:"Content filters, policy rules, refusal behaviors", d:["Speed optimizers","Token counters","Style transfer"], e:"Keep model within safe use-cases (Module 07).", c:4},
-      {q:"Hallucinations can appear as:", a:"Invented trial names or wrong sample sizes", d:["Correct citations","Real statistics","Accurate references"], e:"Always verify against primary sources (Module 07).", c:4},
-      {q:"Data governance affects:", a:"How participant data is reused and protected", d:["Only model size","Only speed","Only cost"], e:"Regulators paying attention (Module 15).", c:4},
-      {q:"Safety filters may:", a:"Refuse dosing questions or emphasize clinical judgment", d:["Always give dosing","Never refuse","Ignore guidelines"], e:"Cannot replace clinical judgment (Module 07).", c:4},
-      {q:"Prompt injection security requires:", a:"Treating external text as untrusted", d:["Allowing all inputs","Using high temperature","Fine-tuning only"], e:"Sandboxing and filtering (Module 07).", c:4},
-      {q:"RLHF bakes in:", a:"The values and biases of human raters", d:["Perfect safety","No bias","Only medical knowledge"], e:"Should be considered when deploying (Module 14).", c:4},
-      {q:"Guardrails can introduce:", a:"False positives (blocking safe content)", d:["More hallucinations","Faster responses","Lower cost"], e:"Reduce risk but not perfect (Module 07).", c:4},
-      {q:"Catastrophic forgetting is reduced by:", a:"Using adapters like LoRA", d:["Training from scratch","Increasing model size","Adding more data"], e:"Protects original knowledge (Module 05).", c:4},
-      {q:"Emergent abilities can support:", a:"Unsupervised phenotyping", d:["Only supervised tasks","Only simple tasks","No clinical tasks"], e:"Even without explicit labels (Module 13).", c:4},
-      {q:"Data privacy concerns include:", a:"Re-identification and breach risk", d:["Speed of inference","Token count","Output style"], e:"Even anonymous data can be re-identified (Module 15).", c:4},
-      {q:"Best practice for safety:", a:"Treat all AI outputs as drafts to be checked", d:["Trust AI completely","Use AI for final orders","Never verify"], e:"Not a medical device (Module 07).", c:4},
-
-      // CLUSTER 5: Workflow Design & Governance (20 questions)
-      {q:"RAG workflows are:", a:"Retrieval + generation pipelines", d:["Single prompt only","Image generation","Code execution"], e:"Ideal for evidence synthesis (Module 15).", c:5},
-      {q:"AI agents support:", a:"Complex workflows like literature search and cohort construction", d:["Only simple questions","Only image generation","Only safety checks"], e:"Loop until criteria met (Module 15).", c:5},
-      {q:"Workflow orchestration means:", a:"Chaining multiple AI tools together", d:["Using one tool only","Manual processes","Data storage"], e:"Agents orchestrate (Module 15).", c:5},
-      {q:"Human-in-the-loop patterns are:", a:"Essential for high-stakes decisions", d:["Optional","Never needed","Only for training"], e:"Person reviews before final use (Module 15).", c:5},
-      {q:"Governance includes:", a:"Policies, auditing, and validation", d:["Only speed","Only cost","Only creativity"], e:"Responsible use in medicine (Module 15).", c:5},
-      {q:"Evaluation frameworks are needed because:", a:"LLMs can sound confident but be wrong", d:["They are expensive","Models are always accurate","For marketing"], e:"Validate in your context (Module 15).", c:5},
-      {q:"Best practice for clinical use:", a:"Never trust AI output without human verification", d:["Trust AI completely","Use AI for final orders","Let AI make decisions"], e:"AI is a tool, not replacement (Module 07).", c:5},
-      {q:"Workflow design should include:", a:"Clear handoffs between AI and human", d:["AI only","Human only","No workflow"], e:"Human-in-the-loop patterns (Module 15).", c:5},
-      {q:"Governance questions include:", a:"How participant data is reused and protected", d:["Only model size","Only speed","Only cost"], e:"Regulators paying attention (Module 15).", c:5},
-      {q:"Evaluation frameworks for AI tools include:", a:"Testing in clinical and educational settings", d:["Only cost analysis","Only speed testing","Only marketing"], e:"Specific to your use case (Module 15).", c:5},
-      {q:"Human-in-the-loop is required for:", a:"Adverse event detection or eligibility screening", d:["Only research","Only education","Never"], e:"High-stakes tasks (Module 15).", c:5},
-      {q:"RAG workflows help with:", a:"Keeping answers up-to-date", d:["Increasing creativity","Reducing cost","Speeding up training"], e:"Pulls latest material (Module 15).", c:5},
-      {q:"AI agents can support:", a:"Study meetings, protocol editing, cohort construction", d:["Only simple questions","Only image generation","Only safety"], e:"Interactive workflows (Module 15).", c:5},
-      {q:"Governance affects:", a:"Data sovereignty and cross-border transfer", d:["Only model speed","Only token count","Only output style"], e:"Location of data centers matters (Module 15).", c:5},
-      {q:"Best practice for evaluation:", a:"Match the actual deployed scale and context", d:["Test on small pilots only","Ignore scale","Use any model"], e:"Performance changes with scale (Module 13).", c:5},
-      {q:"Human-in-the-loop patterns include:", a:"AI drafts, human reviews and approves", d:["AI finalizes","Human drafts only","No review"], e:"Best for clinical safety (Module 15).", c:5},
-      {q:"Governance in clinical research raises questions about:", a:"Participant understanding of data use in AI", d:["Only model size","Only speed","Only cost"], e:"Informed consent for AI training (Module 15).", c:5},
-      {q:"Workflow orchestration allows:", a:"Automated literature search to table generation", d:["Only manual search","Only simple questions","Only image generation"], e:"Full pipeline automation with human oversight (Module 15).", c:5},
-      {q:"Evaluation frameworks help ensure:", a:"AI does not give regulatory advice or fabricate consent", d:["Faster responses","Lower cost","More creativity"], e:"Clear warnings and human review (Module 15).", c:5},
-      {q:"RAG is ideal for:", a:"Evidence synthesis across publications", d:["Creative writing","Patient education","Code generation"], c:5}
-    ];
-
-    function shuffle(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
-
-    function getRandomQuestions() {
-      const selected = [];
-      for (let cluster = 1; cluster <= 5; cluster++) {
-        const clusterQs = questionBank.filter(q => q.c === cluster);
-        selected.push(...shuffle(clusterQs).slice(0, 4));
-      }
-      return shuffle(selected);
-    }
-
-    const questions = getRandomQuestions();
-    const form = document.getElementById('quiz');
-
-    questions.forEach((q, i) => {
-      const allAnswers = [q.a, ...q.d];
-      const shuffled = shuffle(allAnswers);
-      const correctIndex = shuffled.indexOf(q.a);
-
-      const div = document.createElement('div');
-      div.className = 'bg-white rounded-2xl shadow-md p-6 border border-slate-200';
-      div.innerHTML = `
-        <p class="question-text text-base mb-5">${i+1}. ${q.q}</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          ${shuffled.map((ans, j) => `
-            <label class="option">
-              <input type="radio" name="q${i}" value="${j === correctIndex ? 'correct' : 'wrong'}">
-              <span class="answer-text">${ans}</span>
-            </label>
-          `).join('')}
+  <!-- INTRO SCREEN -->
+  <div id="screen-intro">
+    <div class="quiz-layout">
+      <div class="intro-card">
+        <div class="intro-hero">
+          <h2>Welcome to Your MedAI Fluency Assessment</h2>
+          <p>This studio uses a curated question bank to estimate your fluency across five competencies that matter for teaching, research, clinical documentation, and program leadership. Each round pulls 4 questions per domain. Take it as many times as you like — the question set changes each time.</p>
         </div>
-      `;
-      form.appendChild(div);
-    });
-
-    form.innerHTML += `
-      <div class="text-center mt-16">
-        <button type="submit" class="px-16 py-6 bg-indigo-600 text-white text-2xl font-bold rounded-full shadow-2xl hover:bg-indigo-700 transform hover:scale-105 transition">
-          Generate My Fluency Profile →
-        </button>
+        <div class="intro-domains">
+          <div class="intro-domain"><div class="id-icon" style="background:rgba(26,107,107,0.1);">✍️</div><div><div class="id-text" style="font-weight:600;">Prompt Mastery & Conversation Patterns</div><div class="id-num">4 questions</div></div></div>
+          <div class="intro-domain"><div class="id-icon" style="background:rgba(90,58,139,0.1);">🧠</div><div><div class="id-text" style="font-weight:600;">Model Fundamentals & Limitations</div><div class="id-num">4 questions</div></div></div>
+          <div class="intro-domain"><div class="id-icon" style="background:rgba(58,107,139,0.1);">⚙️</div><div><div class="id-text" style="font-weight:600;">Practical Use Cases</div><div class="id-num">4 questions</div></div></div>
+          <div class="intro-domain"><div class="id-icon" style="background:rgba(139,58,82,0.1);">🛡️</div><div><div class="id-text" style="font-weight:600;">Critical Evaluation, Bias & Safety</div><div class="id-num">4 questions</div></div></div>
+          <div class="intro-domain"><div class="id-icon" style="background:rgba(107,90,58,0.1);">🔄</div><div><div class="id-text" style="font-weight:600;">Workflow Design & Governance</div><div class="id-num">4 questions</div></div></div>
+        </div>
+        <div class="intro-start">
+          <button class="btn btn-primary" style="padding:12px 32px;font-size:0.9rem;" onclick="startQuiz()">Begin Assessment →</button>
+          <p style="font-size:0.72rem;color:var(--ink-muted);margin-top:8px;">~8 minutes · 20 questions · Instant results</p>
+        </div>
       </div>
-    `;
 
-    form.onsubmit = e => {
-      e.preventDefault();
-      const scores = [0,0,0,0,0];
-      let wrong = [];
-
-      questions.forEach((q, i) => {
-        const selected = form.querySelector(`input[name="q${i}"]:checked`);
-        if (selected && selected.value === "correct") {
-          scores[q.c - 1]++;
-        } else if (selected) {
-          wrong.push({q: q.q, your: selected.nextElementSibling.textContent.trim(), correct: q.a, exp: q.e});
-        }
-      });
-
-      const percentages = scores.map(s => Math.round((s / 4) * 100));
-      const avg = Math.round(percentages.reduce((a,b) => a + b) / 5);
-
-      document.getElementById('results').classList.remove('hidden');
-      document.getElementById('score').textContent = `${avg}% Fluency`;
-      document.getElementById('message').textContent = avg >= 90 ? "Outstanding mastery!" : avg >= 70 ? "Strong understanding!" : "Great start — keep learning!";
-
-      new Chart(document.getElementById('radar'), {
-        type: 'radar',
-        data: {
-          labels: ["Prompt Mastery","Model Fundamentals","Practical Use Cases","Safety & Evaluation","Workflow & Governance"],
-          datasets: [{ data: percentages, backgroundColor: 'rgba(99,102,241,0.15)', borderColor: '#6366f1', borderWidth: 4, pointBackgroundColor: '#4338ca' }]
-        },
-        options: {
-          scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, font: { family: 'Roboto', weight: 400 } } } },
-          plugins: { legend: { display: false } },
-          elements: { line: { tension: 0.3 } }
-        }
-      });
-
-      const focus = percentages.map((p,i) => p < 70 ? ["Prompt Mastery","Model Fundamentals","Practical Use Cases","Safety & Evaluation","Workflow & Governance"][i] : null).filter(Boolean);
-      document.getElementById('focus-areas').innerHTML = focus.length
-        ? `<p class="text-base text-slate-700">Recommended focus: <strong>${focus.join(', ')}</strong></p><p class="text-base text-slate-700 mt-3">These modules will help you most right now.</p>`
-        : `<p class="text-base text-slate-700">Outstanding! Excellent fluency across all domains.</p>`;
-
-      const review = document.getElementById('review');
-      review.innerHTML = wrong.length === 0
-        ? `<p class="text-base text-slate-700">Perfect score! You got everything right.</p>`
-        : wrong.map(w => `
-          <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500">
-            <p class="question-text text-base">${w.q}</p>
-            <p class="answer-text text-base text-red-700 mt-3">You answered: ${w.your}</p>
-            <p class="answer-text text-base text-green-700 font-medium mt-2">Correct: ${w.correct}</p>
-            <p class="answer-text text-base text-slate-600 italic mt-3">${w.exp}</p>
+      <!-- SIDEBAR preview -->
+      <div class="sidebar">
+        <div class="side-card">
+          <div class="side-card-header"><h3>Your Fluency Map</h3><p>Updates as you complete each domain</p></div>
+          <div class="side-card-body">
+            <div class="radar-wrap"><canvas id="radarPreview" height="220"></canvas></div>
+            <div class="domain-scores" id="domainScoresList">
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c1);"></div><span class="ds-name">Prompt Mastery</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c1);width:0%"></div></div><span class="ds-pct">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c2);"></div><span class="ds-name">Fundamentals</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c2);width:0%"></div></div><span class="ds-pct">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c3);"></div><span class="ds-name">Practical Use</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c3);width:0%"></div></div><span class="ds-pct">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c4);"></div><span class="ds-name">Safety</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c4);width:0%"></div></div><span class="ds-pct">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c5);"></div><span class="ds-name">Workflow</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c5);width:0%"></div></div><span class="ds-pct">—</span></div>
+            </div>
           </div>
-        `).join('');
+        </div>
+      </div>
+    </div>
+  </div>
 
-      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    };
-  </script>
+  <!-- QUIZ SCREEN (one per domain) -->
+  <div id="screen-quiz" style="display:none;">
+    <div class="quiz-layout">
+      <div class="quiz-card">
+        <div class="quiz-card-header">
+          <div>
+            <div class="domain-tag" id="qDomainTag"></div>
+            <h2 id="qDomainTitle" style="margin-top:6px;font-size:1.1rem;"></h2>
+          </div>
+          <div class="q-progress">
+            <span id="qProgressLabel" style="white-space:nowrap;"></span>
+            <div class="q-progress-bar"><div class="q-progress-fill" id="qProgressFill"></div></div>
+          </div>
+        </div>
+        <div class="quiz-card-body">
+          <div class="q-num" id="qNum"></div>
+          <div class="q-text" id="qText"></div>
+          <div class="options" id="optionsContainer"></div>
+          <div class="feedback" id="feedbackBox"></div>
+          <div class="q-nav">
+            <div style="font-size:0.75rem;color:var(--ink-muted);" id="qSubHint"></div>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextQ()" disabled>Next →</button>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="side-card">
+          <div class="side-card-header"><h3>Live Fluency Map</h3><p>Updating as you answer</p></div>
+          <div class="side-card-body">
+            <div class="radar-wrap"><canvas id="radarLive" height="220"></canvas></div>
+            <div class="domain-scores" id="domainScoresLive">
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c1);"></div><span class="ds-name">Prompt Mastery</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c1);width:0%"></div></div><span class="ds-pct" id="sp0">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c2);"></div><span class="ds-name">Fundamentals</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c2);width:0%"></div></div><span class="ds-pct" id="sp1">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c3);"></div><span class="ds-name">Practical Use</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c3);width:0%"></div></div><span class="ds-pct" id="sp2">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c4);"></div><span class="ds-name">Safety</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c4);width:0%"></div></div><span class="ds-pct" id="sp3">—</span></div>
+              <div class="ds-item"><div class="ds-dot" style="background:var(--c5);"></div><span class="ds-name">Workflow</span><div class="ds-bar-wrap"><div class="ds-bar" style="background:var(--c5);width:0%"></div></div><span class="ds-pct" id="sp4">—</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div id="screen-results" class="results-section">
+    <div class="results-hero">
+      <div class="section-label" style="margin-bottom:12px;">Your MedAI Fluency Profile</div>
+      <div class="results-score" id="resultsScore"></div>
+      <div class="results-msg" id="resultsMsg"></div>
+      <div class="results-radar"><canvas id="radarResults"></canvas></div>
+      <div class="results-actions">
+        <a href="micromodules.html" class="btn btn-success">🎬 Watch Recommended Videos</a>
+        <button class="btn btn-ghost" onclick="location.reload()">↩ Retake Quiz</button>
+      </div>
+    </div>
+
+    <div class="section-label">Domain Breakdown</div>
+    <div class="results-grid" id="resultsGrid"></div>
+
+    <div class="section-label">Focus Areas & Learning Path</div>
+    <div class="side-card" style="margin-bottom:24px;">
+      <div class="side-card-body" id="learningPath"></div>
+    </div>
+
+    <details>
+      <summary style="cursor:pointer;font-size:0.88rem;font-weight:600;color:var(--ink-muted);padding:12px 0;user-select:none;">Review questions I got wrong →</summary>
+      <div id="reviewContainer" style="margin-top:12px;"></div>
+    </details>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-brand">MedAI Lexicon</div><p class="footer-disc">An educational tool, not a medical device. Always confirm AI outputs against current clinical guidelines.</p></div>
+    <div class="footer-links"><a href="index.html">Lexicon</a><a href="micromodules.html">MicroModules</a><a href="https://swimed.substack.com/" target="_blank">Substack</a></div>
+  </div>
+</footer>
+
+<script>
+// ── QUESTION BANK ──
+const QB=[
+  // CLUSTER 1: Prompt Mastery (c=1)
+  {q:"Chain-of-thought prompting improves reasoning by:",a:"Letting the model generate intermediate steps",d:["Making the model think faster","Reducing the number of tokens used","Automatically adding safety filters"],e:"CoT gives the model space to reason step-by-step.",c:1},
+  {q:"Higher temperature setting produces:",a:"More creative / diverse output",d:["More accurate medical advice","Shorter responses","Lower cost per token"],e:"Use low temperature for reliable clinical answers.",c:1},
+  {q:"Few-shot prompting means:",a:"Including examples in the prompt",d:["Using zero examples","Fine-tuning the model","Adding images to the prompt"],e:"Few-shot guides the model without retraining.",c:1},
+  {q:"The system prompt is used to:",a:"Define the AI's role and behavior rules",d:["Set the output length only","Define the token limit","Set the temperature value"],e:"System prompt sets personality and safety rules.",c:1},
+  {q:"Style transfer in prompts refers to:",a:"Making output match a specific tone or format",d:["Changing the model architecture","Transferring data between models","Styling the user interface"],e:"Used for patient education in simple language.",c:1},
+  {q:"Temperature = 0 means:",a:"Fully deterministic output",d:["Maximum creativity","Random sampling","Error mode"],e:"Always the most likely token.",c:1},
+  {q:"For clinical questions you want:",a:"Low temperature so answers are stable",d:["High temperature for brainstorming","No temperature setting","Random sampling"],e:"Reproducible answers are safer.",c:1},
+  {q:"Best practice for medical prompts is to:",a:"Be specific, provide context, ask for reasoning",d:["Keep it vague to encourage creativity","Use high temperature for accuracy","Avoid mentioning the patient's condition"],e:"Clear prompts lead to safer answers.",c:1},
+  {q:"Zero-shot prompting means:",a:"No examples given",d:["One example given","Multiple examples given","Fine-tuning required"],e:"Relies only on pre-training.",c:1},
+  {q:"CoT is especially useful for:",a:"Complex reasoning or long chain explanations",d:["Simple fact lookup","Image generation","Code execution"],e:"Step-by-step differentials reduce errors.",c:1},
+  // CLUSTER 2: Model Fundamentals (c=2)
+  {q:"Tokenization is:",a:"Breaking text into small pieces the model can process",d:["Compressing images","Encrypting data","Translating languages"],e:"Like cutting a discharge summary into beads.",c:2},
+  {q:"Embeddings are:",a:"Numerical coordinates that place words in a meaning space",d:["The raw text input","The final output","Safety filters"],e:"Similar things sit close together.",c:2},
+  {q:"Latent space is:",a:"The internal concept space where the model organizes meanings",d:["Token storage","Training data","Output layer"],e:"Like a galaxy map of concepts.",c:2},
+  {q:"Hallucinations are:",a:"Confident but incorrect or fabricated outputs",d:["Correct answers","Refusals to answer","Slow responses"],e:"Like a trainee inventing a journal article.",c:2},
+  {q:"Attention heads are:",a:"Parallel pattern detectors that focus on different relationships",d:["Single detectors","Image processors","Safety filters"],e:"Like multiple specialists at a case conference.",c:2},
+  {q:"Scaling laws describe:",a:"How performance improves with more data, parameters, and compute",d:["How models get smaller","How cost decreases","How speed increases"],e:"Like growth charts for models.",c:2},
+  {q:"Training vs inference:",a:"Training = learning, inference = using",d:["Both the same","Training is faster","Inference requires data"],e:"Training is school, inference is practice.",c:2},
+  {q:"Emergent abilities are:",a:"New skills that appear when models become large enough",d:["Skills present in small models","Planned features","Safety features"],e:"Like a trainee suddenly managing complex patients.",c:2},
+  {q:"The model has no real understanding, only:",a:"Pattern completion from training data",d:["Real consciousness","Medical knowledge","Self-awareness"],e:"It's a probabilistic next-token generator.",c:2},
+  {q:"Why do LLMs struggle with letter counting?",a:"Because of tokenization",d:["Because they are small","Because of high temperature","Because of safety filters"],e:"Tokens don't match letters.",c:2},
+  // CLUSTER 3: Practical (c=3)
+  {q:"RAG is:",a:"Retrieval-Augmented Generation",d:["Random Access Generation","Real-time AI Generation","Recursive Answer Generation"],e:"Pulls current guidelines to reduce hallucinations.",c:3},
+  {q:"AI agents can:",a:"Plan, call tools, review results, and iterate",d:["Only answer questions","Never make mistakes","Run without internet"],e:"Like a junior colleague.",c:3},
+  {q:"Quantization allows:",a:"Running large models on laptops",d:["Training from scratch","Increasing model size","Adding more data"],e:"8-bit or 4-bit versions.",c:3},
+  {q:"LoRA is:",a:"Low-rank adaptation for efficient fine-tuning",d:["A new model architecture","A safety filter","A data center"],e:"Add-on matrices, not full training.",c:3},
+  {q:"Multimodal fusion means:",a:"Models that process text, images, and audio together",d:["Text only","Images only","Audio only"],e:"Like a clinician integrating data.",c:3},
+  {q:"RAG helps with:",a:"Keeping answers current and reducing hallucinations",d:["Increasing creativity","Reducing cost","Speeding up training"],e:"Pulls latest guidelines.",c:3},
+  {q:"Quantized models make possible:",a:"On-device AI tools in clinic",d:["Training larger models","Adding more data","Increasing temperature"],e:"Run on tablet without cloud.",c:3},
+  {q:"Diffusion models in medicine can:",a:"Generate educational images or simulate rare findings",d:["Diagnose patients","Replace radiologists","Write notes"],e:"Must be clearly labeled.",c:3},
+  {q:"AI agents could:",a:"Gather imaging, summarize notes, draft orders",d:["Only answer questions","Never revise","Work alone"],e:"With human supervision.",c:3},
+  {q:"Multimodal models could:",a:"Consider CT images, vitals, and notes at once",d:["Only read notes","Only view images","Only listen to audio"],e:"Richer phenotyping.",c:3},
+  // CLUSTER 4: Safety (c=4)
+  {q:"RLHF is:",a:"Reinforcement Learning from Human Feedback",d:["Random Learning from Humans","Real Learning from Hardware","Recursive Learning"],e:"Teaches the model to be helpful and safe.",c:4},
+  {q:"Prompt injection is:",a:"Attacks that hide malicious instructions in text",d:["Improving prompt quality","Adding safety","Fine-tuning"],e:"Like hiding secret orders in a referral.",c:4},
+  {q:"Guardrails are:",a:"Rules and filters that block unsafe outputs",d:["Speed optimizers","Token counters","Style transfer tools"],e:"Like triage checks around AI.",c:4},
+  {q:"Hallucinations are especially risky in medicine because:",a:"They sound authoritative",d:["They are rare","They only happen in small models","They are easy to fix"],e:"Can lead to wrong diagnoses.",c:4},
+  {q:"Data privacy in AI means:",a:"PHI must stay in secure systems",d:["It's okay to use public tools","Only images are sensitive","Anonymized data is always safe"],e:"Never paste patient data into public AI.",c:4},
+  {q:"RLHF can encourage the model to:",a:"Respect regulatory norms and acknowledge uncertainty",d:["Be more creative","Ignore safety","Give firm recommendations"],e:"Bakes in rater values.",c:4},
+  {q:"Prompt injection can threaten:",a:"Data integrity in automated chart review",d:["Model speed","Token count","Output style"],e:"Attackers can craft instructions in documents.",c:4},
+  {q:"Best practice for safety:",a:"Treat all AI outputs as drafts to be checked",d:["Trust AI completely","Use AI for final orders","Never verify"],e:"Not a medical device.",c:4},
+  {q:"Safety filters may:",a:"Refuse dosing questions or emphasize clinical judgment",d:["Always give dosing","Never refuse","Ignore guidelines"],e:"Cannot replace clinical judgment.",c:4},
+  {q:"Catastrophic forgetting occurs when:",a:"A model loses older skills during new training",d:["Model gets too large","Tokens are lost","Safety filters fail"],e:"Like focusing on one subspecialty.",c:4},
+  // CLUSTER 5: Workflow (c=5)
+  {q:"Human-in-the-loop patterns are:",a:"Essential for high-stakes decisions",d:["Optional","Never needed","Only for training"],e:"Person reviews before final use.",c:5},
+  {q:"Governance includes:",a:"Policies, auditing, and validation",d:["Only speed","Only cost","Only creativity"],e:"Responsible use in medicine.",c:5},
+  {q:"Best practice for clinical use:",a:"Never trust AI output without human verification",d:["Trust AI completely","Use AI for final orders","Let AI make decisions"],e:"AI is a tool, not replacement.",c:5},
+  {q:"Workflow design should include:",a:"Clear handoffs between AI and human",d:["AI only","Human only","No workflow"],e:"Human-in-the-loop patterns.",c:5},
+  {q:"RAG workflows are:",a:"Retrieval + generation pipelines",d:["Single prompt only","Image generation","Code execution"],e:"Ideal for evidence synthesis.",c:5},
+  {q:"Evaluation frameworks are needed because:",a:"LLMs can sound confident but be wrong",d:["They are expensive","Models are always accurate","For marketing"],e:"Validate in your context.",c:5},
+  {q:"Human-in-the-loop is required for:",a:"Adverse event detection or eligibility screening",d:["Only research","Only education","Never"],e:"High-stakes tasks.",c:5},
+  {q:"Governance affects:",a:"Data sovereignty and cross-border transfer",d:["Only model speed","Only token count","Only output style"],e:"Location of data centers matters.",c:5},
+  {q:"Workflow orchestration means:",a:"Chaining multiple AI tools together",d:["Using one tool only","Manual processes","Data storage"],e:"Agents orchestrate.",c:5},
+  {q:"Best practice for evaluation:",a:"Match the actual deployed scale and context",d:["Test on small pilots only","Ignore scale","Use any model"],e:"Performance changes with scale.",c:5}
+];
+
+const DOMAINS=[{name:"Prompt Mastery",icon:"✍️",tag:"dt-1",c:1},{name:"Model Fundamentals",icon:"🧠",tag:"dt-2",c:2},{name:"Practical Use Cases",icon:"⚙️",tag:"dt-3",c:3},{name:"Safety & Evaluation",icon:"🛡️",tag:"dt-4",c:4},{name:"Workflow & Governance",icon:"🔄",tag:"dt-5",c:5}];
+const PER_DOMAIN=4;
+let questions=[],domainIdx=0,qIdx=0,scores=[0,0,0,0,0],wrongs=[],answered=false;
+let radarPreview=null,radarLive=null,radarResults=null;
+
+function shuffle(a){return a.sort(()=>Math.random()-0.5);}
+
+function buildQuestions(){
+  questions=[];
+  DOMAINS.forEach(d=>{
+    const pool=QB.filter(q=>q.c===d.c);
+    shuffle(pool).slice(0,PER_DOMAIN).forEach(q=>{
+      const opts=shuffle([q.a,...q.d]);
+      questions.push({...q,opts,correct:q.a});
+    });
+  });
+}
+
+function initRadar(canvasId){
+  const ctx=document.getElementById(canvasId);
+  if(!ctx)return null;
+  return new Chart(ctx,{type:'radar',data:{labels:DOMAINS.map(d=>d.name),datasets:[{data:[0,0,0,0,0],backgroundColor:'rgba(26,107,107,0.12)',borderColor:'#1a6b6b',borderWidth:2.5,pointBackgroundColor:'#1a6b6b',pointRadius:3}]},options:{scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'rgba(13,17,23,0.07)'},angleLines:{color:'rgba(13,17,23,0.07)'},pointLabels:{font:{family:"'DM Sans'",size:10},color:'#64748b'}}},plugins:{legend:{display:false}},elements:{line:{tension:0.2}},animation:{duration:400}}});
+}
+
+function updateRadar(chart,pcts){if(!chart)return;chart.data.datasets[0].data=pcts;chart.update();}
+function updateSidebar(pcts){
+  const bars=document.querySelectorAll('#domainScoresLive .ds-bar');
+  const ptxts=document.querySelectorAll('#domainScoresLive .ds-pct');
+  DOMAINS.forEach((_,i)=>{if(bars[i]){bars[i].style.width=pcts[i]+"%";}if(ptxts[i]){ptxts[i].textContent=pcts[i]>0?pcts[i]+"%":"—";}});
+}
+
+function startQuiz(){
+  buildQuestions();
+  domainIdx=0;qIdx=0;scores=[0,0,0,0,0];wrongs=[];
+  radarLive=initRadar('radarLive');
+  document.getElementById('screen-intro').style.display='none';
+  document.getElementById('screen-quiz').style.display='block';
+  updateStep(1);
+  renderQuestion();
+}
+
+function getDomainForQ(qi){return Math.floor(qi/PER_DOMAIN);}
+
+function renderQuestion(){
+  const totalQIdx=domainIdx*PER_DOMAIN+qIdx;
+  const q=questions[totalQIdx];
+  const domain=DOMAINS[domainIdx];
+  answered=false;
+  const tag=document.getElementById('qDomainTag');
+  tag.className='domain-tag '+domain.tag;
+  tag.innerHTML=`${domain.icon} ${domain.name}`;
+  document.getElementById('qDomainTitle').textContent=`Domain ${domainIdx+1} of 5`;
+  document.getElementById('qNum').textContent=`Question ${qIdx+1} of ${PER_DOMAIN}`;
+  document.getElementById('qProgressLabel').textContent=`${qIdx+1}/${PER_DOMAIN}`;
+  document.getElementById('qProgressFill').style.width=`${(qIdx/PER_DOMAIN)*100}%`;
+  document.getElementById('qText').textContent=q.q;
+  const fb=document.getElementById('feedbackBox');
+  fb.className='feedback';fb.textContent='';
+  const nextBtn=document.getElementById('nextBtn');
+  nextBtn.disabled=true;
+  const isLast=(domainIdx===DOMAINS.length-1)&&(qIdx===PER_DOMAIN-1);
+  nextBtn.textContent=isLast?'See Results →':'Next →';
+  document.getElementById('qSubHint').textContent='';
+  const oc=document.getElementById('optionsContainer');
+  oc.innerHTML='';
+  const letters=['A','B','C','D'];
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='option';
+    btn.innerHTML=`<div class="option-letter">${letters[i]}</div><span class="option-text">${opt}</span>`;
+    btn.onclick=()=>handleAnswer(opt,q,btn,oc,nextBtn,fb);
+    oc.appendChild(btn);
+  });
+}
+
+function handleAnswer(selected,q,clickedBtn,oc,nextBtn,fb){
+  if(answered)return;
+  answered=true;
+  const isCorrect=selected===q.correct;
+  if(isCorrect){scores[domainIdx]++;clickedBtn.classList.add('correct');}
+  else{
+    clickedBtn.classList.add('wrong');
+    oc.querySelectorAll('.option').forEach(btn=>{
+      if(btn.querySelector('.option-text').textContent===q.correct)btn.classList.add('correct');
+    });
+    wrongs.push({q:q.q,your:selected,correct:q.correct,exp:q.e});
+  }
+  oc.querySelectorAll('.option').forEach(b=>b.disabled=true);
+  fb.textContent=isCorrect?`✓ Correct! ${q.e}`:`✗ ${q.e} Correct: ${q.correct}`;
+  fb.className='feedback '+(isCorrect?'correct':'wrong')+' visible';
+  nextBtn.disabled=false;
+  const pcts=scores.map((s,i)=>domainIdx>=i?Math.round((s/Math.min(qIdx+(i===domainIdx?1:0),PER_DOMAIN))*100):0);
+  updateRadar(radarLive,pcts);updateSidebar(pcts);
+}
+
+function nextQ(){
+  if(!answered)return;
+  qIdx++;
+  if(qIdx>=PER_DOMAIN){
+    domainIdx++;qIdx=0;
+    if(domainIdx>=DOMAINS.length){showResults();return;}
+    updateStep(domainIdx+1);
+  }
+  renderQuestion();
+}
+
+function updateStep(si){
+  document.querySelectorAll('#stepBar .step-item').forEach((el,i)=>{
+    el.classList.remove('active','done');
+    if(i<si)el.classList.add('done');
+    else if(i===si)el.classList.add('active');
+  });
+}
+
+function showResults(){
+  document.getElementById('screen-quiz').style.display='none';
+  const rs=document.getElementById('screen-results');
+  rs.classList.add('visible');
+  updateStep(6);
+  const pcts=scores.map(s=>Math.round((s/PER_DOMAIN)*100));
+  const avg=Math.round(pcts.reduce((a,b)=>a+b,0)/DOMAINS.length);
+  if(avg>=80)confetti({particleCount:100,spread:60,origin:{y:0.6}});
+  document.getElementById('resultsScore').textContent=`${avg}%`;
+  document.getElementById('resultsMsg').textContent=avg>=90?"Outstanding mastery across all domains!":avg>=70?"Strong understanding — keep building!":avg>=50?"Good start — your learning path is below.":"Keep going — every expert started here.";
+  radarResults=initRadar('radarResults');
+  updateRadar(radarResults,pcts);
+  const grid=document.getElementById('resultsGrid');
+  grid.innerHTML='';
+  DOMAINS.forEach((d,i)=>{
+    const pct=pcts[i];
+    const level=pct>=80?"Advanced":pct>=50?"Developing":"Foundational";
+    const card=document.createElement('div');
+    card.className=`results-domain-card rdc-${i+1}`;
+    card.innerHTML=`<div class="rdc-name">${d.icon} ${d.name}</div><div class="rdc-score" style="color:var(--c${i+1})">${pct}%</div><span class="rdc-level level-${level}">${level}</span>`;
+    grid.appendChild(card);
+  });
+  const lp=document.getElementById('learningPath');
+  const focus=DOMAINS.filter((_,i)=>pcts[i]<70);
+  if(focus.length===0){
+    lp.innerHTML=`<p style="font-size:0.88rem;color:var(--ink-soft);">🎉 Outstanding fluency across all domains! Consider mentoring colleagues, documenting your own AI playbook, or leading a MedAI Lexicon session for your department.</p>`;
+  } else {
+    lp.innerHTML=`<p style="font-size:0.83rem;font-weight:600;color:var(--ink);margin-bottom:12px;">Recommended focus areas based on your results:</p>${focus.map(d=>{
+      const tips={1:"Review prompt engineering, few-shot, and chain-of-thought in the MedAI Lexicon. Practice with 2–3 clinical prompt templates.",2:"Focus on tokenization, embeddings, and hallucinations in the Lexicon. Try explaining these concepts to a colleague.",3:"Explore RAG, agents, and LoRA. Apply one practical AI workflow to your next clinical or research task.",4:"Study RLHF, guardrails, and bias. Design a small test to check an AI tool for bias in your context.",5:"Sketch an AI workflow for your course, clinic, or research pipeline. Define where AI acts and where humans review."};
+      return `<div style="background:var(--cream);border-radius:var(--rs);padding:12px 14px;margin-bottom:8px;"><strong style="font-size:0.82rem;">${d.icon} ${d.name}</strong><p style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">${tips[d.c]}</p></div>`;
+    }).join('')}`;
+  }
+  const rev=document.getElementById('reviewContainer');
+  rev.innerHTML=wrongs.length===0?`<p style="font-size:0.85rem;color:var(--ink-muted);">Perfect score! You got everything right.</p>`:wrongs.map(w=>`<div class="review-item"><div class="review-item-header"><p style="font-size:0.83rem;font-weight:600;color:var(--ink);">${w.q}</p></div><div class="review-item-body"><p class="review-wrong">Your answer: ${w.your}</p><p class="review-correct">✓ Correct: ${w.correct}</p><p class="review-exp">${w.exp}</p></div></div>`).join('');
+  rs.scrollIntoView({behavior:'smooth'});
+}
+
+// Init radar preview
+document.addEventListener('DOMContentLoaded',()=>{ radarPreview=initRadar('radarPreview'); });
+</script>
 </body>
 </html>
