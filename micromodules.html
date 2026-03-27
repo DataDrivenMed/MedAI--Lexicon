@@ -1,451 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>MedAI MicroModules</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #0f172a; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
-
-    .module-number {
-      position: absolute;
-      top: -16px;
-      left: -16px;
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(to bottom right, #9333ea, #4f46e5);
-      color: white;
-      border-radius: 9999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: bold;
-      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
-      z-index: 10;
-      transition: all 0.4s ease;
-    }
-    .module-number.watched {
-      background: linear-gradient(to bottom right, #10b981, #059669);
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5);
-    }
-
-    .video-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
-    }
-
-    .watched-btn {
-      width: 60px;
-      height: 60px;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(8px);
-      border: 3px solid white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-    .watched-btn:hover {
-      background: rgba(139, 92, 246, 0.9);
-      transform: scale(1.15);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedAI MicroModules — Interactive Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d1117;--ink-soft:#2d3748;--ink-muted:#64748b;--paper:#fafaf8;--cream:#f5f3ee;--gold:#c9933a;--teal:#1a6b6b;--teal-light:#2d9f9f;--rose:#8b3a52;--plum:#5a3a8b;--ocean:#3a6b8b;--border:rgba(13,17,23,0.09);--shadow:0 2px 14px rgba(13,17,23,0.07);--shadow-md:0 8px 32px rgba(13,17,23,0.10);--r:14px;--rs:8px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;}
+header{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 clamp(16px,4vw,52px);}
+.header-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:34px;height:34px;background:var(--ink);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{width:18px;height:18px;}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);}
+.logo-sub{font-size:0.68rem;color:var(--ink-muted);display:block;line-height:1;}
+.nav-back{font-size:0.8rem;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:6px 12px;border-radius:6px;border:1px solid var(--border);display:inline-flex;align-items:center;gap:5px;transition:background 0.14s;}
+.nav-back:hover{background:var(--cream);}
+.hero{max-width:1320px;margin:0 auto;padding:clamp(36px,6vw,72px) clamp(16px,4vw,52px) clamp(20px,3vw,36px);}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:0.7rem;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);background:rgba(201,147,58,0.1);border:1px solid rgba(201,147,58,0.22);border-radius:100px;padding:4px 12px;margin-bottom:16px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--teal);}
+.hero-sub{font-size:0.95rem;color:var(--ink-muted);max-width:560px;line-height:1.7;font-weight:300;margin-bottom:24px;}
+.hero-stats{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.hstat .n{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1;}
+.hstat .l{font-size:0.68rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.06em;}
+.hdiv{width:1px;height:28px;background:rgba(13,17,23,0.14);}
+.prog-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--cream);padding:14px clamp(16px,4vw,52px);}
+.prog-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.prog-txt{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--teal);white-space:nowrap;}
+.prog-lbl{font-size:0.78rem;color:var(--ink-muted);}
+.prog-bar-wrap{flex:1;min-width:180px;max-width:360px;height:7px;background:white;border-radius:4px;overflow:hidden;border:1px solid var(--border);}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-light));border-radius:4px;transition:width 0.6s ease;}
+.prog-reset{font-size:0.72rem;color:var(--ink-muted);background:none;border:1px solid var(--border);border-radius:100px;padding:4px 12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.14s;margin-left:auto;}
+.prog-reset:hover{border-color:var(--rose);color:var(--rose);}
+.main-wrap{max-width:1320px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(16px,4vw,52px) clamp(40px,6vw,80px);}
+.cluster-hdr{display:flex;align-items:center;gap:12px;padding:8px 0 16px;border-top:1px solid var(--border);margin-top:24px;}
+.cluster-hdr:first-child{border-top:none;margin-top:0;}
+.cluster-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.cluster-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);}
+.cluster-count{font-size:0.72rem;color:var(--ink-muted);background:var(--cream);border:1px solid var(--border);border-radius:100px;padding:2px 8px;}
+.modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;margin-bottom:8px;}
+@media(max-width:640px){.modules-grid{grid-template-columns:1fr;}}
+.mod-card{background:white;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow 0.2s,transform 0.2s;}
+.mod-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.mod-card.watched{border-color:rgba(26,107,107,0.25);}
+.card-visual{position:relative;height:148px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.card-num{position:absolute;top:10px;left:10px;z-index:10;width:32px;height:32px;border-radius:7px;background:rgba(13,17,23,0.72);backdrop-filter:blur(6px);color:white;font-family:'Playfair Display',serif;font-size:0.82rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.mod-card.watched .card-num{background:var(--teal);}
+.watch-chk{position:absolute;top:10px;right:10px;z-index:10;width:30px;height:30px;border-radius:7px;background:rgba(13,17,23,0.65);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,0.22);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.18s;}
+.watch-chk:hover{background:rgba(26,107,107,0.9);color:white;border-color:transparent;}
+.mod-card.watched .watch-chk{background:var(--teal);color:white;border-color:transparent;}
+.card-body{padding:14px 16px;}
+.card-ctag{font-size:0.61rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
+.card-title{font-family:'Playfair Display',serif;font-size:0.97rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em;line-height:1.25;margin-bottom:2px;}
+.card-sub{font-size:0.67rem;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;}
+.card-desc{font-size:0.78rem;color:var(--ink-soft);line-height:1.55;margin-bottom:10px;}
+.card-acts{display:flex;align-items:center;gap:6px;padding-top:9px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.btn-exp{display:inline-flex;align-items:center;gap:4px;font-size:0.76rem;font-weight:600;padding:7px 13px;border-radius:var(--rs);background:var(--ink);color:white;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.14s;}
+.btn-exp:hover{background:var(--teal);}
+.btn-yt{display:inline-flex;align-items:center;gap:5px;font-size:0.76rem;font-weight:500;padding:7px 12px;border-radius:var(--rs);background:white;color:#dc2626;border:1px solid rgba(220,38,38,0.2);font-family:'DM Sans',sans-serif;transition:all 0.14s;text-decoration:none;}
+.btn-yt:hover{background:rgba(220,38,38,0.05);border-color:rgba(220,38,38,0.4);}
+.btn-mrk{display:inline-flex;align-items:center;gap:4px;font-size:0.72rem;font-weight:500;padding:7px 10px;border-radius:var(--rs);background:white;color:var(--ink-muted);border:1px solid var(--border);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.14s;margin-left:auto;}
+.btn-mrk:hover{border-color:var(--teal);color:var(--teal);}
+.mod-card.watched .btn-mrk{color:var(--teal);border-color:rgba(26,107,107,0.25);background:rgba(26,107,107,0.05);}
+.card-expand{display:none;border-top:2px solid var(--border);}
+.card-expand.open{display:block;}
+.etabs{display:flex;background:var(--cream);border-bottom:1px solid var(--border);}
+.etab{flex:1;padding:9px 5px;font-size:0.72rem;font-weight:600;text-align:center;cursor:pointer;color:var(--ink-muted);border:none;background:none;transition:all 0.14s;font-family:'DM Sans',sans-serif;border-bottom:2px solid transparent;display:flex;align-items:center;justify-content:center;gap:3px;}
+.etab:hover{color:var(--ink);background:rgba(255,255,255,0.5);}
+.etab.active{color:var(--teal);border-bottom-color:var(--teal);background:white;}
+.tab-panel{display:none;padding:16px 17px 18px;}
+.tab-panel.active{display:block;animation:fIn 0.18s ease;}
+@keyframes fIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+.viz-lbl{font-size:0.65rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:9px;}
+.tok-inp{font-family:'DM Mono',monospace;font-size:0.83rem;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rs);width:100%;outline:none;margin-bottom:9px;background:var(--cream);color:var(--ink);transition:border-color 0.14s;}
+.tok-inp:focus{border-color:var(--teal);}
+.tok-out{display:flex;flex-wrap:wrap;gap:5px;min-height:34px;}
+.tok{display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;font-family:'DM Mono',monospace;font-size:0.73rem;font-weight:500;border:1px solid;animation:pk 0.17s ease;animation-fill-mode:both;}
+@keyframes pk{from{opacity:0;transform:scale(0.8);}to{opacity:1;transform:scale(1);}}
+.tok:nth-child(6n+1){background:rgba(26,107,107,0.1);border-color:rgba(26,107,107,0.2);color:#1a6b6b;}
+.tok:nth-child(6n+2){background:rgba(90,58,139,0.1);border-color:rgba(90,58,139,0.2);color:#5a3a8b;}
+.tok:nth-child(6n+3){background:rgba(58,107,139,0.1);border-color:rgba(58,107,139,0.2);color:#3a6b8b;}
+.tok:nth-child(6n+4){background:rgba(139,58,82,0.1);border-color:rgba(139,58,82,0.2);color:#8b3a52;}
+.tok:nth-child(6n+5){background:rgba(201,147,58,0.1);border-color:rgba(201,147,58,0.2);color:#c9933a;}
+.tok:nth-child(6n+6){background:rgba(107,90,58,0.1);border-color:rgba(107,90,58,0.2);color:#6b5a3a;}
+.tok-cnt{font-size:0.71rem;color:var(--ink-muted);margin-top:6px;font-family:'DM Mono',monospace;}
+.tmp-wrap{display:flex;align-items:center;gap:10px;margin-bottom:11px;}
+.tmp-slider{flex:1;-webkit-appearance:none;height:6px;border-radius:3px;background:linear-gradient(90deg,#1a6b6b,#c9933a,#8b3a52);outline:none;}
+.tmp-slider::-webkit-slider-thumb{-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:white;border:2px solid var(--ink);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+.tmp-val{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--ink);min-width:32px;text-align:center;}
+.tmp-lbl{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-muted);margin-bottom:4px;}
+.tmp-out{padding:9px 12px;border-radius:var(--rs);border:1px solid var(--border);font-size:0.81rem;color:var(--ink-soft);line-height:1.5;transition:opacity 0.2s;background:white;}
+.attn-sent{font-size:0.88rem;line-height:2.1;color:var(--ink-soft);margin-bottom:9px;}
+.aw{cursor:pointer;padding:2px 4px;border-radius:4px;transition:all 0.17s;display:inline-block;}
+.aw.src{background:var(--teal);color:white;}
+.aw.hi{background:rgba(26,107,107,0.28);color:var(--ink);}
+.aw.md{background:rgba(26,107,107,0.1);color:var(--ink);}
+.aw.lo{background:rgba(26,107,107,0.03);color:var(--ink-muted);}
+.aw:hover{background:rgba(26,107,107,0.12);}
+.attn-hint{font-size:0.73rem;color:var(--ink-muted);font-style:italic;}
+.rag-step{display:flex;align-items:flex-start;gap:10px;padding:8px 0;position:relative;}
+.rag-step:not(:last-child)::after{content:'';position:absolute;left:14px;top:36px;bottom:0;width:2px;background:rgba(13,17,23,0.08);}
+.rag-ico{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;z-index:1;position:relative;transition:box-shadow 0.3s;}
+.rag-step.active .rag-ico{box-shadow:0 0 0 3px rgba(26,107,107,0.2);}
+.rag-t{font-size:0.77rem;font-weight:700;color:var(--ink);margin-bottom:1px;}
+.rag-d{font-size:0.72rem;color:var(--ink-muted);line-height:1.4;}
+.rag-btn{font-size:0.74rem;font-weight:600;padding:6px 12px;border-radius:var(--rs);background:var(--teal);color:white;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:9px;display:inline-flex;align-items:center;gap:4px;}
+.sc-wrap{height:150px;margin-bottom:7px;}
+.sc-wrap canvas{width:100%;height:100%;}
+.sc-legend{display:flex;gap:12px;flex-wrap:wrap;}
+.sl-i{display:flex;align-items:center;gap:4px;font-size:0.7rem;color:var(--ink-muted);}
+.sl-d{width:7px;height:7px;border-radius:50%;}
+.hl-q{font-size:0.83rem;font-weight:600;color:var(--ink);margin-bottom:9px;padding:9px 12px;background:var(--cream);border-radius:var(--rs);border-left:3px solid var(--teal);}
+.hl-a{padding:9px 12px;border-radius:var(--rs);border:1.5px solid var(--border);font-size:0.79rem;line-height:1.5;cursor:pointer;transition:all 0.15s;background:white;margin-bottom:6px;}
+.hl-a:hover{border-color:var(--ink-muted);}
+.hl-tag{font-size:0.61rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:2px 6px;border-radius:100px;margin-bottom:3px;display:none;}
+.hl-a.revealed .hl-tag{display:inline-block;}
+.hl-a.revealed.real{border-color:#16a34a;background:rgba(22,163,74,0.04);}
+.hl-a.revealed.fake{border-color:#dc2626;background:rgba(220,38,38,0.04);}
+.hl-a.real .hl-tag{background:rgba(22,163,74,0.1);color:#16a34a;}
+.hl-a.fake .hl-tag{background:rgba(220,38,38,0.08);color:#dc2626;}
+.hl-try{font-size:0.73rem;font-weight:600;padding:6px 12px;border-radius:var(--rs);background:var(--ink);color:white;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;display:none;margin-top:4px;}
+.an-box{display:flex;gap:11px;background:linear-gradient(135deg,rgba(26,107,107,0.06),rgba(201,147,58,0.06));border:1px solid rgba(26,107,107,0.12);border-radius:var(--rs);padding:13px;margin-bottom:11px;}
+.an-icon{font-size:1.7rem;flex-shrink:0;}
+.an-title{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.an-text{font-size:0.84rem;color:var(--ink-soft);line-height:1.6;}
+.kp-list{display:flex;flex-direction:column;gap:6px;}
+.kp{display:flex;align-items:flex-start;gap:8px;font-size:0.79rem;color:var(--ink-soft);}
+.kp-d{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:8px;}
+.mq-q{font-size:0.86rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:9px;}
+.mq-opts{display:flex;flex-direction:column;gap:6px;}
+.mq-o{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rs);cursor:pointer;transition:all 0.13s;background:white;font-size:0.8rem;color:var(--ink-soft);width:100%;text-align:left;font-family:'DM Sans',sans-serif;}
+.mq-o:hover:not([disabled]){border-color:var(--teal);background:rgba(26,107,107,0.04);}
+.mq-o.correct{border-color:#16a34a;background:rgba(22,163,74,0.06);color:#166534;}
+.mq-o.wrong{border-color:#dc2626;background:rgba(220,38,38,0.05);color:#991b1b;}
+.mq-l{width:19px;height:19px;border-radius:4px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.64rem;font-weight:700;flex-shrink:0;transition:all 0.13s;}
+.mq-o.correct .mq-l{background:#16a34a;border-color:#16a34a;color:white;}
+.mq-o.wrong .mq-l{background:#dc2626;border-color:#dc2626;color:white;}
+.mq-fb{font-size:0.77rem;padding:8px 11px;border-radius:var(--rs);margin-top:6px;display:none;}
+.mq-fb.show{display:block;}
+.mq-fb.ok{background:rgba(22,163,74,0.07);border:1px solid rgba(22,163,74,0.18);color:#166534;}
+.mq-fb.no{background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.15);color:#991b1b;}
+.mq-retry{font-size:0.74rem;font-weight:600;padding:6px 12px;border-radius:var(--rs);background:var(--ink);color:white;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;display:none;margin-top:7px;}
+.mq-retry.show{display:inline-flex;}
+footer{border-top:1px solid var(--border);background:var(--ink);padding:26px clamp(16px,4vw,52px);}
+.fi{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.fb{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:white;margin-bottom:3px;}
+.fd{font-size:0.7rem;color:rgba(255,255,255,0.4);max-width:380px;line-height:1.5;}
+.fl{display:flex;gap:16px;}
+.fl a{font-size:0.77rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.14s;}
+.fl a:hover{color:white;}
+</style>
 </head>
-<body class="min-h-screen flex flex-col">
-  <div class="flex-1">
-    <header class="bg-slate-900 text-slate-50 border-b border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
-        <div>
-          <h1 class="text-3xl md:text-4xl font-bold tracking-tight">MedAI MicroModules</h1>
-          <p class="text-base md:text-lg text-slate-300 mt-2">15 bite-sized videos · ~2 hours total</p>
-        </div>
-        <a href="index.html" class="text-slate-300 hover:text-white underline text-sm">← Back to Lexicon</a>
-      </div>
-    </header>
-
-    <!-- PROGRESS + INSTRUCTION -->
-    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 py-8 border-b border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-2xl font-bold text-purple-800 mb-2">
-          Click the black circle on each video when you've finished watching
-        </p>
-        <p class="text-lg text-slate-600">It turns green · progress saves forever · come back anytime</p>
-      </div>
-      <div class="max-w-7xl mx-auto px-4 mt-8 flex flex-col md:flex-row items-center justify-center gap-6">
-        <div class="text-center">
-          <div class="text-5xl font-bold text-purple-700" id="progress-text">0 / 15</div>
-          <p class="text-slate-600">modules completed</p>
-        </div>
-        <div class="w-full max-w-md bg-slate-200 rounded-full h-8 overflow-hidden">
-          <div id="progress-bar" class="h-full bg-gradient-to-r from-purple-600 to-indigo-700 rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP-BY-STEP (smaller fonts as you asked) -->
-    <div class="text-center py-16">
-      <p class="text-3xl font-bold text-purple-800 mb-4">Watch Step-by-Step</p>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
-        This series is carefully sequenced — each video builds on the last.<br class="hidden md:block">
-        Start at Module 01 and go in order for the deepest understanding.
-      </p>
-      <a href="#module-01" class="inline-block px-10 py-4 bg-gradient-to-r from-purple-600 to-indigo-700 text-white text-xl font-semibold rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
-        Begin the Journey →
-      </a>
-    </div>
-
-    <main class="max-w-7xl mx-auto px-4 pb-32">
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
-
-        <!-- ALL 15 MODULES — FULLY CODED BELOW -->
-
-        <div id="module-01" class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="1">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-1">01</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/K3rdzhvTMt8" title="Building an LLM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">Building an LLM</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">The Internet is the Dataset</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Intro to pre-training; downloading/processing internet data (e.g., FineWeb); biases in medical sources like PubMed vs. forums.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="2">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-2">02</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/2sMkivLF784" title="From Text to Tokens:The Lego Blocks of LLMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">From Text to Tokens:<br>The Lego Blocks of LLMs</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Tokens: The Lego Blocks of LLMs</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Tokenization process; byte-pair encoding; med example: Tokenizing patient symptoms or rare disease terms.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="3">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-3">03</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/oUrjxTEqU5s" title="How AI Learns to Write: Neural Network I/O and Internals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">How AI Learns to Write:<br>Neural Network I/O and Internals</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Neural Network I/O and Internals</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Input/output of neural nets; Transformer architecture; how LLMs "compress" medical knowledge like diagnostic patterns.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="4">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-4">04</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/wAnjuwu2zYg" title="Unlocking AI Training to Talking: LLM Inference, Optimization, and the Compute Rush" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">Unlocking AI Training to Talking</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Inference and Base Model Examples</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Generating text (inference); base models like GPT-2/Llama; med tie: Predicting next symptoms in a case history.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="5">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-5">05</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/NZJFCB-tuqs" title="LLM Training Simulator to Assistant: The Post-Training Path to LLM Assistants" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">LLM Training Simulator to Assistant</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Pretraining to Post-Training Transition</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Shift from pre-training to fine-tuning; overview of stages; med: Building general knowledge before clinical specialization.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="6">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-6">06</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/sCggXMOu6tE" title="Training ChatGPT's Behavior: Training and Encoding LLM Conversational Behavior" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">Training ChatGPT's Behavior</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Post-Training Data: Conversations and SFT</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Supervised fine-tuning on conversations; human labelers; med: Curating ideal responses for patient Q&A or ethics.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="7">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-7">07</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/oVvhfaCDpCY" title="LLM Hallucinations:Hallucinations: The #1 Risk in Medicine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">LLM Hallucinations</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Hallucinations: The #1 Risk in Medicine</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Causes/mitigations for hallucinations; tool use; med: Risks like invented drug interactions or false diagnoses.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="8">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-8">08</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/DZgKa06uDhI" title="Engineering the AI Self: Fabricating the LLM Sense of Self" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">Engineering the AI Self</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Self-Knowledge Tricks & Limitations</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Model's lack of self-awareness (e.g., knowledge cutoffs); med: Prompting for transparency in evidence-based advice.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="9">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-9">09</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/kvGTNOCFOGw" title="Tokens to Think, Tools to Work:Models Need Tokens to Think" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">Tokens to Think, Tools to Work</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Models Need Tokens to Think</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Chain-of-thought reasoning; tokens as "thinking space"; med: Step-by-step differentials to avoid errors.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="10">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-10">10</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/q7ZStuXUSV8" title="The Jagged Edges of LLM Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">The Jagged Edges of LLM Performance</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Tokenization Revisited: Spelling and Jagged Intelligence</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Tokenization flaws (e.g., spelling/math issues); jagged capabilities; med: Miscounting lab values or syndrome names.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="11">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-11">11</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/68hnzITENCI" title="Architecting AI Assistants: Modeling Assistant Intelligence: Imitation and Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">Architecting AI Assistants</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">From Supervised Fine-Tuning to Reinforcement Learning</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Transition to RL; analogies to med training (e.g., practice problems); med: Aligning for accurate consultations.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="12">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-12">12</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/AeZpYU6UUCs" title="LLM Training Self Discovery: : Optimizing Token Sequences with RL" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">LLM Training Self Discovery</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Reinforcement Learning Process and Examples</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">RL basics; trial-and-error; med: Optimizing for better diagnostic simulations or treatment plans.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="13">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 12l4.5 4.5L18 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-13">13</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/6H6EKUWwZVg" title="Emergent Reasoning: Fabricating the LLM Sense of Self" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">Emergent Reasoning</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">DeepSeek-R1 and Advanced RL Models</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Examples like DeepSeek-R1, AlphaGo; emergent strategies; med: Potential for novel research insights.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="14">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 12l4.5 4.5L18 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-14">14</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/UQSWFrS1Ij4" title="RL from human feedback; gaming issues; med: Ensuring helpful, harmless responses in high-stakes care." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">RLHF: Aligning Models to Be Good Doctors</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">RL from human feedback; gaming issues</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">RL from human feedback; gaming issues; med: Ensuring helpful, harmless responses in high-stakes care.</p>
-          </div>
-        </div>
-
-        <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500 video-card">
-          <label class="absolute top-6 right-6 z-30 cursor-pointer group">
-            <input type="checkbox" class="watched-checkbox sr-only" data-module="15">
-            <div class="watched-btn">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 12l4.5 4.5L18 7" class="scale-0 transition-transform duration-300"/>
-              </svg>
-            </div>
-          </label>
-          <span class="module-number" id="num-15">15</span>
-          <div class="aspect-video bg-black rounded-t-3xl overflow-hidden">
-            <iframe class="w-full h-full scale-[1.001]" src="https://www.youtube.com/embed/wcVwecbNnLw" title="LLM Frontiers: Decoding LLMs: Modalities, Agents, and the Ecosystem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-slate-900">LLM Frontiers</h3>
-            <p class="text-purple-700 font-medium text-sm uppercase tracking-wider mt-3">Decoding LLMs: Modalities, Agents, and the Ecosystem</p>
-            <p class="text-slate-600 mt-5 leading-relaxed">Multimodality, agents, test-time training; med: Roadmap for diagnostics, supervision, ethical integration.</p>
-          </div>
-        </div>
-
-      </div>
-    </main>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 2v12M3 6l7 4 7-4" stroke="white" stroke-width="1.5"/></svg></div>
+      <div><span class="logo-text">MedAI Lexicon</span><span class="logo-sub">by Ram Paragi</span></div>
+    </a>
+    <a href="index.html" class="nav-back"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to Lexicon</a>
   </div>
+</header>
+<section class="hero">
+  <div class="badge">🎬 Interactive Learning Series</div>
+  <h1>MedAI <em>MicroModules</em></h1>
+  <p class="hero-sub">15 modules — each with an interactive visualizer, clinical analogy, and mini-quiz. Click <strong>Explore</strong> on any card to dive in. Watch the companion video directly on YouTube.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="n">15</div><div class="l">Modules</div></div>
+    <div class="hdiv"></div>
+    <div class="hstat"><div class="n">3</div><div class="l">Learn Modes</div></div>
+    <div class="hdiv"></div>
+    <div class="hstat"><div class="n">15</div><div class="l">Mini-Quizzes</div></div>
+  </div>
+</section>
+<div class="prog-strip">
+  <div class="prog-inner">
+    <div><div class="prog-txt"><span id="doneCount">0</span> / 15</div><div class="prog-lbl">modules completed</div></div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
+    <button class="prog-reset" onclick="resetAll()">Reset progress</button>
+  </div>
+</div>
+<div class="main-wrap" id="root"></div>
+<footer>
+  <div class="fi">
+    <div><div class="fb">MedAI Lexicon</div><p class="fd">An educational tool, not a medical device. Always confirm AI outputs against current clinical guidelines.</p></div>
+    <div class="fl"><a href="index.html">Lexicon</a><a href="fluency-studio-v2.html">Fluency Studio</a><a href="https://swimed.substack.com/" target="_blank">Substack</a></div>
+  </div>
+</footer>
+<script>
+const MODS=[
+{id:1,cl:"Foundations",cc:"#1a6b6b",title:"Building an LLM",sub:"The Internet is the Dataset",desc:"Pre-training, internet data processing, and how medical source biases shape model knowledge.",yt:"K3rdzhvTMt8",viz:"tok",aicon:"🌊",atitle:"The Ocean of Text",atext:"Building an LLM is like teaching a child to read by giving them access to every book, forum, website, and medical journal ever written. The model learns patterns of language — not facts. PubMed gives it medical precision; Reddit gives it casual reasoning. The mix shapes both its strengths and its blind spots.",apts:["Training uses hundreds of billions of words from the public internet","Medical text is a small fraction — most training is general text","Rare conditions appear so infrequently that model patterns for them are weak","This explains strong general reasoning but unreliable rare-disease detail"],qq:"Why might an LLM give imprecise answers about a rare disease?",qo:["It runs out of processing power","Rare diseases are underrepresented in training data so patterns are weak","The model refuses medical questions","It needs a separate medical database"],qc:1,qe:"Rare conditions appear infrequently in training data, so the model has fewer pattern examples. This directly increases hallucination and vagueness risk for rare-disease queries."},
+{id:2,cl:"Foundations",cc:"#1a6b6b",title:"From Text to Tokens",sub:"The Lego Blocks of LLMs",desc:"Tokenization, byte-pair encoding, and how rare medical terms fragment into many tokens affecting cost and context.",yt:"2sMkivLF784",viz:"tok",aicon:"🧩",atitle:"The Lego Analogy",atext:"The model never sees the word 'Myocardial infarction' — it sees 'My', 'ocard', 'ial', 'inf', 'arc', 'tion' as separate Lego pieces. It reassembles meaning from fragments, which is why counting characters or interpreting rare abbreviations can trip it up completely.",apts:["1 token is approximately 0.75 words in English","Rare medical terms often split into 3-6 fragments each","Token limits determine how much clinical text the model can process at once","API cost is calculated per token — long notes cost proportionally more"],qq:"A patient note is 4,000 words. Roughly how many tokens is this?",qo:["~1,000 tokens","~3,000 tokens","~5,300 tokens","~10,000 tokens"],qc:2,qe:"Approximately 4,000 ÷ 0.75 = 5,333 tokens. Understanding this helps estimate context window usage and API costs when processing long clinical documents."},
+{id:3,cl:"Foundations",cc:"#1a6b6b",title:"How AI Learns to Write",sub:"Neural Network I/O and Internals",desc:"Transformer architecture, attention mechanism, and how the model compresses medical knowledge like diagnostic patterns into weights.",yt:"oUrjxTEqU5s",viz:"attn",aicon:"🧠",atitle:"The Selective Focus Analogy",atext:"A transformer doesn't read a clinical note word by word. It reads the entire note at once and asks: which parts of this text are most relevant to each other? This attention mechanism works like an experienced clinician who immediately zeroes in on the relevant history, the abnormal lab, and the key medication — not every word equally.",apts:["Transformers process all tokens simultaneously, not sequentially","Attention weights reveal which tokens the model focuses on for each prediction","Multiple attention heads specialize in different relationships: drugs, pronouns, negations, dosing","Longer notes require more attention computations — driving cost and occasional performance drops"],qq:"What does the attention mechanism allow a transformer to do?",qo:["Process images instead of text","Relate any token to any other token regardless of distance","Memorize medical textbooks","Generate images from text"],qc:1,qe:"Attention allows any token to relate to any other token in the input regardless of distance — enabling the model to connect 'he' to 'patient' 200 words apart, or link a drug name to its dose and indication."},
+{id:4,cl:"Foundations",cc:"#1a6b6b",title:"Unlocking AI Training to Talking",sub:"Inference and Base Model Examples",desc:"Text generation via inference, base models, and how temperature controls output randomness for clinical vs. creative tasks.",yt:"wAnjuwu2zYg",viz:"temp",aicon:"🎲",atitle:"The Autocomplete Analogy",atext:"At its core, every LLM does one thing: predict the most likely next word. A base model is like your phone's autocomplete but trained on the entire internet. It hasn't learned to be helpful yet — it's learned what words follow each other. Temperature is the dial: pick the top word every time (precise), or sample from possibilities (varied).",apts:["Base models predict next tokens — they are not inherently helpful assistants","Temperature 0 = always pick the most likely token — deterministic, reproducible","Temperature 1 = sample proportionally from possibilities — varied, creative","Clinical tasks need low temperature; brainstorming benefits from higher settings"],qq:"For a clinical decision support question needing a stable, reproducible answer, you should use:",qo:["High temperature (0.9+)","Medium temperature (0.5)","Low temperature (0 to 0.2)","Temperature doesn't affect reproducibility"],qc:2,qe:"Low temperature makes the model consistently select the highest-probability tokens, yielding reproducible outputs. This is essential for clinical tasks where the same question must reliably get the same accurate answer."},
+{id:5,cl:"Foundations",cc:"#1a6b6b",title:"LLM Simulator to Assistant",sub:"Pretraining to Post-Training Transition",desc:"The shift from pretraining on internet data to fine-tuning for helpfulness, including LoRA and RLHF.",yt:"NZJFCB-tuqs",viz:"scale",aicon:"🏥",atitle:"The Medical Training Analogy",atext:"Pretraining is medical school: the model learns everything from every textbook and website. Fine-tuning is residency: specialized training on curated domain data. Post-training (RLHF) is attending feedback: shaping behavior to be helpful, cautious, and appropriately uncertain. Each stage has a different cost, duration, and purpose.",apts:["Pretraining uses hundreds of billions of tokens over weeks on large GPU clusters","Fine-tuning uses thousands to millions of curated examples over hours to days","LoRA fine-tuning updates only ~0.1% of parameters — like adding a specialty module cheaply","RLHF bakes in human preferences for helpfulness and safety"],qq:"A hospital wants to fine-tune an LLM on their clinical notes. What is the most important first consideration?",qo:["Using the largest available model","Ensuring PHI is properly de-identified or handled under a BAA before any training","Using high temperature during training","Skipping validation after fine-tuning"],qc:1,qe:"Fine-tuning on clinical notes involves PHI. Before any data can be used for model training it must be properly de-identified or handled under a Business Associate Agreement (BAA) with the AI vendor."},
+{id:6,cl:"Alignment",cc:"#5a3a8b",title:"Training ChatGPT's Behavior",sub:"Post-Training Data: SFT and Conversations",desc:"Supervised fine-tuning on conversations, human labelers, and how this shapes model personality for medical contexts.",yt:"sCggXMOu6tE",viz:"rag",aicon:"👨‍⚕️",atitle:"The Residency Feedback Analogy",atext:"After pretraining, a model knows a lot but doesn't know how to be helpful. Supervised Fine-Tuning (SFT) is like showing a resident examples of ideal attending responses: 'when a patient asks X, this is how a good clinician responds.' The model learns to imitate high-quality examples. The quality of the examples shapes the quality of the behavior.",apts:["SFT trains the model to imitate human-written ideal conversations","Labeler quality and instruction diversity directly shape model personality and safety","Clinical SFT data can teach appropriate uncertainty, evidence-citing, and patient communication","This is how base models become helpful chat assistants"],qq:"Supervised Fine-Tuning (SFT) primarily teaches the model to:",qo:["Memorize more medical facts","Generate responses that match human-defined ideal answers","Predict tokens faster","Eliminate hallucinations completely"],qc:1,qe:"SFT trains the model to imitate high-quality human-written responses. It shapes conversational style, helpfulness, and appropriate format — not factual knowledge, which comes from pretraining."},
+{id:7,cl:"Alignment",cc:"#5a3a8b",title:"LLM Hallucinations",sub:"The #1 Risk in Medicine",desc:"Causes and mitigations for hallucinations; risks including invented citations, wrong dosing, and fabricated diagnoses.",yt:"oVvhfaCDpCY",viz:"halluc",aicon:"😰",atitle:"The Overconfident Trainee Analogy",atext:"Hallucinations happen because LLMs are trained to always produce fluent, plausible text — never to say 'I don't know.' The danger: a hallucinating model sounds exactly like a correct one. Specific citations, statistics, and drug interaction details are the highest-risk hallucination zones in clinical practice.",apts:["LLMs generate statistically plausible text — they don't verify factual accuracy","Highest risk: specific citations, drug doses, rare disease details, recent guidelines","RAG dramatically reduces hallucinations by grounding answers in real retrieved documents","Always verify: cited papers, specific numbers, dosing calculations, diagnostic criteria"],qq:"An AI gives a detailed answer citing 'Chen et al. 2021 in Lancet' about metformin in CKD. What is the most appropriate next step?",qo:["Accept it — it is detailed and specific","Ask the AI to repeat its answer to verify","Search PubMed to verify the study actually exists and the findings are accurate","Assume it is correct because it cited a specific year and journal"],qc:2,qe:"Specific citations including author names, years, and journals are a high-risk hallucination zone. Always verify against PubMed or the original journal before acting on or sharing AI-generated citations."},
+{id:8,cl:"Alignment",cc:"#5a3a8b",title:"Engineering the AI Self",sub:"Self-Knowledge, Cutoffs and Limitations",desc:"Knowledge cutoffs, lack of real-time awareness, and how to prompt for transparency in evidence-based advice.",yt:"DZgKa06uDhI",viz:"halluc",aicon:"📅",atitle:"The Time Capsule Analogy",atext:"An LLM's knowledge has a cutoff date — like a physician who went into a coma in late 2023 and just woke up. Everything before the cutoff: encyclopedic. Everything after: blank. But unlike a physician who knows they missed time, the model may not volunteer this. New drug approvals, updated guidelines, and recent trial results are invisible after the cutoff.",apts:["Every LLM has a training data cutoff — typically 6-18 months before public release","The model cannot know about events, approvals, or guidelines after its cutoff","RAG can inject current documents to bridge this knowledge gap","Always ask: is this topic likely to have changed since the model's training data?"],qq:"A new anticoagulant was FDA-approved 3 months ago. You ask an LLM for its dosing. What is most likely?",qo:["Accurate dosing because the model learns in real-time","Accurate historical information but potential hallucination of details for this new drug","Refusal to answer drug dosing questions","Automatic web search before answering"],qc:1,qe:"If the drug was approved after the training cutoff, the model won't have accurate information and may hallucinate plausible-sounding dosing based on similar older drugs. Always verify new drug information against current prescribing information."},
+{id:9,cl:"Alignment",cc:"#5a3a8b",title:"Tokens to Think, Tools to Work",sub:"Chain-of-Thought and Tool Use",desc:"Chain-of-thought reasoning, tokens as scratch paper, and step-by-step differentials to audit clinical AI reasoning.",yt:"kvGTNOCFOGw",viz:"attn",aicon:"📝",atitle:"The Show Your Work Analogy",atext:"'Think step by step' is one of the most powerful phrases in prompting. You are giving the model permission to use tokens as scratch paper. Without it, the model jumps to conclusions. With it, it builds a reasoning chain you can audit — like the difference between a student writing only an answer versus showing a full differential diagnosis with reasoning.",apts:["Chain-of-thought (CoT) prompting elicits intermediate reasoning steps","CoT dramatically improves accuracy on multi-step problems like complex differentials","The reasoning chain is auditable — you can catch logical errors before they reach the conclusion","Simply adding 'think step by step' or 'reason through this before answering' activates CoT"],qq:"Which prompt is most likely to let you catch reasoning errors in an AI differential diagnosis?",qo:["What is the diagnosis?","Give me the top diagnosis in one sentence","Think step by step through the differential, then state your top diagnosis with reasoning","Be confident in your answer"],qc:2,qe:"Chain-of-thought prompting externalizes the model's reasoning chain, making errors visible and catchable before they reach the final conclusion. The other prompts push for immediate answers without auditable reasoning."},
+{id:10,cl:"Capabilities",cc:"#3a6b8b",title:"Jagged Edges of LLM Performance",sub:"Tokenization Flaws and Uneven Intelligence",desc:"Tokenization-driven weaknesses in character counting and arithmetic, and how capability is uneven across tasks.",yt:"q7ZStuXUSV8",viz:"tok",aicon:"⚡",atitle:"The Jagged Frontier Analogy",atext:"LLM capabilities are not uniformly distributed. A model can write a beautiful essay on heart failure then fail to count letters in 'Rhabdomyolysis.' This jaggedness comes from tokenization — the model processes tokens, not characters. It has no direct character-level access. Complex arithmetic, precise drug calculations, and rare clinical details all fall into unexpected capability gaps.",apts:["LLMs are brilliant in some areas and surprisingly weak in others","Weak spots: character counting, precise arithmetic, letter-level tasks","Medical high-risk: drug dose calculations, rare disease details, recent clinical data","Never assume capability transfers uniformly — always test your specific use case"],qq:"A resident uses an AI to calculate Cockcroft-Gault creatinine clearance. What is the key risk?",qo:["The model charges extra for math questions","The model may make arithmetic errors or misapply the formula","The model will refuse medical calculations","The model is always accurate for simple arithmetic"],qc:1,qe:"LLMs can make arithmetic errors, especially with multi-step calculations or unusual input values. Always verify drug dosing calculations independently — never rely solely on AI for precision calculations with patient safety implications."},
+{id:11,cl:"Capabilities",cc:"#3a6b8b",title:"Architecting AI Assistants",sub:"From SFT to Reinforcement Learning",desc:"The transition from supervised imitation to RL, RLHF mechanics, and how reward design shapes model behavior.",yt:"68hnzITENCI",viz:"rag",aicon:"🏆",atitle:"The Board Exam Analogy",atext:"After SFT (watching good examples), the model learns through reinforcement — like doing thousands of board exam practice problems. It receives feedback (helpful or not, accurate or not) and adjusts its strategy to maximize rewards. This allows discovery of reasoning strategies not explicitly in the training data, similar to how residents move from memorization to clinical judgment.",apts:["RL allows the model to discover strategies not explicitly present in training data","The reward signal encodes values: helpfulness, safety, accuracy, appropriate hedging","Reward hacking: models can optimize for appearing helpful rather than being helpful","RLHF is most common: human raters score outputs and those ratings train a reward model"],qq:"RLHF primarily shapes which aspect of model behavior?",qo:["The model's factual medical knowledge","The model's behavioral tendencies — how it responds, when it hedges, what it prioritizes","The model's memory capacity","The token limit"],qc:1,qe:"RLHF adjusts the model's behavioral policies — whether it is helpful, how it handles uncertainty, whether it declines dangerous requests. It does not add factual knowledge; that comes from pretraining."},
+{id:12,cl:"Capabilities",cc:"#3a6b8b",title:"LLM Training Self Discovery",sub:"Reinforcement Learning Process",desc:"RL trial-and-error, reward hacking, and calibration — knowing what the model knows and does not know.",yt:"AeZpYU6UUCs",viz:"scale",aicon:"🔬",atitle:"The Calibration Analogy",atext:"RL training is like calibrating a diagnostic test. You run many trials, compare to ground truth, and iteratively adjust. But unlike a lab test with objective results, RL in LLMs uses human raters — introducing their biases. If raters prefer confident-sounding answers, the model learns to sound confident even when uncertain. Calibration: a good model knows what it does not know.",apts:["RL optimizes for reward signals — reward design is the critical engineering challenge","Reward hacking: models find shortcuts that score high but are not truly helpful","Human rater biases become encoded as model biases through the reward model","Well-calibrated models express uncertainty proportional to actual uncertainty — rare and valuable"],qq:"If RLHF raters consistently reward confident-sounding answers over appropriately uncertain ones, what does the model learn?",qo:["To become more accurate over time","To hedge every response","To sound overly confident even when uncertain, increasing hallucination risk","To refuse all uncertain questions"],qc:2,qe:"RLHF bakes in rater preferences. If raters reward confidence, the model learns to express confidence regardless of actual certainty. This is a key mechanism behind confident hallucinations in clinical AI contexts."},
+{id:13,cl:"Capabilities",cc:"#3a6b8b",title:"Emergent Reasoning",sub:"DeepSeek-R1 and Advanced RL Models",desc:"Phase transitions in capability at scale, emergent abilities, and why capability prediction is so difficult.",yt:"6H6EKUWwZVg",viz:"scale",aicon:"🌅",atitle:"The Phase Transition Analogy",atext:"Emergent abilities are phase transitions. Water does not get 'more wet' as you cool it — it suddenly becomes ice at 0°C. Similarly, a 7B parameter model cannot reliably do multi-step reasoning. The same architecture at 70B suddenly can — not because it improved slightly, but because a capability threshold was crossed. This makes capability prediction difficult and safety research critical.",apts:["Emergent abilities appear at scale thresholds — absent in small models, present in large ones","Cannot be predicted by extrapolating from smaller model performance","Examples: in-context learning, chain-of-thought reasoning, translation without explicit training","Clinical: always validate a new model version independently — it may have a very different capability profile"],qq:"A medical school pilots a 7B parameter model and finds it unreliable for complex reasoning. They switch to 70B. What should they do?",qo:["Assume the 70B model is reliable because it is larger","Deploy immediately since larger always means better","Conduct independent validation of specific tasks in their clinical context before deployment","Ask the vendor whether the model has emergent abilities"],qc:2,qe:"Even if a larger model demonstrates emergent capabilities, these must be validated in the specific clinical context before deployment. Emergent abilities are unpredictable and may not include the exact tasks you need."},
+{id:14,cl:"Safety",cc:"#8b3a52",title:"RLHF: Aligning Models to Good Practice",sub:"RL from Human Feedback Deep Dive",desc:"RLHF mechanics, reward gaming, guardrail calibration, and ensuring helpful and safe clinical AI responses.",yt:"UQSWFrS1Ij4",viz:"halluc",aicon:"⚖️",atitle:"The Institutional Policy Analogy",atext:"Guardrails are to AI what institutional policies are to clinical practice — they set boundaries without replacing judgment. A safety filter is like the pharmacy check that flags dangerous drug interactions: it doesn't decide the treatment, but it catches known hazards. The risk: over-tuned guardrails block legitimate clinical questions; under-tuned ones miss genuine risks.",apts:["Guardrails can be implemented at model level, system prompt level, or post-processing level","Content filters, refusal behaviors, and policy rules all constitute guardrails","False positive guardrails block legitimate clinical queries — a significant usability problem","Always test guardrails adversarially in your clinical context before production deployment"],qq:"A clinical AI tool refuses a legitimate question about opioid dosing in palliative care. This is an example of:",qo:["The model hallucinating","A false positive from an over-tuned safety guardrail","Correct model behavior that protects all patients","The model running out of tokens"],qc:1,qe:"Over-tuned guardrails can block legitimate clinical queries. A palliative care physician asking about opioid dosing is a valid, high-stakes clinical need. Guardrails need calibration for professional clinical context, not just general consumer safety."},
+{id:15,cl:"Safety",cc:"#8b3a52",title:"LLM Frontiers",sub:"Modalities, Agents and the Future",desc:"Multimodality, agentic AI, test-time training, and the roadmap for AI integration in clinical and research workflows.",yt:"wcVwecbNnLw",viz:"rag",aicon:"🚀",atitle:"The Multidisciplinary Team Analogy",atext:"The future of clinical AI is a multidisciplinary team working in parallel: a vision model reading the CT, a text model reviewing the notes, an audio model transcribing the patient interview, and an orchestration layer synthesizing it all — with a human physician reviewing and making the final call. Agents don't replace the physician; they handle information synthesis so the physician can focus on judgment.",apts:["Multimodal models process text, images, and audio in a unified framework","Agents chain multiple model calls and tools to complete complex multi-step tasks","RAG keeps agents grounded in real documents — dramatically reducing hallucination","Human-in-the-loop checkpoints remain essential for all high-stakes clinical decisions"],qq:"An AI agent autonomously synthesizes treatment recommendations from PubMed and sends them to the patient chart. What critical element is missing?",qo:["The agent should search more papers","Human physician review before the recommendation reaches the chart","The agent needs a larger context window","The agent should use higher temperature"],qc:1,qe:"Human-in-the-loop is essential for any AI workflow reaching the patient record. Autonomous agents without human review checkpoints pose real patient safety risks and significant liability concerns."}
+];
 
-  <footer class="border-t border-slate-200 bg-slate-50 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 py-10 text-center text-sm text-slate-500">
-      MedAI MicroModules © 2025 Ram Paragi • Educational resource • Not medical advice
-    </div>
-  </footer>
+const CLUSTER_ORDER=["Foundations","Alignment","Capabilities","Safety"];
+const CLUSTER_FULL={"Foundations":"Foundations","Alignment":"Alignment & Behavior","Capabilities":"Capabilities & Limits","Safety":"Safety & Frontiers"};
+const CLUSTER_COLORS={"Foundations":"#1a6b6b","Alignment":"#5a3a8b","Capabilities":"#3a6b8b","Safety":"#8b3a52"};
 
-  <script>
-    const checkboxes = document.querySelectorAll('.watched-checkbox');
-    const progressText = document.getElementById('progress-text');
-    const progressBar = document.getElementById('progress-bar');
+function getW(){try{return JSON.parse(localStorage.getItem('mmal2')||'{}')}catch{return {}}}
+function setW(id,v){const w=getW();if(v)w[id]=true;else delete w[id];localStorage.setItem('mmal2',JSON.stringify(w))}
+function resetAll(){if(confirm('Reset all progress?')){localStorage.removeItem('mmal2');document.querySelectorAll('.mod-card').forEach(c=>c.classList.remove('watched'));document.querySelectorAll('.watch-chk').forEach(b=>b.textContent='○');document.querySelectorAll('.btn-mrk').forEach(b=>b.textContent='Mark done');updateProgress();}}
+function updateProgress(){const w=getW();const done=Object.keys(w).length;document.getElementById('doneCount').textContent=done;document.getElementById('progBar').style.width=(done/15*100)+'%';}
 
-    function updateProgress() {
-      const completed = document.querySelectorAll('.watched-checkbox:checked').length;
-      progressText.textContent = `${completed} / 15`;
-      progressBar.style.width = `${(completed / 15) * 100}%`;
+function toggleW(id){const card=document.querySelector('.mod-card[data-id="'+id+'"]');if(!card)return;const w=getW();const now=!w[id];setW(id,now);card.classList.toggle('watched',now);card.querySelector('.watch-chk').textContent=now?'✓':'○';card.querySelectorAll('.btn-mrk').forEach(b=>b.textContent=now?'✓ Done':'Mark done');updateProgress();}
 
-      checkboxes.forEach(cb => {
-        const num = document.getElementById(`num-${cb.dataset.module}`);
-        const path = cb.nextElementSibling.querySelector('path');
-        if (cb.checked) {
-          num.classList.add('watched');
-          path.classList.add('scale-100');
-        } else {
-          num.classList.remove('watched');
-          path.classList.remove('scale-100');
-        }
-      });
-    }
+// Tokenizer
+function tokenize(input,outId,cntId){
+  const text=input.value;const out=document.getElementById(outId);const cnt=document.getElementById(cntId);
+  out.innerHTML='';if(!text.trim()){cnt.textContent='';return;}
+  const chunks=text.match(/[A-Z][a-z]+|[a-z]+|[A-Z]+|\d+|[^\w\s]+|\s+/g)||[];
+  let toks=[];
+  chunks.forEach(c=>{if(!c.trim())return;if(c.length>5){for(let i=0;i<c.length;i+=Math.ceil(c.length/Math.ceil(c.length/4))){const s=c.slice(i,i+Math.ceil(c.length/Math.ceil(c.length/4)));if(s)toks.push(s);}}else toks.push(c);});
+  toks.forEach((t,i)=>{const s=document.createElement('span');s.className='tok';s.style.animationDelay=i*0.035+'s';s.textContent=t;out.appendChild(s);});
+  cnt.textContent='~'+toks.length+' tokens · ~$'+(toks.length*0.000015).toFixed(5)+' (GPT-4 rate)';
+}
 
-    checkboxes.forEach(cb => {
-      cb.addEventListener('change', () => {
-        localStorage.setItem(`medai-module-${cb.dataset.module}`, cb.checked);
-        updateProgress();
-      });
-      if (localStorage.getItem(`medai-module-${cb.dataset.module}`) === 'true') cb.checked = true;
-    });
-    updateProgress();
-  </script>
+// Temperature
+const TEMP_OUTS=[
+  {t:0,txt:"The first-line treatment for newly diagnosed type 2 diabetes without cardiovascular comorbidities is metformin, per ADA 2024 Standards of Care."},
+  {t:0.4,txt:"Metformin is first-line for most newly diagnosed T2DM patients. GLP-1 agonists or SGLT2 inhibitors are preferred first-line when cardiovascular disease or CKD is present."},
+  {t:0.8,txt:"For new T2DM, metformin is the classic first step — but the ADA now leans toward GLP-1s or SGLT2s first when heart or kidney disease complicates the picture. Worth personalizing based on their full risk profile."},
+  {t:1.2,txt:"T2DM management has evolved fast! The traditional 'metformin first' approach is giving way to individualized therapy — cardiorenal protection with SGLT2s or GLP-1s is now front and center for many patients. What's their A1c and cardiovascular risk?"}
+];
+function doTemp(slid,valId,outId){
+  const v=parseFloat(slid.value);document.getElementById(valId).textContent=v.toFixed(1);
+  const best=TEMP_OUTS.reduce((a,b)=>Math.abs(b.t-v)<Math.abs(a.t-v)?b:a);
+  const el=document.getElementById(outId);el.style.opacity='0';
+  setTimeout(()=>{el.textContent=best.txt;el.style.opacity='1';},180);
+}
+
+// Attention
+function clickAttn(wordEl, idx, sentId, words, high, med){
+  const sent=document.getElementById(sentId);
+  sent.querySelectorAll('.aw').forEach((w,i)=>{
+    w.className='aw';
+    if(i===idx)w.classList.add('src');
+    else if(high.includes(i))w.classList.add('hi');
+    else if(med.includes(i))w.classList.add('md');
+    else w.classList.add('lo');
+  });
+  const hint=sent.nextElementSibling;
+  if(hint)hint.textContent='"'+words[idx]+'" strongly attends to: '+high.map(h=>'«'+words[h]+'»').join(', ');
+}
+
+// RAG animate
+function animRag(btn){
+  btn.disabled=true;btn.textContent='Running...';
+  const steps=btn.closest('.tab-panel').querySelectorAll('.rag-step');
+  steps.forEach(s=>{s.style.opacity='0.25';s.classList.remove('active');});
+  steps.forEach((s,i)=>{setTimeout(()=>{steps.forEach(x=>x.classList.remove('active'));s.style.opacity='1';s.style.transition='opacity 0.35s';s.classList.add('active');if(i===steps.length-1)setTimeout(()=>{btn.disabled=false;btn.textContent='▶ Animate again';},600);},i*850);});
+}
+
+// Scaling chart
+function drawScaling(canvasId){
+  const c=document.getElementById(canvasId);if(!c)return;
+  const ctx=c.getContext('2d');const W=c.offsetWidth||500,H=150;c.width=W;c.height=H;
+  const pad={t:8,r:15,b:28,l:38};const iW=W-pad.l-pad.r,iH=H-pad.t-pad.b;
+  const labs=['1B','7B','13B','34B','70B','180B'];
+  const medQA=[30,47,60,72,83,89];const reason=[14,36,54,67,79,87];const cost=[2,8,15,28,52,100];
+  ctx.clearRect(0,0,W,H);
+  ctx.strokeStyle='rgba(13,17,23,0.08)';ctx.lineWidth=1;
+  [0,25,50,75,100].forEach(y=>{const yp=pad.t+iH*(1-y/100);ctx.beginPath();ctx.moveTo(pad.l,yp);ctx.lineTo(W-pad.r,yp);ctx.stroke();ctx.fillStyle='#94a3b8';ctx.font='9px DM Sans';ctx.textAlign='right';ctx.fillText(y+'%',pad.l-3,yp+3);});
+  labs.forEach((l,i)=>{const x=pad.l+i*(iW/(labs.length-1));ctx.fillStyle='#94a3b8';ctx.font='9px DM Sans';ctx.textAlign='center';ctx.fillText(l,x,H-pad.b+13);});
+  function line(data,color,dash){ctx.strokeStyle=color;ctx.lineWidth=2.2;ctx.setLineDash(dash||[]);ctx.beginPath();data.forEach((v,i)=>{const x=pad.l+i*(iW/(data.length-1));const y=pad.t+iH*(1-v/100);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});ctx.stroke();ctx.setLineDash([]);data.forEach((v,i)=>{const x=pad.l+i*(iW/(data.length-1));const y=pad.t+iH*(1-v/100);ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fill();});}
+  line(medQA,'#1a6b6b');line(reason,'#5a3a8b');line(cost,'#c9933a',[4,4]);
+}
+
+// Hallucination game
+function revHalluc(el){
+  el.closest('.hl-answers').querySelectorAll('.hl-a').forEach(a=>{a.classList.add('revealed');a.style.cursor='default';a.onclick=null;});
+  const tryBtn=el.closest('.hl-viz').querySelector('.hl-try');if(tryBtn)tryBtn.style.display='inline-flex';
+}
+
+// Mini quiz
+function ansQ(btn, correct, exp, container){
+  container.querySelectorAll('.mq-o').forEach(b=>{b.disabled=true;b.onclick=null;});
+  btn.classList.add(correct?'correct':'wrong');
+  if(!correct){container.querySelectorAll('.mq-o').forEach(b=>{if(b.dataset.isCorrect==='true')b.classList.add('correct');});}
+  const fb=container.querySelector('.mq-fb');fb.textContent=(correct?'✓ Correct! ':'✗ Not quite — ')+exp;fb.className='mq-fb show '+(correct?'ok':'no');
+  const retry=container.querySelector('.mq-retry');if(retry)retry.classList.add('show');
+}
+
+function switchTab(btn, panelId){
+  const row=btn.closest('.etabs');row.querySelectorAll('.etab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');
+  const exp=btn.closest('.card-expand');exp.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  const target=document.getElementById(panelId);target.classList.add('active');
+  setTimeout(()=>initPanel(target),30);
+}
+
+function initPanel(panel){
+  const canvas=panel.querySelector('canvas[id^="sc"]');if(canvas)drawScaling(canvas.id);
+  const ti=panel.querySelector('input[id^="ti"]');
+  if(ti){const oid=ti.getAttribute('data-out');const cid=ti.getAttribute('data-cnt');tokenize(ti,oid,cid);}
+  const ts=panel.querySelector('input[id^="ts"]');
+  if(ts){const vid=ts.getAttribute('data-val');const oid=ts.getAttribute('data-out');doTemp(ts,vid,oid);}
+}
+
+function toggleExpand(card, id){
+  const exp=card.querySelector('.card-expand');const open=exp.classList.contains('open');
+  if(open){exp.classList.remove('open');card.querySelector('.btn-exp').textContent='Explore →';}
+  else{exp.classList.add('open');card.querySelector('.btn-exp').textContent='Close ✕';setTimeout(()=>initPanel(exp.querySelector('.tab-panel.active')),30);}
+}
+
+function buildVizHtml(m){
+  const uid='m'+m.id;
+  if(m.viz==='tok'){
+    const preset=['Myocardial infarction treatment','The patient denied chest pain','Atrial fibrillation with RVR','Type your clinical text here...'][m.id%4];
+    return '<div class="viz-lbl">Interactive Tokenizer — type to see tokens</div><input id="ti'+uid+'" class="tok-inp" type="text" value="'+preset.replace(/"/g,'&quot;')+'" data-out="to'+uid+'" data-cnt="tc'+uid+'" oninput="tokenize(this,\'to'+uid+'\',\'tc'+uid+'\')" placeholder="Type medical text..."><div id="to'+uid+'" class="tok-out"></div><div id="tc'+uid+'" class="tok-cnt"></div>';
+  }
+  if(m.viz==='temp'){
+    return '<div class="viz-lbl">Temperature Simulator — drag to change output style</div><div class="tmp-wrap"><span style="font-size:0.7rem;color:var(--ink-muted);">Precise</span><input id="ts'+uid+'" class="tmp-slider" type="range" min="0" max="1.2" step="0.1" value="0" data-val="tv'+uid+'" data-out="to'+uid+'" oninput="doTemp(this,\'tv'+uid+'\',\'to'+uid+'\')"><span style="font-size:0.7rem;color:var(--ink-muted);">Creative</span><div id="tv'+uid+'" class="tmp-val">0</div></div><div class="tmp-lbl">AI response at this temperature:</div><div id="to'+uid+'" class="tmp-out">'+TEMP_OUTS[0].txt+'</div>';
+  }
+  if(m.viz==='attn'){
+    const sents=[
+      {words:['The','patient','was','admitted','after','he','developed','chest','pain'],source:5,high:[0,1,6,7,8],med:[4]},
+      {words:['Mrs.','Johnson','denied','shortness','of','breath','but','her','oxygen','saturation','was','92%'],source:7,high:[0,1,8,9,10,11],med:[2,3,4,5]},
+      {words:['The','medication','metformin','was','held','because','his','creatinine','was','elevated'],source:6,high:[0,2,7,8,9],med:[1,3,4,5]}
+    ];
+    const s=sents[m.id%sents.length];
+    const wordsJs=JSON.stringify(s.words);const highJs=JSON.stringify(s.high);const medJs=JSON.stringify(s.med);
+    const wordSpans=s.words.map((w,i)=>'<span class="aw'+(i===s.source?' src':'')+'" onclick="clickAttn(this,'+i+',\'as'+uid+'\','+wordsJs+','+highJs+','+medJs+')">'+w+'</span>').join(' ');
+    return '<div class="viz-lbl">Attention Visualizer — click any word to see what the model attends to</div><div id="as'+uid+'" class="attn-sent">'+wordSpans+'</div><div class="attn-hint">Click a word to see its attention pattern</div>';
+  }
+  if(m.viz==='rag'){
+    const steps=[
+      {ico:'💬',bg:'rgba(26,107,107,0.1)',t:'1. User Query',d:'Physician asks for current first-line treatment for a specific condition.'},
+      {ico:'🔍',bg:'rgba(201,147,58,0.1)',t:'2. Retrieve',d:'System searches institutional guidelines, formulary, and curated databases using the query.'},
+      {ico:'📄',bg:'rgba(90,58,139,0.1)',t:'3. Retrieved Context',d:'Top relevant passages returned: clinical guidelines, drug protocols, evidence summaries.'},
+      {ico:'🤖',bg:'rgba(58,107,139,0.1)',t:'4. Generate (Grounded)',d:'LLM generates answer conditioned on retrieved context — citing specific sources.'},
+      {ico:'✅',bg:'rgba(22,163,74,0.1)',t:'5. Traceable Answer',d:'Response includes citations. Update the document database when guidelines change — not the model.'}
+    ];
+    const stepsHtml=steps.map((s,i)=>'<div class="rag-step" id="rs'+uid+'_'+i+'"><div class="rag-ico" style="background:'+s.bg+'">'+s.ico+'</div><div><div class="rag-t">'+s.t+'</div><div class="rag-d">'+s.d+'</div></div></div>').join('');
+    return '<div class="viz-lbl">RAG Pipeline — click to animate the retrieval flow</div><div>'+stepsHtml+'</div><button class="rag-btn" onclick="animRag(this)">▶ Animate RAG flow</button>';
+  }
+  if(m.viz==='scale'){
+    return '<div class="viz-lbl">Scaling Curves — model size vs performance</div><div class="sc-wrap"><canvas id="sc'+uid+'"></canvas></div><div class="sc-legend"><div class="sl-i"><div class="sl-d" style="background:#1a6b6b;"></div>Medical QA</div><div class="sl-i"><div class="sl-d" style="background:#5a3a8b;"></div>Reasoning</div><div class="sl-i"><div class="sl-d" style="background:#c9933a;border:1px dashed #c9933a;"></div>Relative cost</div></div>';
+  }
+  if(m.viz==='halluc'){
+    const scenarios=[
+      {q:'AI is asked: "What did Jensen et al. 2022 Lancet find on SGLT2 inhibitors in CKD?"',answers:[{txt:'This specific study cannot be verified in my training data. The DAPA-CKD and CREDENCE trials (both verified) showed SGLT2 inhibitors significantly reduced CKD progression.',real:true,label:'✓ Real — acknowledges uncertainty, cites verified studies'},{txt:'Jensen et al. 2022 Lancet enrolled 4,312 patients showing 34% CKD progression reduction with empagliflozin (HR 0.66, p<0.001) over 3.2 years.',real:false,label:'✗ Hallucination — plausible but the details may be fabricated'}]},
+      {q:'You ask: "Standard vancomycin dose for MRSA bacteremia in normal renal function?"',answers:[{txt:'Vancomycin for MRSA bacteremia targets AUC/MIC 400-600. Typical start: 15-20 mg/kg IV q8-12h with TDM. Always verify with pharmacy and current institutional guidelines.',real:true,label:'✓ Real — evidence-based, appropriately caveated, recommends verification'},{txt:'Standard dose is 1g IV every 6 hours. No monitoring required for normal renal function.',real:false,label:'✗ Hallucination — oversimplified, outdated, misses AUC monitoring guidance'}]}
+    ];
+    const sc=scenarios[m.id%scenarios.length];
+    const sh=[...sc.answers].sort(()=>Math.random()-0.5);
+    const aHtml=sh.map(a=>'<div class="hl-a '+(a.real?'real':'fake')+'" onclick="this.classList.add(\'revealed\');revHalluc(this)"><div class="hl-tag">'+a.label+'</div><div>'+a.txt+'</div></div>').join('');
+    return '<div class="hl-viz"><div class="viz-lbl">Spot the Hallucination — which response is real?</div><div class="hl-q">'+sc.q+'</div><div class="hl-answers">'+aHtml+'</div><button class="hl-try" style="display:none;" onclick="location.reload()">Try another →</button></div>';
+  }
+  return '<div class="viz-lbl">Interactive content loading...</div>';
+}
+
+function buildCard(m){
+  const c=CLUSTER_COLORS[m.cl]||'#1a6b6b';
+  const bgs={"Foundations":"linear-gradient(135deg,#0d1a1a,#1a6b6b)","Alignment":"linear-gradient(135deg,#14101f,#5a3a8b)","Capabilities":"linear-gradient(135deg,#0d1520,#3a6b8b)","Safety":"linear-gradient(135deg,#1f0d12,#8b3a52)"};
+  const icons={"Foundations":"⚙","Alignment":"🎯","Capabilities":"⚡","Safety":"🛡"};
+  const bg=bgs[m.cl]||'linear-gradient(135deg,#0d1117,#2d3748)';
+  const pats=["M0 40 Q70 0 140 40 Q210 80 280 40","M0 60 Q80 20 160 60 Q240 100 320 60","M0 25 Q90 65 180 25 Q270 -15 360 25"];
+  const pat=pats[m.id%pats.length];
+  const uid='m'+m.id;
+  const qoHtml=m.qo.map((o,i)=>'<button class="mq-o" '+(i===m.qc?'data-is-correct="true"':'')+' onclick="ansQ(this,'+(i===m.qc?'true':'false')+',\''+m.qe.replace(/'/g,"\\'")+'\',this.closest(\'.mq-wrap\'))"><div class="mq-l">'+['A','B','C','D'][i]+'</div><span>'+o+'</span></button>').join('');
+  return '<div class="mod-card" data-id="'+m.id+'"><div class="card-visual" style="background:'+bg+';"><svg width="100%" height="100%" viewBox="0 0 280 148" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;opacity:0.14;"><path d="'+pat+'" stroke="white" stroke-width="1.4" fill="none"/><circle cx="'+(55+m.id*19%130)+'" cy="'+(38+m.id*13%72)+'" r="'+(10+m.id*4%14)+'" fill="white" opacity="0.07"/></svg><div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="font-size:1.8rem;">'+(icons[m.cl]||'🧠')+'</div><div style="font-family:Playfair Display,serif;font-size:0.82rem;font-weight:700;color:white;text-align:center;max-width:180px;line-height:1.25;">'+m.title+'</div></div><div class="card-num">'+String(m.id).padStart(2,'0')+'</div><button class="watch-chk" onclick="event.stopPropagation();toggleW('+m.id+')">○</button></div><div class="card-body"><div class="card-ctag" style="color:'+c+';">'+(CLUSTER_FULL[m.cl]||m.cl)+'</div><div class="card-title">'+m.title+'</div><div class="card-sub">'+m.sub+'</div><div class="card-desc">'+m.desc+'</div><div class="card-acts"><button class="btn-exp" onclick="toggleExpand(this.closest(\'.mod-card\'),'+m.id+')">Explore →</button><a class="btn-yt" href="https://www.youtube.com/watch?v='+m.yt+'" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>Watch on YouTube</a><button class="btn-mrk" onclick="toggleW('+m.id+')">Mark done</button></div></div><div class="card-expand" id="exp-'+m.id+'"><div class="etabs"><button class="etab active" onclick="switchTab(this,\'vz-'+uid+'\')">🎨 Visualize</button><button class="etab" onclick="switchTab(this,\'an-'+uid+'\')">💡 Analogy</button><button class="etab" onclick="switchTab(this,\'qz-'+uid+'\')">✏️ Quiz Me</button></div><div class="tab-panel active" id="vz-'+uid+'">'+buildVizHtml(m)+'</div><div class="tab-panel" id="an-'+uid+'"><div class="an-box"><div class="an-icon">'+m.aicon+'</div><div><div class="an-title">'+m.atitle+'</div><div class="an-text">'+m.atext+'</div></div></div><div class="kp-list">'+m.apts.map(p=>'<div class="kp"><div class="kp-d"></div><span>'+p+'</span></div>').join('')+'</div></div><div class="tab-panel" id="qz-'+uid+'"><div class="mq-q">'+m.qq+'</div><div class="mq-wrap"><div class="mq-opts">'+qoHtml+'</div><div class="mq-fb"></div><button class="mq-retry" onclick="resetQ(this,'+m.id+')">↩ Try again</button></div></div></div></div>';
+}
+
+function resetQ(btn, mid){
+  const m=MODS.find(x=>x.id===mid);if(!m)return;
+  const qzPanel=btn.closest('.tab-panel');
+  const uid='m'+m.id;
+  const qoHtml=m.qo.map((o,i)=>'<button class="mq-o" '+(i===m.qc?'data-is-correct="true"':'')+' onclick="ansQ(this,'+(i===m.qc?'true':'false')+',\''+m.qe.replace(/'/g,"\\'")+'\',this.closest(\'.mq-wrap\'))"><div class="mq-l">'+['A','B','C','D'][i]+'</div><span>'+o+'</span></button>').join('');
+  qzPanel.innerHTML='<div class="mq-q">'+m.qq+'</div><div class="mq-wrap"><div class="mq-opts">'+qoHtml+'</div><div class="mq-fb"></div><button class="mq-retry" onclick="resetQ(this,'+m.id+')">↩ Try again</button></div>';
+}
+
+function render(){
+  const root=document.getElementById('root');let html='';
+  const groups={};MODS.forEach(m=>{if(!groups[m.cl])groups[m.cl]=[];groups[m.cl].push(m);});
+  CLUSTER_ORDER.forEach(cl=>{
+    if(!groups[cl])return;
+    const color=CLUSTER_COLORS[cl]||'#1a6b6b';
+    html+='<div class="cluster-hdr"><div class="cluster-dot" style="background:'+color+';"></div><div class="cluster-name">'+(CLUSTER_FULL[cl]||cl)+'</div><div class="cluster-count">'+groups[cl].length+' modules</div></div>';
+    html+='<div class="modules-grid">'+groups[cl].map(m=>buildCard(m)).join('')+'</div>';
+  });
+  root.innerHTML=html;
+  const w=getW();
+  Object.keys(w).forEach(id=>{
+    const card=root.querySelector('.mod-card[data-id="'+id+'"]');
+    if(card){card.classList.add('watched');const ck=card.querySelector('.watch-chk');if(ck)ck.textContent='✓';card.querySelectorAll('.btn-mrk').forEach(b=>b.textContent='✓ Done');}
+  });
+  updateProgress();
+}
+
+render();
+</script>
 </body>
 </html>
